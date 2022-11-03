@@ -86,7 +86,7 @@
 	"Fast singleton":
 	{
 		"prefix": "singleton",
-		"body": "//Set this class to singleton\npublic static Class i {get{if(_i==null){_i = GameObject.FindObjectOfType<Class>();}return _i;}} static Class _i;",
+		"body": "#region Set this class to singleton\npublic static Class i {get{if(_i==null){_i = GameObject.FindObjectOfType<Class>();}return _i;}} static Class _i;\n#endregion",
 		"description": "An quick and simple singleton template"
 	},
 	"On Scene Loaded Function":

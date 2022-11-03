@@ -67,6 +67,9 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 [Aa]ssets/[Ss]treamingAssets/aa.meta
 
-#Misc
+# Not important vscode snippet
+*.code-snippets
+
+# Misc
 desktop.ini
 [Aa]ssets/[Ss]treamingAssets/aa/*
