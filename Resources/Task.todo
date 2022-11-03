@@ -5,7 +5,7 @@ Gameplay:
 		▪ Stronger enemy the more day suvive.
 	▪ Map:
 		▪ Plots
-			▪ Create an inital grid of plot with custom size.
+			✓ Create an inital grid of plot with custom size.
 			▪ Able to get any node in grid using coordinates or position.
 			▪ Data of each plot.
 				▪ It "coordinate" and "position".
