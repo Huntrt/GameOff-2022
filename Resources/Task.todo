@@ -4,20 +4,17 @@ Gameplay:
 		▪ Better ally stats the more day suvive.
 		▪ Stronger enemy the more day suvive.
 	▪ Map:
-		▪ Plots
-			✓ Create an inital grid of plot with custom size.
-			▪ Able to get any node in grid using coordinates or position.
-			▪ Data of each plot.
-				▪ It "coordinate" and "position".
-				▪ Is it "standable" for ally.
-				▪ Is "occupied" by ally.
-				▪ Is "obstruct" by an enemy.
-				▪ Is "block" by structure.
+		▪ An list for
+			✓ "coordinate"
+			▪ Is the coordinate "standable" for ally.
+			▪ Is the coordinate "occupied" by ally.
+			▪ Is the coordinate "obstruct" by an enemy.
+			✓ Is the coordinate "block" by structure.
 		▪ Ground
-			▪ Able to create ground with custom width and height.
-			▪ Ground are grid base using plots and is automaticly blocked.
+			✓ Able to create ground with custom width and height.
+			✓ Ground are grid base using plots and is automaticly blocked.
 			▪ Able to expand ground to each side in realtime.
-			▪ Upon expand ground will also generate an plots for them.
+			✓ Upon expand ground will also generate an plots for them.
 		▪ Days
 			▪ Background changing.
 	▪ Player:

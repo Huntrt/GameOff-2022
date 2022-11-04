@@ -8,9 +8,9 @@ public class Map : MonoBehaviour
 	#endregion
 	
 	public float spacing;
-	///List of all the plot has create
-	public static List<Vector2> plots = new List<Vector2>();
-	///List of all the plot as been blocked
+	///List of all the coordinate has create
+	public static List<Vector2> coordinates = new List<Vector2>();
+	///List of all the coordinates as been blocked
 	public static List<Vector2> blocked = new List<Vector2>();
 
 	public static Vector2 PositionToCoordinate(Vector2 position)
@@ -26,17 +26,21 @@ public class Map : MonoBehaviour
 		return coord;
 	}
 
-	public static void Placing(GameObject create, Vector2 coordinate, string placeStatus)
+	public static GameObject Placing(GameObject create, Vector2 coordinate, string placeStatus)
 	{
-		//Added snapped if there no plot been snap there yet
-		if(!plots.Contains(coordinate)) plots.Add(coordinate);
-		//If placing also need to an status
+		//Added snapped coordinate if there no coordinate been snap there yet
+		if(!coordinates.Contains(coordinate)) coordinates.Add(coordinate);
+		//Has placing status been set
+		bool setStatus = false;
+		//If placing also need an status
 		switch(placeStatus)
 		{
 			//Blocked at sanpped if needed
-			case "blocked": if(!blocked.Contains(coordinate)) blocked.Add(coordinate); break;
+			case "blocked": if(!blocked.Contains(coordinate)) blocked.Add(coordinate); setStatus = true; break;
 		}
-		//Create the given object at given coordinates
-		Instantiate(create, coordinate, Quaternion.identity);
+		//Print an error if status need to place does not exist
+		if(!setStatus) Debug.LogError("There are no placing status named [" + placeStatus + "]");
+		//Create the given object at given coordinates then return it
+		return Instantiate(create, coordinate, Quaternion.identity);
 	}
 }
