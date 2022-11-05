@@ -10,11 +10,11 @@ Gameplay:
 			▪ Is the coordinate "occupied" by ally.
 			▪ Is the coordinate "obstruct" by an enemy.
 			✓ Is the coordinate "block" by structure.
-		▪ Ground
+		✓ Ground
 			✓ Able to create ground with custom width and height.
 			✓ Ground are grid base using plots and is automaticly blocked.
-			▪ Able to expand ground to each side in realtime.
 			✓ Upon expand ground will also generate an plots for them.
+			✓ Able to expand ground to each side in realtime.
 		▪ Days
 			▪ Background changing.
 	▪ Player:

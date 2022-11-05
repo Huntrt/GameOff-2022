@@ -324,10 +324,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf7108e4c8e6e2409bc7dce9527551b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  groundWidth: 0
+  initalSize: {x: 4, y: -1}
+  groundLeft: 0
+  groundRight: 0
   fill: 10
-  initalSize: {x: 15, y: -1}
-  groundPrefab: {fileID: 1009443436824185524, guid: b7ef8d2cd1668ab4fba272fc764d78b8,
+  dirtPrefab: {fileID: 1009443436824185524, guid: b7ef8d2cd1668ab4fba272fc764d78b8,
     type: 3}
   fillerPrefab: {fileID: 6251759755276565602, guid: ea7e8a8700391bb499c5ddc0392df57a,
     type: 3}

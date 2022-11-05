@@ -2,48 +2,75 @@ using UnityEngine;
 
 public class Ground : MonoBehaviour
 {
-	public int groundWidth, fill;
 	public Vector2 initalSize;
-	public GameObject groundPrefab, fillerPrefab; Transform grouper;
+	public int groundLeft, groundRight, fill;
+	public GameObject dirtPrefab, fillerPrefab; Transform grouper;
 
 	void Start()
 	{
 		InitializeGround();
 	}
 
+	void Update()
+	{
+		if(Input.GetKeyDown(KeyCode.DownArrow)) ExpandGround(0);
+		if(Input.GetKeyDown(KeyCode.RightArrow)) ExpandGround(1);
+		if(Input.GetKeyDown(KeyCode.LeftArrow)) ExpandGround(-1);
+	}
+
 	void InitializeGround()
 	{
 		//Renew the group grouper
 		if(grouper != null) {Destroy(grouper);} grouper = new GameObject().transform; grouper.name = "Grounds";
-		//Create an new ground at center
-		CreateGround(0);
+		//Create an dirt at center
+		CreateDirt(0);
 		//Go through all the width need to create
 		for (int x = 1; x <= initalSize.x; x++)
 		{
 			//Convert width with spacing
-			float setWidth = x * Map.i.spacing;
-			//Create ground for both side on this width
-			CreateGround(setWidth); CreateGround(-setWidth);
-			//Increase ground width
-			groundWidth++;
+			float setWidth = Map.Spaced(x);
+			//Create dirt for both side on this width
+			CreateDirt(setWidth); CreateDirt(-setWidth);
 		}
 	}
 
-	void CreateGround(float widthPos)
+	/// 1 To expand to the right | -1 To expand to the left | 0 to expand both side
+	public void ExpandGround(int direction)
 	{
-		//Create the ground on the map at width given
-		GameObject ground = Map.Placing(groundPrefab, new Vector2(widthPos, initalSize.y), "blocked");
-		//Group then rename the ground created
-		ground.transform.SetParent(grouper); ground.name = widthPos + " -  Ground";
+		if(direction < -1 || direction > 1)
+		{
+			Debug.LogError("Cant exoand the ground in ["+direction+"] direction");
+			return;
+		}
+		if(direction == 0)
+		{
+			CreateDirt(Map.Spaced(groundRight+1));
+			CreateDirt(Map.Spaced(-groundLeft-1));
+		}
+		else
+		{
+			if(direction == +1) {CreateDirt(Map.Spaced((groundRight+1)));}
+			if(direction == -1) {CreateDirt(Map.Spaced((-groundLeft-1)));}
+		}
+	}
+
+	void CreateDirt(float widthPos)
+	{
+		//Create the dirt on the map at width given
+		GameObject dirt = Map.Placing(dirtPrefab, new Vector2(widthPos, initalSize.y), "blocked");
+		//Group then rename the dirt created
+		dirt.transform.SetParent(grouper); dirt.name = widthPos + " -  Dirt";
 		//Go through all the time need to fill this ground
 		for (int y = 1; y <= fill; y++)
 		{
 			//Get position to place filler
-			Vector2 fillPos = new Vector2(widthPos, initalSize.y - (y * Map.i.spacing));
+			Vector2 fillPos = new Vector2(widthPos, initalSize.y - Map.Spaced(y));
 			//Create the filler object the save it
 			GameObject filler = Instantiate(fillerPrefab, fillPos, Quaternion.identity);
 			//Group then rename the filler created
 			filler.transform.SetParent(grouper); filler.name = y + " - Filler";
 		}
+		//Ground increase to the right if width pos are positive and opposite if negative
+		if(widthPos > 0) groundRight++; if(widthPos < 0) groundLeft++;
 	}
 }

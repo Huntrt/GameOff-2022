@@ -13,6 +13,9 @@ public class Map : MonoBehaviour
 	///List of all the coordinates as been blocked
 	public static List<Vector2> blocked = new List<Vector2>();
 
+	//Function to make any value take into account of spacing
+	public static float Spaced(float value) {return (value) * Map.i.spacing;}
+
 	public static Vector2 PositionToCoordinate(Vector2 position)
 	{
 		//Make position take in account of spacing
@@ -20,8 +23,8 @@ public class Map : MonoBehaviour
 		//Snap the given position with spacin to get coordinate
 		Vector2 coord = new Vector2
 		(
-			Mathf.RoundToInt(position.x) * i.spacing,
-			Mathf.RoundToInt(position.y) * i.spacing
+			Mathf.RoundToInt(Map.Spaced(position.x)),
+			Mathf.RoundToInt(Map.Spaced(position.y))
 		);
 		return coord;
 	}
