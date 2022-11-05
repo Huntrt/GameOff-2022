@@ -1,15 +1,13 @@
 Gameplay:
-	▪ Progression:
+	Progression:
 		▪ Days counter.
 		▪ Better ally stats the more day suvive.
 		▪ Stronger enemy the more day suvive.
-	▪ Map:
+	Map:
 		▪ An list for
-			✓ "coordinate"
-			▪ Is the coordinate "standable" for ally.
-			▪ Is the coordinate "occupied" by ally.
-			▪ Is the coordinate "obstruct" by an enemy.
-			✓ Is the coordinate "block" by structure.
+			✓ All coordinate
+			▪ Change coordinate status
+			▪ 
 		✓ Ground
 			✓ Able to create ground with custom width and height.
 			✓ Ground are grid base using plots and is automaticly blocked.
@@ -17,17 +15,17 @@ Gameplay:
 			✓ Able to expand ground to each side in realtime.
 		▪ Days
 			▪ Background changing.
-	▪ Player:
+	Player:
 		▪ Movement.
 		▪ Resources:
-			[R = W? S? G?] for quick recipe note
+			[R = W? S? E?] for quick recipe note
 			▪ Wood, Steel & Gunpowder:
 				▪ How to gather
 					▪ ???
 				▪ Able to use for crafting
 				▪ Consume when use for craft
-			▪ Food:
-				▪ Build structure that provide food to increase max limit.
+			▪ Energy:
+				▪ Build structure that provide energy to increase max limit.
 				▪ Remove when the structure provide them get destroy.
 		▪ Inventory:
 			▪ UI:
@@ -57,65 +55,8 @@ Gameplay:
 				▪ Consume resource and give item to any empty inventory slot.
 				▪ Will send an error if don't has enough material or inventory is full.
 			▪ Recipe:
-				▪ ???
-	▪ Ally:
-		▪ Stats:
-			▪ Randomize them and find an way to balance them.
-		▪ Health:
-			▪ Take damage.
-			▪ Able to heal.
-			▪ Die when run out.
-		▪ Die:
-			▪ Drop equipped item on death @consider
-			▪ Make the plot it on unoccupied.
-		▪ Strength & Agility:
-			▪ Create an function to allow weapon scale upon it.
-			▪ Upon scale if it got change.
-		▪ Diet:
-			▪ Increase the total food needed.
-			▪ When dont has enough food:
-				▪ Ally will take % damage each day.
-				▪ No longer able to regenerate health.
-		▪ Action:
-			▪ Able to wield an weapon given to them.
-			▪ Able to auto aim weapon at enemy:
-				▪ Closet.
-				▪ Furthest.
-				▪ Strongest.
-				▪ Weakest.
-			▪ Able to pick only one up and carry around.
-			▪ Able to place down on any occupied and standable plot.
-			▪ Able to give ally consumable to it modify stats.
-			▪ Able to use gear to modify how ally work @consider
-		▪ Visual:
-			▪ Randomize ally appearance:
-				▪ Skin.
-				▪ Shirt.
-			▪ Randmize ally name.
-			▪ Toggle ally ui when press button on it:
-				▪ Display ally name
-				▪ Display ally appearance
-				▪ Display ally stats
-				▪ Display ally weapon equipped
-				▪ Display ally equipped gear @consider
-	
-	▪ Weapon:
-		▪ All weapon could be easily use by ally.
-		▪ Each weapon those basic stats:
-			▪ DMG = damage dealt
-			▪ SPD = delay between each attack
-			▪ RNG = How far can it attack
-		Catergory:
-			Melee:
-				▪ Swipe - attack using an hitscan
-					▪ Attack size
-			Range:
-				▪ Projectile - attack create an object
-					▪ Projectile speed
-					▪ Accuracy
-		Arsenal:
-			...
-	▪ Build:
+				▪ ??
+	Build:
 		▪ Able to build on plot that is standable.
 		▪ Only block the plot if the structure required to.
 		▪ Able to destroy structure using destroy key.
@@ -125,38 +66,69 @@ Gameplay:
 			▪ Able to heal durability by consume the resource it need.
 			▪ Destroy when run out of durability.
 			▪ Inflict damage to enemy if able to.
-		Structure: 
-			Special:
-				▪ * = thorn
-					▪ Deal damage back if it take damage
-				▪ ^ = spike
-					▪ Inflict damage on ANY ENTITY stand on it.
-					▪ Take damage while deal damage.
-					▪ Can't block.
-			▪ Wooden Crate
-			▪ Wooden Fence *
-			▪ Wooden Platform
-			▪ Wooden Tower
-			▪ Wooden Spike ^
-			▪ Steel Barrel
-			▪ Wirebar *
-			▪ Iron Platform
-			▪ Snipertower
-			▪ Iron Spike ^
-	▪ Enemy:
+	Tower:
+		▪ Health:
+			▪ Take damage.
+			▪ Able to heal.
+			▪ Die when run out.
+		▪ Die:
+			▪ Drop equipped item on death @consider
+			▪ Make the plot it on unoccupied.
+		▪ Consumption:
+			(use wire plug as an icon)
+			▪ Increase the total energy needed.
+			▪ Shutdown when dont has enough energy:
+				▪ Shutdown mean cease all the tower action.
+				▪ Shutdown the latest placed tower.
+		▪ Action:
+			▪ Aim when enemy get in range.
+			▪ Aim mode:
+				▪ Direct - Only aim infront of it.
+				▪ Dynamic - Able to aim behind and infront of it.
+				▪ Upward - Only aim upward.
+				▪ Pivot - Able to aim at any direction.
+				▪ Aimless - Don't required aiming.
+			▪ Able to use upgrade to modify how tower work.
+		▪ Visual:
+			▪ Toggle tower ui when press button on it:
+				▪ Display tower name.
+				▪ Display tower appearance.
+				▪ Display tower stats.
+				▪ Display tower function.
+				▪ Display tower equipped gear.
+Enemy:
 		▪ Movement:
 			▪ How fast it move.
 			▪ Stop if the next plot are occupied or blocked.
-			Type:
-				▪ Walking - only able to move in an straight line until block.
-				▪ Climber - able to climb on as much structure has set.
-				▪ Flyer - start from spawing in the sky and move in an straighe line until block.
-				▪ Scoper - Stop movement if any block is in it tange.
+			▪ Walking - only able to move in an straight line until block.
+			▪ Climber - able to climb on as much structure has set.
+			▪ Flyer - start from spawing in the sky and move in an straighe line until block.
+			▪ Scoper - Stop movement if any block is in it tange.
 		▪ Health:
 			▪ Take damage.
 			▪ Die when out of health.
 			▪ Drop loot @consider
 		▪ Attack:
-			▪ Ally.
-			▪ Structure.
+			▪ Detect target using raycast?
+			▪ Buildings.
+
+Items:
+	Template
+		Crate
+			[R = 5W 0S 0G]
+	▪ Structures:
+		▪ Wooden Crate
+		▪ Wooden Fence
+		▪ Wooden Platform
+		▪ Wooden Tower
+		▪ Wooden Spike
+		▪ Steel Barrel
+		▪ Wirebar
+		▪ Iron Platform
+		▪ Snipertower
+		▪ Iron Spike
+	▪ Towers:
+	▪ Upgrades:
+	▪ Enemies:
+
 Bugs:
