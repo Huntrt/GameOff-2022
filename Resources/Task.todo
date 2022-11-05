@@ -4,10 +4,10 @@ Gameplay:
 		▪ Better ally stats the more day suvive.
 		▪ Stronger enemy the more day suvive.
 	Map:
-		▪ An list for
+		✓ An list of plot to build
 			✓ All coordinate
-			▪ Change coordinate status
-			▪ 
+			✓ Change coordinate occupian
+			✓ Able to build depends on occupian of the plot
 		✓ Ground
 			✓ Able to create ground with custom width and height.
 			✓ Ground are grid base using plots and is automaticly blocked.
@@ -57,8 +57,8 @@ Gameplay:
 			▪ Recipe:
 				▪ ??
 	Build:
-		▪ Able to build on plot that is standable.
-		▪ Only block the plot if the structure required to.
+		✓ Able to build on plot that is available.
+		✓ Only block the plot if the structure required to.
 		▪ Able to destroy structure using destroy key.
 		▪ What happen if an structure is destroy??? @critical
 		▪ Structure block the enemy:

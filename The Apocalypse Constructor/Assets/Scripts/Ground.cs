@@ -56,8 +56,10 @@ public class Ground : MonoBehaviour
 
 	void CreateDirt(float widthPos)
 	{
-		//Create the dirt on the map at width given
-		GameObject dirt = Map.Placing(dirtPrefab, new Vector2(widthPos, initalSize.y), "blocked");
+		//Create the dirt on the map at width given and block it
+		GameObject dirt = Map.Creating(dirtPrefab, new Vector2(widthPos, initalSize.y), 3);
+		//Set the plot above it to available
+		Map.Creating(null, new Vector2(widthPos, initalSize.y + Map.i.spacing), 0);
 		//Group then rename the dirt created
 		dirt.transform.SetParent(grouper); dirt.name = widthPos + " -  Dirt";
 		//Go through all the time need to fill this ground
