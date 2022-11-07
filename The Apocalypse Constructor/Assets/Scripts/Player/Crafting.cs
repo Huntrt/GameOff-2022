@@ -49,26 +49,13 @@ public class Crafting : MonoBehaviour
 
 	public void Craft(Recipe recipe)
 	{
-		print("Crafted " + recipe.obj);
+		print("Crafted " + recipe.name);
 	}
 }
 
-[System.Serializable] public class Recipe
+[System.Serializable] public class Recipe : Stash
 {
-	public string obj, desc;
-	public enum Category {structure, tower, upgrade}; public Category category;
+	public string category;
 	public int wood, steel, gunpowder, rarity;
-
-	public Recipe(int wood, int steel, int gunpowder, int rarity, string obj, string desc, string category)
-	{
-		this.wood = wood;
-		this.steel = steel;
-		this.gunpowder = gunpowder;
-		this.rarity = rarity;
-		this.obj = obj;
-		this.desc = desc;
-		//Convert string to category enum
-		this.category = (Category)System.Enum.Parse(typeof(Category), category);
-	}
 }
 } //? End namespace

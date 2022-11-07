@@ -11,8 +11,8 @@ public class RecipePanel : MonoBehaviour
 
 	public void SetRecipeInfo(Recipe recipe)
 	{
-		//Display recipe object as name
-		nameDisplay.text = recipe.obj;
+		//Display recipe object name on text
+		nameDisplay.text = recipe.name;
 		//Update the object name to be obj of recipe it got
 		gameObject.name = recipe.obj + " Recipe";
 		//Add crafting event to it button to craft this recipe
