@@ -27,7 +27,7 @@ Gameplay:
 			▪ Energy:
 				▪ Build structure that provide energy to increase max limit.
 				▪ Remove when the structure provide them get destroy.
-		▪ Inventory:
+		▪ Inventory: @next
 			▪ UI:
 				▪ Display at an bottom.
 				▪ Could has 10 max slot.
@@ -40,33 +40,39 @@ Gameplay:
 				▪ On using button press call use on slot selected.
 				▪ Drop item on selected slot.
 				▪ Each item has an maximum of stack.
-		▪ Crafting:
+		▪ Crafting: @doing
 			▪ Toggle crafting ui.
-			▪ Check all recipe has unlocked.
-			▪ Display unlocked recipe in an list of panel
-				▪ Panel contain the recipe requirement.
+			▪ An database of recipe using JSON:
+				▪ It material cost.
+				▪ It rarity @consider
+				▪ It type (structure, tower, upgrade, ...).
+				▪ The object itself that will be use in-game.
+				▪ It description.
+				▪ An group for it stats.
+			▪ Loaded all the recipe data onto an list.
+			▪ Unlocking:
+				▪ Sperated the list into one unlocked and one locked.
+				▪ Check all recipe has unlocked.
+				▪ Using rarity to determent unlock an recipe.
+			▪ Display recipe in an list of panel:
+				▪ Panel contain the recipe material in JSON.
 				▪ Panel contain item icon.
 				▪ Able to scroll through all the panel.
+				▪ Seprated into 3 tab each for Structure, Tower, Upgrades.
 				▪ Hover an panel will show more info of the item:
-					▪ Icon.
 					▪ Name.
 					▪ Description.
+					▪ Health.
+					▪ Display available stats
 			▪ Click and panel will craft it:
 				▪ Consume resource and give item to any empty inventory slot.
 				▪ Will send an error if don't has enough material or inventory is full.
-			▪ Recipe:
-				▪ ??
 	Build:
 		✓ Able to build on plot that is available.
 		✓ Only block the plot if the structure required to.
 		▪ Able to destroy structure using destroy key.
 		▪ What happen if an structure is destroy??? @critical
-		▪ Structure block the enemy:
-			▪ Durability take damage when hitted.
-			▪ Able to heal durability by consume the resource it need.
-			▪ Destroy when run out of durability.
-			▪ Inflict damage to enemy if able to.
-	Tower:
+	Structure:
 		▪ Health:
 			▪ Take damage.
 			▪ Able to heal.
@@ -74,29 +80,33 @@ Gameplay:
 		▪ Die:
 			▪ Drop equipped item on death @consider
 			▪ Make the plot it on unoccupied.
-		▪ Consumption:
-			(use wire plug as an icon)
-			▪ Increase the total energy needed.
-			▪ Shutdown when dont has enough energy:
-				▪ Shutdown mean cease all the tower action.
-				▪ Shutdown the latest placed tower.
-		▪ Action:
-			▪ Aim when enemy get in range.
-			▪ Aim mode:
-				▪ Direct - Only aim infront of it.
-				▪ Dynamic - Able to aim behind and infront of it.
-				▪ Upward - Only aim upward.
-				▪ Pivot - Able to aim at any direction.
-				▪ Aimless - Don't required aiming.
+		▪ Toggle structure UI when press button on it:
+				▪ Display structure name.
+				▪ Display structure appearance.
+				▪ Display structure health.
+		Tower:
+			▪ Damage.
+			▪ Speed.
+			▪ Range.
+			▪ Aim:
+				▪ Attack when enemy get in range.
+				▪ Mode:
+					▪ Direct - Only aim infront of it.
+					▪ Dynamic - Able to aim behind and infront of it.
+					▪ Upward - Only aim upward.
+					▪ Pivot - Able to aim at any direction.
+					▪ Aimless - Don't required aiming.
+				▪ Consumption:
+					(use wire plug as an icon)
+					▪ Increase the total energy needed.
+					▪ Shutdown when dont has enough energy:
+						▪ Shutdown mean cease all the tower action.
+						▪ Shutdown the latest placed tower.
 			▪ Able to use upgrade to modify how tower work.
-		▪ Visual:
-			▪ Toggle tower ui when press button on it:
-				▪ Display tower name.
-				▪ Display tower appearance.
+			▪ Also display those info for tower UI:
 				▪ Display tower stats.
-				▪ Display tower function.
 				▪ Display tower equipped gear.
-Enemy:
+	Enemy:
 		▪ Movement:
 			▪ How fast it move.
 			▪ Stop if the next plot are occupied or blocked.
@@ -128,6 +138,7 @@ Items:
 		▪ Snipertower
 		▪ Iron Spike
 	▪ Towers:
+		▪ Quiver - shoot arrow like an shotgun
 	▪ Upgrades:
 	▪ Enemies:
 

@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class Map : MonoBehaviour
@@ -10,7 +11,7 @@ public class Map : MonoBehaviour
 	public float spacing;
 	///List of all the plot has create
 	public List<Plot> plots = new List<Plot>();
-
+	
 	//Function to make any value take into account of spacing
 	public static float Spaced(float value) {return (value) * i.spacing;}
 
