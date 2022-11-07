@@ -1,0 +1,33 @@
+{
+"recipes":
+[
+{
+	"obj": "Wooden Crate",
+	"desc": "An wooden crate use for building and defense",
+	"type": "structure",
+	"wood": 5, "steel": 0, "gunpowder": 0,
+	"rarity": 0
+},
+{
+	"obj": "Fences",
+	"desc": "An study fences make out of wood",
+	"type": "structure",
+	"wood": 12, "steel": 0, "gunpowder": 0,
+	"rarity": 0
+},
+{
+	"obj": "Bow",
+	"desc": "An tower the shoot arrow",
+	"type": "tower",
+	"wood": 4, "steel": 2, "gunpowder": 0,
+	"rarity": 0
+},
+{
+	"obj": "Crossbow",
+	"desc": "An tower shoot powerful arrow infront of it",
+	"type": "tower",
+	"wood": 4, "steel": 3, "gunpowder": 1,
+	"rarity": 0
+}
+]
+}
