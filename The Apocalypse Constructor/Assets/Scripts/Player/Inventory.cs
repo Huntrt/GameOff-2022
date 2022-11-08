@@ -9,6 +9,11 @@ public class Inventory : MonoBehaviour
 	#endregion
 
 	public Slot[] slots;
+	public int selected;
+	[SerializeField] Transform selectIndicator;
+	[SerializeField] Transform buildSnap;
+	Vector2 mouseCoord;
+	Camera cam;
 
 	[System.Serializable] public class Slot 
 	{
@@ -33,10 +38,77 @@ public class Inventory : MonoBehaviour
 	// }
 	#endregion
 
+	void Start()
+	{
+		cam = Camera.main;
+	}
+	
 	void Update()
 	{
 		//test: Remove stash from inventory one by one
 		if(Input.GetKeyDown(KeyCode.X)) for (int i = 0; i < 10; i++) {if(Remove(slots[i].stash)) return;}
+		ChoosingSlot();
+		UsingSelectedSlot();
+	}
+
+	void ChoosingSlot()
+	{
+		//todo: Keybinds Inventory
+		if(Input.GetKeyDown(KeyCode.Alpha1)) SelectSlot(0);
+		if(Input.GetKeyDown(KeyCode.Alpha2)) SelectSlot(1);
+		if(Input.GetKeyDown(KeyCode.Alpha3)) SelectSlot(2);
+		if(Input.GetKeyDown(KeyCode.Alpha4)) SelectSlot(3);
+		if(Input.GetKeyDown(KeyCode.Alpha5)) SelectSlot(4);
+		if(Input.GetKeyDown(KeyCode.Alpha6)) SelectSlot(5);
+		if(Input.GetKeyDown(KeyCode.Alpha7)) SelectSlot(6);
+		if(Input.GetKeyDown(KeyCode.Alpha8)) SelectSlot(7);
+		if(Input.GetKeyDown(KeyCode.Alpha9)) SelectSlot(8);
+		if(Input.GetKeyDown(KeyCode.Alpha0)) SelectSlot(9);
+		//If the mouse are scrolling
+		if(Input.mouseScrollDelta.y != 0)
+		{
+			//Increase or decrease the selected index when scroll mouse
+			selected += Mathf.Clamp(Mathf.CeilToInt(Input.mouseScrollDelta.y),-1,1);
+			//Choosed slot at selected
+			SelectSlot(selected);
+		}
+	}
+
+	void SelectSlot(int index)
+	{
+		//Select the given index
+		selected = index;
+		//Clamp the selected
+		selected = Mathf.Clamp(selected, 0, slots.Length-1);
+		//Move indicator to selected slot position
+		selectIndicator.position = slots[selected].nameText.transform.position;
+	}
+
+	void UsingSelectedSlot()
+	{
+		//Get the coordinate in map of mouse position
+		mouseCoord = Map.PositionToCoordinate(cam.ScreenToWorldPoint((Vector2)Input.mousePosition));
+		//Snap the build to mouse coordinate
+		buildSnap.transform.position = mouseCoord;
+		//todo: Use Slot Keybind
+		if(Input.GetKeyDown(KeyCode.Mouse0)) Use();
+	}
+
+	void Use()
+	{
+		//Get the selected stash
+		Stash select = slots[selected].stash;
+		//Dont use if there is no object selected at stash
+		if(select.obj == null) return;
+		//@ Switch the occupy layer depend what category of select building
+		int occupy = 0; switch(select.category)
+		{
+			case "tower": occupy = 1; break;
+			case "platform": occupy = 2; break;
+			case "structure": occupy = 3; break;
+		}
+		//Placing the select buildings at mouse coordinate with occupian has decided
+		Map.Placing(select.obj, mouseCoord, occupy);
 	}
 	
 	public static bool Add(Stash stashing)

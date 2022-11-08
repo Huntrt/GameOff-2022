@@ -29,35 +29,35 @@ Gameplay:
 				▪ Remove when the structure provide them get destroy.
 		▪ Inventory: @next
 			▪ UI:
-				▪ Display at an bottom.
-				▪ Could has 10 max slot.
-				▪ Able to choose slot using number.
-				▪ Cycle between slot using scroll mouse .
+				✓ Display at an bottom.
+				✓ Could has 10 max slot.
+				✓ Able to choose slot using number.
+				▪ Cycle between slot using scroll mouse. @doing
 				▪ Choose slot by clicking on it @consider
 				▪ Show item name above inventory.
-				▪ Show item stack.
+				✓ Show item stack.
 			▪ Action:
-				▪ On using button press call use on slot selected.
+				✓ On using button press call use on slot selected.
 				▪ Drop item on selected slot.
-				▪ Each item has an maximum of stack.
-		▪ Crafting: @doing
-			▪ Toggle crafting ui.
+				✓ Each item has an maximum of stack.
+		▪ Crafting:
+			✓ Toggle crafting ui.
 			▪ An database of recipe using JSON:
-				▪ It material cost.
-				▪ It rarity @consider
-				▪ It type (structure, tower, upgrade, ...).
+				✓ It material cost.
+				✓ It rarity 
+				✓ It type (structure, tower, upgrade, ...).
 				▪ The object itself that will be use in-game.
-				▪ It description.
+				✓ It description.
 				▪ An group for it stats.
-			▪ Loaded all the recipe data onto an list.
+			✓ Loaded all the recipe data onto an list.
 			▪ Unlocking:
 				▪ Sperated the list into one unlocked and one locked.
 				▪ Check all recipe has unlocked.
 				▪ Using rarity to determent unlock an recipe.
 			▪ Display recipe in an list of panel:
-				▪ Panel contain the recipe material in JSON.
-				▪ Panel contain item icon.
-				▪ Able to scroll through all the panel.
+				✓ Panel contain the recipe material in JSON.
+				✓ Panel contain item icon.
+				✓ Able to scroll through all the panel.
 				▪ Seprated into 3 tab each for Structure, Tower, Upgrades.
 				▪ Hover an panel will show more info of the item:
 					▪ Name.
@@ -65,13 +65,17 @@ Gameplay:
 					▪ Health.
 					▪ Display available stats
 			▪ Click and panel will craft it:
-				▪ Consume resource and give item to any empty inventory slot.
+				✓ Give item to any empty inventory slot or stacking.
+				▪ Cosnume resource
 				▪ Will send an error if don't has enough material or inventory is full.
 	Build:
 		✓ Able to build on plot that is available.
 		✓ Only block the plot if the structure required to.
 		▪ Able to destroy structure using destroy key.
-		▪ What happen if an structure is destroy??? @critical
+		▪ What happen to other building if connection get destroy??? @critical
+			a. they just float
+			b. tower no longer attack if floating
+			c. tower get and structure destroy if float
 	Structure:
 		▪ Health:
 			▪ Take damage.

@@ -59,7 +59,7 @@ public class Crafting : MonoBehaviour
 	public void Craft(Recipe recipe)
 	{
 		//Create an new stash that gonna craft from recipe
-		Stash stashed = new Stash(recipe.name, recipe.description, recipe.obj, recipe.maxStack);
+		Stash stashed = new Stash(recipe.name, recipe.description, recipe.category,recipe.obj, recipe.maxStack);
 		//Add the crafted recipe to inventory
 		Inventory.Add(stashed);
 	}
@@ -67,13 +67,13 @@ public class Crafting : MonoBehaviour
 
 [System.Serializable] public class Recipe : Stash
 {
-	public string category;
 	public int wood, steel, gunpowder, rarity;
 
-	public Recipe(string name, string desc, GameObject obj, int maxStack) : base(name,desc,obj,maxStack)
+	public Recipe(string name, string desc,string cate, GameObject obj, int maxStack) : base(name,desc,cate,obj,maxStack)
 	{
 		this.name = name;
 		this.description = desc;
+		this.category = cate;
 		this.obj = obj;
 		this.maxStack = maxStack;
 	}

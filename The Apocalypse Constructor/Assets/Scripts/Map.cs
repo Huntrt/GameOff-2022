@@ -138,7 +138,7 @@ public class Map : MonoBehaviour
 [System.Serializable] public class Plot
 {
 	public Vector2 coordinate;
-	//? 0 = nothing | 1 = tower | 2 = platform | 3 = blocked 
+	//note: 0 = nothing | 1 = tower | 2 = platform | 3 = blocked 
 	public int occupian;
 
 	public Plot(Vector2 coordinate, int occupied)
