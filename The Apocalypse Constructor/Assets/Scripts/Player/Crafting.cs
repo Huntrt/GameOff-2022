@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using UnityEngine.UI;
 using UnityEngine;
 
 namespace Crafts
@@ -18,9 +17,9 @@ public class Crafting : MonoBehaviour
 	public Cookbook cookbook;
 	string jsonData;
 	[Header("User Interface")]
-	[SerializeField] GameObject panelPrefab;
-	[SerializeField] RectTransform panelLayout;
-	
+	[SerializeField] GameObject craftingGUI;
+	[SerializeField] GameObject recipePanel;
+	[SerializeField] RectTransform recipePanelLayout;
 
 	void Start()
 	{
@@ -28,20 +27,30 @@ public class Crafting : MonoBehaviour
 		string data = System.IO.File.ReadAllText(@"Assets\Scripts\Player\Items.json");
 		//Import all the json data into recipe
 		cookbook = JsonUtility.FromJson<Cookbook>(data);
-		AddPanel();
+		AddRecipe();
+	}
+	
+	void Update()
+	{
+		//todo: keybinds CRAFTING GUI
+		if(Input.GetKeyDown(KeyCode.C))
+		{
+			//Toggle craft gui active
+			craftingGUI.SetActive(!craftingGUI.activeInHierarchy);
+		}
 	}
 
-	void AddPanel()
+	void AddRecipe()
 	{
 		//Go through all the recipes
 		for (int r = 0; r < cookbook.recipes.Count; r++)
 		{
 			//Create an new panel for this recipe
-			GameObject panel = Instantiate(panelPrefab);
+			GameObject panel = Instantiate(recipePanel);
 			//Set the panel to be this recipe info
 			panel.GetComponent<RecipePanel>().SetRecipeInfo(cookbook.recipes[r]);
 			//Adding panel to it layout 
-			panel.transform.SetParent(panelLayout);
+			panel.transform.SetParent(recipePanelLayout);
 			//Reset the panel's scale
 			panel.transform.localScale = new Vector3(1,1,1);
 		}
@@ -49,7 +58,10 @@ public class Crafting : MonoBehaviour
 
 	public void Craft(Recipe recipe)
 	{
-		print("Crafted " + recipe.name);
+		//Create an new stash that gonna craft from recipe
+		Stash stashed = new Stash(recipe.name, recipe.description, recipe.obj, recipe.maxStack);
+		//Add the crafted recipe to inventory
+		Inventory.Add(stashed);
 	}
 }
 
@@ -57,5 +69,13 @@ public class Crafting : MonoBehaviour
 {
 	public string category;
 	public int wood, steel, gunpowder, rarity;
+
+	public Recipe(string name, string desc, GameObject obj, int maxStack) : base(name,desc,obj,maxStack)
+	{
+		this.name = name;
+		this.description = desc;
+		this.obj = obj;
+		this.maxStack = maxStack;
+	}
 }
 } //? End namespace

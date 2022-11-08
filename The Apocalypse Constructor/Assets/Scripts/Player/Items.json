@@ -1,37 +1,54 @@
 {
-"recipes":
-[
-{
-	"name": "Wooden Crate",
-	"description": "An wooden crate use for building and defense",
-	"category": "structure",
-	"wood": 5, "steel": 0, "gunpowder": 0,
-	"rarity": 0,
-	"maxStack": 50
-},
-{
-	"name": "Fences",
-	"description": "An study fences make out of wood",
-	"category": "structure",
-	"wood": 12, "steel": 0, "gunpowder": 0,
-	"rarity": 0,
-	"maxStack": 50
-},
-{
-	"name": "Bow",
-	"description": "An tower the shoot arrow",
-	"category": "tower",
-	"wood": 4, "steel": 2, "gunpowder": 0,
-	"rarity": 0,
-	"maxStack": 10
-},
-{
-	"name": "Crossbow",
-	"description": "An tower shoot powerful arrow infront of it",
-	"category": "tower",
-	"wood": 4, "steel": 3, "gunpowder": 1,
-	"rarity": 0,
-	"maxStack": 10
-}
-]
+"recipes": [
+    {
+      "name": "Wooden Crate",
+      "description": "An wooden crate use for building and defense",
+      "category": "structure",
+      "wood": 5,
+      "steel": 0,
+      "gunpowder": 0,
+      "rarity": 0,
+      "maxStack": 5
+    },
+    {
+      "name": "Fences",
+      "description": "An study fences make out of wood",
+      "category": "structure",
+      "wood": 12,
+      "steel": 0,
+      "gunpowder": 0,
+      "rarity": 0,
+      "maxStack": 5
+    },
+    {
+      "name": "Bow",
+      "description": "Shoot classic arrow at enemy",
+      "category": "tower",
+      "wood": 4,
+      "steel": 2,
+      "gunpowder": 0,
+      "rarity": 0,
+      "maxStack": 1
+    },
+    {
+      "name": "Crossbow",
+      "description": "An tower shoot powerful arrow to anything infront of it",
+      "category": "tower",
+      "wood": 4,
+      "steel": 3,
+      "gunpowder": 1,
+      "rarity": 0,
+      "maxStack": 1
+    },
+    {
+      "name": "Quiver",
+      "description": "Shoot an pack of arrow",
+      "category": "tower",
+      "wood": 8,
+      "steel": 2,
+      "gunpowder": 3,
+      "rarity": 0,
+      "maxStack": 1
+    }
+  ]
 }
