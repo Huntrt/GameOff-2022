@@ -122,6 +122,15 @@ Gameplay:
 			▪ Detect target using raycast?
 			▪ Buildings.
 
+Settings:
+	▪ UI Scale
+		? String input then multiply by it
+		? Slider 
+		▪ Trying modify the value "Refrence Solution" inside canvas scaler.
+	▪ Resolution
+	▪ Keybinds
+	▪ System Cursor Toggle
+
 Items:
 	Template
 		Crate
