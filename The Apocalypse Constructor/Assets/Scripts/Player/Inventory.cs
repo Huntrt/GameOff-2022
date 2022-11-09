@@ -10,8 +10,9 @@ public class Inventory : MonoBehaviour
 
 	public Slot[] slots;
 	public int selected;
-	[SerializeField] Transform selectIndicator;
 	[SerializeField] Transform buildSnap;
+	[SerializeField] Transform selectIndicator;
+	[SerializeField] TextMeshProUGUI selectNameText;
 	Vector2 mouseCoord;
 	Camera cam;
 
@@ -80,6 +81,21 @@ public class Inventory : MonoBehaviour
 		selected = index;
 		//Clamp the selected
 		selected = Mathf.Clamp(selected, 0, slots.Length-1);
+		//Get the stash at selected slot 
+		Stash stash = slots[selected].stash;
+		//If the stash of selected slot is empty
+		if(stash.name == "" || stash == null)
+		{
+			//Hide the select name panel
+			selectNameText.transform.parent.gameObject.SetActive(false);
+		}
+		else
+		{
+			//Display select name text as selected stash name
+			selectNameText.text = stash.name;
+			//Show the select name panel
+			selectNameText.transform.parent.gameObject.SetActive(true);
+		}
 		//Move indicator to selected slot position
 		selectIndicator.position = slots[selected].nameText.transform.position;
 	}
