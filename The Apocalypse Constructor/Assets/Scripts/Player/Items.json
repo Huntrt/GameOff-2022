@@ -31,6 +31,16 @@
       "maxStack": 5
     },
     {
+      "name": "Wood Burner",
+      "description": "Burning wood for small amount of energy",
+      "category": "platform",
+      "wood": 25,
+      "steel": 0,
+      "gunpowder": 0,
+      "rarity": 0,
+      "maxStack": 5
+    },
+    {
       "name": "Bow",
       "description": "Shoot classic arrow at enemy",
       "category": "tower",
