@@ -4,8 +4,8 @@ public class Aiming : MonoBehaviour
 {
 	Tower tower;
 	public Mode mode; public enum Mode {Directional, Dynamic, Pivot, Aimless}
-	[SerializeField] Transform rotationObject;
-	[SerializeField] float rotateSpeed;
+	[HideInInspector] public Transform rotationObject;
+	[HideInInspector] public float rotateSpeed;
 
 	void Start()
 	{
