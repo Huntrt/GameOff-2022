@@ -58,9 +58,17 @@ public class Crafting : MonoBehaviour
 
 	public void Craft(Recipe recipe)
 	{
-		//Create an new stash that gonna craft from recipe
-		Stash stashed = new Stash(recipe.name, recipe.description, recipe.category,recipe.obj, recipe.maxStack);
-		//Add the crafted recipe to inventory
+		//Stop if inventory dont has enough material to craft given recipe
+		if(!Inventory.i.materials.Consume(recipe.wood, recipe.steel, recipe.gunpowder)) return;
+		//Replicate the stash that got from given recipe
+		Stash stashed = new Stash
+		(
+			recipe.name,
+			recipe.description,
+			recipe.category,
+			recipe.obj,recipe.maxStack
+		);
+		//Add the crafted stash to inventory
 		Inventory.Add(stashed);
 	}
 }

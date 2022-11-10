@@ -8,7 +8,9 @@ public class Inventory : MonoBehaviour
 	public static Inventory i {get{if(_i==null){_i = GameObject.FindObjectOfType<Inventory>();}return _i;}} static Inventory _i;
 	#endregion
 
+	public Materials materials;
 	public Slot[] slots;
+	[Header("GUI")]
 	public int selected;
 	[SerializeField] Transform buildSnap;
 	[SerializeField] Transform selectIndicator;
@@ -21,6 +23,35 @@ public class Inventory : MonoBehaviour
 		public Stash stash;
 		public TextMeshProUGUI nameText; //! Replace with image later
 		public TextMeshProUGUI stackText;
+	}
+	
+	[System.Serializable] public class Materials 
+	{
+		public int wood, steel, gunpowder, energy, maxEnergy;
+
+		public void Gain(int wood, int steel, int gunpowder, int maxEnergy)
+		{
+			//@ Gain the given material
+			this.wood      += wood;
+			this.steel     += steel;
+			this.gunpowder += gunpowder;
+			this.maxEnergy += maxEnergy;
+		}
+
+		public bool Consume(int wood, int steel, int gunpowder, int energy = 0)
+		{
+			//@ Checking if there still enough material to consume
+			if(this.wood - wood < 0)              {print("Out of Wood"); return false;}
+			if(this.steel - steel < 0)            {print("Out of Steel"); return false;}
+			if(this.gunpowder - gunpowder < 0)    {print("Out of Gunpowder"); return false;}
+			if(this.energy + energy > maxEnergy)  {print("Energy Maxxed"); return false;}
+			//@ If has enough material then consume them
+			this.wood      -= wood;
+			this.steel     -= steel;
+			this.gunpowder -= gunpowder;
+			this.energy    += energy;
+			return true;
+		}
 	}
 
 	#region Automaticly Get Inventory GUI (deactive)
@@ -126,7 +157,7 @@ public class Inventory : MonoBehaviour
 		//Placing the select buildings at mouse coordinate with occupian has decided
 		Map.Placing(select.obj, mouseCoord, occupy);
 	}
-	
+
 	public static bool Add(Stash stashing)
 	{
 		Slot[] slots = i.slots;

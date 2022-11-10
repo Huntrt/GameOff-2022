@@ -1,4 +1,4 @@
-Gameplay:
+﻿Gameplay:
 	Progression:
 		▪ Days counter.
 		▪ Better ally stats the more day suvive.
@@ -58,9 +58,9 @@ Gameplay:
 							▪ Damage
 							▪ Speed
 							▪ Range
-							▪ Aim
 							▪ Critical
 							▪ Consumption
+							▪ Aim
 						▪ Generator
 							▪ Energy
 			✓ Loaded all the recipe data onto an list.
@@ -90,7 +90,7 @@ Gameplay:
 		✓ Only block the plot if the structure required to.
 		▪ Able to destroy structure using destroy key.
 		▪ What happen to other building if connection get destroy??? @critical
-			a. they just float
+			a. they just float (balanced of by jumping enemy)
 			b. tower no longer attack if floating
 			c. tower get and structure destroy if float
 	Structure:
@@ -107,14 +107,14 @@ Gameplay:
 				▪ Display structure health.
 		Tower:
 			▪ Damage.
+			▪ Critical.
 			▪ Speed.
 			▪ Range.
 			▪ Aim:
 				▪ Attack when enemy get in range.
 				▪ Mode:
-					▪ Direct - Only aim infront of it.
-					▪ Dynamic - Able to aim behind and infront of it.
-					▪ Upward - Only aim upward.
+					▪ Directional - Only aim in an set direction.
+					▪ Dynamic - Able to switch between multiple direction.
 					▪ Pivot - Able to aim at any direction.
 					▪ Aimless - Don't required aiming.
 				▪ Consumption:
