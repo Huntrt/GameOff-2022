@@ -16,7 +16,14 @@
 		▪ Days
 			▪ Background changing.
 	Player:
-		▪ Movement.
+		X Movement.
+		▪ Mouse
+			✓ Get coordinates
+			▪ Custom icon
+				▪ Default
+				▪ Build
+				▪ Fix
+				▪ Destroy
 		▪ Resources:
 			[R = W? S? E?] for quick recipe note
 			▪ Wood, Steel & Gunpowder:
@@ -42,35 +49,38 @@
 				✓ Each item has an maximum of stack.
 		▪ Crafting:
 			✓ Toggle crafting ui.
-			▪ An database of recipe:
-				✓ Using JSON
-				▪ Using ScriptableObject
+			✓ An database of recipe:
+				X Using JSON
+				✓ Using ScriptableObject
 				✓ It material cost.
 				✓ It rarity 
-				✓ It type (structure, tower, upgrade, ...).
-				▪ The object itself that will be use in-game.
-				▪ It icon to display
+				X It type (structure, tower, upgrade, ...).
+				✓ It ouccupyian
+				✓ The object itself that will be use in-game.
+				✓ It icon to display
 				✓ It description.
-				▪ An group for it stats.
-					▪ Buildings
-						▪ Health
-						▪ Tower
-							▪ Damage
-							▪ Speed
-							▪ Range
-							▪ Critical
-							▪ Consumption
-							▪ Aim
-						▪ Generator
-							▪ Energy
+				✓ An group for it stats.
+					✓ Buildings
+						✓ Health
+						✓ Consumption
+						✓ Tower
+							✓ Damage
+							✓ Speed
+							✓ Range
+							✓ Critical
+							X Aim
+						✓ Dynamo
+							✓ Energy
 			✓ Loaded all the recipe data onto an list.
+				X Import data from JSON.
+				✓ Get all the "Item" scriptable object by dragging them in inspector.
 			▪ Unlocking:
 				▪ Sperated the list into one unlocked and one locked.
 				▪ Check all recipe has unlocked.
 				▪ Using rarity to determent unlock an recipe.
 			▪ Display recipe in an list of panel:
-				✓ Panel contain the recipe material in JSON.
-				✓ Panel contain item icon.
+				▪ Panel contain material needed. @consider
+				▪ Panel contain item icon.
 				✓ Able to scroll through all the panel.
 				▪ Seprated into 3 tab each for Structure, Tower, Upgrades.
 				▪ Hover an panel will show more info of the item:
@@ -78,7 +88,7 @@
 					▪ Description.
 					▪ Health.
 					▪ Display available stats: @next
-						▪ Getting "Buildings" component from object gonna craft.
+						▪ Getting "Building" component from object gonna craft.
 						▪ Check does building has special function. (attack, generation)
 						▪ Saving the tower or generator component itself.
 			▪ Click and panel will craft it:
