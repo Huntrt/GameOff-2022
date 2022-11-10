@@ -2,15 +2,25 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
+	public SO_Building so;
     public float maxHealth;
-	protected float health;
+	public int consumption;
+	[SerializeField] protected float health;
 	public enum Function {none, attack, energize}; public Function function;
 
 	void Start()
 	{
+		SetupStats();
 		//Reset health
 		health = maxHealth;
 	}
+
+	void SetupStats()
+	{
+		maxHealth = so.maxHealth;
+		consumption = so.consumption;
+	}
+
 
 	public virtual void Hurt(float amount)
 	{

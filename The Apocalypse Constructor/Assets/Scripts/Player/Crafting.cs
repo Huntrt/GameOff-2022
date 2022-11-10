@@ -9,13 +9,7 @@ public class Crafting : MonoBehaviour
 	public static Crafting i {get{if(_i==null){_i = GameObject.FindObjectOfType<Crafting>();}return _i;}} static Crafting _i;
 	#endregion
 	
-	[System.Serializable] public class Cookbook 
-	{
-		public List<Recipe> recipes = new List<Recipe>();
-		public List<Recipe> unlocked = new List<Recipe>();
-	}
-	public Cookbook cookbook;
-	string jsonData;
+	public List<SO_Item> items = new List<SO_Item>();
 	[Header("User Interface")]
 	[SerializeField] GameObject craftingGUI;
 	[SerializeField] GameObject recipePanel;
@@ -23,10 +17,6 @@ public class Crafting : MonoBehaviour
 
 	void Start()
 	{
-		//Getting data from the item json
-		string data = System.IO.File.ReadAllText(@"Assets\Scripts\Player\Items.json");
-		//Import all the json data into recipe
-		cookbook = JsonUtility.FromJson<Cookbook>(data);
 		AddRecipe();
 	}
 	
@@ -43,12 +33,12 @@ public class Crafting : MonoBehaviour
 	void AddRecipe()
 	{
 		//Go through all the recipes
-		for (int r = 0; r < cookbook.recipes.Count; r++)
+		for (int r = 0; r < items.Count; r++)
 		{
 			//Create an new panel for this recipe
 			GameObject panel = Instantiate(recipePanel);
 			//Set the panel to be this recipe info
-			panel.GetComponent<RecipePanel>().SetRecipeInfo(cookbook.recipes[r]);
+			panel.GetComponent<RecipePanel>().SetRecipeInfo(items[r]);
 			//Adding panel to it layout 
 			panel.transform.SetParent(recipePanelLayout);
 			//Reset the panel's scale
@@ -56,34 +46,21 @@ public class Crafting : MonoBehaviour
 		}
 	}
 
-	public void Craft(Recipe recipe)
+	public void Craft(SO_Item crafted)
 	{
-		//Stop if inventory dont has enough material to craft given recipe
-		if(!Inventory.i.materials.Consume(recipe.wood, recipe.steel, recipe.gunpowder)) return;
-		//Replicate the stash that got from given recipe
-		Stash stashed = new Stash
-		(
-			recipe.name,
-			recipe.description,
-			recipe.category,
-			recipe.obj,recipe.maxStack
-		);
+		//Stop if inventory dont has enough material to craft given item
+		if(!Inventory.i.materials.Consume(crafted.recipe.wood, crafted.recipe.steel, crafted.recipe.gunpowder)) return;
+		//@ Replicate the item that got from given recipe to stash it
+		SO_Item stashing = ScriptableObject.CreateInstance("SO_Item") as SO_Item;
+		stashing.name = crafted.name;
+		stashing.prefab = crafted.prefab;
+		stashing.description = crafted.description;
+		stashing.occupation = crafted.occupation;
+		stashing.icon = crafted.icon;
+		stashing.stack = new SO_Item.Stack();
+		stashing.stack.max = crafted.stack.max;
 		//Add the crafted stash to inventory
-		Inventory.Add(stashed);
-	}
-}
-
-[System.Serializable] public class Recipe : Stash
-{
-	public int wood, steel, gunpowder, rarity;
-
-	public Recipe(string name, string desc,string cate, GameObject obj, int maxStack) : base(name,desc,cate,obj,maxStack)
-	{
-		this.name = name;
-		this.description = desc;
-		this.category = cate;
-		this.obj = obj;
-		this.maxStack = maxStack;
+		Inventory.Add(stashing);
 	}
 }
 } //? End namespace

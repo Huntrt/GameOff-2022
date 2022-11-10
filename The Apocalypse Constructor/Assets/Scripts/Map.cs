@@ -52,7 +52,7 @@ public class Map : MonoBehaviour
 		if(occupy < 0 || occupy > 3) {Debug.LogError("Cant occupying at ("+occupy+")"); return null;}
 		
 		/// If this plot has been blocked
-		if(plot.occupian == 3) 
+		if(plot.occupation == 3) 
 		{
 			Debug.LogError("This plot has been block");
 			return null;
@@ -61,51 +61,51 @@ public class Map : MonoBehaviour
 		if(occupy == 1)
 		{
 			//But already occupy by another TOWER
-			if(plot.occupian == 1)
+			if(plot.occupation == 1)
 			{
 				Debug.LogError("Cant place another tower on top of one");
 				return null;
 			}
 			//But already occupy by an PLATFORM
-			if(plot.occupian == 2)
+			if(plot.occupation == 2)
 			{
 				//? Successful place an tower in platform
 				//This plot are now blocked
-				plot.occupian = 3;
+				plot.occupation = 3;
 			}
 			//The plot are now occupy by an tower if available
-			if(plot.occupian == 0) plot.occupian = occupy;
+			if(plot.occupation == 0) plot.occupation = occupy;
 		}
 		/// If gonna get occupy by an PLATFORM
 		else if(occupy == 2)
 		{
 			//But already occupy by another PLATFORM
-			if(plot.occupian == 2)
+			if(plot.occupation == 2)
 			{
 				Debug.LogError("Cant place another platform on top of one");
 				return null;
 			}
 			//But already occupy by an TOWER
-			if(plot.occupian == 1)
+			if(plot.occupation == 1)
 			{
 				//? Successful place an platform in tower
 				//This plot are now blocked
-				plot.occupian = 3;
+				plot.occupation = 3;
 			}
 			//The plot are now occupy by an platform if available
-			if(plot.occupian == 0) plot.occupian = occupy;
+			if(plot.occupation == 0) plot.occupation = occupy;
 		}
 		/// If gonna get occupy by an STRUCTURE 
 		else if(occupy == 3)
 		{
 			//But plot is not available
-			if(plot.occupian > 0)
+			if(plot.occupation > 0)
 			{
 				Debug.LogError("This plot are not available for structure");
 				return null;
 			}
 			//Plot are now locked by structure
-			plot.occupian = 3;
+			plot.occupation = 3;
 		}
 
 		//Create the given object at given coordinates then return it if need to create any
@@ -127,7 +127,7 @@ public class Map : MonoBehaviour
 	
 	void OnDrawGizmos()
 	{
-		if(plots.Count > 0) foreach (Plot plot in plots) if(plot.occupian == 0)
+		if(plots.Count > 0) foreach (Plot plot in plots) if(plot.occupation == 0)
 		{
 			Gizmos.color = Color.cyan;
 			Gizmos.DrawWireCube(plot.coordinate, Vector2.one * (spacing - (spacing/10)));
@@ -139,11 +139,11 @@ public class Map : MonoBehaviour
 {
 	public Vector2 coordinate;
 	//note: 0 = nothing | 1 = tower | 2 = platform | 3 = blocked 
-	public int occupian;
+	public int occupation;
 
 	public Plot(Vector2 coordinate, int occupied)
 	{
 		this.coordinate = coordinate;
-		this.occupian = occupied;
+		this.occupation = occupied;
 	}
 }

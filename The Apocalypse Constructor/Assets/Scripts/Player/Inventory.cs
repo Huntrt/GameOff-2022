@@ -20,9 +20,9 @@ public class Inventory : MonoBehaviour
 
 	[System.Serializable] public class Slot 
 	{
-		public Stash stash;
-		public TextMeshProUGUI nameText; //! Replace with image later
+		public SO_Item stashed;
 		public TextMeshProUGUI stackText;
+		public Image iconImage;
 	}
 	
 	[System.Serializable] public class Materials 
@@ -55,6 +55,7 @@ public class Inventory : MonoBehaviour
 	}
 
 	#region Automaticly Get Inventory GUI (deactive)
+	// [SerializeField] Transform slotLayout;
 	// private void OnValidate() 
 	// {
 	// 	//Go through all the child of layout
@@ -62,10 +63,10 @@ public class Inventory : MonoBehaviour
 	// 	{
 	// 		//Save this child
 	// 		Transform panel = slotLayout.GetChild(c);
-	// 		//The first child will be display the name of it panel
-	// 		slots[c].nameText = panel.GetChild(0).GetComponent<TextMeshProUGUI>();
-	// 		//The second child will be display the stack of it panel
-	// 		slots[c].stackText = panel.GetChild(1).GetComponent<TextMeshProUGUI>();
+	// 		//The first child will be display the stack
+	// 		slots[c].stackText = panel.GetChild(0).GetComponent<TextMeshProUGUI>();
+	// 		//The second child will be display the icon
+	// 		slots[c].iconImage = panel.GetChild(1).GetComponent<Image>();
 	// 	}
 	// }
 	#endregion
@@ -78,14 +79,15 @@ public class Inventory : MonoBehaviour
 	void Update()
 	{
 		//test: Remove stash from inventory one by one
-		if(Input.GetKeyDown(KeyCode.X)) for (int i = 0; i < 10; i++) {if(Remove(slots[i].stash)) return;}
+		if(Input.GetKeyDown(KeyCode.X)) for (int i = 0; i < 10; i++) {if(Remove(slots[i].stashed)) return;}
 		ChoosingSlot();
-		UsingSelectedSlot();
+		Use();
 	}
 
 	void ChoosingSlot()
 	{
 		//todo: Keybinds Inventory
+		#region Inventory keycode
 		if(Input.GetKeyDown(KeyCode.Alpha1)) SelectSlot(0);
 		if(Input.GetKeyDown(KeyCode.Alpha2)) SelectSlot(1);
 		if(Input.GetKeyDown(KeyCode.Alpha3)) SelectSlot(2);
@@ -96,6 +98,7 @@ public class Inventory : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.Alpha8)) SelectSlot(7);
 		if(Input.GetKeyDown(KeyCode.Alpha9)) SelectSlot(8);
 		if(Input.GetKeyDown(KeyCode.Alpha0)) SelectSlot(9);
+		#endregion
 		//If the mouse are scrolling
 		if(Input.mouseScrollDelta.y != 0)
 		{
@@ -113,9 +116,9 @@ public class Inventory : MonoBehaviour
 		//Clamp the selected
 		selected = Mathf.Clamp(selected, 0, slots.Length-1);
 		//Get the stash at selected slot 
-		Stash stash = slots[selected].stash;
+		SO_Item stashed = slots[selected].stashed;
 		//If the stash of selected slot is empty
-		if(stash.name == "" || stash == null)
+		if(stashed == null)
 		{
 			//Hide the select name panel
 			selectNameText.transform.parent.gameObject.SetActive(false);
@@ -123,90 +126,78 @@ public class Inventory : MonoBehaviour
 		else
 		{
 			//Display select name text as selected stash name
-			selectNameText.text = stash.name;
+			selectNameText.text = stashed.name;
 			//Show the select name panel
 			selectNameText.transform.parent.gameObject.SetActive(true);
 		}
 		//Move indicator to selected slot position
-		selectIndicator.position = slots[selected].nameText.transform.position;
+		selectIndicator.position = slots[selected].iconImage.transform.position;
 	}
 
-	void UsingSelectedSlot()
+	void Use()
 	{
 		//Get the coordinate in map of mouse position
 		mouseCoord = Map.PositionToCoordinate(cam.ScreenToWorldPoint((Vector2)Input.mousePosition));
 		//Snap the build to mouse coordinate
 		buildSnap.transform.position = mouseCoord;
 		//todo: Use Slot Keybind
-		if(Input.GetKeyDown(KeyCode.Mouse0)) Use();
-	}
-
-	void Use()
-	{
-		//Get the selected stash
-		Stash select = slots[selected].stash;
-		//Dont use if there is no object selected at stash
-		if(select.obj == null) return;
-		//@ Switch the occupy layer depend what category of select building
-		int occupy = 0; switch(select.category)
-		{
-			case "tower": occupy = 1; break;
-			case "platform": occupy = 2; break;
-			case "structure": occupy = 3; break;
+		if(Input.GetKeyDown(KeyCode.Mouse0))
+		{	
+			//Get the selected stash
+			SO_Item select = slots[selected].stashed;
+			//Dont use if there is no selected stash at slot
+			if(select == null) return;
+			//Placing the select buildings at mouse coordinate with occupian has decided
+			Map.Placing(select.prefab, mouseCoord, select.occupation);
 		}
-		//Placing the select buildings at mouse coordinate with occupian has decided
-		Map.Placing(select.obj, mouseCoord, occupy);
 	}
 
-	public static bool Add(Stash stashing)
+	public static bool Add(SO_Item stashing)
 	{
 		Slot[] slots = i.slots;
 		///Go through all the slot of inventory to CHECKING STACK
 		for (int s = 0; s < slots.Length; s++)
 		{
-			//If the given stash already stash 
-			if(slots[s].stash != null) if(stashing.name == slots[s].stash.name)
+			//If this slot already has the given item gonna stash 
+			if(slots[s].stashed != null) if(stashing.name == slots[s].stashed.name)
 			{
-				//Check next slot if this stash has reached max stack
-				if(slots[s].stash.stack >= slots[s].stash.maxStack) continue;
+				//Skip if this stash has reached max stack
+				if(slots[s].stashed.stack.cur >= slots[s].stashed.stack.max) continue;
 				//Stack stash then refresh display and successfully add item
-				slots[s].stash.stack++; RefreshDisplay(s); return true;
+				slots[s].stashed.stack.cur++; RefreshDisplay(s); return true;
 			}
 		}
 		///Go through all the slot of inventory to FIND AN EMPTY SLOT
 		for (int s = 0; s < slots.Length; s++)
 		{
-			//Add the given stash to this stash if it empty
-			if(slots[s].stash == null) slots[s].stash = stashing;
-			//If this stash has no stack
-			if(slots[s].stash.stack == 0)
+			//If this stash has are empty
+			if(slots[s].stashed == null)
 			{
 				//This stash will be the given stash
-				slots[s].stash = stashing;
+				slots[s].stashed = stashing;
 				//Stack stash then refresh display and successfully add item
-				slots[s].stash.stack++; RefreshDisplay(s); return true;
+				slots[s].stashed.stack.cur++; RefreshDisplay(s); return true;
 			}
 		}
 		//There are no slot left
 		return false;
 	}
 
-	public static bool Remove(Stash stashing)
+	public static bool Remove(SO_Item stashing)
 	{
 		Slot[] slots = i.slots;
+		//False if try to remove nothing
+		if(stashing == null) return false;
 		///Go through all the slot of inventory to CHECKING STACK
 		for (int s = 0; s < slots.Length; s++)
 		{
-			//Skip if this slot don't has any stash
-			if(slots[s].stash.name == null) continue;
-			if(slots[s].stash.name == "") continue;
 			//If there is stash of the given stash and it is exist
-			if(stashing.name == slots[s].stash.name)
+			if(slots[s].stashed != null) if(stashing.name == slots[s].stashed.name)
 			{
 				//Remove the stash stack
-				slots[s].stash.stack--;
+				slots[s].stashed.stack.cur--;
 				//Remove the stash if stash are out of stack
-				if(slots[s].stash.stack == 0) slots[s].stash = null;
+				if(slots[s].stashed.stack.cur == 0) slots[s].stashed = null;
 				//Refresh display and successfully remove item
 				RefreshDisplay(s); return true;
 			}
@@ -218,9 +209,12 @@ public class Inventory : MonoBehaviour
 	{
 		Slot slot = i.slots[index];
 		//Clear the slot display if it dont has stash
-		if(slot.stash == null) {slot.stackText.text = ""; slot.nameText.text = ""; return;}
-		//Update the slot display according to what it stash
-		slot.nameText.text = slot.stash.name;
-		slot.stackText.text = slot.stash.stack.ToString();
+		if(slot.stashed == null) {slot.stackText.text = ""; slot.iconImage.enabled = false; return;}
+		//Enable slot icon and set it to be stash icon
+		slot.iconImage.enabled = true; slot.iconImage.sprite = slot.stashed.icon;
+		//Set stack text to be how many stack has stash
+		slot.stackText.text = slot.stashed.stack.cur.ToString();
+		//Refresh slot selection
+		i.SelectSlot(i.selected);
 	}
 }
