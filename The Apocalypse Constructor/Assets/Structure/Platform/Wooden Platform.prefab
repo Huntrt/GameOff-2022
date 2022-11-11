@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   health: 0
+  extend:
+  - {x: 0, y: 1}
   function: 0
 --- !u!212 &8980818939178888589
 SpriteRenderer:

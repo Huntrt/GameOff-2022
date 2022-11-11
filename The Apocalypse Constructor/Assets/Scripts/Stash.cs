@@ -7,7 +7,7 @@ public class Stash : ScriptableObject
 	public GameObject prefab;
 	public Sprite icon;
 	[TextArea(5,50)] public string description;
-	public enum Occupation {nothing, tower, platform, fill};
+	public enum Occupation {empty, tower, platform, fill};
 	public Occupation occupation;
 	public int maxStack;
 	[Header("Recipe")]

@@ -116,9 +116,9 @@
 			▪ Take damage.
 			▪ Able to heal.
 			▪ Die when run out.
-		▪ Placable @doing
-			▪ List of coordinates to make it placeable.
-			▪ Adding any coordinate could add to plot.
+		✓ Extend:
+			✓ List of coordinates to create plot at it.
+			✓ Create an plot at any coordinate could create.
 		▪ Die:
 			▪ Drop equipped item on death @consider
 			▪ Make the plot it on unoccupied.

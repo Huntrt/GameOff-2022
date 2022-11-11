@@ -15,7 +15,7 @@ public class Map : MonoBehaviour
 	//Function to make any value take into account of spacing
 	public static float Spaced(float value) {return (value) * i.spacing;}
 
-	public static Vector2 PositionToCoordinate(Vector2 position)
+	public static Vector2 SnapPosition(Vector2 position)
 	{
 		//Make position take in account of spacing
 		position /= i.spacing;
@@ -138,7 +138,7 @@ public class Map : MonoBehaviour
 [System.Serializable] public class Plot
 {
 	public Vector2 coordinate;
-	//note: 0 = nothing | 1 = tower | 2 = platform | 3 = blocked 
+	//note: 0 = empty | 1 = tower | 2 = platform | 3 = blocked 
 	public int occupation;
 
 	public Plot(Vector2 coordinate, int occupied)

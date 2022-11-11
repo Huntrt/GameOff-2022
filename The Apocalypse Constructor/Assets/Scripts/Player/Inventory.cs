@@ -152,7 +152,7 @@ public class Inventory : MonoBehaviour
 	void Use()
 	{
 		//Get the coordinate in map of mouse position
-		mouseCoord = Map.PositionToCoordinate(cam.ScreenToWorldPoint((Vector2)Input.mousePosition));
+		mouseCoord = Map.SnapPosition(cam.ScreenToWorldPoint((Vector2)Input.mousePosition));
 		//Snap the build to mouse coordinate
 		buildSnap.transform.position = mouseCoord;
 		//todo: Use Slot Keybind
