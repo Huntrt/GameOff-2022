@@ -108,6 +108,9 @@
 			▪ Take damage.
 			▪ Able to heal.
 			▪ Die when run out.
+		▪ Placable
+			▪ List of coordinates to make it placeable.
+			▪ Adding any coordinate could add to plot.
 		▪ Die:
 			▪ Drop equipped item on death @consider
 			▪ Make the plot it on unoccupied.
@@ -127,12 +130,12 @@
 					▪ Dynamic - Able to switch between multiple direction.
 					▪ Pivot - Able to aim at any direction.
 					▪ Aimless - Don't required aiming.
-				▪ Consumption:
-					(use wire plug as an icon)
-					▪ Increase the total energy needed.
-					▪ Shutdown when dont has enough energy:
-						▪ Shutdown mean cease all the tower action.
-						▪ Shutdown the latest placed tower.
+			▪ Consumption:
+				(use wire plug as an icon)
+				▪ Increase the total energy needed.
+				▪ Shutdown when dont has enough energy:
+					▪ Shutdown mean cease the tower action.
+					▪ Shutdown the latest placed tower.
 			▪ Able to use upgrade to modify how tower work.
 			▪ Also display those info for tower UI:
 				▪ Display tower stats.
@@ -161,25 +164,5 @@ Settings:
 	▪ Resolution
 	▪ Keybinds
 	▪ System Cursor Toggle
-
-Items:
-	Template
-		Crate
-			[R = 5W 0S 0G]
-	▪ Structures:
-		▪ Wooden Crate
-		▪ Wooden Fence
-		▪ Wooden Platform
-		▪ Wooden Tower
-		▪ Wooden Spike
-		▪ Steel Barrel
-		▪ Wirebar
-		▪ Iron Platform
-		▪ Snipertower
-		▪ Iron Spike
-	▪ Towers:
-		▪ Quiver - shoot arrow like an shotgun
-	▪ Upgrades:
-	▪ Enemies:
 
 Bugs:

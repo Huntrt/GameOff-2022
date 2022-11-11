@@ -1,26 +1,16 @@
 using UnityEngine;
 
-public class Building : MonoBehaviour
+public class Structure : MonoBehaviour
 {
-	public SO_Building so;
     public float maxHealth;
-	public int consumption;
 	[SerializeField] protected float health;
-	public enum Function {none, attack, energize}; public Function function;
+	public enum Function {none, tower, dynamo}; public Function function;
 
 	void Start()
 	{
-		SetupStats();
 		//Reset health
 		health = maxHealth;
 	}
-
-	void SetupStats()
-	{
-		maxHealth = so.maxHealth;
-		consumption = so.consumption;
-	}
-
 
 	public virtual void Hurt(float amount)
 	{

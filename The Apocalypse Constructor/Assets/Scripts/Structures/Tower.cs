@@ -1,30 +1,15 @@
 using UnityEngine;
 
-public class Tower : Building
+public class Tower : Structure
 {
-	public new SO_Tower so;
     public float damage, speed, range, crit;
+	public int consumption;
 	float countSpeed;
-	public bool isAttack;
-
-	void Start()
-	{
-		SetupStats();
-	}
-
-	void SetupStats()
-	{
-		maxHealth = so.maxHealth;
-		consumption = so.consumption;
-		damage = so.damage;
-		speed = so.speed;
-		range = so.range;
-		crit = so.crit;
-	}
+	public bool detected;
 
 	void Update()
 	{
-		if(isAttack) Attacking();
+		if(detected) Attacking();
 	}
 
 	void Attacking()
