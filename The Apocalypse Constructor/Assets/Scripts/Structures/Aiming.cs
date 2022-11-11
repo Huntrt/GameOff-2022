@@ -3,10 +3,10 @@ using UnityEngine;
 public class Aiming : MonoBehaviour
 {
 	Tower tower;
-	public Mode mode; public enum Mode {Directional, Dynamic, Pivot, Aimless}
+	public Mode mode; public enum Mode {Direct, Dynamic, Rotate, Aimless}
+	[HideInInspector] public int direction;
 	[HideInInspector] public Transform rotationObject;
 	[HideInInspector] public float rotateSpeed;
-	[HideInInspector] public int direction;
 
 	void Start()
 	{
@@ -19,13 +19,13 @@ public class Aiming : MonoBehaviour
 	void Update()
 	{
 		//@ Deicide which aim mode gonna base on what has choose
-		if(mode == Mode.Directional)  DirectionalAim();
+		if(mode == Mode.Direct) DirectAim();
 		else if(mode == Mode.Dynamic) DynamicAim();
-		else if(mode == Mode.Pivot)	  PivotAim();
+		else if(mode == Mode.Rotate) RotateAim();
 		else if(mode == Mode.Aimless) AimlessAim();
 	}
 
-	void DirectionalAim()
+	void DirectAim()
 	{
 
 	}
@@ -35,7 +35,7 @@ public class Aiming : MonoBehaviour
 		
 	}
 
-	void PivotAim()
+	void RotateAim()
 	{
 		
 	}
