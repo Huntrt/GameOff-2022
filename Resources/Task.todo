@@ -13,6 +13,7 @@
 			✓ Ground are grid base using plots and is automaticly blocked.
 			✓ Upon expand ground will also generate an plots for them.
 			✓ Able to expand ground to each side in realtime.
+			▪ Randomize ground sprite. @consider
 		▪ Days
 			▪ Background changing.
 	Player:
@@ -29,10 +30,10 @@
 			▪ Wood, Steel & Gunpowder:
 				▪ How to gather
 					▪ ???
-				▪ Able to use for crafting
-				▪ Consume when use for craft
+				✓ Able to use for crafting
+				✓ Consume when use for craft
 			▪ Energy:
-				▪ Build structure that provide energy to increase max limit.
+				✓ Build structure that provide energy to increase max limit.
 				▪ Remove when the structure provide them get destroy.
 		▪ Inventory:
 			✓ UI:
@@ -62,7 +63,7 @@
 				✓ An group for it stats.
 					✓ Buildings
 						✓ Health
-						✓ Consumption
+						✓ Deplete
 						✓ Tower
 							✓ Damage
 							✓ Speed
@@ -79,25 +80,27 @@
 				▪ Check all recipe has unlocked.
 				▪ Using rarity to determent unlock an recipe.
 			▪ Display recipe in an list of panel:
-				▪ Panel contain material needed. @consider
-				▪ Panel contain item icon.
+				X Panel contain material needed.
+				✓ Panel contain item icon.
 				✓ Able to scroll through all the panel.
-				▪ Seprated into 3 tab each for Structure, Tower, Upgrades.
-				▪ Hover an panel will show more info of the item:
-					▪ Name.
-					▪ Description.
-					▪ Health.
-					▪ Display available stats: @next
-						▪ Getting "Building" component from object gonna craft.
-						▪ Check does building has special function. (attack, generation)
-						▪ Saving the tower or generator component itself.
+				X Seprated into 3 tab each for Structure, Tower, Upgrades.
+				✓ Hover an panel will show more info of the item:
+					✓ Name.
+					✓ Description.
+					✓ Material needed.
+					✓ Health.
+					✓ Display available stats:
+						✓ Getting "Building" component from object gonna craft.
+						✓ Check does building has special function. (attack, generation)
+						✓ Saving the tower or dynamo component itself.
 			▪ Click and panel will craft it:
 				✓ Give item to any empty inventory slot or stacking.
-				▪ Cosnume resource
+				✓ Cosnume resource
 				▪ Will send an error if don't has enough material or inventory is full.
 	Build:
 		✓ Able to build on plot that is available.
 		✓ Only block the plot if the structure required to.
+		▪ Lost an stack in inventory when build
 		▪ Able to destroy structure using destroy key.
 		▪ What happen to other building if connection get destroy??? @critical
 			a. they just float (balanced of by jumping enemy)
@@ -108,7 +111,7 @@
 			▪ Take damage.
 			▪ Able to heal.
 			▪ Die when run out.
-		▪ Placable
+		▪ Placable @doing
 			▪ List of coordinates to make it placeable.
 			▪ Adding any coordinate could add to plot.
 		▪ Die:
@@ -120,23 +123,25 @@
 				▪ Display structure health.
 		Tower:
 			▪ Damage.
-			▪ Critical.
+			X Critical.
 			▪ Speed.
 			▪ Range.
-			▪ Aim:
+			▪ Aim: @next
 				▪ Attack when enemy get in range.
 				▪ Mode:
 					▪ Directional - Only aim in an set direction.
 					▪ Dynamic - Able to switch between multiple direction.
 					▪ Pivot - Able to aim at any direction.
 					▪ Aimless - Don't required aiming.
-			▪ Consumption:
+			▪ Deplete: @next
 				(use wire plug as an icon)
 				▪ Increase the total energy needed.
 				▪ Shutdown when dont has enough energy:
 					▪ Shutdown mean cease the tower action.
 					▪ Shutdown the latest placed tower.
-			▪ Able to use upgrade to modify how tower work.
+			▪ Able to use upgrade to modify how tower work:
+				▪ Upgrade by given consumable to an tower.
+				▪ Upgrade tower stats directly by click on an tower.
 			▪ Also display those info for tower UI:
 				▪ Display tower stats.
 				▪ Display tower equipped gear.
@@ -164,5 +169,8 @@ Settings:
 	▪ Resolution
 	▪ Keybinds
 	▪ System Cursor Toggle
+	▪ Invert scrolling
+		▪ Inventory
+		▪ Crafting
 
 Bugs:

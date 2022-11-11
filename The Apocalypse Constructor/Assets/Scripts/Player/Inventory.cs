@@ -31,7 +31,7 @@ public class Inventory : MonoBehaviour
 		public int wood, steel, gunpowder, energy, maxEnergy;
 		[Header("GUI")]
 		public TextMeshProUGUI woodText;
-		public TextMeshProUGUI steelText, gunpowderText, energyText;
+		public TextMeshProUGUI steelText, gunpowderText, capacityText;
 
 		public void Gain(int wood, int steel, int gunpowder, int maxEnergy)
 		{
@@ -64,7 +64,7 @@ public class Inventory : MonoBehaviour
 			woodText.text = wood.ToString();
 			steelText.text = steel.ToString();
 			gunpowderText.text = gunpowder.ToString();
-			energyText.text = energy + "/" + maxEnergy;
+			capacityText.text = energy + "/" + maxEnergy;
 		}
 	}
 
@@ -114,8 +114,8 @@ public class Inventory : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.Alpha9)) SelectSlot(8);
 		if(Input.GetKeyDown(KeyCode.Alpha0)) SelectSlot(9);
 		#endregion
-		//If the mouse are scrolling
-		if(Input.mouseScrollDelta.y != 0)
+		//If the mouse are scrolling only when crafting GUI are closed
+		if(Input.mouseScrollDelta.y != 0 && !Crafts.Crafting.i.craftingGUI.activeInHierarchy)
 		{
 			//Increase or decrease the selected index when scroll mouse
 			selected += Mathf.Clamp(Mathf.CeilToInt(Input.mouseScrollDelta.y),-1,1);

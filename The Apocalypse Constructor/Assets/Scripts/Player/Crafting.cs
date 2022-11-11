@@ -1,5 +1,8 @@
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+using System;
+using TMPro;
 
 namespace Crafts
 {
@@ -12,13 +15,40 @@ public class Crafting : MonoBehaviour
 	//List of recipe of stash
 	public List<Stash> recipe = new List<Stash>();
 	[Header("User Interface")]
-	[SerializeField] GameObject craftingGUI;
+	public GameObject craftingGUI;
 	[SerializeField] GameObject recipePanel;
 	[SerializeField] RectTransform recipePanelLayout;
+	public InfoGUI infoGUI;
+	public FillGUI fillGUI;
+	public DynamoGUI dynamoGUI;
+	public TowerGUI towerGUI;
+	
+	#region GUI Classes
+	[Serializable] public class InfoGUI
+	{
+		public Image iconImage;
+		public TextMeshProUGUI nameText;
+		public TextMeshProUGUI woodText, steelText, gunpowderText;
+	}	
+	[Serializable] public class FillGUI
+	{
+		public GameObject group;
+		public TextMeshProUGUI descriptionText;
+		public TextMeshProUGUI healthText;
+	}	
+	[Serializable] public class DynamoGUI : FillGUI 
+	{
+		public TextMeshProUGUI energyText;
+	}	
+	[Serializable] public class TowerGUI : FillGUI
+	{
+		public TextMeshProUGUI damageText, speedText, rangeText, depleteText, aimText;
+	}
+	#endregion
 
 	void Start()
 	{
-		AddRecipe();
+		AddPanels();
 	}
 	
 	void Update()
@@ -31,7 +61,7 @@ public class Crafting : MonoBehaviour
 		}
 	}
 
-	void AddRecipe()
+	void AddPanels()
 	{
 		//Go through all the recipes
 		for (int r = 0; r < recipe.Count; r++)
@@ -39,7 +69,7 @@ public class Crafting : MonoBehaviour
 			//Create an new panel for this recipe
 			GameObject panel = Instantiate(recipePanel);
 			//Set the panel to be this recipe info
-			panel.GetComponent<RecipePanel>().SetRecipeInfo(recipe[r]);
+			panel.GetComponent<RecipePanel>().SetupPanel(recipe[r]);
 			//Adding panel to it layout 
 			panel.transform.SetParent(recipePanelLayout);
 			//Reset the panel's scale

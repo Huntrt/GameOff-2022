@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Tower : Structure
 {
-    public float damage, speed, range, crit;
-	public int consumption;
+    public float damage, speed, range;
+	public int deplete;
 	float countSpeed;
-	public bool detected;
+	[HideInInspector] public bool detected;
 
 	void Update()
 	{
