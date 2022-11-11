@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Structure : MonoBehaviour
 {
+	[SerializeField] Vector2[] extend;
     public float maxHealth;
 	[SerializeField] protected float health;
-	[SerializeField] Vector2[] extend;
 	public enum Function {none, tower, dynamo}; public Function function;
 
 	void Start()

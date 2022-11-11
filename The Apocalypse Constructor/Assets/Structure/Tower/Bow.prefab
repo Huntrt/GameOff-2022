@@ -299,6 +299,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   health: 0
+  extend: []
   function: 1
   damage: 5
   speed: 1
@@ -320,6 +321,7 @@ MonoBehaviour:
   mode: 2
   rotationObject: {fileID: 0}
   rotateSpeed: 20
+  direction: 0
 --- !u!212 &3380852211928699642
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class Aiming : MonoBehaviour
 	public Mode mode; public enum Mode {Directional, Dynamic, Pivot, Aimless}
 	[HideInInspector] public Transform rotationObject;
 	[HideInInspector] public float rotateSpeed;
+	[HideInInspector] public int direction;
 
 	void Start()
 	{
