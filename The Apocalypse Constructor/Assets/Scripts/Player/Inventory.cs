@@ -20,7 +20,8 @@ public class Inventory : MonoBehaviour
 
 	[System.Serializable] public class Slot 
 	{
-		public SO_Item stashed;
+		public Stash stashed;
+		public int stack;
 		public TextMeshProUGUI stackText;
 		public Image iconImage;
 	}
@@ -116,7 +117,7 @@ public class Inventory : MonoBehaviour
 		//Clamp the selected
 		selected = Mathf.Clamp(selected, 0, slots.Length-1);
 		//Get the stash at selected slot 
-		SO_Item stashed = slots[selected].stashed;
+		Stash stashed = slots[selected].stashed;
 		//If the stash of selected slot is empty
 		if(stashed == null)
 		{
@@ -144,15 +145,15 @@ public class Inventory : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.Mouse0))
 		{	
 			//Get the selected stash
-			SO_Item select = slots[selected].stashed;
+			Stash select = slots[selected].stashed;
 			//Dont use if there is no selected stash at slot
 			if(select == null) return;
 			//Placing the select buildings at mouse coordinate with occupian has decided
-			Map.Placing(select.prefab, mouseCoord, select.occupation);
+			Map.Placing(select.prefab, mouseCoord, (int)select.occupation);
 		}
 	}
 
-	public static bool Add(SO_Item stashing)
+	public static bool Add(Stash stashing)
 	{
 		Slot[] slots = i.slots;
 		///Go through all the slot of inventory to CHECKING STACK
@@ -162,9 +163,9 @@ public class Inventory : MonoBehaviour
 			if(slots[s].stashed != null) if(stashing.name == slots[s].stashed.name)
 			{
 				//Skip if this stash has reached max stack
-				if(slots[s].stashed.stack.cur >= slots[s].stashed.stack.max) continue;
+				if(slots[s].stack >= slots[s].stashed.maxStack) continue;
 				//Stack stash then refresh display and successfully add item
-				slots[s].stashed.stack.cur++; RefreshDisplay(s); return true;
+				slots[s].stack++; RefreshDisplay(s); return true;
 			}
 		}
 		///Go through all the slot of inventory to FIND AN EMPTY SLOT
@@ -176,14 +177,14 @@ public class Inventory : MonoBehaviour
 				//This stash will be the given stash
 				slots[s].stashed = stashing;
 				//Stack stash then refresh display and successfully add item
-				slots[s].stashed.stack.cur++; RefreshDisplay(s); return true;
+				slots[s].stack++; RefreshDisplay(s); return true;
 			}
 		}
 		//There are no slot left
 		return false;
 	}
 
-	public static bool Remove(SO_Item stashing)
+	public static bool Remove(Stash stashing)
 	{
 		Slot[] slots = i.slots;
 		//False if try to remove nothing
@@ -195,9 +196,9 @@ public class Inventory : MonoBehaviour
 			if(slots[s].stashed != null) if(stashing.name == slots[s].stashed.name)
 			{
 				//Remove the stash stack
-				slots[s].stashed.stack.cur--;
+				slots[s].stack--;
 				//Remove the stash if stash are out of stack
-				if(slots[s].stashed.stack.cur == 0) slots[s].stashed = null;
+				if(slots[s].stack == 0) slots[s].stashed = null;
 				//Refresh display and successfully remove item
 				RefreshDisplay(s); return true;
 			}
@@ -213,7 +214,7 @@ public class Inventory : MonoBehaviour
 		//Enable slot icon and set it to be stash icon
 		slot.iconImage.enabled = true; slot.iconImage.sprite = slot.stashed.icon;
 		//Set stack text to be how many stack has stash
-		slot.stackText.text = slot.stashed.stack.cur.ToString();
+		slot.stackText.text = slot.stack.ToString();
 		//Refresh slot selection
 		i.SelectSlot(i.selected);
 	}

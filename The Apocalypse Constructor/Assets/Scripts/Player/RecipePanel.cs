@@ -9,7 +9,7 @@ public class RecipePanel : MonoBehaviour
 	public TextMeshProUGUI nameDisplay;
 	public Button craftButton;
 
-	public void SetRecipeInfo(SO_Item item)
+	public void SetRecipeInfo(Stash item)
 	{
 		//Display item name on text
 		nameDisplay.text = item.name;

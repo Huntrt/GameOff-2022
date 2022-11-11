@@ -9,7 +9,8 @@ public class Crafting : MonoBehaviour
 	public static Crafting i {get{if(_i==null){_i = GameObject.FindObjectOfType<Crafting>();}return _i;}} static Crafting _i;
 	#endregion
 	
-	public List<SO_Item> items = new List<SO_Item>();
+	//List of recipe of stash
+	public List<Stash> recipe = new List<Stash>();
 	[Header("User Interface")]
 	[SerializeField] GameObject craftingGUI;
 	[SerializeField] GameObject recipePanel;
@@ -33,12 +34,12 @@ public class Crafting : MonoBehaviour
 	void AddRecipe()
 	{
 		//Go through all the recipes
-		for (int r = 0; r < items.Count; r++)
+		for (int r = 0; r < recipe.Count; r++)
 		{
 			//Create an new panel for this recipe
 			GameObject panel = Instantiate(recipePanel);
 			//Set the panel to be this recipe info
-			panel.GetComponent<RecipePanel>().SetRecipeInfo(items[r]);
+			panel.GetComponent<RecipePanel>().SetRecipeInfo(recipe[r]);
 			//Adding panel to it layout 
 			panel.transform.SetParent(recipePanelLayout);
 			//Reset the panel's scale
@@ -46,21 +47,12 @@ public class Crafting : MonoBehaviour
 		}
 	}
 
-	public void Craft(SO_Item crafted)
+	public void Craft(Stash crafted)
 	{
 		//Stop if inventory dont has enough material to craft given item
-		if(!Inventory.i.materials.Consume(crafted.recipe.wood, crafted.recipe.steel, crafted.recipe.gunpowder)) return;
-		//@ Replicate the item that got from given recipe to stash it
-		SO_Item stashing = ScriptableObject.CreateInstance("SO_Item") as SO_Item;
-		stashing.name = crafted.name;
-		stashing.prefab = crafted.prefab;
-		stashing.description = crafted.description;
-		stashing.occupation = crafted.occupation;
-		stashing.icon = crafted.icon;
-		stashing.stack = new SO_Item.Stack();
-		stashing.stack.max = crafted.stack.max;
+		if(!Inventory.i.materials.Consume(crafted.wood, crafted.steel, crafted.gunpowder)) return;
 		//Add the crafted stash to inventory
-		Inventory.Add(stashing);
+		Inventory.Add(crafted);
 	}
 }
 } //? End namespace
