@@ -29,6 +29,9 @@ public class Inventory : MonoBehaviour
 	[System.Serializable] public class Materials 
 	{
 		public int wood, steel, gunpowder, energy, maxEnergy;
+		[Header("GUI")]
+		public TextMeshProUGUI woodText;
+		public TextMeshProUGUI steelText, gunpowderText, energyText;
 
 		public void Gain(int wood, int steel, int gunpowder, int maxEnergy)
 		{
@@ -37,6 +40,7 @@ public class Inventory : MonoBehaviour
 			this.steel     += steel;
 			this.gunpowder += gunpowder;
 			this.maxEnergy += maxEnergy;
+			UpdateCounter();
 		}
 
 		public bool Consume(int wood, int steel, int gunpowder, int energy = 0)
@@ -51,7 +55,16 @@ public class Inventory : MonoBehaviour
 			this.steel     -= steel;
 			this.gunpowder -= gunpowder;
 			this.energy    += energy;
+			UpdateCounter();
 			return true;
+		}
+
+		public void UpdateCounter()
+		{
+			woodText.text = wood.ToString();
+			steelText.text = steel.ToString();
+			gunpowderText.text = gunpowder.ToString();
+			energyText.text = energy + "/" + maxEnergy;
 		}
 	}
 
@@ -75,6 +88,7 @@ public class Inventory : MonoBehaviour
 	void Start()
 	{
 		cam = Camera.main;
+		materials.UpdateCounter();
 	}
 	
 	void Update()
