@@ -55,7 +55,7 @@ public class RecipePanel : MonoBehaviour
 			StatsInfoHidden(1);
 			craft.dynamoGUI.descriptionText.text = recipe.description;
 			craft.dynamoGUI.healthText.text = "Health:<b> " + structure.maxHealth + "</b>";
-			craft.dynamoGUI.energyText.text = "Energy:<b> " + dynamo.provide + "</b>";
+			craft.dynamoGUI.energyText.text = "Energy: <b>+" + dynamo.provide + "</b>";
 		}
 		else if(structure.function == Structure.Function.tower)
 		{
@@ -65,7 +65,7 @@ public class RecipePanel : MonoBehaviour
 			craft.towerGUI.damageText.text = "Damage:<b> " + tower.damage + "</b>";
 			craft.towerGUI.speedText.text = "Speed:<b> " +  tower.speed + "</b>";
 			craft.towerGUI.rangeText.text = "Range:<b> " + tower.range + "</b>";
-			craft.towerGUI.depleteText.text = "Consumption:<b> " + tower.deplete + "</b>";
+			craft.towerGUI.depleteText.text = "Deplete:<b> " + tower.deplete + "</b>";
 			craft.towerGUI.aimText.text = "Aim:<b> " + tower.GetComponent<Aiming>().mode + "</b>";
 		}
 	}

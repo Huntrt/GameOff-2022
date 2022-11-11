@@ -25,6 +25,11 @@
 				▪ Build
 				▪ Fix
 				▪ Destroy
+		▪ Home:
+			▪ Place home at the middle.
+			▪ Home has health like other structure.
+			▪ Display home health onto GUI.
+			▪ Gome over when home destroy
 		▪ Resources:
 			[R = W? S? E?] for quick recipe note
 			▪ Wood, Steel & Gunpowder:
