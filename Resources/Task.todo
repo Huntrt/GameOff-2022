@@ -141,7 +141,7 @@
 					✓ Rotate - Able to rotate toward any thing.
 					▪ Aimless - Don't required aiming.
 					▪ Dynamic - Able to switch between multiple direction. @consider
-			▪ Deplete: @next
+			▪ Deplete: @doing
 				(use wire plug as an icon)
 				▪ Increase the total energy needed.
 				▪ Shutdown when dont has enough energy:

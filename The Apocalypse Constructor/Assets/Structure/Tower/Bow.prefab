@@ -319,7 +319,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 0}
-  mode: 2
+  mode: 1
   direction: {x: 0, y: 0}
   rotationAnchor: {fileID: 7328282304363915693}
   rotateSpeed: 20

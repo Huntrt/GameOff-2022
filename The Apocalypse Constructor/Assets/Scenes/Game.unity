@@ -6653,20 +6653,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3380852211928699586, guid: f96f8c8f757ab5c4ab8ef25de9b2b299,
-        type: 3}
-      propertyPath: mode
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3380852211928699589, guid: f96f8c8f757ab5c4ab8ef25de9b2b299,
         type: 3}
       propertyPath: m_Name
       value: Bow
-      objectReference: {fileID: 0}
-    - target: {fileID: 3380852211928699589, guid: f96f8c8f757ab5c4ab8ef25de9b2b299,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3380852211928699643, guid: f96f8c8f757ab5c4ab8ef25de9b2b299,
         type: 3}
