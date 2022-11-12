@@ -6,6 +6,7 @@ public class Tower : Structure
 	public int deplete;
 	float countSpeed;
 	[HideInInspector] public bool detected;
+	[HideInInspector] public bool flipped;
 
 	void Update()
 	{

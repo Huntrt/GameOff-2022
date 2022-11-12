@@ -105,7 +105,8 @@
 	Build:
 		✓ Able to build on plot that is available.
 		✓ Only block the plot if the structure required to.
-		▪ Lost an stack in inventory when build
+		▪ Able to flip the tower when building them.
+		▪ Lost an stack in inventory when build.
 		▪ Able to destroy structure using destroy key.
 		▪ What happen to other building if connection get destroy??? @critical
 			a. they just float (balanced of by jumping enemy)
@@ -130,16 +131,16 @@
 			▪ Damage.
 			X Critical.
 			▪ Speed.
-			▪ Range.
+			▪ Range. @doing
 				▪ Circle Range Indicator
 				▪ Line Range Indicator
-			▪ Aim: @doing
+			▪ Aim:
 				✓ Attack when enemy get in range.
 				▪ Mode:
-					▪ Direct - Only aim in an set direction.
-					▪ Dynamic - Able to switch between multiple direction.
+					✓ Direct - Only aim in an set direction.
 					✓ Rotate - Able to rotate toward any thing.
 					▪ Aimless - Don't required aiming.
+					▪ Dynamic - Able to switch between multiple direction. @consider
 			▪ Deplete: @next
 				(use wire plug as an icon)
 				▪ Increase the total energy needed.
@@ -176,7 +177,7 @@
 			▪ Spit - Create an projectile that deal damage to any structure it hit.
 			▪ ??? - Shoot an beam dealing rapid damage to any structure in the path. @consider
 		▪ Special: @consider
-			▪ Stealth - Only able to aim it when it attack.
+			▪ Stealth - Only able to aim it when it attack (change enemy layer to stealth?).
 			▪ Stretcher - Travel using hook-like movement. @consider
 
 Settings:

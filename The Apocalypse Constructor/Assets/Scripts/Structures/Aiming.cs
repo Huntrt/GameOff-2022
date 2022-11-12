@@ -3,8 +3,8 @@ using UnityEngine;
 public class Aiming : MonoBehaviour
 {
 	Tower tower;
-	public Mode mode; public enum Mode {Direct, Dynamic, Rotate, Aimless}
-	[HideInInspector] public int direction;
+	public Mode mode; public enum Mode {Direct, Rotate, Aimless}
+	[HideInInspector] public Vector2 direction;
 	[HideInInspector] public Transform rotationAnchor;
 	[HideInInspector] public float rotateSpeed;
 
@@ -22,17 +22,19 @@ public class Aiming : MonoBehaviour
 		tower.detected = false;
 		//@ Deicide which aim mode gonna base on what has choose
 		if(mode == Mode.Direct) DirectAim();
-		else if(mode == Mode.Dynamic) DynamicAim();
 		else if(mode == Mode.Rotate) RotateAim();
 		else if(mode == Mode.Aimless) AimlessAim();
 	}
 
 	void DirectAim()
 	{
-
+		//Flip the aim direction if the tower been flip
+		Vector2 dir = direction; if(tower.flipped) dir = -dir;
+		//Create an pillar at this tower to range with radius of an block toward set direction on enemy layer
+		RaycastHit2D hit = Physics2D.CircleCast(transform.position, Map.i.spacing/2, dir, tower.range, EnemyManager.i.enemyLayer);
+		//Detect if cast hit an enemy
+		if(hit) tower.detected = true;
 	}
-
-	void DynamicAim() {}
 
 	void RotateAim()
 	{
