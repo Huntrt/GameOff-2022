@@ -5,7 +5,7 @@ public class Entity : MonoBehaviour
 	public float maxHealth;
 	[SerializeField] protected float health;
 
-	void OnEnable()
+	protected virtual void OnEnable()
 	{
 		health = maxHealth;
 	}

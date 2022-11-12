@@ -5,7 +5,7 @@ public class Aiming : MonoBehaviour
 	Tower tower;
 	public Mode mode; public enum Mode {Direct, Dynamic, Rotate, Aimless}
 	[HideInInspector] public int direction;
-	[HideInInspector] public Transform rotationObject;
+	[HideInInspector] public Transform rotationAnchor;
 	[HideInInspector] public float rotateSpeed;
 
 	void Start()
@@ -30,18 +30,22 @@ public class Aiming : MonoBehaviour
 
 	}
 
-	void DynamicAim()
-	{
-		
-	}
+	void DynamicAim() {}
 
 	void RotateAim()
 	{
+		//Create an circle cast at this tower with radius as it range and only cast on enemy layer
+		RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, tower.range, Vector2.zero,0, EnemyManager.i.enemyLayer);
+		//If cast hit anything
+		if(hits.Length > 0)
+		{
+			//Getet the closest enemy that got hit by cast
+			GameObject detect = EnemyManager.Closest(transform.position, hits);
+			//Makt the anchor rotate toward closest enemy detected
+			rotationAnchor.right = (detect.transform.position - transform.position).normalized;
+		}
 		
 	}
 
-	void AimlessAim()
-	{
-		
-	}
+	void AimlessAim() {}
 }
