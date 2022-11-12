@@ -18,12 +18,11 @@ public class Aiming : MonoBehaviour
 
 	void Update()
 	{
-		//Tower havenlt detect anything
+		//Tower havent detect anything
 		tower.detected = false;
 		//@ Deicide which aim mode gonna base on what has choose
 		if(mode == Mode.Direct) DirectAim();
 		else if(mode == Mode.Rotate) RotateAim();
-		else if(mode == Mode.Aimless) AimlessAim();
 	}
 
 	void DirectAim()
@@ -43,15 +42,15 @@ public class Aiming : MonoBehaviour
 		//If cast hit anything
 		if(hits.Length > 0)
 		{
+			//Tower has detect an enemy
+			tower.detected = true;
+			//Dont need to rotate if using aimless mode
+			if(mode == Mode.Aimless) return;
 			//Getet the closest enemy that got hit by cast
 			GameObject detect = EnemyManager.Closest(transform.position, hits);
 			//Makt the anchor rotate toward closest enemy detected
 			rotationAnchor.right = (detect.transform.position - transform.position).normalized;
-			//Tower has detect an enemy
-			tower.detected = true;
 		}
 		
 	}
-
-	void AimlessAim() {}
 }
