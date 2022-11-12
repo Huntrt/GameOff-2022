@@ -18,6 +18,8 @@ public class Aiming : MonoBehaviour
 
 	void Update()
 	{
+		//Tower havenlt detect anything
+		tower.detected = false;
 		//@ Deicide which aim mode gonna base on what has choose
 		if(mode == Mode.Direct) DirectAim();
 		else if(mode == Mode.Dynamic) DynamicAim();
@@ -43,6 +45,8 @@ public class Aiming : MonoBehaviour
 			GameObject detect = EnemyManager.Closest(transform.position, hits);
 			//Makt the anchor rotate toward closest enemy detected
 			rotationAnchor.right = (detect.transform.position - transform.position).normalized;
+			//Tower has detect an enemy
+			tower.detected = true;
 		}
 		
 	}

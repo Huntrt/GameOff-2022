@@ -134,11 +134,11 @@
 				▪ Circle Range Indicator
 				▪ Line Range Indicator
 			▪ Aim: @doing
-				▪ Attack when enemy get in range.
+				✓ Attack when enemy get in range.
 				▪ Mode:
 					▪ Direct - Only aim in an set direction.
 					▪ Dynamic - Able to switch between multiple direction.
-					▪ Rotate - Able to rotate toward any thing.
+					✓ Rotate - Able to rotate toward any thing.
 					▪ Aimless - Don't required aiming.
 			▪ Deplete: @next
 				(use wire plug as an icon)
@@ -162,7 +162,6 @@
 			▪ Flyer - start from spawing in the sky and move in an straighe line until block.
 			▪ Jumper - When got block then jump to the highest structure it could reach.
 			▪ Climber - able to climb on as much structure has set. @consider
-			▪ Stretcher - Stretch an part of it body outward and use that as an hook for traversal. @consider
 		▪ Health:
 			▪ Take damage.
 			▪ Die when out of health.
@@ -176,6 +175,9 @@
 			▪ Smash - Melee attack deal damage in arena of effect.
 			▪ Spit - Create an projectile that deal damage to any structure it hit.
 			▪ ??? - Shoot an beam dealing rapid damage to any structure in the path. @consider
+		▪ Special: @consider
+			▪ Stealth - Only able to aim it when it attack.
+			▪ Stretcher - Travel using hook-like movement. @consider
 
 Settings:
 	▪ UI Scale

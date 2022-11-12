@@ -5,8 +5,9 @@ public class Structure : Entity
 	[SerializeField] Vector2[] extend;
 	public enum Function {none, tower, dynamo}; public Function function;
 
-	void Start()
+	protected override void OnEnable()
 	{
+		base.OnEnable();
 		Extending();
 	}
 
