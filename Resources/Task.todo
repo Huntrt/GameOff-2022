@@ -25,6 +25,7 @@
 				▪ Build
 				▪ Fix
 				▪ Destroy
+			▪ Show the structure currently select.
 		▪ Home:
 			▪ Place home at the middle.
 			▪ Home has health like other structure.
@@ -68,7 +69,7 @@
 				✓ An group for it stats.
 					✓ Buildings
 						✓ Health
-						✓ Deplete
+						✓ Depleted
 						✓ Tower
 							✓ Damage
 							✓ Speed
@@ -84,7 +85,7 @@
 				▪ Sperated the list into one unlocked and one locked.
 				▪ Check all recipe has unlocked.
 				▪ Using rarity to determent unlock an recipe.
-			▪ Display recipe in an list of panel:
+			✓ Display recipe in an list of panel:
 				X Panel contain material needed.
 				✓ Panel contain item icon.
 				✓ Able to scroll through all the panel.
@@ -130,7 +131,7 @@
 		Tower:
 			▪ Damage.
 			X Critical.
-			▪ Speed.
+			✓ Speed.
 			✓ Range.
 				✓ Circle Range Indicator
 				✓ Line Range Indicator
@@ -141,12 +142,14 @@
 					✓ Rotate - Able to rotate toward any thing.
 					▪ Aimless - Don't required aiming.
 					▪ Dynamic - Able to switch between multiple direction. @consider
-			▪ Deplete: @doing
+			▪ Depleting: @doing
 				(use wire plug as an icon)
-				▪ Increase the total energy needed.
-				▪ Shutdown when dont has enough energy:
-					▪ Shutdown mean cease the tower action.
-					▪ Shutdown the latest placed tower.
+				✓ Increase the total energy needed.
+				✓ When dont has enough energy:
+					✓ a. Dont allow to place tower.
+					X b. Shutdown @consider
+						X Shutdown mean cease the tower action.
+						X Shutdown the latest placed tower.
 			▪ Able to use upgrade to modify how tower work:
 				▪ Upgrade by given consumable to an tower.
 				▪ Upgrade tower stats directly by click on an tower.

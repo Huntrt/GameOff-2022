@@ -3,7 +3,7 @@ using UnityEngine;
 public class Tower : Structure
 {
     public float damage, speed, range;
-	public int deplete;
+	public int depleted;
 	float countSpeed;
 	[HideInInspector] public bool detected;
 	[HideInInspector] public bool flipped;
@@ -38,6 +38,8 @@ public class Tower : Structure
 
 	public override void Die()
 	{
+		//No longer consume the amount of energy will be depleted
+		Inventory.i.materials.Consume(0,0,0,-depleted);
 		//Erased track of this structure as tower
 		StructureManager.i.towers.Remove(this);
 		base.Die();

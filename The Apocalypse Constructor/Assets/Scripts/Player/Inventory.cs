@@ -59,6 +59,13 @@ public class Inventory : MonoBehaviour
 
 		public void UpdateCounter()
 		{
+			//@ Make sure material dont go to negative
+			if(wood < 0) wood = 0;
+			if(steel < 0) steel = 0;
+			if(gunpowder < 0) gunpowder = 0;
+			if(energy < 0) energy = 0;
+			if(maxEnergy < 0) maxEnergy = 0;
+			//@ Display material value to it text
 			woodText.text = wood.ToString();
 			steelText.text = steel.ToString();
 			gunpowderText.text = gunpowder.ToString();
@@ -152,6 +159,12 @@ public class Inventory : MonoBehaviour
 		Stash select = slots[selected].stashed;
 		//Dont use if there is no selected stash at slot
 		if(select == null) return;
+		//If use the select tower but dont has enough energy for it to be depleted
+		if(select.prefab.CompareTag("Tower") && !materials.Consume(0,0,0,select.prefab.GetComponent<Tower>().depleted))
+		{
+			//Dont allow use
+			return;
+		}
 		//Placing the select buildings at mouse coordinate with occupian has decided
 		Map.Placing(select.prefab, position, (int)select.occupation);
 	}

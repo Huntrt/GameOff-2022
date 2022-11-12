@@ -303,7 +303,7 @@ MonoBehaviour:
   damage: 5
   speed: 1
   range: 5
-  deplete: 4
+  depleted: 4
   detected: 0
   flipped: 0
 --- !u!114 &3380852211928699586

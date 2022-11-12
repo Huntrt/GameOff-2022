@@ -65,7 +65,7 @@ public class RecipePanel : MonoBehaviour
 			craft.towerGUI.damageText.text = "Damage:<b> " + tower.damage + "</b>";
 			craft.towerGUI.speedText.text = "Speed:<b> " +  tower.speed + "</b>";
 			craft.towerGUI.rangeText.text = "Range:<b> " + tower.range + "</b>";
-			craft.towerGUI.depleteText.text = "Deplete:<b> " + tower.deplete + "</b>";
+			craft.towerGUI.depletedText.text = "Depleted:<b> " + tower.depleted + "</b>";
 			craft.towerGUI.aimText.text = "Aim:<b> " + tower.GetComponent<Aiming>().mode + "</b>";
 		}
 	}
