@@ -8,11 +8,11 @@ public class Aiming : MonoBehaviour
 	[HideInInspector] public Transform rotationAnchor;
 	[HideInInspector] public float rotateSpeed;
 
-	void Start()
+	void Reset() 
 	{
-		//Getting tower from object it on
+		//Get the tower component the moment aim get added
 		tower = GetComponent<Tower>();
-		//Print null if the object is not an tower
+		//Print null if the object dont has tower
 		if(tower == null) Debug.LogError(gameObject.name + " aiming need to be an tower");
 	}
 
