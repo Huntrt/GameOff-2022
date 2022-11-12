@@ -25,7 +25,8 @@
 				▪ Build
 				▪ Fix
 				▪ Destroy
-			▪ Show the structure currently select.
+			✓ Show the structure currently select.
+			✓ Show tower range when preview.
 		▪ Home:
 			▪ Place home at the middle.
 			▪ Home has health like other structure.
@@ -106,7 +107,7 @@
 	Build:
 		✓ Able to build on plot that is available.
 		✓ Only block the plot if the structure required to.
-		▪ Able to flip the tower when building them.
+		▪ Able to flip the tower when building them. @doing
 		▪ Lost an stack in inventory when build.
 		▪ Able to destroy structure using destroy key.
 		▪ What happen to other building if connection get destroy??? @critical
@@ -135,14 +136,14 @@
 			✓ Range.
 				✓ Circle Range Indicator
 				✓ Line Range Indicator
-			▪ Aim:
+			✓ Aim:
 				✓ Attack when enemy get in range.
-				▪ Mode:
+				✓ Mode:
 					✓ Direct - Only aim in an set direction.
 					✓ Rotate - Able to rotate toward any thing.
-					▪ Aimless - Don't required aiming.
+					✓ Aimless - Don't required aiming.
 					▪ Dynamic - Able to switch between multiple direction. @consider
-			▪ Depleting: @doing
+			✓ Depleting:
 				(use wire plug as an icon)
 				✓ Increase the total energy needed.
 				✓ When dont has enough energy:
@@ -159,7 +160,8 @@
 	Enemy:
 		▪ Spawning:
 			▪ Spawning on the edge of the map.
-			▪ Change rotation base on X asix got spawn.
+			▪ Change rotation base on X axis got spawn.
+			▪ Randomize queue of enemy will spawn on wave.
 		▪ Movement:
 			▪ How fast it move.
 			▪ Walking - only able to move in an straight line until block.

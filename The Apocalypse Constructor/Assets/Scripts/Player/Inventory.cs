@@ -10,12 +10,14 @@ public class Inventory : MonoBehaviour
 
 	public Materials materials;
 	public Slot[] slots;
+	public int selected; public OnSelect onSelect;
+	[HideInInspector] public Stash selectedStash;
 	[Header("GUI")]
-	public int selected;
 	[SerializeField] Transform selectIndicator;
 	[SerializeField] TextMeshProUGUI selectNameText;
 	Camera cam;
 
+	public delegate void OnSelect(Stash selected);
 	[System.Serializable] public class Slot 
 	{
 		public Stash stashed;
@@ -23,7 +25,6 @@ public class Inventory : MonoBehaviour
 		public TextMeshProUGUI stackText;
 		public Image iconImage;
 	}
-	
 	[System.Serializable] public class Materials 
 	{
 		public int wood, steel, gunpowder, energy, maxEnergy;
@@ -107,16 +108,16 @@ public class Inventory : MonoBehaviour
 	{
 		//todo: Keybinds Inventory
 		#region Inventory keycode
-		if(Input.GetKeyDown(KeyCode.Alpha1)) SelectSlot(0);
-		if(Input.GetKeyDown(KeyCode.Alpha2)) SelectSlot(1);
-		if(Input.GetKeyDown(KeyCode.Alpha3)) SelectSlot(2);
-		if(Input.GetKeyDown(KeyCode.Alpha4)) SelectSlot(3);
-		if(Input.GetKeyDown(KeyCode.Alpha5)) SelectSlot(4);
-		if(Input.GetKeyDown(KeyCode.Alpha6)) SelectSlot(5);
-		if(Input.GetKeyDown(KeyCode.Alpha7)) SelectSlot(6);
-		if(Input.GetKeyDown(KeyCode.Alpha8)) SelectSlot(7);
-		if(Input.GetKeyDown(KeyCode.Alpha9)) SelectSlot(8);
-		if(Input.GetKeyDown(KeyCode.Alpha0)) SelectSlot(9);
+		if(Input.GetKeyDown(KeyCode.Alpha1)) Select(0);
+		if(Input.GetKeyDown(KeyCode.Alpha2)) Select(1);
+		if(Input.GetKeyDown(KeyCode.Alpha3)) Select(2);
+		if(Input.GetKeyDown(KeyCode.Alpha4)) Select(3);
+		if(Input.GetKeyDown(KeyCode.Alpha5)) Select(4);
+		if(Input.GetKeyDown(KeyCode.Alpha6)) Select(5);
+		if(Input.GetKeyDown(KeyCode.Alpha7)) Select(6);
+		if(Input.GetKeyDown(KeyCode.Alpha8)) Select(7);
+		if(Input.GetKeyDown(KeyCode.Alpha9)) Select(8);
+		if(Input.GetKeyDown(KeyCode.Alpha0)) Select(9);
 		#endregion
 		//If the mouse are scrolling only when crafting GUI are closed
 		if(Input.mouseScrollDelta.y != 0 && !Crafts.Crafting.i.craftingGUI.activeInHierarchy)
@@ -124,26 +125,32 @@ public class Inventory : MonoBehaviour
 			//Increase or decrease the selected index when scroll mouse
 			selected += Mathf.Clamp(Mathf.CeilToInt(Input.mouseScrollDelta.y),-1,1);
 			//Choosed slot at selected
-			SelectSlot(selected);
+			Select(selected);
 		}
 	}
 
-	void SelectSlot(int index)
+	void Select(int slot)
 	{
-		//Select the given index
-		selected = index;
-		//Clamp the selected
+		//Select the given slot index
+		selected = slot;
+		//Clamp the selected slot
 		selected = Mathf.Clamp(selected, 0, slots.Length-1);
 		//Get the stash at selected slot 
 		Stash stashed = slots[selected].stashed;
+		//Call has select an new slot 
+		onSelect?.Invoke(stashed);
 		//If the stash of selected slot is empty
 		if(stashed == null)
 		{
+			//No longer select any stash
+			selectedStash = null;
 			//Hide the select name panel
 			selectNameText.transform.parent.gameObject.SetActive(false);
 		}
 		else
 		{
+			//Save the stash at selected slot
+			selectedStash = slots[selected].stashed;
 			//Display select name text as selected stash name
 			selectNameText.text = stashed.name;
 			//Show the select name panel
@@ -232,6 +239,6 @@ public class Inventory : MonoBehaviour
 		//Set stack text to be how many stack has stash
 		slot.stackText.text = slot.stack.ToString();
 		//Refresh slot selection
-		i.SelectSlot(i.selected);
+		i.Select(i.selected);
 	}
 }

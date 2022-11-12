@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a3ca493d2ca1c44926bc8d704a89d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 0}
+  tower: {fileID: 3380852211928699587}
   mode: 1
   direction: {x: 0, y: 0}
   rotationAnchor: {fileID: 7328282304363915693}
