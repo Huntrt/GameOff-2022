@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Aiming : MonoBehaviour
 {
-	Tower tower;
+	[HideInInspector] public Tower tower;
 	public Mode mode; public enum Mode {Direct, Rotate, Aimless}
 	[HideInInspector] public Vector2 direction;
 	[HideInInspector] public Transform rotationAnchor;
@@ -30,7 +30,7 @@ public class Aiming : MonoBehaviour
 	{
 		//Flip the aim direction if the tower been flip
 		Vector2 dir = direction; if(tower.flipped) dir = -dir;
-		//Create an pillar at this tower to range with radius of an block toward set direction on enemy layer
+		//Create an pillar at this tower to range with radius of an spacing toward set direction on enemy layer
 		RaycastHit2D hit = Physics2D.CircleCast(transform.position, Map.i.spacing/2, dir, tower.range, EnemyManager.i.enemyLayer);
 		//Detect if cast hit an enemy
 		if(hit) tower.detected = true;

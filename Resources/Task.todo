@@ -131,9 +131,9 @@
 			▪ Damage.
 			X Critical.
 			▪ Speed.
-			▪ Range. @doing
-				▪ Circle Range Indicator
-				▪ Line Range Indicator
+			✓ Range.
+				✓ Circle Range Indicator
+				✓ Line Range Indicator
 			▪ Aim:
 				✓ Attack when enemy get in range.
 				▪ Mode:

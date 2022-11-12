@@ -12,10 +12,8 @@ public class Inventory : MonoBehaviour
 	public Slot[] slots;
 	[Header("GUI")]
 	public int selected;
-	[SerializeField] Transform buildSnap;
 	[SerializeField] Transform selectIndicator;
 	[SerializeField] TextMeshProUGUI selectNameText;
-	Vector2 mouseCoord;
 	Camera cam;
 
 	[System.Serializable] public class Slot 
@@ -96,7 +94,6 @@ public class Inventory : MonoBehaviour
 		//test: Remove stash from inventory one by one
 		if(Input.GetKeyDown(KeyCode.X)) for (int i = 0; i < 10; i++) {if(Remove(slots[i].stashed)) return;}
 		ChoosingSlot();
-		Use();
 	}
 
 	void ChoosingSlot()
@@ -149,22 +146,14 @@ public class Inventory : MonoBehaviour
 		selectIndicator.position = slots[selected].iconImage.transform.position;
 	}
 
-	void Use()
+	public void Use(Vector2 position)
 	{
-		//Get the coordinate in map of mouse position
-		mouseCoord = Map.SnapPosition(cam.ScreenToWorldPoint((Vector2)Input.mousePosition));
-		//Snap the build to mouse coordinate
-		buildSnap.transform.position = mouseCoord;
-		//todo: Use Slot Keybind
-		if(Input.GetKeyDown(KeyCode.Mouse0))
-		{	
-			//Get the selected stash
-			Stash select = slots[selected].stashed;
-			//Dont use if there is no selected stash at slot
-			if(select == null) return;
-			//Placing the select buildings at mouse coordinate with occupian has decided
-			Map.Placing(select.prefab, mouseCoord, (int)select.occupation);
-		}
+		//Get the selected stash
+		Stash select = slots[selected].stashed;
+		//Dont use if there is no selected stash at slot
+		if(select == null) return;
+		//Placing the select buildings at mouse coordinate with occupian has decided
+		Map.Placing(select.prefab, position, (int)select.occupation);
 	}
 
 	public static bool Add(Stash stashing)
