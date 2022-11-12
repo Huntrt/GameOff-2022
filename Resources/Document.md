@@ -13,6 +13,13 @@
 		x_Attack = The object create by caster each has indidepent stats, mostly handle damaging enemy.
 	Capacity = Term refer to both current energy and max energy.
 
+# Inherit
+	Entity:
+		Structure:
+			Dynamo.
+			Tower.
+		Enemy .
+
 # Color code:
 	Health = #17FF59
 	Energy = #ECFF17
