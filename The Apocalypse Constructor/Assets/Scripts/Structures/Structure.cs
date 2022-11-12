@@ -8,6 +8,10 @@ public class Structure : Entity
 	protected override void OnEnable()
 	{
 		base.OnEnable();
+		//Keep track of this structure
+		StructureManager.i.structures.Add(this);
+		//Keep track of this structure as filler
+		StructureManager.i.fills.Add(this);
 		Extending();
 	}
 
@@ -21,5 +25,13 @@ public class Structure : Entity
 			//Extend an new empty plot at cordinate has get if that coordinate dont has plot
 			if(Map.FindPlot(coord) == null) Map.Creating(null, coord, 0);
 		}
+	}
+
+	public override void Die()
+	{
+		//Erased track of this structure and as filler
+		StructureManager.i.structures.Remove(this);
+		StructureManager.i.fills.Add(this);
+		base.Die();
 	}
 }

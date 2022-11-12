@@ -8,6 +8,15 @@ public class Tower : Structure
 	[HideInInspector] public bool detected;
 	[HideInInspector] public bool flipped;
 
+	protected override void OnEnable()
+	{
+		base.OnEnable();
+		//Keep track of this structure as tower
+		StructureManager.i.towers.Add(this);
+		//Erased track of this structure as filler
+		StructureManager.i.fills.Remove(this);
+	}
+
 	void Update()
 	{
 		if(detected) Attacking();
@@ -25,5 +34,12 @@ public class Tower : Structure
 			//Reset speed counter
 			countSpeed -= countSpeed;
 		}
+	}
+
+	public override void Die()
+	{
+		//Erased track of this structure as tower
+		StructureManager.i.towers.Remove(this);
+		base.Die();
 	}
 }
