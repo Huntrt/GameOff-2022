@@ -131,12 +131,14 @@
 			X Critical.
 			▪ Speed.
 			▪ Range.
+				▪ Circle Range Indicator
+				▪ Line Range Indicator
 			▪ Aim: @doing
 				▪ Attack when enemy get in range.
 				▪ Mode:
-					▪ Directional - Only aim in an set direction.
+					▪ Direct - Only aim in an set direction.
 					▪ Dynamic - Able to switch between multiple direction.
-					▪ Pivot - Able to aim at any direction.
+					▪ Rotate - Able to rotate toward any thing.
 					▪ Aimless - Don't required aiming.
 			▪ Deplete: @next
 				(use wire plug as an icon)
@@ -151,20 +153,29 @@
 				▪ Display tower stats.
 				▪ Display tower equipped gear.
 	Enemy:
+		▪ Spawning:
+			▪ Spawning on the edge of the map.
+			▪ Change rotation base on X asix got spawn.
 		▪ Movement:
 			▪ How fast it move.
-			▪ Stop if the next plot are occupied or blocked.
 			▪ Walking - only able to move in an straight line until block.
-			▪ Climber - able to climb on as much structure has set.
 			▪ Flyer - start from spawing in the sky and move in an straighe line until block.
-			▪ Scoper - Stop movement if any block is in it tange.
+			▪ Jumper - When got block then jump to the highest structure it could reach.
+			▪ Climber - able to climb on as much structure has set. @consider
+			▪ Stretcher - Stretch an part of it body outward and use that as an hook for traversal. @consider
 		▪ Health:
 			▪ Take damage.
 			▪ Die when out of health.
-			▪ Drop loot @consider
+			▪ Drop loot:
+				▪ Materials
 		▪ Attack:
 			▪ Detect target using raycast?
-			▪ Buildings.
+			▪ Begin attack if any structure in sight.
+			▪ Inflict damage to structure.
+			▪ Strike - Melee attack that deal damage to one structure
+			▪ Smash - Melee attack deal damage in arena of effect.
+			▪ Spit - Create an projectile that deal damage to any structure it hit.
+			▪ ??? - Shoot an beam dealing rapid damage to any structure in the path. @consider
 
 Settings:
 	▪ UI Scale
