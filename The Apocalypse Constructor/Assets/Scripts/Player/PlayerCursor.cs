@@ -14,17 +14,30 @@ public class PlayerCursor : MonoBehaviour
 	}
 	[SerializeField] Transform circleRange, rectangleRange;
 	Transform hoverTower;
+	bool selectFlip = true;
+	Stash invSelect;
 
 	void Start()
 	{
 		//Get the main camera
 		cam = Camera.main;
 		//Preview no structure when start
-		StructurePreviewing(null);
+		ChangePreview(null);
 		//Preview structure when ever inventory select change
-		Inventory.i.onSelect += StructurePreviewing;
+		Inventory.i.onSelect += ChangePreview;
 	}
 
+	void Update()
+	{
+		MousePositioning();
+		StructureInteract();
+		StructurePreviewing();
+		//todo: When press flip keybind then toggle select flip only when inventory select something
+		if(Input.GetKeyDown(KeyCode.R) && invSelect != null) selectFlip = !selectFlip;
+		//todo: Use Slot Keybind to use inventory at current mouse coordinate and select flip
+		if(Input.GetKeyDown(KeyCode.Mouse0)) Inventory.i.Use(mouseCoord, selectFlip);
+	}
+	
 	void MousePositioning()
 	{
 		//Get the the mouse position
@@ -35,50 +48,58 @@ public class PlayerCursor : MonoBehaviour
 		structurePreview.render.transform.position = mouseCoord;
 	}
 
-	void Update()
-	{
-		MousePositioning();
-		TowerInteract();
-		//todo: Use Slot Keybind to use inventory at current mouse coordinate
-		if(Input.GetKeyDown(KeyCode.Mouse0)) Inventory.i.Use(mouseCoord);
-	}
-
-	void TowerInteract()
+	void StructureInteract()
 	{
 		//Cast an ray at mouse position on tower layer
-		RaycastHit2D hover = Physics2D.Raycast(mousePos, Vector2.zero, 0, StructureManager.i.towerLayer);
-		//If hover over an tower
-		if(hover) 
+		RaycastHit2D tower = Physics2D.Raycast(mousePos, Vector2.zero, 0, StructureManager.i.towerLayer);
+		///If hover over an tower
+		if(tower) 
 		{
+			//Hide the structure preview
+			structurePreview.render.enabled = false;
 			//If the tower hover over are an new one
-			if(hover.collider.transform != hoverTower)
+			if(tower.collider.transform != hoverTower)
 			{
 				ResetTowerRange();
 				//Are now hover over this tower
-				hoverTower = hover.collider.transform;
-				//Show tower range at tower got hover with aiming of tower hover
-				ShowTowerRange(hoverTower.position, hoverTower.GetComponent<Aiming>());
+				hoverTower = tower.collider.transform;
+				//Get the aim of tower hovered
+				Aiming hoverAim = hoverTower.GetComponent<Aiming>();
+				//Show tower range at tower got hover with aiming and flip of tower hover
+				ShowTowerRange(hoverTower.position, hoverAim, hoverAim.tower.flipped);
 			}
 		}
-		//If not hover over any tower
-		else
+		//No longer hover over any tower 
+		else hoverTower = null;
+	}
+
+	void StructurePreviewing()
+	{
+		//todo: optimize this to only pewview when mouse coordinate change
+		/// Dont review anything if still hover over structure
+		if(hoverTower != null) return;
+		//Reset tower range
+		ResetTowerRange();
+		//Show the structure preview
+		structurePreview.render.enabled = true;
+		//No longer hover over any tower
+		hoverTower = null;
+		//Flip the preview render to be currently flipped
+		structurePreview.render.transform.rotation = Quaternion.Euler(0,(selectFlip)? 180 : 0,0);
+		//But currently preview an tower
+		if(structurePreview.previewAim != null)
 		{
-			ResetTowerRange();
-			//No longer hover over any tower
-			hoverTower = null;
-			//But currently preview an tower
-			if(structurePreview.previewAim != null)
-			{
-				//Show the tower range at mouse coordinates with preview aim
-				ShowTowerRange(mouseCoord, structurePreview.previewAim);
-			}
+			//Show the tower range at mouse coordinates with preview aim with select flip
+			ShowTowerRange(mouseCoord, structurePreview.previewAim, selectFlip);
 		}
 	}
 
-	void StructurePreviewing(Stash selected)
+	void ChangePreview(Stash selected)
 	{
 		//No longer preview any tower aim
 		structurePreview.previewAim = null;
+		//Save the inventory selected stash
+		invSelect = selected;
 		//If inventory has select an stash
 		if(selected != null)
 		{
@@ -102,15 +123,17 @@ public class PlayerCursor : MonoBehaviour
 		}
 	}
 
-	void ShowTowerRange(Vector2 pos, Aiming aimed)
+	void ShowTowerRange(Vector2 pos, Aiming aimed, bool isFlip)
 	{
 		//If aim mode of given tower are direct
 		if(aimed.mode == Aiming.Mode.Direct)
 		{
-			//Adjust given X poisition by increase it with half of tower range and half spacing size
-			float adjust = pos.x + ((aimed.tower.range/2) + (Map.i.spacing/2));
-			//Flip the adjust position if tower are flipped
-			if(aimed.tower.flipped) adjust = -adjust;
+			//Value for adjust the X given position
+			float adjust = pos.x;
+			//Decrease with half tower range and block if flipeed
+			if(isFlip) {adjust -= ((aimed.tower.range/2) + (Map.i.spacing/2));}
+			//Increase with half tower range and block if not flipeed
+			else {adjust += ((aimed.tower.range/2) + (Map.i.spacing/2));}
 			//Set range position X to be adjusted and Y to be given position
 			rectangleRange.position = new Vector2(adjust, pos.y);
 			//Set range scale width to be tower range and height to be an spacing
@@ -136,6 +159,6 @@ public class PlayerCursor : MonoBehaviour
 
 	void OnDisable()
 	{
-		Inventory.i.onSelect -= StructurePreviewing;
+		Inventory.i.onSelect -= ChangePreview;
 	}
 }

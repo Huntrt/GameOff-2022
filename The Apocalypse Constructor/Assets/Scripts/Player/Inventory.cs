@@ -160,7 +160,7 @@ public class Inventory : MonoBehaviour
 		selectIndicator.position = slots[selected].iconImage.transform.position;
 	}
 
-	public void Use(Vector2 position)
+	public void Use(Vector2 position, bool flip)
 	{
 		//Get the selected stash
 		Stash select = slots[selected].stashed;
@@ -173,7 +173,13 @@ public class Inventory : MonoBehaviour
 			return;
 		}
 		//Placing the select buildings at mouse coordinate with occupian has decided
-		Map.Placing(select.prefab, position, (int)select.occupation);
+		GameObject placed = Map.Placing(select.prefab, position, (int)select.occupation);
+		//If sucessfully placed an structure
+		if(placed != null)
+		{
+			//Flip the the placed structure with given flip
+			placed.GetComponent<Structure>().FlipStructure(flip);
+		}
 	}
 
 	public static bool Add(Stash stashing)

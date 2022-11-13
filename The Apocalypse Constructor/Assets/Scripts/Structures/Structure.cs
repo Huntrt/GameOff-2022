@@ -3,19 +3,25 @@ using UnityEngine;
 public class Structure : Entity
 {
 	[SerializeField] Vector2[] extend;
-	[HideInInspector] public bool flipped;
+	[SerializeField] public bool flipped;
 	public enum Function {none, tower, dynamo}; public Function function;
 
 	protected override void OnEnable()
 	{
 		base.OnEnable();
-		//Flip he tower Y rotation by 180 if it is flipped
-		if(flipped) transform.rotation = Quaternion.Euler(0,180,0);
 		//Keep track of this structure
 		StructureManager.i.structures.Add(this);
 		//Keep track of this structure as filler
 		StructureManager.i.fills.Add(this);
 		Extending();
+	}
+
+	public void FlipStructure(bool isFlip)
+	{
+		//Set structure flipped as given flip
+		flipped = isFlip;
+		//Flip he tower Y rotation by 180 if it is flipped
+		if(flipped) transform.rotation = Quaternion.Euler(0,180,0);
 	}
 
 	void Extending()

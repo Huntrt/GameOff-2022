@@ -53,6 +53,7 @@
 				✓ Show item stack.
 			▪ Action:
 				✓ On using button press call use on slot selected.
+				▪ Deselect when select the same slot.
 				▪ Drop item on selected slot.
 				✓ Each item has an maximum of stack.
 		▪ Crafting:
@@ -107,7 +108,7 @@
 	Build:
 		✓ Able to build on plot that is available.
 		✓ Only block the plot if the structure required to.
-		▪ Able to flip the tower when building them. @doing
+		✓ Able to flip the tower when building them.
 		▪ Lost an stack in inventory when build.
 		▪ Able to destroy structure using destroy key.
 		▪ What happen to other building if connection get destroy??? @critical
@@ -184,6 +185,20 @@
 		▪ Special: @consider
 			▪ Stealth - Only able to aim it when it attack (change enemy layer to stealth?).
 			▪ Stretcher - Travel using hook-like movement. @consider
+	Combat:
+		▪ Tower
+			▪ Caster
+				▪ Core - Core function or every tower caster.
+				▪ Points - An list of position and rotation that will be apply onto strike.
+				▪ Burst - Like points but there will be delay between each point.
+				▪ Slash - Deal damage in an circle hit box.
+				▪ Shotgun - Create an an list of random rotation and randomly alter the strike velocity.
+				▪ Pattern - Generate an list of poisition with spacing and cone rotation. @consider
+			▪ Strike
+				▪ Core - Contain basic stats of an strike.
+				▪ 
+		▪ Enemy
+
 
 Settings:
 	▪ UI Scale
