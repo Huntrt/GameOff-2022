@@ -6,7 +6,6 @@ public class Tower : Structure
 	public int depleted;
 	float countRate;
 	[HideInInspector] public bool detected;
-	[HideInInspector] public bool flipped;
 
 	protected override void OnEnable()
 	{
