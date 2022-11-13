@@ -10,18 +10,20 @@ public class Inventory : MonoBehaviour
 
 	public Materials materials;
 	public Slot[] slots;
-	public int selected; public OnSelect onSelect;
+	public int selected; int scrollSelect;
+	public delegate void OnSelect(Stash selected); public OnSelect onSelect;
 	[HideInInspector] public Stash selectedStash;
+	
 	[Header("GUI")]
 	[SerializeField] Transform selectIndicator;
 	[SerializeField] TextMeshProUGUI selectNameText;
 	Camera cam;
 
-	public delegate void OnSelect(Stash selected);
 	[System.Serializable] public class Slot 
 	{
 		public Stash stashed;
 		public int stack;
+		public bool select;
 		public TextMeshProUGUI stackText;
 		public Image iconImage;
 	}
@@ -122,22 +124,42 @@ public class Inventory : MonoBehaviour
 		//If the mouse are scrolling only when crafting GUI are closed
 		if(Input.mouseScrollDelta.y != 0 && !Crafts.Crafting.i.craftingGUI.activeInHierarchy)
 		{
-			//Increase or decrease the selected index when scroll mouse
-			selected += Mathf.Clamp(Mathf.CeilToInt(Input.mouseScrollDelta.y),-1,1);
-			//Choosed slot at selected
-			Select(selected);
+			//Increase or decrease the scroll select selected index when scroll mouse
+			scrollSelect = selected + Mathf.Clamp(Mathf.CeilToInt(Input.mouseScrollDelta.y),-1,1);
+			//Cycle through the scroll select if it go over or under the slot amount
+			if(scrollSelect > 9) scrollSelect = 0; if(scrollSelect < 0) scrollSelect = 9;
+			//Choosed slot at selected using scroll
+			Select(scrollSelect);
 		}
 	}
 
-	void Select(int slot)
+	void Select(int slot, bool refresh = false)
 	{
-		//Select the given slot index
-		selected = slot;
-		//Clamp the selected slot
-		selected = Mathf.Clamp(selected, 0, slots.Length-1);
-		//Get the stash at selected slot 
-		Stash stashed = slots[selected].stashed;
-		//Call has select an new slot 
+		//Havent get any stash
+		Stash stashed = null;
+		//Deselect the previous slot if select and new slot 
+		if(selected != slot) slots[selected].select = false;
+		//If havent select the given slot or select is an refresh
+		if(slots[slot].select == false || refresh)
+		{
+			//Select the given slot index
+			selected = slot;
+			//Get the stash at selected slot 
+			stashed = slots[selected].stashed;
+			//Show the select indicator
+			selectIndicator.gameObject.SetActive(true);
+			//Has select an new slot
+			slots[slot].select = true;
+		}
+		//If select an already select slot
+		else
+		{
+			//Hide the select indicator
+			selectIndicator.gameObject.SetActive(false);
+			//No longer select the same slot
+			slots[slot].select = false;
+		}
+		//Call has select an slot 
 		onSelect?.Invoke(stashed);
 		//If the stash of selected slot is empty
 		if(stashed == null)
@@ -149,8 +171,8 @@ public class Inventory : MonoBehaviour
 		}
 		else
 		{
-			//Save the stash at selected slot
-			selectedStash = slots[selected].stashed;
+			//Now select the stash has get
+			selectedStash = stashed;
 			//Display select name text as selected stash name
 			selectNameText.text = stashed.name;
 			//Show the select name panel
@@ -160,10 +182,15 @@ public class Inventory : MonoBehaviour
 		selectIndicator.position = slots[selected].iconImage.transform.position;
 	}
 
+	void Deselect()
+	{
+
+	}
+
 	public void Use(Vector2 position, bool flip)
 	{
-		//Get the selected stash
-		Stash select = slots[selected].stashed;
+		//Shorting the selected stash
+		Stash select = selectedStash;
 		//Dont use if there is no selected stash at slot
 		if(select == null) return;
 		//If use the select tower but dont has enough energy for it to be depleted
@@ -245,6 +272,6 @@ public class Inventory : MonoBehaviour
 		//Set stack text to be how many stack has stash
 		slot.stackText.text = slot.stack.ToString();
 		//Refresh slot selection
-		i.Select(i.selected);
+		i.Select(i.selected, true);
 	}
 }

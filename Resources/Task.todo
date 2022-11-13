@@ -53,7 +53,7 @@
 				✓ Show item stack.
 			▪ Action:
 				✓ On using button press call use on slot selected.
-				▪ Deselect when select the same slot.
+				✓ Deselect when select the same slot.
 				▪ Drop item on selected slot.
 				✓ Each item has an maximum of stack.
 		▪ Crafting:
