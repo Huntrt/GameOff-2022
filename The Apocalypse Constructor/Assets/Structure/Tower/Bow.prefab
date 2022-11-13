@@ -301,7 +301,7 @@ MonoBehaviour:
   extend: []
   function: 1
   damage: 5
-  speed: 1
+  rate: 0.8
   range: 5
   depleted: 4
   detected: 0

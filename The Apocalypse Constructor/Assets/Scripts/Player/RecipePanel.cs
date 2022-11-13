@@ -61,12 +61,12 @@ public class RecipePanel : MonoBehaviour
 		{
 			StatsInfoHidden(2);
 			craft.towerGUI.descriptionText.text = recipe.description;
-			craft.towerGUI.healthText.text = "Health:<b> " + structure.maxHealth + "</b>";
-			craft.towerGUI.damageText.text = "Damage:<b> " + tower.damage + "</b>";
-			craft.towerGUI.speedText.text = "Speed:<b> " +  tower.speed + "</b>";
-			craft.towerGUI.rangeText.text = "Range:<b> " + tower.range + "</b>";
-			craft.towerGUI.depletedText.text = "Depleted:<b> " + tower.depleted + "</b>";
-			craft.towerGUI.aimText.text = "Aim:<b> " + tower.GetComponent<Aiming>().mode + "</b>";
+			craft.towerGUI.healthText.text = "Health: <b>" + structure.maxHealth + "</b>";
+			craft.towerGUI.damageText.text = "Damage: <b>" + tower.damage + "</b>";
+			craft.towerGUI.speedText.text = "Rate: <b>" +  tower.rate + "</b>";
+			craft.towerGUI.rangeText.text = "Range: <b>" + tower.range + "</b>";
+			craft.towerGUI.depletedText.text = "Depleted: <b>" + tower.depleted + "</b>";
+			craft.towerGUI.aimText.text = "Aim: <b>" + tower.GetComponent<Aiming>().mode + "</b>";
 		}
 	}
 

@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class Tower : Structure
 {
-    public float damage, speed, range;
+    public float damage, rate, range;
 	public int depleted;
-	float countSpeed;
+	float countRate;
 	[HideInInspector] public bool detected;
 	[HideInInspector] public bool flipped;
 
@@ -25,14 +25,14 @@ public class Tower : Structure
 	void Attacking()
 	{
 		//Counting speed for attack
-		countSpeed += Time.deltaTime;
+		countRate += Time.deltaTime;
 		//If has count enough speed
-		if(countSpeed >= speed)
+		if(countRate >= rate)
 		{
 			/// Tower attacking
 			print(gameObject.name + " Attacked!");
 			//Reset speed counter
-			countSpeed -= countSpeed;
+			countRate -= countRate;
 		}
 	}
 
