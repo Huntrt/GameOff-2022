@@ -40,8 +40,8 @@ public class Map : MonoBehaviour
 		return null;
 	}
 	
-	/// Placing building onto an plot
-	public static GameObject Placing(GameObject building, Vector2 coordinate, int occupy)
+	/// Placing structure onto an plot
+	public static GameObject Placing(GameObject structure, Vector2 coordinate, int occupy)
 	{
 		//Find the plot at given coordinate
 		Plot plot = FindPlot(coordinate);
@@ -109,11 +109,11 @@ public class Map : MonoBehaviour
 		}
 
 		//Create the given object at given coordinates then return it if need to create any
-		return Instantiate(building, coordinate, Quaternion.identity);
+		return Instantiate(structure, coordinate, Quaternion.identity);
 	}
 
 	/// Creating an new plot
-	public static GameObject Creating(GameObject building, Vector2 coordinate, int occupying)
+	public static GameObject Creating(GameObject structure, Vector2 coordinate, int occupying)
 	{
 		//Find the plot at given coordinate
 		Plot plot = FindPlot(coordinate);
@@ -121,8 +121,8 @@ public class Map : MonoBehaviour
 		plot = new Plot(coordinate, occupying); 
 		//Add newly create plot to list
 		i.plots.Add(plot);
-		//Create the given object at given coordinates then return it if need to create any
-		if(building != null) return Instantiate(building, coordinate, Quaternion.identity); return null;
+		//Create the given structure at given coordinates then return it if need to create any
+		if(structure != null) return Instantiate(structure, coordinate, Quaternion.identity); return null;
 	}
 	
 	void OnDrawGizmos()
