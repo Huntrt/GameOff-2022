@@ -42,7 +42,8 @@ public class Tower : Structure
 		//No longer consume the amount of energy will be depleted
 		Inventory.i.materials.Consume(0,0,0,-depleted);
 		//Erased track of this structure as tower
-		StructureManager.i.towers.Remove(this);
+		//Regain the energy been depleted
+		Inventory.i.materials.Gain(0,0,0,depleted,0);
 		base.Die();
 	}
 }

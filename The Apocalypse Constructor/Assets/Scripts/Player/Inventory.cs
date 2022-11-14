@@ -41,6 +41,7 @@ public class Inventory : MonoBehaviour
 			this.wood      += wood;
 			this.steel     += steel;
 			this.gunpowder += gunpowder;
+			this.energy    -= energy;
 			this.maxEnergy += maxEnergy;
 			UpdateCounter();
 		}
