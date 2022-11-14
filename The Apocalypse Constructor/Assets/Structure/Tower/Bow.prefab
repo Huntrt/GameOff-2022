@@ -262,7 +262,7 @@ GameObject:
   - component: {fileID: 3380852211928699586}
   - component: {fileID: 3380852211928699642}
   - component: {fileID: 5347911676778586452}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Bow
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -298,14 +298,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   health: 0
-  extend: []
+  stash: {fileID: 11400000, guid: b37368714d3a09e4e934639d8fce6c18, type: 2}
+  extends: []
+  flipped: 0
   function: 1
   damage: 5
   rate: 0.8
   range: 5
   depleted: 4
   detected: 0
-  flipped: 0
 --- !u!114 &3380852211928699586
 MonoBehaviour:
   m_ObjectHideFlags: 0

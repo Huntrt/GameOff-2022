@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8993127125766533051}
   - component: {fileID: 5084080973397579827}
   - component: {fileID: 8993127125766533050}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wood Burner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,6 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 13
   health: 0
+  stash: {fileID: 11400000, guid: 1e79a156c95083940a9f99b20264a530, type: 2}
+  extends: []
+  flipped: 0
   function: 2
   provide: 10
 --- !u!212 &8993127125766533050

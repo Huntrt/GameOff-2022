@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4412832412503870533}
   - component: {fileID: 4412832412503870589}
   - component: {fileID: 628971386532475798}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Crossbow
   m_TagString: Tower
   m_Icon: {fileID: 0}
@@ -48,14 +48,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 15
   health: 0
-  extend: []
+  stash: {fileID: 11400000, guid: dc5b82c409450a841a0382b5f1708b51, type: 2}
+  extends: []
+  flipped: 0
   function: 1
   damage: 15
   rate: 1.5
   range: 8
   depleted: 5
   detected: 0
-  flipped: 0
 --- !u!114 &4412832412503870533
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class Structure : Entity
 {
-	[SerializeField] Vector2[] extend;
-	[SerializeField] public bool flipped;
-	public enum Function {none, tower, dynamo}; public Function function;
+	public Stash stash;
+	[SerializeField] Vector2[] extends;
+	public bool flipped;
+	public enum Function {filler, tower, dynamo}; public Function function;
 
 	protected override void OnEnable()
 	{

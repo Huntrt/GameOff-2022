@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6977638721919612094}
   - component: {fileID: -6720599405802675380}
   - component: {fileID: 6977638721919612095}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wooden Crate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,11 +46,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   health: 0
-  extend:
+  stash: {fileID: 11400000, guid: f7a93f8fe93cc0a4996730a78503bf15, type: 2}
+  extends:
   - {x: 0, y: 1}
   - {x: 0, y: -1}
   - {x: -1, y: 0}
   - {x: 1, y: 0}
+  flipped: 0
   function: 0
 --- !u!212 &6977638721919612095
 SpriteRenderer:
