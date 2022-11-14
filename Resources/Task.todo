@@ -42,9 +42,9 @@
 					▪ ???
 				✓ Able to use for crafting
 				✓ Consume when use for craft
-			▪ Energy:
+			✓ Energy:
 				✓ Build structure that provide energy to increase max limit.
-				▪ Remove when the structure provide them get destroy.
+				✓ Remove when the structure provide them get destroy.
 		▪ Inventory:
 			✓ UI:
 				✓ Display at an bottom.
@@ -57,7 +57,7 @@
 			▪ Action:
 				✓ On using button press call use on slot selected.
 				✓ Deselect when select the same slot.
-				▪ Drop item on selected slot.
+				▪ Confirm delete the item currently select.
 				✓ Each item has an maximum of stack.
 		▪ Crafting:
 			✓ Toggle crafting ui.
@@ -104,10 +104,10 @@
 						✓ Getting "Building" component from object gonna craft.
 						✓ Check does building has special function. (attack, generation)
 						✓ Saving the tower or dynamo component itself.
-			▪ Click and panel will craft it:
 				✓ Give item to any empty inventory slot or stacking.
+			✓ Click and panel will craft it:
 				✓ Cosnume resource
-				▪ Will send an error if don't has enough material or inventory is full.
+				✓ Will send an error if don't has enough material or inventory is full.
 	Build:
 		✓ Able to build on plot that is available.
 		✓ Only block the plot if the structure required to.
@@ -120,10 +120,10 @@
 			b. they just float (balanced of by jumping enemy)
 			c. tower get and structure destroy if float
 	Structure:
-		▪ Health:
-			▪ Take damage.
-			▪ Able to heal.
-			▪ Die when run out.
+		✓ Health:
+			✓ Take damage.
+			✓ Able to heal.
+			✓ Die when run out.
 		✓ Extend:
 			✓ List of coordinates to create plot at it.
 			✓ Create an plot at any coordinate could create.
@@ -152,10 +152,8 @@
 				(use wire plug as an icon)
 				✓ Increase the total energy needed.
 				✓ When dont has enough energy:
-					✓ a. Dont allow to place tower.
-					X b. Shutdown @consider
-						X Shutdown mean cease the tower action.
-						X Shutdown the latest placed tower.
+					✓ Dont allow to place tower.
+					▪ Cease action of latest placed tower until has enough energy.
 			▪ Able to use upgrade to modify how tower work:
 				▪ Upgrade by given consumable to an tower.
 				▪ Upgrade tower stats directly by click on an tower.

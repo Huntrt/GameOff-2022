@@ -7050,6 +7050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fdd5e01d93b784c9ed445a698faa35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  structureHovered: []
   structurePreview:
     render: {fileID: 398815074}
     emptyColor: {r: 1, g: 1, b: 1, a: 0.5019608}
@@ -7058,7 +7059,6 @@ MonoBehaviour:
     previewAim: {fileID: 0}
   circleRange: {fileID: 1405552798}
   rectangleRange: {fileID: 754103377}
-  structureHovered: []
 --- !u!4 &1705175439
 Transform:
   m_ObjectHideFlags: 0
@@ -7093,7 +7093,7 @@ MonoBehaviour:
     steel: 500
     gunpowder: 500
     energy: 0
-    maxEnergy: 500
+    maxEnergy: 10
     woodText: {fileID: 906497287}
     steelText: {fileID: 2135617150}
     gunpowderText: {fileID: 1709444423}

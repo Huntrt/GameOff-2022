@@ -15,7 +15,7 @@ public class PlayerCursor : MonoBehaviour
 		public Aiming previewAim;
 	}
 	[SerializeField] Transform circleRange, rectangleRange;
-	bool selectFlip = true;
+	bool selectFlip;
 
 	void Start()
 	{

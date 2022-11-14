@@ -39,7 +39,7 @@ public class Ground : MonoBehaviour
 	{
 		if(direction < -1 || direction > 1)
 		{
-			Debug.LogError("Cant exoand the ground in ["+direction+"] direction");
+			Debug.LogError("Cant expand the ground in ["+direction+"] direction");
 			return;
 		}
 		if(direction == 0)

@@ -5,7 +5,7 @@ public class Tower : Structure
     public float damage, rate, range;
 	public int depleted;
 	float countRate;
-	[HideInInspector] public bool detected;
+	public bool detected;
 
 	protected override void OnEnable()
 	{
@@ -14,6 +14,8 @@ public class Tower : Structure
 		StructureManager.i.towers.Add(this);
 		//Erased track of this structure as filler
 		StructureManager.i.fills.Remove(this);
+		//Consume the deplete energy when tower got create
+		Inventory.i.materials.Consume(0,0,0, depleted);
 	}
 
 	void Update()

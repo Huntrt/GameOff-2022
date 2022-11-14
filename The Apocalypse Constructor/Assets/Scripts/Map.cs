@@ -88,12 +88,12 @@ public class Map : MonoBehaviour
 		if(plot == null) return null;
 
 		//% Print an error if try to occupy out of range
-		if(occupy < 0 || occupy > 3) {Debug.LogError("Cant occupying at ("+occupy+")"); return null;}
+		if(occupy < 0 || occupy > 3) {Debug.LogWarning("Cant occupying at ("+occupy+")"); return null;}
 		
 		/// If this plot has been blocked
 		if(plot.occupation == 3) 
 		{
-			Debug.LogError("This plot has been block");
+			Debug.LogWarning("This plot has been block");
 			return null;
 		}
 		/// If gonna get occupy by an TOWER
@@ -102,7 +102,7 @@ public class Map : MonoBehaviour
 			//But already occupy by another TOWER
 			if(plot.occupation == 1)
 			{
-				Debug.LogError("Cant place another tower on top of one");
+				Debug.LogWarning("Cant place another tower on top of one");
 				return null;
 			}
 			//But already occupy by an PLATFORM
@@ -121,7 +121,7 @@ public class Map : MonoBehaviour
 			//But already occupy by another PLATFORM
 			if(plot.occupation == 2)
 			{
-				Debug.LogError("Cant place another platform on top of one");
+				Debug.LogWarning("Cant place another platform on top of one");
 				return null;
 			}
 			//But already occupy by an TOWER
@@ -140,7 +140,7 @@ public class Map : MonoBehaviour
 			//But plot is not available
 			if(plot.occupation > 0)
 			{
-				Debug.LogError("This plot are not available for structure");
+				Debug.LogWarning("This plot are not available for structure");
 				return null;
 			}
 			//Plot are now locked by structure

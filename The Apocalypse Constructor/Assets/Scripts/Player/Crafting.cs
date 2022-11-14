@@ -82,7 +82,7 @@ public class Crafting : MonoBehaviour
 		//Stop if inventory dont has enough material to craft given item
 		if(!Inventory.i.materials.Consume(crafted.wood, crafted.steel, crafted.gunpowder)) return;
 		//Add the crafted stash to inventory
-		Inventory.Add(crafted);
+		if(!Inventory.Add(crafted)) Debug.LogWarning("Inventory full");
 	}
 }
 } //? End namespace

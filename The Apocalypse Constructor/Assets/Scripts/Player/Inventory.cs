@@ -43,13 +43,15 @@ public class Inventory : MonoBehaviour
 			UpdateCounter();
 		}
 
-		public bool Consume(int wood, int steel, int gunpowder, int energy = 0)
+		public bool Consume(int wood, int steel, int gunpowder, int energy = 0, bool check = false)
 		{
 			//@ Checking if there still enough material to consume
 			if(this.wood - wood < 0)              {print("Out of Wood"); return false;}
 			if(this.steel - steel < 0)            {print("Out of Steel"); return false;}
 			if(this.gunpowder - gunpowder < 0)    {print("Out of Gunpowder"); return false;}
 			if(this.energy + energy > maxEnergy)  {print("Energy Maxxed"); return false;}
+			//Dont consume if this just an check
+			if(check) return true;
 			//@ If has enough material then consume them
 			this.wood      -= wood;
 			this.steel     -= steel;
@@ -187,11 +189,15 @@ public class Inventory : MonoBehaviour
 		Stash select = selectedStash;
 		//Dont use if there is no selected stash at slot
 		if(select == null) return;
-		//If use the select tower but dont has enough energy for it to be depleted
-		if(select.prefab.CompareTag("Tower") && !materials.Consume(0,0,0,select.prefab.GetComponent<Tower>().depleted))
-		{
-			//Dont allow use
-			return;
+		//Will not deplete any energy
+		int depleting = 0;
+		//If using select are an tower tower
+		if(select.prefab.CompareTag("Tower"))
+		{	
+			//Get the amount of energy this tower gonna deplete 
+			depleting = select.prefab.GetComponent<Tower>().depleted;
+			//Check to stop when deplete has go over max energy
+			if(!materials.Consume(0,0,0, depleting, true)) return;
 		}
 		//Placing the select buildings at mouse coordinate with occupian has decided
 		GameObject placed = Map.Placing(select.prefab, position, (int)select.occupation);
