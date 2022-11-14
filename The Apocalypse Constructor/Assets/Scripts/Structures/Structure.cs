@@ -6,6 +6,12 @@ public class Structure : Entity
 	[SerializeField] Vector2[] extends;
 	public bool flipped;
 	public enum Function {filler, tower, dynamo}; public Function function;
+	StructureManager manager;
+
+	protected void Start()
+	{
+		manager = StructureManager.i;
+	}
 
 	protected override void OnEnable()
 	{
