@@ -11,8 +11,8 @@ public class Inventory : MonoBehaviour
 	public Materials materials;
 	public Slot[] slots;
 	public int selected; int scrollSelect;
+	public Stash selectedStash;
 	public delegate void OnSelect(Stash selected); public OnSelect onSelect;
-	[HideInInspector] public Stash selectedStash;
 	
 	[Header("GUI")]
 	[SerializeField] Transform selectIndicator;
@@ -181,12 +181,7 @@ public class Inventory : MonoBehaviour
 		//Move indicator to selected slot position
 		selectIndicator.position = slots[selected].iconImage.transform.position;
 	}
-
-	void Deselect()
-	{
-
-	}
-
+	
 	public void Use(Vector2 position, bool flip)
 	{
 		//Shorting the selected stash
@@ -221,7 +216,7 @@ public class Inventory : MonoBehaviour
 				//Skip if this stash has reached max stack
 				if(slots[s].stack >= slots[s].stashed.maxStack) continue;
 				//Stack stash then refresh display and successfully add item
-				slots[s].stack++; RefreshDisplay(s); return true;
+				slots[s].stack++; Refresh(s); return true;
 			}
 		}
 		///Go through all the slot of inventory to FIND AN EMPTY SLOT
@@ -233,7 +228,7 @@ public class Inventory : MonoBehaviour
 				//This stash will be the given stash
 				slots[s].stashed = stashing;
 				//Stack stash then refresh display and successfully add item
-				slots[s].stack++; RefreshDisplay(s); return true;
+				slots[s].stack++; Refresh(s); return true;
 			}
 		}
 		//There are no slot left
@@ -248,30 +243,30 @@ public class Inventory : MonoBehaviour
 		///Go through all the slot of inventory to CHECKING STACK
 		for (int s = 0; s < slots.Length; s++)
 		{
-			//If there is stash of the given stash and it is exist
+			//If the stash want to remove does exist and it in this slot
 			if(slots[s].stashed != null) if(stashing.name == slots[s].stashed.name)
 			{
 				//Remove the stash stack
 				slots[s].stack--;
-				//Remove the stash if stash are out of stack
+				////This slot no longer has any stash if out of stash
 				if(slots[s].stack == 0) slots[s].stashed = null;
 				//Refresh display and successfully remove item
-				RefreshDisplay(s); return true;
+				Refresh(s); return true;
 			}
 		}
 		return false;
 	}
 
-	public static void RefreshDisplay(int index)
+	static void Refresh(int index)
 	{
 		Slot slot = i.slots[index];
+		//Reselect the slot currently select
+		i.Select(i.selected, true);
 		//Clear the slot display if it dont has stash
 		if(slot.stashed == null) {slot.stackText.text = ""; slot.iconImage.enabled = false; return;}
 		//Enable slot icon and set it to be stash icon
 		slot.iconImage.enabled = true; slot.iconImage.sprite = slot.stashed.icon;
 		//Set stack text to be how many stack has stash
 		slot.stackText.text = slot.stack.ToString();
-		//Refresh slot selection
-		i.Select(i.selected, true);
 	}
 }
