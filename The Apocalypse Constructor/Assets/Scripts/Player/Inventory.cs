@@ -10,8 +10,7 @@ public class Inventory : MonoBehaviour
 
 	public Materials materials;
 	public Slot[] slots;
-	public int selected; int scrollSelect;
-	public Stash selectedStash;
+	public int selected; int scrollSelect; public Stash selectedStash;
 	public delegate void OnSelect(Stash selected); public OnSelect onSelect;
 	
 	[Header("GUI")]

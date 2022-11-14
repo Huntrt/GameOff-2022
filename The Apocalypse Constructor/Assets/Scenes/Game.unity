@@ -1720,8 +1720,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1447316131
+  m_SortingLayer: 2
   m_SortingOrder: 10
   m_Sprite: {fileID: 21300000, guid: ed61a8ac948ce4c4eaf9742c73ea0179, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -3324,9 +3324,6 @@ MonoBehaviour:
   structureLayer:
     serializedVersion: 2
     m_Bits: 256
-  towerLayer:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1 &866545533
 GameObject:
   m_ObjectHideFlags: 0
@@ -7055,12 +7052,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   structurePreview:
     render: {fileID: 398815074}
-    emptyColor: {r: 1, g: 1, b: 1, a: 1}
+    emptyColor: {r: 1, g: 1, b: 1, a: 0.5019608}
     defaultSprite: {fileID: 21300000, guid: ed61a8ac948ce4c4eaf9742c73ea0179, type: 3}
     defaultColor: {r: 0, g: 0.5, b: 1, a: 0.101960786}
     previewAim: {fileID: 0}
   circleRange: {fileID: 1405552798}
   rectangleRange: {fileID: 754103377}
+  structureHovered: []
 --- !u!4 &1705175439
 Transform:
   m_ObjectHideFlags: 0
@@ -7103,42 +7101,52 @@ MonoBehaviour:
   slots:
   - stashed: {fileID: 0}
     stack: 0
+    select: 0
     stackText: {fileID: 1149235090}
     iconImage: {fileID: 1740530814}
   - stashed: {fileID: 0}
     stack: 0
+    select: 0
     stackText: {fileID: 130325498}
     iconImage: {fileID: 491010532}
   - stashed: {fileID: 0}
     stack: 0
+    select: 0
     stackText: {fileID: 556887933}
     iconImage: {fileID: 1310785134}
   - stashed: {fileID: 0}
     stack: 0
+    select: 0
     stackText: {fileID: 1117238260}
     iconImage: {fileID: 1422730580}
   - stashed: {fileID: 0}
     stack: 0
+    select: 0
     stackText: {fileID: 2049013229}
     iconImage: {fileID: 658552983}
   - stashed: {fileID: 0}
     stack: 0
+    select: 0
     stackText: {fileID: 1367730125}
     iconImage: {fileID: 1758461492}
   - stashed: {fileID: 0}
     stack: 0
+    select: 0
     stackText: {fileID: 1354587217}
     iconImage: {fileID: 1109870821}
   - stashed: {fileID: 0}
     stack: 0
+    select: 0
     stackText: {fileID: 958754490}
     iconImage: {fileID: 671595609}
   - stashed: {fileID: 0}
     stack: 0
+    select: 0
     stackText: {fileID: 1810298463}
     iconImage: {fileID: 2076855455}
   - stashed: {fileID: 0}
     stack: 0
+    select: 0
     stackText: {fileID: 1989030056}
     iconImage: {fileID: 338916327}
   selected: 0

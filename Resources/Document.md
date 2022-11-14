@@ -2,15 +2,16 @@
 	Stash = Contain data about inventory and crafting of an structure.
 	Structure = The object that gonna be build by the player in game.
 		Function:
-			Tower = Structure that provide defense against enemy.
+			Filler = Do nothing.
+			Tower = Structure that provide active defense against enemy.
 			Dynamo = Structure that increase max material energy.
 		Occupation:
-			Tower = An Structure that allow platform to place on it.
+			Tower = An structure that allow platform to place on it.
 			Platform = An structure that allow to place tower inside.
 			Fill = An structure that block the whole plot it on.
 	Tower:
-		x_Caster = Handle the way tower create an assigned attack such as pattern.
-		x_Attack = The object create by caster each has indidepent stats, mostly handle damaging enemy.
+		Tower_CasterX = Handle the way tower create an assigned [strike] or deal damage themself.
+		Tower_StrikeX = Object create by [caster] that has unquie way to function.
 	Capacity = Term refer to both current energy and max energy.
 
 # Inherit

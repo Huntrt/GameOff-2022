@@ -44,7 +44,7 @@ public class RecipePanel : MonoBehaviour
 	{
 		DisplayGeneralInfo();
 		//@ Display each function stats of structure onto it own GUI
-		if(structure.function == Structure.Function.none)
+		if(structure.function == Structure.Function.filler)
 		{
 			StatsInfoHidden(0);
 			craft.fillGUI.descriptionText.text = recipe.description;

@@ -27,18 +27,31 @@ public class Structure : Entity
 
 	void Extending()
 	{
-		//Go through all the plot needed to extand
-		for (int p = 0; p < extend.Length; p++)
+		//Go through all the plot needed to extend
+		for (int e = 0; e < extends.Length; e++)
 		{
-			//Get this coordinate using current position increase with this extend that got spaced
-			Vector2 coord = Map.SnapPosition((Vector2)transform.position + (extend[p]*Map.i.spacing));
-			//Extend an new empty plot at cordinate has get if that coordinate dont has plot
-			if(Map.FindPlot(coord) == null) Map.Creating(null, coord, 0);
+			//Get an coordinate using structure position increase with this extend that got spaced
+			Vector2 coord = Map.SnapPosition((Vector2)transform.position + (extends[e]*Map.i.spacing));
+			//Extend an new empty plot at coordinate has get
+			Map.ExtendPlot(null, coord, 0);
+		}
+	}
+
+	void Retracting()
+	{
+		//Go through all the plot has been extend
+		for (int e = 0; e < extends.Length; e++)
+		{
+			//Get an coordinate using structure position increase with this extend that got spaced
+			Vector2 coord = Map.SnapPosition((Vector2)transform.position + (extends[e]*Map.i.spacing));
+			//Retract the plot at coordinate has get
+			Map.RetractPlot(coord);
 		}
 	}
 
 	public override void Die()
 	{
+		Retracting();
 		//Erased track of this structure and as filler
 		StructureManager.i.structures.Remove(this);
 		StructureManager.i.fills.Add(this);

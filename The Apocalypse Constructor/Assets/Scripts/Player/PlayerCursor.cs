@@ -195,6 +195,14 @@ public class PlayerCursor : MonoBehaviour
 		circleRange.localScale = Vector2.zero;
 	}
 
+	void DeleteStructure()
+	{
+		//Go through all the structure currently hover and delete each of them off the map
+		for (int s = 0; s < structureHovered.Length; s++) Map.Deleting(structureHovered[s]);
+		//Refresh the structure hovering
+		StructureHovering();
+	}
+
 	void OnDisable()
 	{
 		Inventory.i.onSelect -= ChangePreview;

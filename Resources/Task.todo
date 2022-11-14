@@ -25,8 +25,11 @@
 				▪ Build
 				▪ Fix
 				▪ Destroy
-			✓ Show the structure currently select.
-			✓ Show tower range when preview.
+			▪ Structure Preview:
+				✓ Show the structure currently select.
+				✓ Show tower range when preview.
+				▪ Change transparency when able to build at preview. @consider
+				▪ Change preview state depend on occupian and what currently previewing. @consider
 		▪ Home:
 			▪ Place home at the middle.
 			▪ Home has health like other structure.
@@ -109,11 +112,12 @@
 		✓ Able to build on plot that is available.
 		✓ Only block the plot if the structure required to.
 		✓ Able to flip the tower when building them.
-		▪ Lost an stack in inventory when build.
-		▪ Able to destroy structure using destroy key.
-		▪ What happen to other building if connection get destroy??? @critical
-			a. they just float (balanced of by jumping enemy)
-			b. tower no longer attack if floating
+		▪ Lost an stack in inventory when build. @doing
+		✓ Able to destroy structure. @next
+		✓ Destroy structure will remove what it extend. @next
+		▪ What happen to other structure if connection get destroy??? @critical
+			a. tower no longer attack if floating (check extend value of the plot it on?) @consider
+			b. they just float (balanced of by jumping enemy)
 			c. tower get and structure destroy if float
 	Structure:
 		▪ Health:
@@ -124,8 +128,8 @@
 			✓ List of coordinates to create plot at it.
 			✓ Create an plot at any coordinate could create.
 		▪ Die:
-			▪ Drop equipped item on death @consider
-			▪ Make the plot it on unoccupied.
+			▪ Drop leftover materials death.
+			✓ Make the plot it on unoccupied.
 		▪ Toggle structure UI when press button on it:
 				▪ Display structure name.
 				▪ Display structure appearance.
@@ -143,7 +147,7 @@
 					✓ Direct - Only aim in an set direction.
 					✓ Rotate - Able to rotate toward any thing.
 					✓ Aimless - Don't required aiming.
-					▪ Dynamic - Able to switch between multiple direction. @consider
+					X Dynamic - Able to switch between multiple direction. @consider
 			✓ Depleting:
 				(use wire plug as an icon)
 				✓ Increase the total energy needed.
@@ -208,6 +212,7 @@ Settings:
 	▪ Resolution
 	▪ Keybinds
 	▪ System Cursor Toggle
+	▪ Destroy priority between tower and platform
 	▪ Invert scrolling
 		▪ Inventory
 		▪ Crafting

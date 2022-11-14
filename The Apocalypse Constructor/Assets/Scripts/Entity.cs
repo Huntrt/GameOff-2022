@@ -31,6 +31,6 @@ public class Entity : MonoBehaviour
 
 	public virtual void Die()
 	{
-		print(gameObject.name + " Destroyed");
+		Destroy(gameObject);
 	}
 }
