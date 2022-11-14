@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerCursor : MonoBehaviour
 {
-    Vector2 mousePos, mouseCoord;
+    Vector2 mousePos, mouseCoord, preCoord;
 	Camera cam;
 	public StructurePreview structurePreview; [System.Serializable] public class StructurePreview
 	{
@@ -14,6 +14,7 @@ public class PlayerCursor : MonoBehaviour
 	}
 	[SerializeField] Transform circleRange, rectangleRange;
 	Transform hoverTower;
+	Structure[] structureHovered = new Structure[0];
 	bool selectFlip = true;
 	Stash invSelect;
 
@@ -30,10 +31,10 @@ public class PlayerCursor : MonoBehaviour
 	void Update()
 	{
 		MousePositioning();
-		StructureInteract();
-		StructurePreviewing();
 		//todo: When press flip keybind then toggle select flip only when inventory select something
 		if(Input.GetKeyDown(KeyCode.R) && invSelect != null) selectFlip = !selectFlip;
+		//todo: When press delete keybind then delete structure currently hover
+		if(Input.GetKeyDown(KeyCode.A)) DeleteStructure();
 		//todo: Use Slot Keybind to use inventory at current mouse coordinate and select flip
 		if(Input.GetKeyDown(KeyCode.Mouse0)) Inventory.i.Use(mouseCoord, selectFlip);
 	}
@@ -44,46 +45,81 @@ public class PlayerCursor : MonoBehaviour
 		mousePos = cam.ScreenToWorldPoint((Vector2)Input.mousePosition);
 		//Snap the current mouse position to map
 		mouseCoord = Map.SnapPosition(mousePos);
-		//Make the preview follow current mouse coordinates
-		structurePreview.render.transform.position = mouseCoord;
+		//If the mouse has move to an new coordinate
+		if(preCoord != mouseCoord)
+		{
+			//Make the preview follow current mouse coordinates
+			structurePreview.render.transform.position = mouseCoord;
+			//Begin hover and previewing structure
+			StructureHovering();
+			StructurePreviewing();
+			//Has move to an new coordinate
+			preCoord = mouseCoord;
+		}
 	}
 
-	void StructureInteract()
+	void DeleteStructure()
 	{
-		//Cast an ray at mouse position on tower layer
-		RaycastHit2D tower = Physics2D.Raycast(mousePos, Vector2.zero, 0, StructureManager.i.towerLayer);
-		///If hover over an tower
-		if(tower) 
+		//Go through all the structure currently hover and delete each of them off the map
+		for (int s = 0; s < structureHovered.Length; s++) Map.Deleting(structureHovered[s]);
+	}
+
+	void StructureHovering()
+	{
+		//Cast an ray at mouse position on structure layer
+		RaycastHit2D[] hovers = Physics2D.RaycastAll(mouseCoord,Vector2.zero,0,StructureManager.i.structureLayer);
+		///If hover over any structure
+		if(hovers.Length > 0)
 		{
-			//Hide the structure preview
-			structurePreview.render.enabled = false;
-			//If the tower hover over are an new one
-			if(tower.collider.transform != hoverTower)
+			//Hide the tower range
+			HideTowerRange();
+			//Renew how many structure being hover
+			structureHovered = new Structure[hovers.Length];
+			//Go through all the structure being hover
+			for (int h = 0; h < hovers.Length; h++)
 			{
-				ResetTowerRange();
-				//Are now hover over this tower
-				hoverTower = tower.collider.transform;
-				//Get the aim of tower hovered
-				Aiming hoverAim = hoverTower.GetComponent<Aiming>();
-				//Show tower range at tower got hover with aiming and flip of tower hover
-				ShowTowerRange(hoverTower.position, hoverAim, hoverAim.tower.flipped);
+				//Get this hover
+				RaycastHit2D hovered = hovers[h];
+				//Get component of this hover structure
+				Structure structure = hovered.collider.GetComponent<Structure>();
+				//Save this hover structure component
+				structureHovered[h] = structure;
+				//If hover over an filler
+				if(structure.function == Structure.Function.filler)
+				{
+					///... Do something
+				}
+				//If hover over an tower
+				if(structure.function == Structure.Function.tower)
+				{
+					//Are now hover over this tower
+					hoverTower = hovered.collider.transform;
+					//Get the aim of tower hovered
+					Aiming hoverAim = hoverTower.GetComponent<Aiming>();
+					//Show tower range at tower got hover with aiming and flip of tower hover
+					ShowTowerRange(hoverTower.position, hoverAim, hoverAim.tower.flipped);
+				}
+				//If hover over an dynamo
+				if(structure.function == Structure.Function.dynamo)
+				{
+					///... Do something
+				}
 			}
 		}
-		//No longer hover over any tower 
-		else hoverTower = null;
+		//No longer hover over any structure 
+		else
+		{
+			structureHovered = new Structure[0];
+			hoverTower = null;
+		}
 	}
 
 	void StructurePreviewing()
 	{
-		//todo: optimize this to only pewview when mouse coordinate change
 		/// Dont review anything if still hover over structure
-		if(hoverTower != null) return;
-		//Reset tower range
-		ResetTowerRange();
-		//Show the structure preview
-		structurePreview.render.enabled = true;
-		//No longer hover over any tower
-		hoverTower = null;
+		if(structureHovered.Length > 0) return;
+		//Hide the tower range
+		HideTowerRange();
 		//Flip the preview render to be currently flipped
 		structurePreview.render.transform.rotation = Quaternion.Euler(0,(selectFlip)? 180 : 0,0);
 		//But currently preview an tower
@@ -121,9 +157,11 @@ public class PlayerCursor : MonoBehaviour
 			structurePreview.render.sprite = structurePreview.defaultSprite;
 			structurePreview.render.color = structurePreview.defaultColor;
 		}
+		//Instantly preview structure
+		StructurePreviewing();
 	}
 
-	void ShowTowerRange(Vector2 pos, Aiming aimed, bool isFlip)
+ 	void ShowTowerRange(Vector2 pos, Aiming aimed, bool isFlip)
 	{
 		//If aim mode of given tower are direct
 		if(aimed.mode == Aiming.Mode.Direct)
@@ -150,7 +188,7 @@ public class PlayerCursor : MonoBehaviour
 		}
 	}
 
-	void ResetTowerRange()
+	void HideTowerRange()
 	{
 		//Reset both range size to zero
 		rectangleRange.localScale = Vector2.zero;
