@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class PlayerCursor : MonoBehaviour
 {
-    Vector2 mousePos, mouseCoord, preCoord;
 	Camera cam;
+    Vector2 mousePos, mouseCoord, preCoord;
+	Transform hoverTower; 
+	[SerializeField] Structure[] structureHovered = new Structure[0];
 	public StructurePreview structurePreview; [System.Serializable] public class StructurePreview
 	{
 		public SpriteRenderer render;
@@ -13,10 +15,7 @@ public class PlayerCursor : MonoBehaviour
 		public Aiming previewAim;
 	}
 	[SerializeField] Transform circleRange, rectangleRange;
-	Transform hoverTower;
-	Structure[] structureHovered = new Structure[0];
 	bool selectFlip = true;
-	Stash invSelect;
 
 	void Start()
 	{
@@ -31,12 +30,17 @@ public class PlayerCursor : MonoBehaviour
 	void Update()
 	{
 		MousePositioning();
-		//todo: When press flip keybind then toggle select flip only when inventory select something
-		if(Input.GetKeyDown(KeyCode.R) && invSelect != null) selectFlip = !selectFlip;
+		FlipStructure();
 		//todo: When press delete keybind then delete structure currently hover
 		if(Input.GetKeyDown(KeyCode.A)) DeleteStructure();
-		//todo: Use Slot Keybind to use inventory at current mouse coordinate and select flip
-		if(Input.GetKeyDown(KeyCode.Mouse0)) Inventory.i.Use(mouseCoord, selectFlip);
+		//todo: Use Slot Keybind to use inventory
+		if(Input.GetKeyDown(KeyCode.Mouse0))
+		{
+			//Use the stash in inventory at mouse coordinate and flip
+			Inventory.i.Use(mouseCoord, selectFlip);
+			//Refresh the structure hovering to hover over structure just use
+			StructureHovering();
+		}
 	}
 	
 	void MousePositioning()
@@ -50,23 +54,34 @@ public class PlayerCursor : MonoBehaviour
 		{
 			//Make the preview follow current mouse coordinates
 			structurePreview.render.transform.position = mouseCoord;
-			//Begin hover and previewing structure
+			//Show tower range at the new mouse coordinates still using select flip
+			ShowTowerRange(structurePreview.previewAim, selectFlip);
+			//Begin hover over structure
 			StructureHovering();
-			StructurePreviewing();
 			//Has move to an new coordinate
 			preCoord = mouseCoord;
 		}
 	}
 
-	void DeleteStructure()
+	void FlipStructure()
 	{
-		//Go through all the structure currently hover and delete each of them off the map
-		for (int s = 0; s < structureHovered.Length; s++) Map.Deleting(structureHovered[s]);
+		//Does inventory select any stash
+		Stash select = Inventory.i.selectedStash;
+		//todo: When press flip keybind and inventory has select something
+		if(Input.GetKeyDown(KeyCode.R) && select != null) 
+		{
+			//Toggle between flip
+			selectFlip = !selectFlip;
+			//Flip the preview render to be currently flipped
+			structurePreview.render.transform.rotation = Quaternion.Euler(0,(selectFlip)? 180 : 0,0);
+			//Show tower range at mouse coordinates stil using select flip when not hover over any structure
+			if(structureHovered.Length <= 0) ShowTowerRange(structurePreview.previewAim, selectFlip);
+		}
 	}
 
 	void StructureHovering()
 	{
-		//Cast an ray at mouse position on structure layer
+		//Cast an ray at mouse coordinate on structure layer
 		RaycastHit2D[] hovers = Physics2D.RaycastAll(mouseCoord,Vector2.zero,0,StructureManager.i.structureLayer);
 		///If hover over any structure
 		if(hovers.Length > 0)
@@ -96,8 +111,8 @@ public class PlayerCursor : MonoBehaviour
 					hoverTower = hovered.collider.transform;
 					//Get the aim of tower hovered
 					Aiming hoverAim = hoverTower.GetComponent<Aiming>();
-					//Show tower range at tower got hover with aiming and flip of tower hover
-					ShowTowerRange(hoverTower.position, hoverAim, hoverAim.tower.flipped);
+					//Show range of the tower hover over with it flip
+					ShowTowerRange(hoverAim, hoverAim.tower.flipped);
 				}
 				//If hover over an dynamo
 				if(structure.function == Structure.Function.dynamo)
@@ -114,28 +129,10 @@ public class PlayerCursor : MonoBehaviour
 		}
 	}
 
-	void StructurePreviewing()
-	{
-		/// Dont review anything if still hover over structure
-		if(structureHovered.Length > 0) return;
-		//Hide the tower range
-		HideTowerRange();
-		//Flip the preview render to be currently flipped
-		structurePreview.render.transform.rotation = Quaternion.Euler(0,(selectFlip)? 180 : 0,0);
-		//But currently preview an tower
-		if(structurePreview.previewAim != null)
-		{
-			//Show the tower range at mouse coordinates with preview aim with select flip
-			ShowTowerRange(mouseCoord, structurePreview.previewAim, selectFlip);
-		}
-	}
-
 	void ChangePreview(Stash selected)
 	{
 		//No longer preview any tower aim
 		structurePreview.previewAim = null;
-		//Save the inventory selected stash
-		invSelect = selected;
 		//If inventory has select an stash
 		if(selected != null)
 		{
@@ -157,12 +154,16 @@ public class PlayerCursor : MonoBehaviour
 			structurePreview.render.sprite = structurePreview.defaultSprite;
 			structurePreview.render.color = structurePreview.defaultColor;
 		}
-		//Instantly preview structure
-		StructurePreviewing();
+		//Show tower range at mouse coordinates stil using select flip when not hover over any structure
+		if(structureHovered.Length <= 0) ShowTowerRange(structurePreview.previewAim, selectFlip);
 	}
 
- 	void ShowTowerRange(Vector2 pos, Aiming aimed, bool isFlip)
+ 	void ShowTowerRange(Aiming aimed, bool isFlip)
 	{
+		//Hide tower range and stop showing if aim dont exist
+		HideTowerRange(); if(aimed == null) return;
+		//Center point of range will alway be mouse coordinate
+		Vector2 pos = mouseCoord;
 		//If aim mode of given tower are direct
 		if(aimed.mode == Aiming.Mode.Direct)
 		{
