@@ -112,9 +112,9 @@
 		✓ Able to build on plot that is available.
 		✓ Only block the plot if the structure required to.
 		✓ Able to flip the tower when building them.
-		▪ Lost an stack in inventory when build. @doing
-		✓ Able to destroy structure. @next
-		✓ Destroy structure will remove what it extend. @next
+		✓ Lost an stack in inventory when build.
+		✓ Able to destroy structure.
+		✓ Destroy structure will remove what it extend.
 		▪ What happen to other structure if connection get destroy??? @critical
 			a. tower no longer attack if floating (check extend value of the plot it on?) @consider
 			b. they just float (balanced of by jumping enemy)

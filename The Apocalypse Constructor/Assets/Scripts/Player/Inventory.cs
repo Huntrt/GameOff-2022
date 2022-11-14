@@ -124,7 +124,7 @@ public class Inventory : MonoBehaviour
 		if(Input.mouseScrollDelta.y != 0 && !Crafts.Crafting.i.craftingGUI.activeInHierarchy)
 		{
 			//Increase or decrease the scroll select selected index when scroll mouse
-			scrollSelect = selected + Mathf.Clamp(Mathf.CeilToInt(Input.mouseScrollDelta.y),-1,1);
+			scrollSelect = selected - Mathf.Clamp(Mathf.CeilToInt(Input.mouseScrollDelta.y),-1,1);
 			//Cycle through the scroll select if it go over or under the slot amount
 			if(scrollSelect > 9) scrollSelect = 0; if(scrollSelect < 0) scrollSelect = 9;
 			//Choosed slot at selected using scroll
@@ -198,6 +198,8 @@ public class Inventory : MonoBehaviour
 		//If sucessfully placed an structure
 		if(placed != null)
 		{
+			//Remove the select stash that been use
+			Remove(select);
 			//Flip the the placed structure with given flip
 			placed.GetComponent<Structure>().FlipStructure(flip);
 		}
