@@ -12,9 +12,11 @@ public class Inventory : MonoBehaviour
 	public Slot[] slots;
 	public int selected; int scrollSelect; public Stash selectedStash;
 	public delegate void OnSelect(Stash selected); public OnSelect onSelect;
+	[HideInInspector] public bool trashMode;
 	
 	[Header("GUI")]
-	[SerializeField] Transform selectIndicator;
+	[SerializeField] Image selectIndicator;
+	[SerializeField] Color selectDefault, selectTrash;
 	[SerializeField] TextMeshProUGUI selectNameText;
 	Camera cam;
 
@@ -102,8 +104,17 @@ public class Inventory : MonoBehaviour
 	
 	void Update()
 	{
-		//test: Remove stash from inventory one by one
-		if(Input.GetKeyDown(KeyCode.X)) for (int i = 0; i < 10; i++) {if(Remove(slots[i].stashed)) return;}
+		//todo: When press the key to enter trash mode
+		if(Input.GetKey(KeyCode.Delete))
+		{
+			trashMode = true;
+			//Set indicator color to trash mode coloe
+			selectIndicator.color = selectTrash;
+			//Remove the stash of currently select slot when press left mouse
+			if(Input.GetKeyDown(KeyCode.Mouse0)) Remove(selected);
+		}
+		//todo: When no longer press trash mode then reset indicator color
+		if(Input.GetKeyUp(KeyCode.Delete)) {selectIndicator.color = selectDefault; trashMode = false;}
 		ChoosingSlot();
 	}
 
@@ -180,7 +191,7 @@ public class Inventory : MonoBehaviour
 			selectNameText.transform.parent.gameObject.SetActive(true);
 		}
 		//Move indicator to selected slot position
-		selectIndicator.position = slots[selected].iconImage.transform.position;
+		selectIndicator.transform.position = slots[selected].iconImage.transform.position;
 	}
 	
 	public void Use(Vector2 position, bool flip)
@@ -205,7 +216,7 @@ public class Inventory : MonoBehaviour
 		if(placed != null)
 		{
 			//Remove the select stash that been use
-			Remove(select);
+			Remove(selected);
 			//Flip the the placed structure with given flip
 			placed.GetComponent<Structure>().FlipStructure(flip);
 		}
@@ -242,26 +253,18 @@ public class Inventory : MonoBehaviour
 		return false;
 	}
 
-	public static bool Remove(Stash stashing)
+	public static void Remove(int slot)
 	{
-		Slot[] slots = i.slots;
-		//False if try to remove nothing
-		if(stashing == null) return false;
-		///Go through all the slot of inventory to CHECKING STACK
-		for (int s = 0; s < slots.Length; s++)
-		{
-			//If the stash want to remove does exist and it in this slot
-			if(slots[s].stashed != null) if(stashing.name == slots[s].stashed.name)
-			{
-				//Remove the stash stack
-				slots[s].stack--;
-				////This slot no longer has any stash if out of stash
-				if(slots[s].stack == 0) slots[s].stashed = null;
-				//Refresh display and successfully remove item
-				Refresh(s); return true;
-			}
-		}
-		return false;
+		//Get the slot gonna get remove
+		Slot[] slots = i.slots; Slot removing = slots[slot];
+		//Stop if try to remove nothing
+		if(removing.stashed == null) return;
+		//Remove the stash stack
+		removing.stack--;
+		//This slot no longer has any stash if out of stack
+		if(removing.stack == 0) removing.stashed = null;
+		//Refresh at slot removed
+		Refresh(slot);
 	}
 
 	static void Refresh(int index)

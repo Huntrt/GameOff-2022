@@ -45,7 +45,7 @@
 			✓ Energy:
 				✓ Build structure that provide energy to increase max limit.
 				✓ Remove when the structure provide them get destroy.
-		▪ Inventory:
+		✓ Inventory:
 			✓ UI:
 				✓ Display at an bottom.
 				✓ Could has 10 max slot.
@@ -54,10 +54,10 @@
 				X Choose slot by clicking on it.
 				✓ Show selected item name.
 				✓ Show item stack.
-			▪ Action:
+			✓ Action:
 				✓ On using button press call use on slot selected.
 				✓ Deselect when select the same slot.
-				▪ Confirm delete the item currently select.
+				✓ Dual key to delete the item currently select.
 				✓ Each item has an maximum of stack.
 		▪ Crafting:
 			✓ Toggle crafting ui.
