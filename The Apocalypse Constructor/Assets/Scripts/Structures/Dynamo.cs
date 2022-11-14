@@ -6,19 +6,19 @@ public class Dynamo : Structure
 	{
 		base.OnEnable();
 		//Keep track of this structure as dynamo
-		StructureManager.i.dynamos.Add(this);
+		manager.dynamos.Add(this);
 		//Erased track of this structure as filler
-		StructureManager.i.fills.Remove(this);
+		manager.fills.Remove(this);
 		//Provide max energy on being build
-		Inventory.i.materials.Gain(0,0,0,+provide);
+		Inventory.i.materials.Gain(0,0,0,0,+provide);
 	}
 	
 	public override void Die()
 	{
-		//Lost max energy on being destroy
-		Inventory.i.materials.Gain(0,0,0,-provide);
 		//Erased track of this structure as dynamo
-		StructureManager.i.dynamos.Remove(this);
+		manager.dynamos.Remove(this);
+		//Lost max energy on being destroy
+		Inventory.i.materials.Gain(0,0,0,0,-provide);
 		base.Die();
 	}
 }

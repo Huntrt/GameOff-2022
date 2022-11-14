@@ -35,7 +35,7 @@ public class Inventory : MonoBehaviour
 		public TextMeshProUGUI woodText;
 		public TextMeshProUGUI steelText, gunpowderText, capacityText;
 
-		public void Gain(int wood, int steel, int gunpowder, int maxEnergy)
+		public void Gain(int wood, int steel, int gunpowder, int energy, int maxEnergy)
 		{
 			//@ Gain the given material
 			this.wood      += wood;
@@ -43,10 +43,10 @@ public class Inventory : MonoBehaviour
 			this.gunpowder += gunpowder;
 			this.energy    -= energy;
 			this.maxEnergy += maxEnergy;
-			UpdateCounter();
+			Refresh();
 		}
 
-		public bool Consume(int wood, int steel, int gunpowder, int energy = 0, bool check = false)
+		public bool Consume(int wood, int steel, int gunpowder, int energy, bool check = false)
 		{
 			//@ Checking if there still enough material to consume
 			if(this.wood - wood < 0)              {print("Out of Wood"); return false;}
@@ -60,12 +60,14 @@ public class Inventory : MonoBehaviour
 			this.steel     -= steel;
 			this.gunpowder -= gunpowder;
 			this.energy    += energy;
-			UpdateCounter();
+			Refresh();
 			return true;
 		}
 
-		public void UpdateCounter()
+		public void Refresh()
 		{
+			//Checking if still has enough energy for tower
+			StructureManager.i.EnergySufficientCheck();
 			//@ Make sure material dont go to negative
 			if(wood < 0) wood = 0;
 			if(steel < 0) steel = 0;
@@ -100,7 +102,7 @@ public class Inventory : MonoBehaviour
 	void Start()
 	{
 		cam = Camera.main;
-		materials.UpdateCounter();
+		materials.Refresh();
 	}
 	
 	void Update()
@@ -209,7 +211,7 @@ public class Inventory : MonoBehaviour
 			//Get the amount of energy this tower gonna deplete 
 			depleting = select.prefab.GetComponent<Tower>().depleted;
 			//Check to stop when deplete has go over max energy
-			if(!materials.Consume(0,0,0, depleting, true)) return;
+			if(!materials.Consume(0,0,0,depleting,true)) return;
 		}
 		//Placing the select buildings at mouse coordinate with occupian has decided
 		GameObject placed = Map.Placing(select.prefab, position, (int)select.occupation);

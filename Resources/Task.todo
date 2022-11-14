@@ -151,11 +151,11 @@
 			✓ Depleting:
 				(use wire plug as an icon)
 				✓ Increase the total energy needed.
-				✓ When dont has enough energy:
+				✓ When dont has enough energy (insufficient):
 					✓ Dont allow to place tower.
-					▪ Cease action of latest placed tower until has enough energy.
+					✓ Cease action of latest placed tower until has enough energy.
+					✓ Show an icon on tower that indicate the tower being shutdown.
 			▪ Able to use upgrade to modify how tower work:
-				▪ Upgrade by given consumable to an tower.
 				▪ Upgrade tower stats directly by click on an tower.
 			▪ Also display those info for tower UI:
 				▪ Display tower stats.

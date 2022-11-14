@@ -20,6 +20,8 @@ public class Aiming : MonoBehaviour
 	{
 		//Tower havent detect anything
 		tower.detected = false;
+		//Dont aim when tower insufficient of energy
+		if(tower.insufficient) return;
 		//@ Deicide which aim mode gonna base on what has choose
 		if(mode == Mode.Direct) DirectAim();
 		else if(mode == Mode.Rotate) RotateAim();

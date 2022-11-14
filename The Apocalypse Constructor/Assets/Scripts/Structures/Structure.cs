@@ -6,20 +6,17 @@ public class Structure : Entity
 	[SerializeField] Vector2[] extends;
 	public bool flipped;
 	public enum Function {filler, tower, dynamo}; public Function function;
-	StructureManager manager;
-
-	protected void Start()
-	{
-		manager = StructureManager.i;
-	}
+	protected StructureManager manager;
 
 	protected override void OnEnable()
 	{
 		base.OnEnable();
+		//Get the structure
+		manager = StructureManager.i;
 		//Keep track of this structure
-		StructureManager.i.structures.Add(this);
+		manager.structures.Add(this);
 		//Keep track of this structure as filler
-		StructureManager.i.fills.Add(this);
+		manager.fills.Add(this);
 		Extending();
 	}
 
@@ -59,8 +56,8 @@ public class Structure : Entity
 	{
 		Retracting();
 		//Erased track of this structure and as filler
-		StructureManager.i.structures.Remove(this);
-		StructureManager.i.fills.Add(this);
+		manager.structures.Remove(this);
+		manager.fills.Add(this);
 		base.Die();
 	}
 }
