@@ -12,5 +12,5 @@ public class StructureManager : MonoBehaviour
     public List<Dynamo> dynamos;
 	public List<Tower> towers;
 
-	public LayerMask structureLayer, towerLayer;
+	public LayerMask structureLayer;
 }
