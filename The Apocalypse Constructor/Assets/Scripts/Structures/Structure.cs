@@ -5,7 +5,7 @@ public class Structure : Entity
 {
 	public Stash stash;
 	[SerializeField] Vector2[] extends;
-	public bool flipped;
+	[HideInInspector] public bool flipped;
 	public enum Function {filler, tower, dynamo}; public Function function;
 	public Action onDie;
 	protected StructureManager manager;

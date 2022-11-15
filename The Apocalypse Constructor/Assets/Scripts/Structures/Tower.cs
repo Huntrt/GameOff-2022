@@ -3,10 +3,11 @@ using System;
 
 public class Tower : Structure
 {
+	public bool detected; 
+	[HideInInspector] public bool insufficient;
     public float damage, rate, range;
 	public int depleted;
 	float countRate;
-	public bool detected, insufficient;
 	public Action onAttack;
 	GameObject insufIndicator;
 

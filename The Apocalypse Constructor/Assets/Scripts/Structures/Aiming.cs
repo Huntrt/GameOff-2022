@@ -12,7 +12,7 @@ public class Aiming : MonoBehaviour
 	{
 		//Get the tower component the moment aim get added
 		tower = GetComponent<Tower>();
-		//Print null if the object dont has tower
+		//Print error if the object dont has tower for aim
 		if(tower == null) Debug.LogError(gameObject.name + " aiming need to be an tower");
 	}
 
