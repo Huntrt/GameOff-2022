@@ -8,6 +8,8 @@ TagManager:
   - Tower
   - Filler
   - Dynamo
+  - Ground
+  - Tower Strike
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Enemy
   - Ground
   - Structure
-  - Strike
+  - Tower Strike
   - 
   - 
   - 

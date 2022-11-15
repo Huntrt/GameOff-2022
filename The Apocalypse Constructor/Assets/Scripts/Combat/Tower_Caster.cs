@@ -1,28 +1,32 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class Tower_Caster : MonoBehaviour
 {
-	Tower tower;
+	[SerializeField] Tower tower;
+	public Action onStrike;
 	//Cache all the strike this caster has create
-	public List<Tower_Strike> strikes;
+	public List<Tower_Strike> strikes = new List<Tower_Strike>();
 
-	void Reset() 
+	void Reset()
 	{
 		//Get the tower component the moment caster get added
 		tower = GetComponent<Tower>();
 		//Print error if the object dont has tower for caster
-		if(tower == null) Debug.LogError(gameObject.name + " aiming need to be an tower");
+		if(tower == null) Debug.LogError(gameObject.name + " caster need to be an tower");
 	}
 
-	void OnEnable() {tower.onAttack += Attack;}
+	protected virtual void OnEnable() {tower.onAttack += Attack;}
 
 	protected virtual void Attack() {}
 
-	void OnDisable() {tower.onAttack += Attack;}
+	protected virtual void OnDisable() {tower.onAttack += Attack;}
 
 	protected virtual Tower_Strike CreateStrike(GameObject striking, Transform at)
 	{
+		//Call on strike when create one
+		onStrike?.Invoke();
 		//Go through all the strike has cache
 		for (int s = 0; s < strikes.Count; s++)
 		{

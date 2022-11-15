@@ -1,8 +1,10 @@
 using UnityEngine;
+using System;
 
 public class Tower_Strike : MonoBehaviour
 {
 	public Tower_Caster caster;
+	public Action onOver;
     public float damage;
 
 	//Hurt the given entity with strike damage
@@ -20,6 +22,8 @@ public class Tower_Strike : MonoBehaviour
 	//When the strike are over
 	public virtual void Over()
 	{
+		//Call over event
+		onOver?.Invoke();
 		//Deactive the strike
 		gameObject.SetActive(false);
 		//The strike of caster are now over
