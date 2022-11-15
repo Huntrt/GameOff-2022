@@ -11,7 +11,11 @@ public class Tower : Structure
 	public Action onAttack;
 	GameObject insufIndicator;
 
-	[Serializable] public class Stats {public float damage, rate, range;}
+	[Serializable] public class Stats 
+	{
+		public float damage, rate, range;
+		public float rateTimer {get {return (float)System.Math.Round(1/rate,1);}}
+	}
 
 	protected override void OnEnable()
 	{
@@ -33,8 +37,8 @@ public class Tower : Structure
 	{
 		//Counting speed for attack
 		countRate += Time.deltaTime;
-		//If has count enough speed
-		if(countRate >= stats.rate)
+		//If has count enough rate
+		if(countRate >= (stats.rateTimer))
 		{
 			//Call attack
 			onAttack?.Invoke();

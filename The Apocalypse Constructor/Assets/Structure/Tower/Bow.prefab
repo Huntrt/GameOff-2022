@@ -336,7 +336,7 @@ MonoBehaviour:
   detected: 0
   stats:
     damage: 5
-    rate: 0.8
+    rate: 1.1
     range: 5
   scaling:
     damage: 10
