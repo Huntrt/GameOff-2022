@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 
 public class Structure : Entity
 {
@@ -6,6 +7,7 @@ public class Structure : Entity
 	[SerializeField] Vector2[] extends;
 	public bool flipped;
 	public enum Function {filler, tower, dynamo}; public Function function;
+	public Action onDie;
 	protected StructureManager manager;
 
 	protected override void OnEnable()
@@ -54,6 +56,8 @@ public class Structure : Entity
 
 	public override void Die()
 	{
+		//Call die action
+		onDie?.Invoke();
 		Retracting();
 		//Erased track of this structure and as filler
 		manager.structures.Remove(this);

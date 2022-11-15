@@ -157,10 +157,8 @@ public class Map : MonoBehaviour
 		Plot plot = FindPlot(structure.transform.position);
 		//Reduce the plot occupation with deleted structure occupation
 		plot.occupation -= (int)structure.stash.occupation;
-		//@ Make each function of given structure instantly die
-		if(structure.function == Structure.Function.filler) structure.Die();
-		if(structure.function == Structure.Function.tower) structure.GetComponent<Tower>().Die();
-		if(structure.function == Structure.Function.dynamo) structure.GetComponent<Dynamo>().Die();
+		//Given structure instantly die
+		structure.Die();
 		//Remove the plot from list if plot no longer has any extend and it is empty
 		if(plot.extended <= 0 && plot.occupation == 0) i.plots.Remove(plot);
 	}
