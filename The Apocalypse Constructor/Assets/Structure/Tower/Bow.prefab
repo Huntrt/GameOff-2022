@@ -334,10 +334,15 @@ MonoBehaviour:
   flipped: 0
   function: 1
   detected: 0
+  stats:
+    damage: 5
+    rate: 0.8
+    range: 5
+  scaling:
+    damage: 10
+    rate: 10
+    range: 2
   insufficient: 0
-  damage: 5
-  rate: 0.8
-  range: 5
   depleted: 4
 --- !u!114 &3380852211928699586
 MonoBehaviour:

@@ -36,7 +36,7 @@ public class Tower_Caster : MonoBehaviour
 			if(!strike.gameObject.activeInHierarchy)
 			{
 				//Set the strike damage to be the tower damage
-				strike.damage = tower.damage;
+				strike.damage = tower.stats.damage;
 				//Set the strike position and rotation to be given transform
 				strike.transform.position = at.position;
 				strike.transform.rotation = at.rotation;
@@ -53,7 +53,7 @@ public class Tower_Caster : MonoBehaviour
 		//Set new strike caster to be this caster
 		newStrike.caster = this;
 		//Set the new strike damage to be the tower damage
-		newStrike.damage = tower.damage;
+		newStrike.damage = tower.stats.damage;
 		//Set the new strike position and rotation to be given transform
 		newStrike.transform.position = at.position;
 		newStrike.transform.rotation = at.rotation;

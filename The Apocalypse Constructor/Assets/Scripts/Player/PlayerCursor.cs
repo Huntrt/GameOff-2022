@@ -170,13 +170,13 @@ public class PlayerCursor : MonoBehaviour
 			//Value for adjust the X given position
 			float adjust = pos.x;
 			//Decrease with half tower range and block if flipeed
-			if(isFlip) {adjust -= ((aimed.tower.range/2) + (Map.i.spacing/2));}
+			if(isFlip) {adjust -= ((aimed.tower.stats.range/2) + (Map.i.spacing/2));}
 			//Increase with half tower range and block if not flipeed
-			else {adjust += ((aimed.tower.range/2) + (Map.i.spacing/2));}
+			else {adjust += ((aimed.tower.stats.range/2) + (Map.i.spacing/2));}
 			//Set range position X to be adjusted and Y to be given position
 			rectangleRange.position = new Vector2(adjust, pos.y);
 			//Set range scale width to be tower range and height to be an spacing
-			rectangleRange.localScale = new Vector2(aimed.tower.range, Map.i.spacing);
+			rectangleRange.localScale = new Vector2(aimed.tower.stats.range, Map.i.spacing);
 
 		}
 		//If aim mode of given tower are rotate and aimless mode
@@ -185,7 +185,7 @@ public class PlayerCursor : MonoBehaviour
 			//Move circle range to given tower position
 			circleRange.position = pos;
 			//Circle range size will be double size of tower range
-			circleRange.localScale = new Vector2(aimed.tower.range*2, aimed.tower.range*2);
+			circleRange.localScale = new Vector2(aimed.tower.stats.range*2, aimed.tower.stats.range*2);
 		}
 	}
 

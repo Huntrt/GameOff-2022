@@ -18,6 +18,9 @@
 			▪ Background changing.
 	Player:
 		X Movement.
+		▪ Camera
+			▪ Move
+			▪ Zoom
 		▪ Mouse
 			✓ Get coordinates
 			▪ Custom icon

@@ -32,7 +32,7 @@ public class Aiming : MonoBehaviour
 		//Flip the aim direction if the tower been flip
 		Vector2 dir = direction; if(tower.flipped) dir = -dir;
 		//Create an pillar at this tower to range with radius of an spacing toward set direction on enemy layer
-		RaycastHit2D hit = Physics2D.CircleCast(transform.position, Map.i.spacing/2, dir, tower.range, EnemyManager.i.enemyLayer);
+		RaycastHit2D hit = Physics2D.CircleCast(transform.position, Map.i.spacing/2, dir, tower.stats.range, EnemyManager.i.enemyLayer);
 		//Detect if cast hit an enemy
 		if(hit) tower.detected = true;
 	}
@@ -40,7 +40,7 @@ public class Aiming : MonoBehaviour
 	void RotateAim()
 	{
 		//Create an circle cast at this tower with radius as it range and only cast on enemy layer
-		RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, tower.range, Vector2.zero,0, EnemyManager.i.enemyLayer);
+		RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, tower.stats.range, Vector2.zero,0, EnemyManager.i.enemyLayer);
 		//If cast hit anything
 		if(hits.Length > 0)
 		{

@@ -4,12 +4,14 @@ using System;
 public class Tower : Structure
 {
 	public bool detected; 
+	public Stats stats, scaling;
 	[HideInInspector] public bool insufficient;
-    public float damage, rate, range;
 	public int depleted;
 	float countRate;
 	public Action onAttack;
 	GameObject insufIndicator;
+
+	[Serializable] public class Stats {public float damage, rate, range;}
 
 	protected override void OnEnable()
 	{
@@ -32,7 +34,7 @@ public class Tower : Structure
 		//Counting speed for attack
 		countRate += Time.deltaTime;
 		//If has count enough speed
-		if(countRate >= rate)
+		if(countRate >= stats.rate)
 		{
 			//Call attack
 			onAttack?.Invoke();
