@@ -4,16 +4,49 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -3489798645787528697
-    second: Structure_Dirt
+    second: Dirt
   - first:
       213: 4374014802658380202
     second: Structure_WoodenCrate
   - first:
       213: -452693844208810585
-    second: Structure_WoodenPlatfrom
+    second: Structure_WoodenPlatform
   - first:
       213: -7849156081356724931
-    second: Structure_WoodBurner
+    second: Structure_Frame
+  - first:
+      213: -7335528259493785929
+    second: Structure_Frame
+  - first:
+      213: -751420242086524085
+    second: Structure_ReinforcePlatform
+  - first:
+      213: 4957098053106600129
+    second: Structure_ReinforceFrame
+  - first:
+      213: -1194272340401181525
+    second: Structure_Furnace
+  - first:
+      213: 8768083349094062038
+    second: Structure_SteelBox
+  - first:
+      213: -1070760049899607357
+    second: Structure_SteelPlatform
+  - first:
+      213: 1138221968016535245
+    second: Structure_SteelFrame
+  - first:
+      213: -2998625540879620824
+    second: Structure_WindTurbine
+  - first:
+      213: -1086214601893131765
+    second: Structure_WindTurbine_Blade
+  - first:
+      213: -3896493189424109328
+    second: Structure_WindTurbine_Foundation
+  - first:
+      213: 2485287277064768006
+    second: Structure_ElectricGenerator
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -116,13 +149,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Structure_Dirt
+      name: Dirt
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 400
-        height: 400
+        y: 1500
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,10 +173,10 @@ TextureImporter:
       name: Structure_WoodenCrate
       rect:
         serializedVersion: 2
-        x: 400
-        y: 0
-        width: 400
-        height: 400
+        x: 0
+        y: 1000
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -158,13 +191,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Structure_WoodenPlatfrom
+      name: Structure_WoodenPlatform
       rect:
         serializedVersion: 2
-        x: 800
-        y: 0
-        width: 400
-        height: 400
+        x: 500
+        y: 1000
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,13 +212,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Structure_WoodBurner
+      name: Structure_Frame
       rect:
         serializedVersion: 2
-        x: 1200
-        y: 0
-        width: 400
-        height: 400
+        x: 1000
+        y: 1000
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,6 +228,237 @@ TextureImporter:
       bones: []
       spriteID: d35a2207122321390800000000000000
       internalID: -7849156081356724931
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_WoodBurner
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7be880dc9e7f23a90800000000000000
+      internalID: -7335528259493785929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_ReinforcePlatform
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4b0561654b6295f0800000000000000
+      internalID: -751420242086524085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_ReinforceFrame
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c8033c5a662bc440800000000000000
+      internalID: 4957098053106600129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_Furnace
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 500
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bac205942a71d6fe0800000000000000
+      internalID: -1194272340401181525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_SteelBox
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d7d4c7c95d7ea970800000000000000
+      internalID: 8768083349094062038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_SteelPlatform
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3caed026865e321f0800000000000000
+      internalID: -1070760049899607357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_SteelFrame
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dceeb2f69d6cbcf00800000000000000
+      internalID: 1138221968016535245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_WindTurbine
+      rect:
+        serializedVersion: 2
+        x: 1500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 825e47d35fdb266d0800000000000000
+      internalID: -2998625540879620824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_WindTurbine_Blade
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0a4158139dfce0f0800000000000000
+      internalID: -1086214601893131765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_WindTurbine_Foundation
+      rect:
+        serializedVersion: 2
+        x: 2500
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f8a5a6b610ece9c0800000000000000
+      internalID: -3896493189424109328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_ElectricGenerator
+      rect:
+        serializedVersion: 2
+        x: 3000
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a4e326c938d7220800000000000000
+      internalID: 2485287277064768006
       vertices: []
       indices: 
       edges: []

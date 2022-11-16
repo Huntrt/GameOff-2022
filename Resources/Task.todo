@@ -198,6 +198,7 @@
 			▪ Caster
 				✓ Core - Core function or every tower caster.
 				✓ Points - An list of position, rotation and delay between them to strike using them.
+				▪ Zone - Randomly choose position inside an transform to strike there.
 				▪ Laser - Create an line toward X amount of enemy in range to directly damage.
 				▪ Shotgun - Create an an list of random rotation and randomly alter the strike velocity.
 				▪ Remains - Strike when it die.
@@ -205,6 +206,9 @@
 			▪ Strike
 				✓ Core - Contain basic stats of an strike.
 				✓ Projectile - Object move toward infront with set speed. Deal damage on contact.
+					✓ Velocity
+					▪ Accuracy
+					✓ Distance Travel
 				▪ Hitscan - Create an raycast toward direction able to pierce to deal damage to enemy hit.
 				▪ Slash - Create an circlecast at it position to deal damge to any enemy hit by it.
 		▪ Enemy
