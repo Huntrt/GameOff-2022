@@ -5,7 +5,7 @@ public class Tower_StrikeProjectile : Tower_Strike
 {
 	public int piercing; List<Collider2D> pierced = new List<Collider2D>();
 	public float velocity;
-	public float distance; Vector2 prePos; float traveled;
+	public float distance; Vector2 prePos; [SerializeField] float traveled;
     [SerializeField] Rigidbody2D rb;
 	[SerializeField] Collider2D col;
 
@@ -25,7 +25,7 @@ public class Tower_StrikeProjectile : Tower_Strike
 	void LateUpdate()
 	{
 		//Get the travel distance between current position and previous
-		traveled += (prePos - rb.position).sqrMagnitude;
+		traveled += Vector2.Distance(rb.position, prePos);
 		//Strike over when reached max distance
 		if(traveled >= distance) Over();
 		//Move the strike in the red arrow with velocity has get
