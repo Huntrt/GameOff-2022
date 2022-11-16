@@ -24,6 +24,8 @@ public class Tower_Strike : MonoBehaviour
 	{
 		//Call over event
 		onOver?.Invoke();
+		//Destroy the strike if it caster no longer exist
+		if(caster == null) {Destroy(gameObject); return;}
 		//Deactive the strike
 		gameObject.SetActive(false);
 		//The strike of caster are now over

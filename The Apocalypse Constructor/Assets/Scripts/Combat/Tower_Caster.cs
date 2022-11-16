@@ -17,11 +17,11 @@ public class Tower_Caster : MonoBehaviour
 		if(tower == null) Debug.LogError(gameObject.name + " caster need to be an tower");
 	}
 
-	protected virtual void OnEnable() {tower.onAttack += Attack;}
+	protected virtual void OnEnable() {tower.onAttack += Attack; tower.onDie += TowerDie;}
 
 	protected virtual void Attack() {}
 
-	protected virtual void OnDisable() {tower.onAttack += Attack;}
+	protected virtual void OnDisable() {tower.onAttack -= Attack; tower.onDie -= TowerDie;}
 
 	protected virtual Tower_Strike CreateStrike(GameObject striking, Transform at)
 	{
@@ -67,5 +67,16 @@ public class Tower_Caster : MonoBehaviour
 	{
 		//Move the strike over to be first cache since it now available
 		strikes.Insert(0, strike); strikes.Remove(strike);
+	}
+
+	void TowerDie()
+	{
+		//When tower go through all the strike has cache
+		for (int s = 0; s < strikes.Count; s++)
+		{
+			//Destroy any strike the currently inactive
+			if(!strikes[s].gameObject.activeInHierarchy) Destroy(strikes[s].gameObject); 
+		}
+		strikes.Clear();
 	}
 }
