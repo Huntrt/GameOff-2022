@@ -17,7 +17,11 @@ MonoBehaviour:
   description: An tower that shoot arrow at enemy
   occupation: 1
   maxStack: 1
-  wood: 7
-  steel: 2
-  gunpowder: 0
-  rarity: 0
+  ingredients:
+    wood: 7
+    steel: 3
+    gunpowder: 0
+  leftover:
+    wood: 50
+    steel: 50
+    gunpowder: 0

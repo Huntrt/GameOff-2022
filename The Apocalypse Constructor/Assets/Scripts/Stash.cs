@@ -10,9 +10,18 @@ public class Stash : ScriptableObject
 	public enum Occupation {empty, tower, platform, fill};
 	public Occupation occupation;
 	public int maxStack;
-	[Header("Recipe")]
-	public int wood;
-	public int steel;
-	public int gunpowder;
-	public int rarity;
+	[System.Serializable] public class Ingredients {public int wood, steel, gunpowder;}
+	public Ingredients ingredients;
+	[Tooltip("How much percent of ingredients will be return when manually destroy")]
+	public Ingredients leftover;
+
+	public Ingredients Leftovering()
+	{
+		//Get the value from leftover percent with ingredients 
+		Ingredients left = new Ingredients();
+		left.wood = (int)(((float)leftover.wood / 100) * ingredients.wood);
+		left.steel = (int)(((float)leftover.steel / 100) * ingredients.steel);
+		left.gunpowder = (int)(((float)leftover.gunpowder / 100) * ingredients.gunpowder);
+		return left;
+	}
 }

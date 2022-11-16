@@ -198,8 +198,17 @@ public class PlayerCursor : MonoBehaviour
 
 	void DeleteStructure()
 	{
-		//Go through all the structure currently hover and delete each of them off the map
-		for (int s = 0; s < structureHovered.Length; s++) Map.Deleting(structureHovered[s]);
+		//Go through all the structure currently hover
+		for (int s = 0; s < structureHovered.Length; s++)
+		{	
+			//Get the leftover ingredients of structure
+			Stash.Ingredients ing = structureHovered[s].stash.Leftovering();
+			//Gain the leftover ingredients of structure being delete
+			Inventory.i.materials.Gain(ing.wood, ing.steel, ing.gunpowder,0,0);
+			//Delete each of them off the map
+			Map.Deleting(structureHovered[s]);
+		}
+		
 		//Refresh the structure hovering
 		StructureHovering();
 	}

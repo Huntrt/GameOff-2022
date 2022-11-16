@@ -17,7 +17,11 @@ MonoBehaviour:
   description: Burning wood for an small amount energy
   occupation: 3
   maxStack: 5
-  wood: 15
-  steel: 0
-  gunpowder: 0
-  rarity: 0
+  ingredients:
+    wood: 35
+    steel: 0
+    gunpowder: 0
+  leftover:
+    wood: 20
+    steel: 0
+    gunpowder: 0

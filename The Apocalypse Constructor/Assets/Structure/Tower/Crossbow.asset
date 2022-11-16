@@ -17,7 +17,11 @@ MonoBehaviour:
   description: Shoot powerful arrow toward it facing direction
   occupation: 1
   maxStack: 1
-  wood: 7
-  steel: 4
-  gunpowder: 0
-  rarity: 0
+  ingredients:
+    wood: 8
+    steel: 2
+    gunpowder: 0
+  leftover:
+    wood: 50
+    steel: 50
+    gunpowder: 0

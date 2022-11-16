@@ -73,9 +73,9 @@ public class RecipePanel : MonoBehaviour
 		craft.infoGUI.iconImage.sprite = recipe.icon;
 		craft.infoGUI.nameText.text = recipe.name;
 		//Display materials
-		craft.infoGUI.woodText.text = recipe.wood.ToString();
-		craft.infoGUI.steelText.text = recipe.steel.ToString();
-		craft.infoGUI.gunpowderText.text = recipe.gunpowder.ToString();
+		craft.infoGUI.woodText.text = recipe.ingredients.wood.ToString();
+		craft.infoGUI.steelText.text = recipe.ingredients.steel.ToString();
+		craft.infoGUI.gunpowderText.text = recipe.ingredients.gunpowder.ToString();
 	}
 
 	void StatsInfoHidden(int function)

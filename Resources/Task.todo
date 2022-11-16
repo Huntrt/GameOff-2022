@@ -89,15 +89,15 @@
 			✓ Loaded all the recipe data onto an list.
 				X Import data from JSON.
 				✓ Get all the "Item" scriptable object by dragging them in inspector.
-			▪ Unlocking:
-				▪ Sperated the list into one unlocked and one locked.
-				▪ Check all recipe has unlocked.
-				▪ Using rarity to determent unlock an recipe.
+			X Unlocking:
+				X Sperated the list into one unlocked and one locked.
+				X Check all recipe has unlocked.
+				X Using rarity to determent unlock an recipe.
 			✓ Display recipe in an list of panel:
 				X Panel contain material needed.
 				✓ Panel contain item icon.
 				✓ Able to scroll through all the panel.
-				X Seprated into 3 tab each for Structure, Tower, Upgrades.
+				✓ Seprated tab each for Structure and Tower.
 				✓ Hover an panel will show more info of the item:
 					✓ Name.
 					✓ Description.
@@ -118,8 +118,8 @@
 		✓ Lost an stack in inventory when build.
 		✓ Able to destroy structure.
 		✓ Destroy structure will remove what it extend.
-		▪ What happen to other structure if connection get destroy??? @critical
-			a. tower no longer attack if floating (check extend value of the plot it on?) @consider
+		✓ What happen to other structure if connection get destroy???
+			✓ a. tower no longer attack if floating (check extend value of the plot it on?) 
 			b. they just float (balanced of by jumping enemy)
 			c. tower get and structure destroy if float
 	Structure:
@@ -130,8 +130,8 @@
 		✓ Extend:
 			✓ List of coordinates to create plot at it.
 			✓ Create an plot at any coordinate could create.
-		▪ Die:
-			▪ Drop leftover materials death.
+		✓ Die:
+			✓ Drop leftover materials on manual death.
 			✓ Make the plot it on unoccupied.
 		▪ Toggle structure UI when press button on it:
 				▪ Display structure name.

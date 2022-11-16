@@ -17,7 +17,11 @@ MonoBehaviour:
   description: An wooden platform that allow tower to place inside it
   occupation: 2
   maxStack: 10
-  wood: 3
-  steel: 0
-  gunpowder: 0
-  rarity: 0
+  ingredients:
+    wood: 6
+    steel: 0
+    gunpowder: 0
+  leftover:
+    wood: 50
+    steel: 0
+    gunpowder: 0
