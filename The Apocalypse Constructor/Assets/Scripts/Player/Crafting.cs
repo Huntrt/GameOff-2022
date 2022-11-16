@@ -12,12 +12,13 @@ public class Crafting : MonoBehaviour
 	public static Crafting i {get{if(_i==null){_i = GameObject.FindObjectOfType<Crafting>();}return _i;}} static Crafting _i;
 	#endregion
 	
-	//List of recipe of stash
-	public List<Stash> recipe = new List<Stash>();
-	[Header("User Interface")]
+	[SerializeField] List<Stash> structureRecipes = new List<Stash>();
+	[SerializeField] List<Stash> towerRecipes = new List<Stash>();
+	[Header("GUI")]
 	public GameObject craftingGUI;
 	[SerializeField] GameObject recipePanel;
 	[SerializeField] RectTransform recipePanelLayout;
+	[SerializeField] List<RecipePanel> panels = new List<RecipePanel>();
 	public InfoGUI infoGUI;
 	public FillGUI fillGUI;
 	public DynamoGUI dynamoGUI;
@@ -49,6 +50,7 @@ public class Crafting : MonoBehaviour
 	void Start()
 	{
 		AddPanels();
+		RefreshRecipe(true);
 	}
 	
 	void Update()
@@ -63,17 +65,43 @@ public class Crafting : MonoBehaviour
 
 	void AddPanels()
 	{
-		//Go through all the recipes
-		for (int r = 0; r < recipe.Count; r++)
+		//The amount of recipe panel need for both structure and tower
+		int structP = structureRecipes.Count; int towerP = towerRecipes.Count;
+		//Add panel until enough for both structure and panels recipe
+		while (panels.Count <= structP && panels.Count <= towerP)
 		{
 			//Create an new panel for this recipe
 			GameObject panel = Instantiate(recipePanel);
-			//Set the panel to be this recipe info
-			panel.GetComponent<RecipePanel>().SetupPanel(recipe[r]);
+			//Save the panel component just got created
+			panels.Add(panel.GetComponent<RecipePanel>());
+			//Deactive the panel
+			panel.SetActive(false);
 			//Adding panel to it layout 
 			panel.transform.SetParent(recipePanelLayout);
 			//Reset the panel's scale
 			panel.transform.localScale = new Vector3(1,1,1);
+		}
+	}
+
+	public void RefreshRecipe(bool forStructure)
+	{
+		//Go through all the ppanel has created
+		for (int p = 0; p < panels.Count; p++)
+		{
+			if(forStructure) 
+			{
+				//Deactive if there no structure recipe left to display
+				if(structureRecipes.Count-1 < p) {panels[p].gameObject.SetActive(false); break;}
+				//Setup this panel for this structure recipe 
+				panels[p].SetupPanel(structureRecipes[p]); panels[p].gameObject.SetActive(true);
+			}
+			else 
+			{
+				//Deactive if there no tower recipe left to display
+				if(towerRecipes.Count-1 < p) {panels[p].gameObject.SetActive(false); break;}
+				//Setup this panel for this tower recipe 
+				panels[p].SetupPanel(towerRecipes[p]); panels[p].gameObject.SetActive(true);
+			}
 		}
 	}
 

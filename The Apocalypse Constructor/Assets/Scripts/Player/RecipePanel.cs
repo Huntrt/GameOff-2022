@@ -22,8 +22,6 @@ public class RecipePanel : MonoBehaviour
 		nameDisplay.text = recipe.name;
 		//Display the item icon on image
 		iconImage.sprite = recipe.icon;
-		//Update the panel name to to be the item's
-		gameObject.name = recipe.name + " Recipe";
 		//Add crafting event to it button to craft this recipe
 		craftButton.onClick.AddListener(delegate {Crafting.i.Craft(recipe);});
 		//Begin setup this recipe info
