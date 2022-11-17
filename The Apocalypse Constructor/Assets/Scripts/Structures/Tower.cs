@@ -13,8 +13,15 @@ public class Tower : Structure
 
 	[Serializable] public class Stats 
 	{
+		public float DPS;
 		public float damage, rate, range;
 		public float rateTimer {get {return (float)System.Math.Round(1/rate,1);}}
+	}
+
+	void OnValidate() 
+	{
+		//Update stats DPS
+		stats.DPS = stats.damage / stats.rateTimer;
 	}
 
 	protected override void OnEnable()
