@@ -272,7 +272,7 @@ MonoBehaviour:
     rate: 10
     range: 2
   insufficient: 0
-  depleted: 4
+  depleted: 8
 --- !u!114 &3796298441361218442
 MonoBehaviour:
   m_ObjectHideFlags: 0
