@@ -209,7 +209,7 @@
 					✓ Velocity
 					✓ Accuracy
 					✓ Distance Travel
-				▪ Hitscan - Create an raycast toward direction able to pierce to deal damage to enemy hit.
+				✓ Hitscan - Create an raycast toward direction able to pierce to deal damage to enemy hit.
 				▪ Slash - Create an circlecast at it position to deal damge to any enemy hit by it.
 		▪ Enemy
 
