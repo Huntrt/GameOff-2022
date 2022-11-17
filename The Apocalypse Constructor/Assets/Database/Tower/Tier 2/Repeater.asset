@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
+  m_Name: Repeater
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5309010595179667506, guid: dcba137bccc448e4bb8d281b238260b8, type: 3}
+  icon: {fileID: -1731964075387253349, guid: 8adf784a8cea7ea48909b6e050c7ce68, type: 3}
+  description: Shoot arrow in burst when attack
+  occupation: 1
+  maxStack: 3
+  ingredients:
+    wood: 10
+    steel: 15
+    gunpowder: 0
+  leftover:
+    wood: 50
+    steel: 25
+    gunpowder: 0

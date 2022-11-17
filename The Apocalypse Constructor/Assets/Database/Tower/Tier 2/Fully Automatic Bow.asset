@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
+  m_Name: Fully Automatic Bow
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1207988641941379945, guid: 2e75f873c924bd0428e6edebbd4262e2, type: 3}
+  icon: {fileID: 490519043163645877, guid: c16552ee16d488345b2eb2781db0cafb, type: 3}
+  description: An bow that completely automatic for killing zombie
+  occupation: 1
+  maxStack: 3
+  ingredients:
+    wood: 5
+    steel: 25
+    gunpowder: 8
+  leftover:
+    wood: 0
+    steel: 50
+    gunpowder: 25
