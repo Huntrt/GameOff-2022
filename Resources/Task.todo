@@ -198,7 +198,7 @@
 			▪ Caster
 				✓ Core - Core function or every tower caster.
 				✓ Points - An list of position, rotation and delay between them to strike using them.
-				▪ Zone - Randomly choose position inside an transform to strike there.
+				✓ Barrier - Randomly choose position from inside an length of box.
 				▪ Laser - Create an line toward X amount of enemy in range to directly damage.
 				▪ Shotgun - Create an an list of random rotation and randomly alter the strike velocity.
 				▪ Remains - Strike when it die.
