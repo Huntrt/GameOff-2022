@@ -5,7 +5,8 @@ public class Tower_Strike : MonoBehaviour
 {
 	public Tower_Caster caster;
 	public Action onOver;
-    public float damage, accuracy;
+    [HideInInspector] public float damage; 
+	public float accuracy;
 
 	protected virtual void OnEnable()
 	{
