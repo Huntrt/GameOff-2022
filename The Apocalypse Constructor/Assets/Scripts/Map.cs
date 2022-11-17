@@ -30,6 +30,12 @@ public class Map : MonoBehaviour
 
 	public static Plot FindPlot(Vector2 coordinate)
 	{
+		//If the given coordnate divide with spacing are not whole number
+		if((coordinate.x / i.spacing) % 1 != 0 || (coordinate.y / i.spacing) % 1 != 0)
+		{
+			//Print an warning
+			Debug.LogWarning("The plot try to find at " + coordinate + " might has incorrect coordinate");
+		}
 		//Go through all the plot has create
 		for (int p = 0; p < i.plots.Count; p++)
 		{
@@ -155,6 +161,14 @@ public class Map : MonoBehaviour
 	{
 		//Find the plot of structure gonna delete 
 		Plot plot = FindPlot(structure.transform.position);
+		//If the plot try to delete does not exist
+		if(plot == null)
+		{
+			//Print an error
+			Debug.LogError("Fail to delete structure at " + structure.transform.position + " since no plot exist there");
+			//Stop deleteing
+			return;
+		}
 		//Reduce the plot occupation with deleted structure occupation
 		plot.occupation -= (int)structure.stash.occupation;
 		//Given structure instantly die
