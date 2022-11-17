@@ -199,9 +199,9 @@
 				✓ Core - Core function or every tower caster.
 				✓ Points - An list of position, rotation and delay between them to strike using them.
 				✓ Barrier - Randomly choose position from inside an length of box.
-				▪ Laser - Create an line toward X amount of enemy in range to directly damage.
-				▪ Shotgun - Create an an list of random rotation and randomly alter the strike velocity.
 				▪ Remains - Strike when it die.
+				▪ Laser - Create an line toward X amount of enemy in range to directly damage.
+				▪ Shotgun - Create an an list of random rotation and randomly alter the strike velocity. @consider
 				▪ Pattern - Generate an list of poisition with spacing and cone rotation. @consider
 			✓ Strike
 				✓ Core - Contain basic stats of an strike.
@@ -229,5 +229,6 @@ Settings:
 	▪ Change color of preview build
 
 Bugs:
-	▪ 2022 Nov 11: Projectile bounce off when piercing enemy. @caution
-		Might be because don't ignore collision fast enough?
+	✓ 2022 Nov 11: Projectile bounce off when piercing enemy. @caution
+		> Might be because don't ignore collision fast enough?
+		> Nope, forget to freeze rotation.
