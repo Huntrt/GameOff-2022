@@ -28,10 +28,8 @@ public class Tower_CasterBarrier : Tower_Caster
 	Vector2 GetBarrierLength()
 	{
 		//Randomize from the top to bottom of barrier scale height
-		float length = Random.Range(-barrier.localScale.y,barrier.localScale.y)/4;
-		//Rotate barrier's anchor angle to emulate X rotation then convert it to radians
-		float radians = (barrier.parent.localEulerAngles.z + 90) * Mathf.Deg2Rad;
-		//Increase current position with radomize length at rad has get then return it
-		return (Vector2)barrier.position + (new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * length);
+		float length = Random.Range(-barrier.localScale.y,barrier.localScale.y)/6;
+		//Get position inside barrier with length has randomize
+		return barrier.TransformPoint(Vector2.up * length);
 	}
 }
