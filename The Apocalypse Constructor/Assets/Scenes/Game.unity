@@ -2126,7 +2126,7 @@ Transform:
   m_GameObject: {fileID: 398815072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 1705175439}
   m_RootOrder: 0
@@ -2170,7 +2170,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1447316131
   m_SortingLayer: 2
-  m_SortingOrder: 10
+  m_SortingOrder: 100
   m_Sprite: {fileID: -1113851898715152007, guid: f42a7c3b291cf7c48b10dccdd96e30d0,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -4429,7 +4429,7 @@ PrefabInstance:
     - target: {fileID: 4412832412503870589, guid: 348ebe10f44b44d43aa70c33ed588ac5,
         type: 3}
       propertyPath: m_WasSpriteAssigned
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 348ebe10f44b44d43aa70c33ed588ac5, type: 3}
@@ -8095,7 +8095,7 @@ MonoBehaviour:
   trashMode: 0
   selectIndicator: {fileID: 1979364872}
   selectDefault: {r: 1, g: 1, b: 1, a: 0.5019608}
-  selectTrash: {r: 1, g: 0, b: 0, a: 0.5019608}
+  selectTrash: {r: 1, g: 0, b: 0, a: 1}
   selectNameText: {fileID: 1036577470}
 --- !u!1 &1706746553
 GameObject:
@@ -9258,7 +9258,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -171, y: 0}
-  m_SizeDelta: {x: 35, y: 35}
+  m_SizeDelta: {x: 33, y: 33}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1979364872
 MonoBehaviour:
@@ -9280,7 +9280,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fa3f913d00490b148a8b1cd847ef09bd, type: 3}
+  m_Sprite: {fileID: 2852735084993214469, guid: f42a7c3b291cf7c48b10dccdd96e30d0,
+    type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
