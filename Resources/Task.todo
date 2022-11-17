@@ -229,3 +229,5 @@ Settings:
 	▪ Change color of preview build
 
 Bugs:
+	▪ 2022 Nov 11: Projectile bounce off when piercing enemy. @caution
+		Might be because don't ignore collision fast enough?

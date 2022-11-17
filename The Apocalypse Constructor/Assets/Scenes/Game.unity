@@ -4353,12 +4353,12 @@ PrefabInstance:
     - target: {fileID: 4412832412503870532, guid: 348ebe10f44b44d43aa70c33ed588ac5,
         type: 3}
       propertyPath: stats.DPS
-      value: 100
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4412832412503870532, guid: 348ebe10f44b44d43aa70c33ed588ac5,
         type: 3}
       propertyPath: stats.rate
-      value: 10
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4412832412503870588, guid: 348ebe10f44b44d43aa70c33ed588ac5,
         type: 3}
