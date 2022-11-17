@@ -10021,7 +10021,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &706718660554761282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10036,7 +10036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 706718660554761287}
   strikes: []
-  strikePrefab: {fileID: 8676474263449195386, guid: 91b09da64468904499005369fe5d7c9f,
+  strikePrefab: {fileID: 596407363013853885, guid: bbe27b5559782034c967890bb28f7770,
     type: 3}
   barrier: {fileID: 2981338677933067562}
   amount:

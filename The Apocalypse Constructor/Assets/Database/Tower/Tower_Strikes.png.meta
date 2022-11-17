@@ -14,6 +14,12 @@ TextureImporter:
   - first:
       213: 2128778480612139910
     second: Tower_Strikes_Flame
+  - first:
+      213: -3381744741582391365
+    second: Tower_Strikes_Flame
+  - first:
+      213: -1431894267490329210
+    second: Tower_Strike_Triangle
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -119,9 +125,9 @@ TextureImporter:
       name: Tower_Strikes_Arrow
       rect:
         serializedVersion: 2
-        x: 23
+        x: 22
         y: 221
-        width: 454
+        width: 457
         height: 58
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -142,7 +148,7 @@ TextureImporter:
         serializedVersion: 2
         x: 497
         y: 192
-        width: 505
+        width: 506
         height: 107
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -161,9 +167,9 @@ TextureImporter:
       name: Tower_Strikes_Stake
       rect:
         serializedVersion: 2
-        x: 1022
-        y: 191
-        width: 505
+        x: 1021
+        y: 192
+        width: 507
         height: 108
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -182,10 +188,10 @@ TextureImporter:
       name: Tower_Strikes_Flame
       rect:
         serializedVersion: 2
-        x: 1657
-        y: 13
-        width: 277
-        height: 430
+        x: 1581
+        y: 110
+        width: 430
+        height: 277
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,8 +199,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 683e166dfb0fa8d10800000000000000
-      internalID: 2128778480612139910
+      spriteID: bb7bfe42311a111d0800000000000000
+      internalID: -3381744741582391365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tower_Strike_Triangle
+      rect:
+        serializedVersion: 2
+        x: 2175
+        y: 0
+        width: 507
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d125e00c3e02ce0800000000000000
+      internalID: -1431894267490329210
       vertices: []
       indices: 
       edges: []

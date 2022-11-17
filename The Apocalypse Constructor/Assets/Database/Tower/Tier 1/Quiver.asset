@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
-  m_Name: Crossbow
+  m_Name: Quiver
   m_EditorClassIdentifier: 
-  prefab: {fileID: 4412832412503870530, guid: 348ebe10f44b44d43aa70c33ed588ac5, type: 3}
-  icon: {fileID: -1201772774456808696, guid: 21e5c9fe3c4c4e84d900958964f89643, type: 3}
-  description: Shoot powerful arrow toward it facing direction
+  prefab: {fileID: 3796298441361218445, guid: c78130ef61915da4b9e63db932b93c30, type: 3}
+  icon: {fileID: -1225711145029171742, guid: 33cd0bffb0c763b468af60c9cbe43e05, type: 3}
+  description: An pack of arrow tattack up to 4 arrow at once
   occupation: 1
   maxStack: 3
   ingredients:
-    wood: 8
-    steel: 2
+    wood: 13
+    steel: 4
     gunpowder: 0
   leftover:
-    wood: 50
+    wood: 40
     steel: 50
     gunpowder: 0

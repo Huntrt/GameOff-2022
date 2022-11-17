@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Bow
   m_EditorClassIdentifier: 
   prefab: {fileID: 3380852211928699589, guid: f96f8c8f757ab5c4ab8ef25de9b2b299, type: 3}
-  icon: {fileID: 1550471231586188509, guid: 314d4bf9dc1d4764885379c91bb400f0, type: 3}
+  icon: {fileID: -7856493677412862020, guid: aaeb9b43d26d92e43b9008905648db0e, type: 3}
   description: An tower that shoot arrow at enemy
   occupation: 1
-  maxStack: 1
+  maxStack: 3
   ingredients:
     wood: 7
     steel: 3
