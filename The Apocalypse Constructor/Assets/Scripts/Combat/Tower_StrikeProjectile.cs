@@ -3,14 +3,15 @@ using UnityEngine;
 
 public class Tower_StrikeProjectile : Tower_Strike
 {
-	public int piercing; List<Collider2D> pierced = new List<Collider2D>();
 	public float velocity;
-	public float distance; Vector2 prePos; [SerializeField] float traveled;
+	public float travel; float traveled; Vector2 prePos;
+	public int piercing; List<Collider2D> pierced = new List<Collider2D>();
     [SerializeField] Rigidbody2D rb;
 	[SerializeField] Collider2D col;
 
-	void OnEnable()
+	protected override void OnEnable()
 	{
+		base.OnEnable();
 		//Go through all the collider has pierced through
 		for (int p = 0; p < pierced.Count; p++) 
 		{
@@ -26,8 +27,8 @@ public class Tower_StrikeProjectile : Tower_Strike
 	{
 		//Get the travel distance between current position and previous
 		traveled += Vector2.Distance(rb.position, prePos);
-		//Strike over when reached max distance
-		if(traveled >= distance) Over();
+		//Strike over when reached max travel
+		if(traveled >= travel) Over();
 		//Move the strike in the red arrow with velocity has get
 		rb.MovePosition(rb.position + ((Vector2)transform.right * velocity) * Time.fixedDeltaTime);
 		//Update the previous position

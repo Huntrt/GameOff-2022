@@ -5,7 +5,15 @@ public class Tower_Strike : MonoBehaviour
 {
 	public Tower_Caster caster;
 	public Action onOver;
-    public float damage;
+    public float damage, accuracy;
+
+	protected virtual void OnEnable()
+	{
+		//The ange has get from randomize accuracy
+		float accurate = UnityEngine.Random.Range(-accuracy, accuracy);
+		//Rotate the strike initial rotation with accurate has get
+		transform.localRotation = Quaternion.Euler(0,0, accurate + transform.localEulerAngles.z);
+	}
 
 	//Hurt the given entity with strike damage
 	public virtual void Hurting(GameObject entity)

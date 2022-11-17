@@ -21,7 +21,7 @@ public class Tower : Structure
 	void OnValidate() 
 	{
 		//Update stats DPS
-		stats.DPS = stats.damage / stats.rateTimer;
+		stats.DPS = (float)Math.Round(stats.damage / stats.rateTimer,2);
 	}
 
 	protected override void OnEnable()
