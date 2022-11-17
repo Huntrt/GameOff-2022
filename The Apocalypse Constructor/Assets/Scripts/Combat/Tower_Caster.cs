@@ -23,7 +23,7 @@ public class Tower_Caster : MonoBehaviour
 
 	protected virtual void OnDisable() {tower.onAttack -= Attack; tower.onDie -= TowerDie;}
 
-	protected virtual Tower_Strike CreateStrike(GameObject striking, Transform at)
+	protected virtual Tower_Strike Striking(GameObject strikeObj, Vector2 pos, Quaternion rot)
 	{
 		//Call on strike when create one
 		onStrike?.Invoke();
@@ -35,11 +35,8 @@ public class Tower_Caster : MonoBehaviour
 			//If this cached strike is unactive
 			if(!strike.gameObject.activeInHierarchy)
 			{
-				//Set the strike damage to be the tower damage
-				strike.damage = tower.stats.damage;
-				//Set the strike position and rotation to be given transform
-				strike.transform.position = at.position;
-				strike.transform.rotation = at.rotation;
+				//Set up the inactive strike
+				SetupStrike(strike, pos, rot);
 				//Active the strike then return it
 				strike.gameObject.SetActive(true); return strike;
 			}
@@ -47,20 +44,26 @@ public class Tower_Caster : MonoBehaviour
 
 		///When need more strike
 		//Create an new strike at given transform then cache the strike component
-		Tower_Strike newStrike = Instantiate(striking).GetComponent<Tower_Strike>();
+		Tower_Strike newStrike = Instantiate(strikeObj).GetComponent<Tower_Strike>();
 		//Deactive the new strike for waiting to assign it stats
 		newStrike.gameObject.SetActive(false);
 		//Set new strike caster to be this caster
 		newStrike.caster = this;
-		//Set the new strike damage to be the tower damage
-		newStrike.damage = tower.stats.damage;
-		//Set the new strike position and rotation to be given transform
-		newStrike.transform.position = at.position;
-		newStrike.transform.rotation = at.rotation;
+		//Setup the newly created strike
+		SetupStrike(newStrike, pos, rot);
 		//Cache the newly create strike
 		strikes.Add(newStrike);
 		//Active the new strike then return it
 		newStrike.gameObject.SetActive(true); return newStrike;
+	}
+
+	void SetupStrike(Tower_Strike strike, Vector2 pos, Quaternion rot)
+	{
+		//Set the strike damage to be the tower damage
+		strike.damage = tower.stats.damage;
+		//Set the strike to be given position and rotation
+		strike.transform.position = pos;
+		strike.transform.rotation = rot;
 	}
 
 	public void StrikeOver(Tower_Strike strike)

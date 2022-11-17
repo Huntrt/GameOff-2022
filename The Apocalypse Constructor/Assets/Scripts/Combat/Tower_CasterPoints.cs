@@ -17,8 +17,8 @@ public class Tower_CasterPoints : Tower_Caster
 		//Go through all the points to strike
 		for (int p = 0; p < points.Length; p++)
 		{
-			//Strike at this point transform
-			CreateStrike(strikePrefab, points[p].transform);
+			//Strike at this point transform and using point rotation
+			Striking(strikePrefab, points[p].transform.position, points[p].transform.rotation);
 			//Wait for the delay of this point
 			yield return new WaitForSeconds(points[p].delay);
 		}
