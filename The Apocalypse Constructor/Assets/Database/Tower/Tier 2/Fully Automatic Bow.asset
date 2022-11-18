@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1207988641941379945, guid: 2e75f873c924bd0428e6edebbd4262e2, type: 3}
   icon: {fileID: 490519043163645877, guid: c16552ee16d488345b2eb2781db0cafb, type: 3}
-  description: An bow that completely automatic for killing zombie
+  description: An bow that completely automatic for killing enemy
   occupation: 1
   maxStack: 3
   ingredients:
