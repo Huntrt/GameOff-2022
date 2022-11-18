@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class Tower_CasterBarrier : Tower_Caster
@@ -7,22 +6,24 @@ public class Tower_CasterBarrier : Tower_Caster
 	[SerializeField] Transform barrier;
 	public Amount[] amount;
 	[System.Serializable] public class Amount {public float delay;}
+	int repeated;
 
 	protected override void Attack()
 	{
-		StartCoroutine("LoopAmount");
+		//Reset the amount has repeat
+		repeated -= repeated;
+		//Begin repeating amount gonna strike
+		Invoke("RepeatAmount", 0);
 	}
 
-	IEnumerator LoopAmount()
+	void RepeatAmount()
 	{
-		//Go through all the points to strike
-		for (int p = 0; p < amount.Length; p++)
-		{
-			//Strike randomly at barrier length along with it rotation;
-			Striking(strikePrefab, GetBarrierLength(), barrier.rotation);
-			//Wait for the delay of this point
-			yield return new WaitForSeconds(amount[p].delay);
-		}
+		//Strike randomly at barrier length along with it rotation;
+		Striking(strikePrefab, GetBarrierLength(), barrier.rotation);
+		//Has repeat and count it, exit if repeat enough amount 
+		repeated++; if(repeated >= amount.Length) return;
+		//Repat again with the current repeat delay
+		Invoke("RepeatAmount", amount[repeated].delay);
 	}
 	
 	Vector2 GetBarrierLength()

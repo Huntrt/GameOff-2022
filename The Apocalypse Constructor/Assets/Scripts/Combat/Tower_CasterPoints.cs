@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class Tower_CasterPoints : Tower_Caster
@@ -6,21 +5,23 @@ public class Tower_CasterPoints : Tower_Caster
 	public GameObject strikePrefab;
 	public Point[] points;
 	[System.Serializable] public class Point {public Transform transform; public float delay;}
+	int repeated;
 
 	protected override void Attack()
 	{
-		StartCoroutine("LoopPoints");
+		//Reset the amount has repeat
+		repeated -= repeated;
+		//Begin repeating amount gonna strike
+		Invoke("RepeatPoints", 0);
 	}
 
-	IEnumerator LoopPoints()
+	void RepeatPoints()
 	{
-		//Go through all the points to strike
-		for (int p = 0; p < points.Length; p++)
-		{
-			//Strike at this point transform and using point rotation
-			Striking(strikePrefab, points[p].transform.position, points[p].transform.rotation);
-			//Wait for the delay of this point
-			yield return new WaitForSeconds(points[p].delay);
-		}
+		//Strike at this point transform and using point rotation
+		Striking(strikePrefab, points[repeated].transform.position, points[repeated].transform.rotation);
+		//Has repeat and count it, exit if repeat enough amount 
+		repeated++; if(repeated >= points.Length) return;
+		//Repat again with the current repeat delay
+		Invoke("RepeatAmount", points[repeated].delay);
 	}
 }
