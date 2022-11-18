@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 3796298441361218445, guid: c78130ef61915da4b9e63db932b93c30, type: 3}
   icon: {fileID: -1225711145029171742, guid: 33cd0bffb0c763b468af60c9cbe43e05, type: 3}
-  description: An pack of arrow tattack up to 4 arrow at once
+  description: An pack of arrow attack up to 4 arrow at once
   occupation: 1
   maxStack: 3
   ingredients:

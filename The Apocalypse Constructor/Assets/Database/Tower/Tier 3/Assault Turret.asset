@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
-  m_Name: Cannon
+  m_Name: Assault Turret
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3690722479148652823, guid: ef3ff61fb97785a42abf0122a0c5c402, type: 3}
-  icon: {fileID: -6809907661698028246, guid: 59e79d47799cf564caac518fd4920e2d, type: 3}
-  description: Slow but shoot an cannon ball that explode on impact
+  prefab: {fileID: 7021109862526743479, guid: fd41f1f099a945740afc88c0131b5626, type: 3}
+  icon: {fileID: 1343017927125198346, guid: c0e5f256c137d9544964cd99f8fa0159, type: 3}
+  description: An extremly well rounded versatile turret for killing enemy.
   occupation: 1
   maxStack: 3
   ingredients:
-    wood: 8
-    steel: 16
-    gunpowder: 4
+    wood: 10
+    steel: 30
+    gunpowder: 15
   leftover:
     wood: 50
     steel: 25
-    gunpowder: 50
+    gunpowder: 25

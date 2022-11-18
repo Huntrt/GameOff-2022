@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
-  m_Name: Cannon
+  m_Name: RPGT
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3690722479148652823, guid: ef3ff61fb97785a42abf0122a0c5c402, type: 3}
-  icon: {fileID: -6809907661698028246, guid: 59e79d47799cf564caac518fd4920e2d, type: 3}
-  description: Slow but shoot an cannon ball that explode on impact
+  prefab: {fileID: 665354745128790515, guid: fcc1d5d2adda3c0439e64dfb9a3caae1, type: 3}
+  icon: {fileID: -8277574145844957068, guid: f988e0867fc418944b6878629c62b630, type: 3}
+  description: Fire an deathly missile directly infront of it
   occupation: 1
   maxStack: 3
   ingredients:
-    wood: 8
-    steel: 16
-    gunpowder: 4
+    wood: 0
+    steel: 30
+    gunpowder: 30
   leftover:
-    wood: 50
-    steel: 25
-    gunpowder: 50
+    wood: 0
+    steel: 50
+    gunpowder: 10

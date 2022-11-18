@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
-  m_Name: Cannon
+  m_Name: Shotgun
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3690722479148652823, guid: ef3ff61fb97785a42abf0122a0c5c402, type: 3}
-  icon: {fileID: -6809907661698028246, guid: 59e79d47799cf564caac518fd4920e2d, type: 3}
-  description: Slow but shoot an cannon ball that explode on impact
+  prefab: {fileID: 462148140024734364, guid: 4a4a42e53165f9848807d73e2bed930f, type: 3}
+  icon: {fileID: -2408530018317867212, guid: b2f2252855c9e9e4b823ef2b4ddb5289, type: 3}
+  description: An shotgun stick onto an turret. Shoot massive amount of bullet
   occupation: 1
   maxStack: 3
   ingredients:
-    wood: 8
-    steel: 16
-    gunpowder: 4
+    wood: 5
+    steel: 25
+    gunpowder: 20
   leftover:
     wood: 50
-    steel: 25
-    gunpowder: 50
+    steel: 50
+    gunpowder: 25

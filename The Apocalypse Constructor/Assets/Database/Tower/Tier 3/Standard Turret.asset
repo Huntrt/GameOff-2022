@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
-  m_Name: Cannon
+  m_Name: Standard Turret
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3690722479148652823, guid: ef3ff61fb97785a42abf0122a0c5c402, type: 3}
-  icon: {fileID: -6809907661698028246, guid: 59e79d47799cf564caac518fd4920e2d, type: 3}
-  description: Slow but shoot an cannon ball that explode on impact
+  prefab: {fileID: 7689113517723131196, guid: 6b395f953d60a6241ad76af163834dc0, type: 3}
+  icon: {fileID: -5750618459908040392, guid: 08f40909f74333648b0a5e22aa16e89b, type: 3}
+  description: An turret shoot bullet at enemy
   occupation: 1
   maxStack: 3
   ingredients:
-    wood: 8
-    steel: 16
-    gunpowder: 4
+    wood: 5
+    steel: 10
+    gunpowder: 5
   leftover:
     wood: 50
-    steel: 25
+    steel: 50
     gunpowder: 50

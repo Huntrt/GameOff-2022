@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
-  m_Name: Cannon
+  m_Name: 2 Ways Turret
   m_EditorClassIdentifier: 
-  prefab: {fileID: 3690722479148652823, guid: ef3ff61fb97785a42abf0122a0c5c402, type: 3}
-  icon: {fileID: -6809907661698028246, guid: 59e79d47799cf564caac518fd4920e2d, type: 3}
-  description: Slow but shoot an cannon ball that explode on impact
+  prefab: {fileID: 9015082961679381981, guid: a035432d58b6b56448805f0e360cde17, type: 3}
+  icon: {fileID: 723765181365348643, guid: e13617372ce09514786a4fa74c054988, type: 3}
+  description: An standard turret that also shoot from behind
   occupation: 1
   maxStack: 3
   ingredients:
-    wood: 8
-    steel: 16
-    gunpowder: 4
+    wood: 5
+    steel: 20
+    gunpowder: 7
   leftover:
-    wood: 50
-    steel: 25
+    wood: 100
+    steel: 50
     gunpowder: 50

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 24067709323263059, guid: d5b5ac0dd177ab646b44950eac08869f, type: 3}
   icon: {fileID: -1962162864118889692, guid: a5e227707e07fa94b97511a6e9e56ee5, type: 3}
-  description: An bow that has been strengthen able to handle up to 2 arrow
+  description: An bow that has been strengthen to handle up to 2 arrow
   occupation: 1
   maxStack: 3
   ingredients:
