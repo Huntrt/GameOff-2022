@@ -5304,9 +5304,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   structureRecipes:
-  - {fileID: 11400000, guid: f7a93f8fe93cc0a4996730a78503bf15, type: 2}
+  - {fileID: 11400000, guid: 722ae91127e58d344a4638814043f5f2, type: 2}
   - {fileID: 11400000, guid: edd5eef24dd44dd4fab9d4eee6fe0c90, type: 2}
+  - {fileID: 11400000, guid: f7a93f8fe93cc0a4996730a78503bf15, type: 2}
   - {fileID: 11400000, guid: 1e79a156c95083940a9f99b20264a530, type: 2}
+  - {fileID: 11400000, guid: b7922016caea4ed4b9281ca07dbf78ba, type: 2}
+  - {fileID: 11400000, guid: 460b84ed46d76c64c931f18ff6599f32, type: 2}
+  - {fileID: 11400000, guid: 81bc1ec63e6488f44a5820302aa9b255, type: 2}
+  - {fileID: 11400000, guid: d91e54344e90c4c4a8d5d8b2e143aed5, type: 2}
+  - {fileID: 11400000, guid: 8f27abb71278015458b4bd722bbb4ef6, type: 2}
+  - {fileID: 11400000, guid: c6b1e1155d032064a9265efee3d25169, type: 2}
+  - {fileID: 11400000, guid: 25512993db81bf6448b24d17350582a2, type: 2}
+  - {fileID: 11400000, guid: b1b7826c879cad546949f61084010156, type: 2}
   towerRecipes:
   - {fileID: 11400000, guid: abbbf23bdfe77914385a7eaf2b5fe855, type: 2}
   - {fileID: 11400000, guid: b37368714d3a09e4e934639d8fce6c18, type: 2}

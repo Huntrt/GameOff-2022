@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
-  m_Name: Wooden Crate
+  m_Name: Steel Platform
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6977638721919612032, guid: 73b86423c0a7d114fbdbb09157d49991, type: 3}
-  icon: {fileID: 4374014802658380202, guid: 9ccd1c3cde3422744a241cd9f5fb0128, type: 3}
-  description: An crate made out of wood plank
-  occupation: 3
+  prefab: {fileID: 7277306685551138003, guid: 1bb807b7cbe7f3e4bb290485e3bbb15a, type: 3}
+  icon: {fileID: -1070760049899607357, guid: 9ccd1c3cde3422744a241cd9f5fb0128, type: 3}
+  description: Steel platform. Allow tower to place inside it
+  occupation: 2
   maxStack: 10
   ingredients:
-    wood: 15
-    steel: 0
+    wood: 0
+    steel: 15
     gunpowder: 0
   leftover:
-    wood: 50
+    wood: 0
     steel: 50
     gunpowder: 0

@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
-  m_Name: Wooden Crate
+  m_Name: Reinforce Platform
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6977638721919612032, guid: 73b86423c0a7d114fbdbb09157d49991, type: 3}
-  icon: {fileID: 4374014802658380202, guid: 9ccd1c3cde3422744a241cd9f5fb0128, type: 3}
-  description: An crate made out of wood plank
-  occupation: 3
+  prefab: {fileID: 637666966762994030, guid: 619a240ad9721aa4fa14a56b49ab474c, type: 3}
+  icon: {fileID: -751420242086524085, guid: 9ccd1c3cde3422744a241cd9f5fb0128, type: 3}
+  description: An wooden platform that been reinforce. Allow tower to place inside
+    it
+  occupation: 2
   maxStack: 10
   ingredients:
-    wood: 15
-    steel: 0
+    wood: 8
+    steel: 4
     gunpowder: 0
   leftover:
-    wood: 50
-    steel: 50
+    wood: 0
+    steel: 0
     gunpowder: 0

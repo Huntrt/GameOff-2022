@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
-  m_Name: Wooden Crate
+  m_Name: Furnace
   m_EditorClassIdentifier: 
-  prefab: {fileID: 6977638721919612032, guid: 73b86423c0a7d114fbdbb09157d49991, type: 3}
-  icon: {fileID: 4374014802658380202, guid: 9ccd1c3cde3422744a241cd9f5fb0128, type: 3}
-  description: An crate made out of wood plank
+  prefab: {fileID: 1092521270573843448, guid: c31641e93c384ef4286c40b14c25e3be, type: 3}
+  icon: {fileID: -1194272340401181525, guid: 9ccd1c3cde3422744a241cd9f5fb0128, type: 3}
+  description: Burning materials for energy.
   occupation: 3
-  maxStack: 10
+  maxStack: 5
   ingredients:
-    wood: 15
-    steel: 0
+    wood: 35
+    steel: 15
     gunpowder: 0
   leftover:
-    wood: 50
-    steel: 50
+    wood: 20
+    steel: 20
     gunpowder: 0

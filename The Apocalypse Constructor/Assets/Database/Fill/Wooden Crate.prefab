@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 981428869992985832}
   m_Layer: 8
   m_Name: Wooden Crate
-  m_TagString: Untagged
+  m_TagString: Filler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -45,9 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ab2b0b3c9628945aaf658d906d0a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 30
   health: 0
-  stash: {fileID: 11400000, guid: f7a93f8fe93cc0a4996730a78503bf15, type: 2}
   extends:
   - {x: 0, y: 1}
   - {x: 0, y: -1}
