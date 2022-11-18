@@ -8,7 +8,7 @@ public class Structure : Entity
 	public enum Function {filler, tower, dynamo}; public Function function;
 	public Action onDie;
 	protected StructureManager manager;
-	public StructureStashData stash; [HideInInspector] public class StructureStashData
+	public StructureStashData stashed; [HideInInspector] public class StructureStashData
 	{
 		public Stash.Ingredients leftovered;
 		public Stash.Occupation occupied;
