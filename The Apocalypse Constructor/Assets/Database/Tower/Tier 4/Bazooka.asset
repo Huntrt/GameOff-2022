@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
+  m_Name: Bazooka
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 986432661925713178, guid: 73b86596ef28b6346aebadeaef98ea1e, type: 3}
+  icon: {fileID: -4978545952380360543, guid: 72da6daea6df35d42b3e03ee9a170153, type: 3}
+  description: 
+  occupation: 1
+  maxStack: 3
+  ingredients:
+    wood: 0
+    steel: 20
+    gunpowder: 80
+  leftover:
+    wood: 0
+    steel: 0
+    gunpowder: 0

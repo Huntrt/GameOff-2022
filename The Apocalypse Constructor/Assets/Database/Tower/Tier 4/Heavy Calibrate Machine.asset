@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
+  m_Name: Heavy Calibrate Machine
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4093441015635627933, guid: 2f2d14dcf6707bd4086c29eb321d2748, type: 3}
+  icon: {fileID: -2869362706644484962, guid: 65eb4aa9856ac95479d27f802f5d7f1d, type: 3}
+  description: An machine that has been calibrate to mow down enemy
+  occupation: 1
+  maxStack: 3
+  ingredients:
+    wood: 0
+    steel: 50
+    gunpowder: 60
+  leftover:
+    wood: 0
+    steel: 50
+    gunpowder: 50

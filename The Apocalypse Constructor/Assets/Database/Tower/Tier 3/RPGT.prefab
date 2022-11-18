@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a080f35dfeb9544c861582eb6decb9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 35
   health: 0
   extends: []
   flipped: 0
@@ -97,7 +97,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 665354745128790517}
   strikes: []
-  strikePrefab: {fileID: 1992194021957104812, guid: 420c4799e20b9ba4a98b8685f9e27747,
+  strikePrefab: {fileID: 6278664171186605806, guid: a78284e04fe95d941805bceb1d289a26,
     type: 3}
   points:
   - transform: {fileID: 7202770909579712433}
