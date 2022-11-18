@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5045601946227885903}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: -1, w: 0}
   m_LocalPosition: {x: -0.24, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 7660227855728003287}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 180, z: 0}
 --- !u!1 &7660227855728003284
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,7 +195,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 30
   health: 0
-  stash: {fileID: 11400000, guid: 6879c3def2005fc46a6319555bbc04d8, type: 2}
   extends: []
   flipped: 0
   function: 1
@@ -243,7 +242,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 9015082961679381979}
   strikes: []
-  strikePrefab: {fileID: 0}
+  strikePrefab: {fileID: 3372612690338875347, guid: a6cd33851a8693e479703fb87adc3a9d,
+    type: 3}
   points:
   - transform: {fileID: 7660227856158847751}
     delay: 0

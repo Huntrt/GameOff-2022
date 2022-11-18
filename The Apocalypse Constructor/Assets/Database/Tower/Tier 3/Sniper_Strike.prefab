@@ -54,10 +54,10 @@ MonoBehaviour:
   render: {fileID: 4517096045299343569}
   lineAnimation: {fileID: 0}
   lineDrawer:
-    duration: 0.6
+    duration: 1
     start: {r: 1, g: 0.8672566, b: 0.20353979, a: 1}
     end: {r: 1, g: 0.8672566, b: 0.20353979, a: 0}
-    expand: 0.1
+    expand: 0.3
     fadeCount: 0
 --- !u!120 &4517096045299343569
 LineRenderer:

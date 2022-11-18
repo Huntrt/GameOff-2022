@@ -22,6 +22,6 @@ public class Tower_CasterPoints : Tower_Caster
 		//Has repeat and count it, exit if repeat enough amount 
 		repeated++; if(repeated >= points.Length) return;
 		//Repat again with the current repeat delay
-		Invoke("RepeatAmount", points[repeated].delay);
+		Invoke("RepeatPoints", points[repeated].delay);
 	}
 }
