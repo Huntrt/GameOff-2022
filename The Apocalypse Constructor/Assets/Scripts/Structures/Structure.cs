@@ -30,8 +30,15 @@ public class Structure : Entity
 	{
 		//Set structure flipped as given flip
 		flipped = isFlip;
-		//Flip he tower Y rotation by 180 if it is flipped
-		if(flipped) transform.rotation = Quaternion.Euler(0,180,0);
+		//If the tower is flipped
+		if(flipped)
+		{
+			//Flip it X and Y rotation
+			transform.rotation = Quaternion.Euler(180,180,0);
+			//Flip it Y of sprite render
+			GetComponent<SpriteRenderer>().flipY = true;
+		}
+		
 	}
 
 	void Extending()

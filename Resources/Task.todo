@@ -234,3 +234,6 @@ Bugs:
 	✓ 2022 Nov 11: Projectile bounce off when piercing enemy. @caution
 		> Might be because don't ignore collision fast enough?
 		> Nope, forget to freeze rotation.
+
+Improve:
+	▪ Flip an structure are very messy try to improve it later. @minimal
