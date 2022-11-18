@@ -1,10 +1,11 @@
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
 
 namespace Crafts
 {
-public class RecipePanel : MonoBehaviour
+public class RecipePanel : MonoBehaviour, IPointerEnterHandler
 {
 	[SerializeField] TextMeshProUGUI nameDisplay;
 	[SerializeField] Image iconImage;
@@ -40,9 +41,26 @@ public class RecipePanel : MonoBehaviour
 		if(structure.function == Structure.Function.tower) tower = recipe.prefab.GetComponent<Tower>();
 	}
 
-	public void DisplayInfo()
+	public void OnPointerEnter(PointerEventData eventData) => DisplayInfo();
+
+	void DisplayInfo()
 	{
 		DisplayGeneralInfo();
+		DisplayStructureStats();
+	}
+
+	void DisplayGeneralInfo()
+	{
+		craft.infoGUI.iconImage.sprite = recipe.icon;
+		craft.infoGUI.nameText.text = recipe.name;
+		//Display materials
+		craft.infoGUI.woodText.text = recipe.ingredients.wood.ToString();
+		craft.infoGUI.steelText.text = recipe.ingredients.steel.ToString();
+		craft.infoGUI.gunpowderText.text = recipe.ingredients.gunpowder.ToString();
+	}
+
+	void DisplayStructureStats()
+	{
 		//@ Display each function stats of structure onto it own GUI
 		if(structure.function == Structure.Function.filler)
 		{
@@ -68,16 +86,6 @@ public class RecipePanel : MonoBehaviour
 			craft.towerGUI.depletedText.text = "Depleted: <b>" + tower.depleted + "</b>";
 			craft.towerGUI.aimText.text = "Aim: <b>" + tower.GetComponent<Aiming>().mode + "</b>";
 		}
-	}
-
-	void DisplayGeneralInfo()
-	{
-		craft.infoGUI.iconImage.sprite = recipe.icon;
-		craft.infoGUI.nameText.text = recipe.name;
-		//Display materials
-		craft.infoGUI.woodText.text = recipe.ingredients.wood.ToString();
-		craft.infoGUI.steelText.text = recipe.ingredients.steel.ToString();
-		craft.infoGUI.gunpowderText.text = recipe.ingredients.gunpowder.ToString();
 	}
 
 	void StatsInfoHidden(int function)
