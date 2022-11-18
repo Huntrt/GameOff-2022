@@ -43,7 +43,7 @@ public class Tower_StrikeHitscan : Tower_Strike
 			//Save this object hit
 			RaycastHit2D hit = hits[h];
 			//If collide with either an fill or dynamo structure without phasing
-			if(hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo") && !phasing)
+			if((hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo")) && !phasing)
 			{
 				//End scan here
 				endPoint = hit.point; return;
