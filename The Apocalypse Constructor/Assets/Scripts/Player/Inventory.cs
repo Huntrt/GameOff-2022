@@ -199,6 +199,8 @@ public class Inventory : MonoBehaviour
 	
 	public void Use(Vector2 position, bool flip)
 	{
+		//Dont allow to use if crafting gui are still open
+		if(Crafts.Crafting.i.craftingGUI.activeInHierarchy) return;
 		//Shorting the selected stash
 		Stash select = selectedStash;
 		//Dont use if there is no selected stash at slot
@@ -224,10 +226,12 @@ public class Inventory : MonoBehaviour
 			Structure structCmp = placed.GetComponent<Structure>();
 			//Flip the structure base on given flip
 			structCmp.FlipStructure(flip);
+			//Create an data storage for structure for it to contain it needed stash data
+			structCmp.stashed = new Structure.StructureStashData();
 			//Set the leftover amount of structure as select stash
-			structCmp.stash.leftovered = select.Leftovering();
+			structCmp.stashed.leftovered = select.Leftovering();
 			//Set the occupied layer of structure as select stash
-			structCmp.stash.occupied = select.occupation;
+			structCmp.stashed.occupied = select.occupation;
 		}
 	}
 
