@@ -89,7 +89,7 @@ MonoBehaviour:
     DPS: 12.5
     damage: 25
     rate: 0.5
-    range: 5
+    range: 4
   scaling:
     DPS: 0
     damage: 15

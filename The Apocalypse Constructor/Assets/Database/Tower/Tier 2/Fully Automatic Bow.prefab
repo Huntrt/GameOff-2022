@@ -109,7 +109,7 @@ Transform:
   m_GameObject: {fileID: 545280611526008240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.187, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0.19, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 545280611094652515}
   m_RootOrder: 0
@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 1207988641941379927}
   - component: {fileID: 1207988641941379951}
   - component: {fileID: 1207988641941379950}
-  - component: {fileID: 5213764814655457323}
+  - component: {fileID: 5408808803194133313}
   - component: {fileID: 1207988641941379926}
   - component: {fileID: 8367416787943876856}
   m_Layer: 8
@@ -198,7 +198,7 @@ MonoBehaviour:
   direction: {x: 1, y: 0}
   rotationAnchor: {fileID: 545280611094652515}
   rotateSpeed: 0
---- !u!114 &5213764814655457323
+--- !u!114 &5408808803194133313
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -207,16 +207,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1207988641941379945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb0b420f324539e44936bebaeed844dd, type: 3}
+  m_Script: {fileID: 11500000, guid: c7ad26e6d2a8def4489600f5fcfd0982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tower: {fileID: 1207988641941379951}
   strikes: []
   strikePrefab: {fileID: 6576820451312240235, guid: 2885fb028fe86b9439a75262005212e0,
     type: 3}
-  barrier: {fileID: 545280611526008243}
-  amount:
-  - delay: 0
+  points:
+  - transform: {fileID: 545280611526008243}
+    delay: 0
 --- !u!212 &1207988641941379926
 SpriteRenderer:
   m_ObjectHideFlags: 0
