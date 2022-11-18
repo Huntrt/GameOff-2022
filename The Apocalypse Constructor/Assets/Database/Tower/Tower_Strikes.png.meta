@@ -22,7 +22,10 @@ TextureImporter:
     second: Tower_Strike_Triangle
   - first:
       213: -8953416351194256462
-    second: Tower_Strikes_Missle
+    second: Tower_Strikes_Rocket
+  - first:
+      213: 6040280092692889578
+    second: Tower_Strikes_Rocket
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -230,7 +233,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower_Strikes_Missle
+      name: Tower_Strikes_Rocket
       rect:
         serializedVersion: 2
         x: 2854
@@ -246,6 +249,27 @@ TextureImporter:
       bones: []
       spriteID: 2bb64ec04431fb380800000000000000
       internalID: -8953416351194256462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tower_Strikes_Missle
+      rect:
+        serializedVersion: 2
+        x: 3518
+        y: 214
+        width: 504
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aefb2d4ddb263d350800000000000000
+      internalID: 6040280092692889578
       vertices: []
       indices: 
       edges: []
