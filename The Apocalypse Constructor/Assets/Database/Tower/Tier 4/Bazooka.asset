@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bazooka
   m_EditorClassIdentifier: 
   prefab: {fileID: 986432661925713178, guid: 73b86596ef28b6346aebadeaef98ea1e, type: 3}
-  icon: {fileID: -4978545952380360543, guid: 72da6daea6df35d42b3e03ee9a170153, type: 3}
-  description: 
+  icon: {fileID: -1405999767005050232, guid: 72da6daea6df35d42b3e03ee9a170153, type: 3}
+  description: Track and fire missile toward enemy
   occupation: 1
   maxStack: 3
   ingredients:
@@ -23,5 +23,5 @@ MonoBehaviour:
     gunpowder: 80
   leftover:
     wood: 0
-    steel: 0
-    gunpowder: 0
+    steel: 50
+    gunpowder: 50

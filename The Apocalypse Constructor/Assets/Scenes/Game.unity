@@ -878,7 +878,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2126,7 +2126,7 @@ Transform:
   m_GameObject: {fileID: 398815072}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1705175439}
   m_RootOrder: 0
@@ -4767,7 +4767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1043963517
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5308,8 +5308,27 @@ MonoBehaviour:
   - {fileID: 11400000, guid: edd5eef24dd44dd4fab9d4eee6fe0c90, type: 2}
   - {fileID: 11400000, guid: 1e79a156c95083940a9f99b20264a530, type: 2}
   towerRecipes:
+  - {fileID: 11400000, guid: abbbf23bdfe77914385a7eaf2b5fe855, type: 2}
   - {fileID: 11400000, guid: b37368714d3a09e4e934639d8fce6c18, type: 2}
   - {fileID: 11400000, guid: dc5b82c409450a841a0382b5f1708b51, type: 2}
+  - {fileID: 11400000, guid: d836964baafd2cf499cbedf29706bfef, type: 2}
+  - {fileID: 11400000, guid: 8250e63df8d7fea4bbc458379387acbe, type: 2}
+  - {fileID: 11400000, guid: 04dddc3c805c31342ba2aaa6294dd40c, type: 2}
+  - {fileID: 11400000, guid: a0b2a1681c9ef7b408efbf94a90c9c69, type: 2}
+  - {fileID: 11400000, guid: ed7ab5a028b5f6e4fbdf07e0cfbc1b9a, type: 2}
+  - {fileID: 11400000, guid: 3d2182d70be5a584caed19fff40a7562, type: 2}
+  - {fileID: 11400000, guid: 41beb3766202afa4aa19b532e35a2b15, type: 2}
+  - {fileID: 11400000, guid: 36cdd9148e847914c9416962dbeb43bf, type: 2}
+  - {fileID: 11400000, guid: 67ab354cf0da07640b98a27051fe5123, type: 2}
+  - {fileID: 11400000, guid: 6879c3def2005fc46a6319555bbc04d8, type: 2}
+  - {fileID: 11400000, guid: d7b228bac53aad84c984cc9962fd6e83, type: 2}
+  - {fileID: 11400000, guid: 7c76d0b96d5859f4bbad7300dcf17bf8, type: 2}
+  - {fileID: 11400000, guid: a21e068e0589273429af4cde43be69ed, type: 2}
+  - {fileID: 11400000, guid: 1e87cf7d93906d042b1cd1664f4b1e2e, type: 2}
+  - {fileID: 11400000, guid: 1d9539f70b3cbce4391a2dea475fb162, type: 2}
+  - {fileID: 11400000, guid: 43cc80dba6463774bb2c2bfaabb87dd4, type: 2}
+  - {fileID: 11400000, guid: 8fd3ab5d77fde4246b6c2e41dfedd8a8, type: 2}
+  - {fileID: 11400000, guid: 95c5834de8b97634c81624de233e904e, type: 2}
   craftingGUI: {fileID: 1043963516}
   recipePanel: {fileID: 8098166822165449138, guid: ca046729364d45e4a914ea1fe1c03b17,
     type: 3}
@@ -7737,8 +7756,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

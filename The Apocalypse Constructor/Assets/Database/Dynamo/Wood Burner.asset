@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wood Burner
   m_EditorClassIdentifier: 
   prefab: {fileID: 8993127125766532997, guid: cfda4195ba55f5e47b1592a496a8f814, type: 3}
-  icon: {fileID: -7849156081356724931, guid: 9ccd1c3cde3422744a241cd9f5fb0128, type: 3}
+  icon: {fileID: -5236884350750258488, guid: 9ccd1c3cde3422744a241cd9f5fb0128, type: 3}
   description: Burning wood for an small amount energy
   occupation: 3
   maxStack: 5

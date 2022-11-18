@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 6977638721919612032, guid: 73b86423c0a7d114fbdbb09157d49991, type: 3}
   icon: {fileID: 4374014802658380202, guid: 9ccd1c3cde3422744a241cd9f5fb0128, type: 3}
-  description: An crate made out of wood plank, great for building
+  description: An study crate made out of wood plank
   occupation: 3
   maxStack: 10
   ingredients:

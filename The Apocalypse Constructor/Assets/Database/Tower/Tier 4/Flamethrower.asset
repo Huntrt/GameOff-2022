@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 5586965533624487595, guid: a3c3d3a8fc5ef0e47b61c69cbc4d3e79, type: 3}
   icon: {fileID: -2910323598088949028, guid: 81d9d3d726c9a3f40a2d75e4a10436b0, type: 3}
-  description: Burn every enemy that in it sight
+  description: Burn every enemy that come close to it
   occupation: 1
   maxStack: 3
   ingredients:

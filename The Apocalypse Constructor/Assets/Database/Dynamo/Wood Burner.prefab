@@ -47,7 +47,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 13
   health: 0
-  stash: {fileID: 11400000, guid: 1e79a156c95083940a9f99b20264a530, type: 2}
   extends: []
   flipped: 0
   function: 2
@@ -92,7 +91,7 @@ SpriteRenderer:
   m_SortingLayerID: -262433815
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: -7849156081356724931, guid: 9ccd1c3cde3422744a241cd9f5fb0128,
+  m_Sprite: {fileID: -5236884350750258488, guid: 9ccd1c3cde3422744a241cd9f5fb0128,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -121,7 +120,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.625, y: 0.625}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
