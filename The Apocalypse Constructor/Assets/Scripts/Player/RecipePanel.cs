@@ -22,6 +22,8 @@ public class RecipePanel : MonoBehaviour
 		nameDisplay.text = recipe.name;
 		//Display the item icon on image
 		iconImage.sprite = recipe.icon;
+		//Clear any existing crafting event
+		craftButton.onClick.RemoveAllListeners();
 		//Add crafting event to it button to craft this recipe
 		craftButton.onClick.AddListener(delegate {Crafting.i.Craft(recipe);});
 		//Begin setup this recipe info
