@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a080f35dfeb9544c861582eb6decb9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 12
+  maxHealth: 18
   health: 0
   stash: {fileID: 11400000, guid: 41beb3766202afa4aa19b532e35a2b15, type: 2}
   extends: []
@@ -169,8 +169,8 @@ MonoBehaviour:
   function: 1
   detected: 0
   stats:
-    DPS: 7.5
-    damage: 15
+    DPS: 20
+    damage: 40
     rate: 0.5
     range: 8
   scaling:
