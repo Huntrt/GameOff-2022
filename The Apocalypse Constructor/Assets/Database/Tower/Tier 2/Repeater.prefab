@@ -80,7 +80,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 14
   health: 0
-  stash: {fileID: 11400000, guid: 3d2182d70be5a584caed19fff40a7562, type: 2}
   extends: []
   flipped: 0
   function: 1
@@ -128,7 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tower: {fileID: 5309010595179667508}
   strikes: []
-  strikePrefab: {fileID: 6587056833456600245, guid: f4c7b28d136cab742a5487095f255988,
+  strikePrefab: {fileID: 7526273867490564649, guid: 7fe4bd3b354c8214c9ccf7c1f1bd6254,
     type: 3}
   points:
   - transform: {fileID: 2550115345947532912}

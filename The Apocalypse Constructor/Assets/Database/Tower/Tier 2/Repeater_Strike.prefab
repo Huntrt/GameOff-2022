@@ -50,7 +50,7 @@ MonoBehaviour:
   damage: 0
   accuracy: 0
   velocity: 6
-  travel: 2
+  travel: 4
   piercing: 1
   rb: {fileID: 7526273867490564653}
   col: {fileID: 7526273867490564650}
@@ -144,7 +144,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.506, y: 0.10720899}
+    oldSize: {x: 0.50612354, y: 0.107}
     newSize: {x: 0.505, y: 0.107104495}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
