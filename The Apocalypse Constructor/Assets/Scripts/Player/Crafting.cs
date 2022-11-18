@@ -68,7 +68,7 @@ public class Crafting : MonoBehaviour
 		//The amount of recipe panel need for both structure and tower
 		int structP = structureRecipes.Count; int towerP = towerRecipes.Count;
 		//Add panel until enough for both structure and panels recipe
-		while (panels.Count <= structP && panels.Count <= towerP)
+		while (panels.Count <= structP || panels.Count <= towerP)
 		{
 			//Create an new panel for this recipe
 			GameObject panel = Instantiate(recipePanel);
@@ -88,17 +88,17 @@ public class Crafting : MonoBehaviour
 		//Go through all the ppanel has created
 		for (int p = 0; p < panels.Count; p++)
 		{
-			if(forStructure) 
+			//Deactive this panel first
+			panels[p].gameObject.SetActive(false);
+			//If needed to refresh for structure and havent refresh all of them
+			if(forStructure && structureRecipes.Count > p) 
 			{
-				//Deactive if there no structure recipe left to display
-				if(structureRecipes.Count-1 < p) {panels[p].gameObject.SetActive(false); break;}
 				//Setup this panel for this structure recipe 
 				panels[p].SetupPanel(structureRecipes[p]); panels[p].gameObject.SetActive(true);
 			}
-			else 
+			//If needed to refresh for tower and havent refresh all of them
+			else if(!forStructure && towerRecipes.Count > p)
 			{
-				//Deactive if there no tower recipe left to display
-				if(towerRecipes.Count-1 < p) {panels[p].gameObject.SetActive(false); break;}
 				//Setup this panel for this tower recipe 
 				panels[p].SetupPanel(towerRecipes[p]); panels[p].gameObject.SetActive(true);
 			}
