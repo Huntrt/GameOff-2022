@@ -3,12 +3,16 @@ using System;
 
 public class Structure : Entity
 {
-	public Stash stash;
 	[SerializeField] Vector2[] extends;
 	[HideInInspector] public bool flipped;
 	public enum Function {filler, tower, dynamo}; public Function function;
 	public Action onDie;
 	protected StructureManager manager;
+	public StructureStashData stash; [HideInInspector] public class StructureStashData
+	{
+		public Stash.Ingredients leftovered;
+		public Stash.Occupation occupied;
+	}
 
 	protected override void OnEnable()
 	{

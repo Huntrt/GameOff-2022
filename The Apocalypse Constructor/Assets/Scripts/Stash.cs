@@ -13,7 +13,7 @@ public class Stash : ScriptableObject
 	[System.Serializable] public class Ingredients {public int wood, steel, gunpowder;}
 	public Ingredients ingredients;
 	[Tooltip("How much percent of ingredients will be return when manually destroy")]
-	public Ingredients leftover;
+	[SerializeField] Ingredients leftover;
 
 	public Ingredients Leftovering()
 	{

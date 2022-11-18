@@ -220,8 +220,14 @@ public class Inventory : MonoBehaviour
 		{
 			//Remove the select stash that been use
 			Remove(selected);
-			//Flip the the placed structure with given flip
-			placed.GetComponent<Structure>().FlipStructure(flip);
+			//Get the structure component of structure has place
+			Structure structCmp = placed.GetComponent<Structure>();
+			//Flip the structure base on given flip
+			structCmp.FlipStructure(flip);
+			//Set the leftover amount of structure as select stash
+			structCmp.stash.leftovered = select.Leftovering();
+			//Set the occupied layer of structure as select stash
+			structCmp.stash.occupied = select.occupation;
 		}
 	}
 

@@ -170,7 +170,7 @@ public class Map : MonoBehaviour
 			return;
 		}
 		//Reduce the plot occupation with deleted structure occupation
-		plot.occupation -= (int)structure.stash.occupation;
+		plot.occupation -= (int)structure.stash.occupied;
 		//Given structure instantly die
 		structure.Die();
 		//Remove the plot from list if plot no longer has any extend and it is empty

@@ -202,7 +202,7 @@ public class PlayerCursor : MonoBehaviour
 		for (int s = 0; s < structureHovered.Length; s++)
 		{	
 			//Get the leftover ingredients of structure
-			Stash.Ingredients ing = structureHovered[s].stash.Leftovering();
+			Stash.Ingredients ing = structureHovered[s].stash.leftovered;
 			//Gain the leftover ingredients of structure being delete
 			Inventory.i.materials.Gain(ing.wood, ing.steel, ing.gunpowder,0,0);
 			//Delete each of them off the map
