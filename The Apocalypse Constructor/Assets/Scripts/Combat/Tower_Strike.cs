@@ -5,6 +5,8 @@ public class Tower_Strike : MonoBehaviour
 {
 	public Tower_Caster caster;
 	public Action onOver;
+	public OnHit onHit;
+	public delegate void OnHit(Entity entity, Vector2 pos);
     [HideInInspector] public float damage; 
 	public float accuracy;
 
@@ -16,16 +18,23 @@ public class Tower_Strike : MonoBehaviour
 		transform.localRotation = Quaternion.Euler(0,0, accurate + transform.localEulerAngles.z);
 	}
 
-	//Hurt the given entity with strike damage
-	public virtual void Hurting(GameObject entity)
+	public virtual void Hurting(GameObject entity, Vector2 contact, bool silent = false)
 	{
-		entity.GetComponent<Entity>().Hurt(damage);
+		//Heal the entity got hurt
+		Entity hurted = entity.GetComponent<Entity>();
+		//Hurt the enemy with damage has
+		hurted.Hurt(damage);
+		//Called onhit event if needed
+		if(!silent) onHit?.Invoke(hurted, contact);
 	}
 
-	//Heal the given entity with strike damage
-	public virtual void Healing(GameObject entity)
+	public virtual void Healing(GameObject entity, Vector2 contact, bool silent = false)
 	{
-		entity.GetComponent<Entity>().Heal(damage);
+		Entity healed = entity.GetComponent<Entity>();
+		//Heal the enemy with damage has
+		healed.Heal(damage);
+		//Called onhit event if needed
+		if(!silent) onHit?.Invoke(healed, contact);
 	}
 	
 	//When the strike are over

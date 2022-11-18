@@ -40,8 +40,8 @@ public class Tower_StrikeProjectile : Tower_Strike
 		//If collide with an enemy
 		if(other.collider.CompareTag("Enemy"))
 		{
-			//Hurting the enemt collide with
-			Hurting(other.collider.gameObject);
+			//Hurting the enemt collide and get the closet collide point to this strike
+			Hurting(other.collider.gameObject, other.collider.bounds.ClosestPoint(transform.position));
 			//Has pierce this enemy
 			pierced.Add(other.collider);
 			//Ignore the collider of enemy pierced through
