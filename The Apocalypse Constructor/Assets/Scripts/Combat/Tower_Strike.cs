@@ -1,14 +1,17 @@
 using UnityEngine;
 using System;
+using UnityEngine.Serialization;
 
 public class Tower_Strike : MonoBehaviour
 {
 	public Tower_Caster caster;
-	public Action onOver;
 	public OnHit onHit;
 	public delegate void OnHit(Entity entity, Vector2 pos);
+	public OnEnd onOver, onDespawn;
+	public delegate void OnEnd(Vector2 pos);
+	[SerializeField] GameObject hitEffect, despawnEffect;
     [HideInInspector] public float damage; 
-	public float accuracy;
+	[Header("Stats")] public float accuracy;
 
 	protected virtual void OnEnable()
 	{
@@ -18,21 +21,32 @@ public class Tower_Strike : MonoBehaviour
 		transform.localRotation = Quaternion.Euler(0,0, accurate + transform.localEulerAngles.z);
 	}
 
-	public virtual void Hurting(GameObject entity, Vector2 contact, bool silent = false)
+	public virtual void Hurting(GameObject entity, Vector2 contact, bool hitless = false)
 	{
 		//Heal the entity got hurt
 		Entity hurted = entity.GetComponent<Entity>();
 		//Hurt the enemy with damage has
 		hurted.Hurt(damage);
-		//Called onhit event if needed
-		if(!silent) onHit?.Invoke(hurted, contact);
+		//Called hitting if needed
+		if(!hitless) Hitting(hurted, contact);
 	}
 
-	public virtual void Healing(GameObject entity, Vector2 contact, bool silent = false)
+	public virtual void Healing(GameObject entity, Vector2 contact, bool hitless = false)
 	{
 		Entity healed = entity.GetComponent<Entity>();
 		//Heal the enemy with damage has
 		healed.Heal(damage);
+		//Called hitting if needed
+		if(!hitless) Hitting(healed, contact);
+	}
+
+	void Hitting(Entity hit, Vector2 contact)
+	{
+		onHit?.Invoke(hit, contact);
+		//Create hit effect at contact pos with the parent as pooler itself
+		Pooler.i.Create(hitEffect, contact, Quaternion.identity, true, Pooler.i.transform);
+	}
+	
 	/// The strike end cause by out of interaction
 	public virtual void Over(Vector2 overPos, float delay = 0)
 	{
@@ -48,7 +62,7 @@ public class Tower_Strike : MonoBehaviour
 		Pooler.i.Create(despawnEffect, despawnPos, Quaternion.identity, true, Pooler.i.transform);
 		Invoke("Ended", delay);
 	}
-	
+
 	void Ended()
 	{
 		//Destroy the strike if it caster no longer exist
