@@ -113,8 +113,8 @@ public class Inventory : MonoBehaviour
 			trashMode = true;
 			//Set indicator color to trash mode coloe
 			selectIndicator.color = selectTrash;
-			//Remove the stash of currently select slot when press left mouse for refund
-			if(Input.GetKeyDown(KeyCode.Mouse0)) Remove(selected, true);
+			//Trash the stash of currently select slot when press left mouse for refund
+			if(Input.GetKeyDown(KeyCode.Mouse0)) Trash(selected, true);
 		}
 		//todo: When no longer press trash mode then reset indicator color
 		if(Input.GetKeyUp(KeyCode.Delete)) {selectIndicator.color = selectDefault; trashMode = false;}
@@ -220,8 +220,8 @@ public class Inventory : MonoBehaviour
 		//If sucessfully placed an structure
 		if(placed != null)
 		{
-			//Remove the select stash that been use without refund
-			Remove(selected, false);
+			//Trash the select stash that been use without refund
+			Trash(selected, false);
 			//Get the structure component of structure has place
 			Structure structCmp = placed.GetComponent<Structure>();
 			//Flip the structure base on given flip
@@ -266,19 +266,19 @@ public class Inventory : MonoBehaviour
 		return false;
 	}
 
-	public static void Remove(int slot, bool refund)
+	public static void Trash(int slot, bool refund)
 	{
-		//Get the slot gonna get remove
-		Slot[] slots = i.slots; Slot removing = slots[slot];
-		//Stop if try to remove nothing
-		if(removing.stashed == null) return;
-		//Refund the removed left over of stash if needed
-		if(refund) Refund(removing.stashed.Leftovering());
+		//Get the slot gonna get trash
+		Slot[] slots = i.slots; Slot trashing = slots[slot];
+		//Stop if try to trash nothing
+		if(trashing.stashed == null) return;
+		//Refund the trashed left over of stash if needed
+		if(refund) Refund(trashing.stashed.Leftovering());
 		//Remove the stash stack
-		removing.stack--;
+		trashing.stack--;
 		//This slot no longer has any stash if out of stack
-		if(removing.stack == 0) removing.stashed = null;
-		//Refresh at slot removed
+		if(trashing.stack == 0) trashing.stashed = null;
+		//Refresh at slot trashed
 		Refresh(slot);
 	}
 
