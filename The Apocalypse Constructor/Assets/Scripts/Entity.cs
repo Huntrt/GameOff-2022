@@ -5,7 +5,7 @@ public class Entity : MonoBehaviour
 	public float maxHealth;
 	public float health;
 	public OnHealth onHurt, onHeal, onDeath;
-	public delegate float OnHealth(float amount);
+	public delegate void OnHealth(float amount);
 
 	protected virtual void OnEnable()
 	{
