@@ -45,16 +45,26 @@ public class Tower_StrikeHitscan : Tower_Strike
 			//If collide with either an fill or dynamo structure without phasing
 			if((hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo")) && !phasing)
 			{
-				//End scan here
-				endPoint = hit.point; return;
+				//End scan at this contact point
+				endPoint = hit.point;
+				//Despawn at this contact point with drawer duration
+				Despawn(hit.point, lineDrawer.duration);
+				return;
 			}
 			//If collide with an enemy
 			if(hit.collider.CompareTag("Enemy"))
 			{
 				//Hurt the enemy that got hit with scan point
 				Hurting(hit.collider.gameObject, hit.point);
-				//End scan when ran out of pierced
-				pierced--; if(pierced <= 0) {endPoint = hit.point; return;}
+				//Lose an pierce and when out of it
+				pierced--; if(pierced <= 0) 
+				{
+					//End scan at this contact point of enemy
+					endPoint = hit.point;
+					//Despawn at this contact point with drawer duration
+					Despawn(hit.point, lineDrawer.duration);
+					return;
+				}
 			}
 		}
 		//Set end point at the end of length when still able to hit
@@ -73,7 +83,5 @@ public class Tower_StrikeHitscan : Tower_Strike
 		//Set color and side according to the lerped amount
 		render.startColor = colorLerp; render.endColor = colorLerp;
 		render.startWidth = widthLerp; render.endWidth = widthLerp;
-		//Over when faded the whole duration
-		if(faded >= lineDrawer.duration) Over();
 	}
 }

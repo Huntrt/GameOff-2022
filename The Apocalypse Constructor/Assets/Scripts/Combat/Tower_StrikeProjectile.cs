@@ -27,8 +27,8 @@ public class Tower_StrikeProjectile : Tower_Strike
 	{
 		//Get the travel distance between current position and previous
 		traveled += Vector2.Distance(rb.position, prePos);
-		//Strike over when reached max travel
-		if(traveled >= travel) Over();
+		//Despawn when reached max travel
+		if(traveled >= travel) Despawn(transform.position);
 		//Move the strike in the red arrow with velocity has get
 		rb.MovePosition(rb.position + ((Vector2)transform.right * velocity) * Time.fixedDeltaTime);
 		//Update the previous position
@@ -40,16 +40,18 @@ public class Tower_StrikeProjectile : Tower_Strike
 		//If collide with an enemy
 		if(other.collider.CompareTag("Enemy"))
 		{
-			//Hurting the enemt collide and get the closet collide point to this strike
-			Hurting(other.collider.gameObject, other.collider.bounds.ClosestPoint(transform.position));
+			//Get the contact point from projectile to enemy it collide with
+			Vector2 contactPoint = other.collider.bounds.ClosestPoint(transform.position);
+			//Hurting the enemy collide with along with it contact point
+			Hurting(other.collider.gameObject, contactPoint);
 			//Has pierce this enemy
 			pierced.Add(other.collider);
 			//Ignore the collider of enemy pierced through
 			Physics2D.IgnoreCollision(col, other.collider);
 			//Over when reached the maximum amount pierced
-			if(pierced.Count >= piercing) Over();
+			if(pierced.Count >= piercing) Over(contactPoint);
 		}
-		//Instantly over if collide with an ground
-		if(other.collider.CompareTag("Ground")) Over();
+		//Despawn if collide with an ground then send that contact point
+		if(other.collider.CompareTag("Ground")) Despawn(other.collider.bounds.ClosestPoint(transform.position));
 	}
 }

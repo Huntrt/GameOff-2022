@@ -33,15 +33,24 @@ public class Tower_Strike : MonoBehaviour
 		Entity healed = entity.GetComponent<Entity>();
 		//Heal the enemy with damage has
 		healed.Heal(damage);
-		//Called onhit event if needed
-		if(!silent) onHit?.Invoke(healed, contact);
+	/// The strike end cause by out of interaction
+	public virtual void Over(Vector2 overPos, float delay = 0)
+	{
+		onOver?.Invoke(overPos);
+		Invoke("Ended", delay);
+	}
+
+	/// The strike end while still having left over interaction
+	public virtual void Despawn(Vector2 despawnPos, float delay = 0) 
+	{
+		onDespawn?.Invoke(despawnPos);
+		//Create despawn effect at despawn pos with the parent as pooler itself
+		Pooler.i.Create(despawnEffect, despawnPos, Quaternion.identity, true, Pooler.i.transform);
+		Invoke("Ended", delay);
 	}
 	
-	//When the strike are over
-	public virtual void Over()
+	void Ended()
 	{
-		//Call over event
-		onOver?.Invoke();
 		//Destroy the strike if it caster no longer exist
 		if(caster == null) {Destroy(gameObject); return;}
 		//Deactive the strike
