@@ -21,21 +21,21 @@ public class Tower_Strike : MonoBehaviour
 		transform.localRotation = Quaternion.Euler(0,0, accurate + transform.localEulerAngles.z);
 	}
 
-	public virtual void Hurting(GameObject entity, Vector2 contact, bool callHit = true)
+	public virtual void Hurting(float amount, GameObject entity, Vector2 contact, bool callHit = true)
 	{
 		//Heal the entity got hurt
 		Entity hurted = entity.GetComponent<Entity>();
 		//Hurt the enemy with damage has
-		hurted.Hurt(damage);
+		hurted.Hurt(amount);
 		//Called hitting if needed
 		if(callHit) Hitting(hurted, contact);
 	}
 
-	public virtual void Healing(GameObject entity, Vector2 contact, bool callHit = true)
+	public virtual void Healing(float amount, GameObject entity, Vector2 contact, bool callHit = true)
 	{
 		Entity healed = entity.GetComponent<Entity>();
 		//Heal the enemy with damage has
-		healed.Heal(damage);
+		healed.Heal(amount);
 		//Called hitting if needed
 		if(callHit) Hitting(healed, contact);
 	}

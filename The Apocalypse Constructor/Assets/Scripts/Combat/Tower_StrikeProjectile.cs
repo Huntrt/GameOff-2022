@@ -42,8 +42,8 @@ public class Tower_StrikeProjectile : Tower_Strike
 		{
 			//Get the contact point from projectile to enemy it collide with
 			Vector2 contactPoint = other.collider.bounds.ClosestPoint(transform.position);
-			//Hurting the enemy collide with along with it contact point
-			Hurting(other.collider.gameObject, contactPoint);
+			//Hurting the enemy collide with along with it contact point with raw damage
+			Hurting(damage, other.collider.gameObject, contactPoint);
 			//Has pierce this enemy
 			pierced.Add(other.collider);
 			//Ignore the collider of enemy pierced through

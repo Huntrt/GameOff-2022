@@ -54,8 +54,8 @@ public class Tower_StrikeHitscan : Tower_Strike
 			//If collide with an enemy
 			if(hit.collider.CompareTag("Enemy"))
 			{
-				//Hurt the enemy that got hit with scan point
-				Hurting(hit.collider.gameObject, hit.point);
+				//Hurt the enemy that got hit with scan point with raw damage
+				Hurting(damage, hit.collider.gameObject, hit.point);
 				//Lose an pierce and when out of it
 				pierced--; if(pierced <= 0) 
 				{
