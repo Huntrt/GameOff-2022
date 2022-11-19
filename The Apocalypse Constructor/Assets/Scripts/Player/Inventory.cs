@@ -113,8 +113,8 @@ public class Inventory : MonoBehaviour
 			trashMode = true;
 			//Set indicator color to trash mode coloe
 			selectIndicator.color = selectTrash;
-			//Remove the stash of currently select slot when press left mouse
-			if(Input.GetKeyDown(KeyCode.Mouse0)) Remove(selected);
+			//Remove the stash of currently select slot when press left mouse for refund
+			if(Input.GetKeyDown(KeyCode.Mouse0)) Remove(selected, true);
 		}
 		//todo: When no longer press trash mode then reset indicator color
 		if(Input.GetKeyUp(KeyCode.Delete)) {selectIndicator.color = selectDefault; trashMode = false;}
@@ -220,8 +220,8 @@ public class Inventory : MonoBehaviour
 		//If sucessfully placed an structure
 		if(placed != null)
 		{
-			//Remove the select stash that been use
-			Remove(selected);
+			//Remove the select stash that been use without refund
+			Remove(selected, false);
 			//Get the structure component of structure has place
 			Structure structCmp = placed.GetComponent<Structure>();
 			//Flip the structure base on given flip
@@ -266,18 +266,26 @@ public class Inventory : MonoBehaviour
 		return false;
 	}
 
-	public static void Remove(int slot)
+	public static void Remove(int slot, bool refund)
 	{
 		//Get the slot gonna get remove
 		Slot[] slots = i.slots; Slot removing = slots[slot];
 		//Stop if try to remove nothing
 		if(removing.stashed == null) return;
+		//Refund the removed left over of stash if needed
+		if(refund) Refund(removing.stashed.Leftovering());
 		//Remove the stash stack
 		removing.stack--;
 		//This slot no longer has any stash if out of stack
 		if(removing.stack == 0) removing.stashed = null;
 		//Refresh at slot removed
 		Refresh(slot);
+	}
+
+	public static void Refund(Stash.Ingredients ingredients)
+	{
+		//Gain the leftover ingredients of structure being delete
+		i.materials.Gain(ingredients.wood, ingredients.steel, ingredients.gunpowder,0,0);
 	}
 
 	static void Refresh(int index)
