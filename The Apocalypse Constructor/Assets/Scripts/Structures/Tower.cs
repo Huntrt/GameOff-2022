@@ -4,7 +4,7 @@ using System;
 public class Tower : Structure
 {
 	public bool detected; 
-	public Stats stats, scaling;
+	public Stats stats, growth;
 	[HideInInspector] public bool insufficient;
 	public int depleted;
 	float countRate;
