@@ -47,6 +47,9 @@ TextureImporter:
   - first:
       213: 2485287277064768006
     second: Structure_ElectricGenerator
+  - first:
+      213: 2040344784402361886
+    second: Structure_House
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -153,7 +156,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1500
+        y: 1750
         width: 500
         height: 500
       alignment: 0
@@ -174,7 +177,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1000
+        y: 1225
         width: 500
         height: 500
       alignment: 0
@@ -194,8 +197,8 @@ TextureImporter:
       name: Structure_WoodenPlatform
       rect:
         serializedVersion: 2
-        x: 500
-        y: 1000
+        x: 525
+        y: 1225
         width: 500
         height: 500
       alignment: 0
@@ -215,8 +218,8 @@ TextureImporter:
       name: Structure_WoodenFrame
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 1000
+        x: 1050
+        y: 1225
         width: 500
         height: 500
       alignment: 0
@@ -236,8 +239,8 @@ TextureImporter:
       name: Structure_WoodBurner
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 1000
+        x: 1575
+        y: 1225
         width: 500
         height: 500
       alignment: 0
@@ -257,8 +260,8 @@ TextureImporter:
       name: Structure_ReinforcePlatform
       rect:
         serializedVersion: 2
-        x: 500
-        y: 500
+        x: 525
+        y: 700
         width: 500
         height: 500
       alignment: 0
@@ -278,8 +281,8 @@ TextureImporter:
       name: Structure_ReinforceFrame
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 500
+        x: 1050
+        y: 700
         width: 500
         height: 500
       alignment: 0
@@ -299,8 +302,8 @@ TextureImporter:
       name: Structure_Furnace
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 500
+        x: 1575
+        y: 700
         width: 500
         height: 500
       alignment: 0
@@ -321,7 +324,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 175
         width: 500
         height: 500
       alignment: 0
@@ -341,8 +344,8 @@ TextureImporter:
       name: Structure_SteelPlatform
       rect:
         serializedVersion: 2
-        x: 500
-        y: 0
+        x: 525
+        y: 175
         width: 500
         height: 500
       alignment: 0
@@ -362,8 +365,8 @@ TextureImporter:
       name: Structure_SteelFrame
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 0
+        x: 1050
+        y: 175
         width: 500
         height: 500
       alignment: 0
@@ -383,8 +386,8 @@ TextureImporter:
       name: Structure_WindTurbine
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 0
+        x: 1575
+        y: 175
         width: 500
         height: 500
       alignment: 0
@@ -404,8 +407,8 @@ TextureImporter:
       name: Structure_WindTurbine_Blade
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 0
+        x: 2100
+        y: 175
         width: 500
         height: 500
       alignment: 0
@@ -425,8 +428,8 @@ TextureImporter:
       name: Structure_WindTurbine_Foundation
       rect:
         serializedVersion: 2
-        x: 2500
-        y: 0
+        x: 2625
+        y: 175
         width: 500
         height: 500
       alignment: 0
@@ -446,8 +449,8 @@ TextureImporter:
       name: Structure_ElectricGenerator
       rect:
         serializedVersion: 2
-        x: 3000
-        y: 0
+        x: 3150
+        y: 175
         width: 500
         height: 500
       alignment: 0
@@ -459,6 +462,27 @@ TextureImporter:
       bones: []
       spriteID: 60a4e326c938d7220800000000000000
       internalID: 2485287277064768006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_House
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1750
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1eaf9d65c2c05c10800000000000000
+      internalID: 2040344784402361886
       vertices: []
       indices: 
       edges: []
