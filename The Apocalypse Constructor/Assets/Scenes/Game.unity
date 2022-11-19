@@ -7772,75 +7772,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573002285}
   m_CullTransparentMesh: 1
---- !u!1001 &1575009155
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 84593604349870535, guid: 6017e1004ee468148b094c6fca74330a,
-        type: 3}
-      propertyPath: m_Name
-      value: Sniper
-      objectReference: {fileID: 0}
-    - target: {fileID: 84593604349870585, guid: 6017e1004ee468148b094c6fca74330a,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 84593604349870585, guid: 6017e1004ee468148b094c6fca74330a,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 84593604349870585, guid: 6017e1004ee468148b094c6fca74330a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 84593604349870585, guid: 6017e1004ee468148b094c6fca74330a,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 84593604349870585, guid: 6017e1004ee468148b094c6fca74330a,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 84593604349870585, guid: 6017e1004ee468148b094c6fca74330a,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 84593604349870585, guid: 6017e1004ee468148b094c6fca74330a,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 84593604349870585, guid: 6017e1004ee468148b094c6fca74330a,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 84593604349870585, guid: 6017e1004ee468148b094c6fca74330a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 84593604349870585, guid: 6017e1004ee468148b094c6fca74330a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 84593604349870585, guid: 6017e1004ee468148b094c6fca74330a,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6017e1004ee468148b094c6fca74330a, type: 3}
 --- !u!21 &1649231793
 Material:
   serializedVersion: 6
@@ -8162,11 +8093,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materials:
-    wood: 500
-    steel: 500
-    gunpowder: 500
+    wood: 999
+    steel: 999
+    gunpowder: 999
     energy: 0
-    maxEnergy: 500
+    maxEnergy: 999
     woodText: {fileID: 906497287}
     steelText: {fileID: 2135617150}
     gunpowderText: {fileID: 1709444423}

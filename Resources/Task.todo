@@ -33,7 +33,7 @@
 				✓ Show tower range when preview.
 				▪ Change transparency when able to build at preview. @consider
 				▪ Change preview state depend on occupian and what currently previewing. @consider
-		▪ Home: @critical
+		▪ Home: @critical @doing
 			▪ Place home at the middle.
 			▪ Home has health like other structure.
 			▪ Display home health onto GUI.
@@ -138,7 +138,7 @@
 				▪ Display structure appearance.
 				▪ Display structure health.
 		Tower:
-			▪ Damage.
+			✓ Damage.
 			X Critical.
 			✓ Speed.
 			✓ Range.
