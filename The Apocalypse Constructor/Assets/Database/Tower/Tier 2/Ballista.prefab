@@ -80,7 +80,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 20
   health: 0
-  stash: {fileID: 11400000, guid: 04dddc3c805c31342ba2aaa6294dd40c, type: 2}
   extends: []
   flipped: 0
   function: 1
@@ -90,11 +89,11 @@ MonoBehaviour:
     damage: 25
     rate: 0.5
     range: 4
-  scaling:
+  growth:
     DPS: 0
-    damage: 15
-    rate: 7
-    range: 3
+    damage: 0
+    rate: 0
+    range: 0
   insufficient: 0
   depleted: 9
 --- !u!114 &7678723126148276548
