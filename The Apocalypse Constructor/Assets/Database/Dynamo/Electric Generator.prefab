@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5035495125175747589}
   m_Layer: 8
   m_Name: Electric Generator
-  m_TagString: Untagged
+  m_TagString: Dynamo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

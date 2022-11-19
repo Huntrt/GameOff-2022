@@ -16,7 +16,7 @@ MonoBehaviour:
   icon: {fileID: 4957098053106600129, guid: 9ccd1c3cde3422744a241cd9f5fb0128, type: 3}
   description: An wooden frame that has been make slightly stronger
   occupation: 3
-  maxStack: 0
+  maxStack: 10
   ingredients:
     wood: 10
     steel: 5

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7317489411570413733}
   m_Layer: 8
   m_Name: Furnace
-  m_TagString: Untagged
+  m_TagString: Dynamo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
