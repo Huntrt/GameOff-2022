@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6278664171186605804}
   - component: {fileID: 6278664171186605803}
+  - component: {fileID: -2189283191442557468}
   - component: {fileID: 6278664171186605807}
   - component: {fileID: 6278664171186605802}
   - component: {fileID: 6278664171186605805}
@@ -58,6 +59,27 @@ MonoBehaviour:
   piercing: 1
   rb: {fileID: 6278664171186605802}
   col: {fileID: 6278664171186605805}
+--- !u!114 &-2189283191442557468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6278664171186605806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5d39f861638bd04dbdb5ebe9c311b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strike: {fileID: 6278664171186605803}
+  hitExplosion:
+    enable: 1
+    damageScaling: 75
+    radius: 4
+  despawnExplosion:
+    enable: 1
+    damageScaling: 75
+    radius: 4
 --- !u!212 &6278664171186605807
 SpriteRenderer:
   m_ObjectHideFlags: 0
