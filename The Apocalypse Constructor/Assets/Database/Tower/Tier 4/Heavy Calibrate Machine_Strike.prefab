@@ -45,6 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   caster: {fileID: 0}
+  hitEffect: {fileID: 3902322408534819634, guid: 1d5965159ee2d3445a3dbcedf8cb7e97,
+    type: 3}
+  despawnEffect: {fileID: 0}
   damage: 0
   accuracy: 5
   length: 8
