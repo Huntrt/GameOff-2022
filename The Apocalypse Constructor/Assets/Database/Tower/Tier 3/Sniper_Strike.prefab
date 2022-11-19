@@ -57,11 +57,11 @@ MonoBehaviour:
   phasing: 1
   render: {fileID: 4517096045299343569}
   lineAnimation: {fileID: 0}
-  lineDrawer:
-    duration: 1
-    start: {r: 1, g: 0.8672566, b: 0.20353979, a: 1}
-    end: {r: 1, g: 0.8672566, b: 0.20353979, a: 0}
-    expand: 0.3
+  lineConfig:
+    duration: 0.5
+    start: {r: 1, g: 0.83333325, b: 0, a: 1}
+    end: {r: 1, g: 0.83333325, b: 0, a: 0}
+    expand: 0.2
     fadeCount: 0
 --- !u!120 &4517096045299343569
 LineRenderer:

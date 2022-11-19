@@ -56,8 +56,8 @@ MonoBehaviour:
   phasing: 1
   render: {fileID: 9044382793086903546}
   lineAnimation: {fileID: 0}
-  lineDrawer:
-    duration: 0.6
+  lineConfig:
+    duration: 0.1
     start: {r: 0.6, g: 0.24313727, b: 0.6, a: 1}
     end: {r: 0.6, g: 0.24313727, b: 0.6, a: 0}
     expand: 0.05
