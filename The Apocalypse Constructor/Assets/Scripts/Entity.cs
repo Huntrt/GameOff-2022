@@ -4,7 +4,7 @@ public class Entity : MonoBehaviour
 { 
 	public float maxHealth;
 	public float health;
-	public OnHealth onHurt, onHeal;
+	public OnHealth onHurt, onHeal, onDeath;
 	public delegate float OnHealth(float amount);
 
 	protected virtual void OnEnable()
@@ -16,13 +16,10 @@ public class Entity : MonoBehaviour
 	{
 		//Reduce health with amount got hurt
 		health -= amount;
+		//If out of health then call event with hurt amount then die
+		if(health <= 0) {onDeath?.Invoke(amount); Die(); return;}
 		//Call hurt event with damage has take
 		onHurt?.Invoke(amount);
-		//If out of health
-		if(health <= 0)
-		{
-			Die();
-		}
 	}
 
 	public virtual void Heal(float amount)
