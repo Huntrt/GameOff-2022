@@ -44,7 +44,7 @@ public class Tower_Strike : MonoBehaviour
 	{
 		onHit?.Invoke(hit, contact);
 		//Create hit effect at contact pos with the parent as pooler itself
-		Pooler.i.Create(hitEffect, contact, Quaternion.identity, true, Pooler.i.transform);
+		if(hitEffect != null) Pooler.i.Create(hitEffect, contact, Quaternion.identity, true, Pooler.i.transform);
 	}
 	
 	/// The strike end cause by out of interaction
@@ -59,7 +59,7 @@ public class Tower_Strike : MonoBehaviour
 	{
 		onDespawn?.Invoke(despawnPos);
 		//Create despawn effect at despawn pos with the parent as pooler itself
-		Pooler.i.Create(despawnEffect, despawnPos, Quaternion.identity, true, Pooler.i.transform);
+		if(despawnEffect != null) Pooler.i.Create(despawnEffect, despawnPos, Quaternion.identity, true, Pooler.i.transform);
 		Invoke("Ended", delay);
 	}
 
