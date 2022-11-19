@@ -7,7 +7,7 @@ public class Tower_StrikeHitscan : Tower_Strike
 	public bool phasing;
 	public LineRenderer render;
 	public Animation lineAnimation;
-	public LineDrawer lineDrawer; [System.Serializable] public class LineDrawer
+	public LineConfig lineConfig; [System.Serializable] public class LineConfig
 	{
 		public float duration;
 		public Color start, end;
@@ -27,7 +27,7 @@ public class Tower_StrikeHitscan : Tower_Strike
 		//Play the animtion for line if has any
 		if(lineAnimation != null) lineAnimation.Play();
 		//Reset line drawer value
-		lineDrawer.fadeCount = 0;
+		lineConfig.fadeCount = 0;
 	}
 
 	//Only need to draw line when it dont has animation
@@ -48,7 +48,7 @@ public class Tower_StrikeHitscan : Tower_Strike
 				//End scan at this contact point
 				endPoint = hit.point;
 				//Despawn at this contact point with drawer duration
-				Despawn(hit.point, lineDrawer.duration);
+				Despawn(hit.point, lineConfig.duration);
 				return;
 			}
 			//If collide with an enemy
@@ -57,29 +57,32 @@ public class Tower_StrikeHitscan : Tower_Strike
 				//Hurt the enemy that got hit with scan point with raw damage
 				Hurting(damage, hit.collider.gameObject, hit.point);
 				//Lose an pierce and when out of it
-				pierced--; if(pierced <= 0) 
+				pierced--;  if(pierced <= 0) 
 				{
 					//End scan at this contact point of enemy
 					endPoint = hit.point;
-					//Despawn at this contact point with drawer duration
-					Despawn(hit.point, lineDrawer.duration);
+					//Over at this contact point with drawer duration
+					Over(hit.point, lineConfig.duration);
 					return;
 				}
 			}
 		}
+		//? If still able to pierce but out of hit
 		//Set end point at the end of length when still able to hit
 		endPoint = transform.TransformPoint(Vector2.right * length);
+		//Over at end point with drawer duration
+		Over(endPoint, lineConfig.duration);
 	}
 
 	void DrawLine()
 	{
 		//Increase fade count
-		lineDrawer.fadeCount += Time.deltaTime;
+		lineConfig.fadeCount += Time.deltaTime;
 		//Get how many percent has fade of total duration allow
-		float faded = lineDrawer.fadeCount / lineDrawer.duration;
+		float faded = lineConfig.fadeCount / lineConfig.duration;
 		//Lerp between color and width has faded
-		Color colorLerp = Color.Lerp(lineDrawer.start, lineDrawer.end, faded);
-		float widthLerp = Mathf.Lerp(width, lineDrawer.expand, faded);
+		Color colorLerp = Color.Lerp(lineConfig.start, lineConfig.end, faded);
+		float widthLerp = Mathf.Lerp(width, lineConfig.expand, faded);
 		//Set color and side according to the lerped amount
 		render.startColor = colorLerp; render.endColor = colorLerp;
 		render.startWidth = widthLerp; render.endWidth = widthLerp;
