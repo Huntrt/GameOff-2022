@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7608068292261227290}
   - component: {fileID: 5176418092358331699}
   m_Layer: 0
-  m_Name: Arrow_Impact
+  m_Name: Arrow_Hit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
