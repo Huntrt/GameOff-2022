@@ -15,7 +15,7 @@
 			✓ Able to expand ground to each side in realtime.
 			▪ Randomize ground sprite. @consider
 		▪ Days
-			▪ Background changing.
+			▪ Visual changing.
 	Player:
 		X Movement.
 		▪ Camera
@@ -62,7 +62,7 @@
 				✓ Deselect when select the same slot.
 				✓ Dual key to delete the item currently select.
 				✓ Each item has an maximum of stack.
-		▪ Crafting:
+		✓ Crafting:
 			✓ Toggle crafting ui.
 			✓ An database of recipe:
 				X Using JSON
@@ -229,11 +229,14 @@ Settings:
 		▪ Inventory
 		▪ Crafting
 	▪ Change color of preview build
+	▪ Show building grid
 
 Bugs:
-	✓ 2022 Nov 11: Projectile bounce off when piercing enemy. @caution
+	✓ 2022 Nov 17: Projectile bounce off when piercing enemy. @caution
 		> Might be because don't ignore collision fast enough?
 		> Nope, forget to freeze rotation.
+	▪ 2022 Nov 19: Tower shooter dont flip when aim behind @minimal
+		> Flip the shooter X sprite when target behind
 
 Improve:
 	▪ Flip an structure are very messy try to improve it later. @minimal
