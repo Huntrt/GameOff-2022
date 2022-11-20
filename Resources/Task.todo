@@ -247,8 +247,11 @@ Bugs:
 	✓ 2022 Nov 17: Projectile bounce off when piercing enemy. @caution
 		> Might be because don't ignore collision fast enough?
 		> Nope, forget to freeze rotation.
-	▪ 2022 Nov 19: Tower shooter dont flip when aim behind @minimal
+	✓ 2022 Nov 19: Tower shooter dont flip when aim behind @minimal
 		> Flip the shooter X sprite when target behind
+	▪ 2022 Nov 20: When shooter invert it fire point wont invert along @minimal
+		> Just get distance between shooter and it firepoint 
+		> Decrease the distace has get onto firepoint Y position when inverted
 
 Improve:
-	▪ Flip an structure are very messy try to improve it later. @minimal
+	✓ Flip an structure are very messy try to improve it later. @minimal

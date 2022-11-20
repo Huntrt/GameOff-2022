@@ -7,6 +7,8 @@ public class Aiming : MonoBehaviour
 	[HideInInspector] public Vector2 direction;
 	[HideInInspector] public Transform rotationAnchor;
 	[HideInInspector] public float rotateSpeed;
+	[HideInInspector] public SpriteRenderer shooterRender;
+	[HideInInspector] public bool getFirstAsShooter;
 
 	void Reset() 
 	{
@@ -14,6 +16,16 @@ public class Aiming : MonoBehaviour
 		tower = GetComponent<Tower>();
 		//Print error if the object dont has tower for aim
 		if(tower == null) Debug.LogError(gameObject.name + " aiming need to be an tower");
+	}
+
+	void OnValidate()
+	{
+		//If needed to get the first child as shooter wild in rotate mode
+		if(getFirstAsShooter && mode == Mode.Rotate)
+		{	
+			//Get first child sprite render as shooter renderer
+			shooterRender = transform.GetChild(0).GetComponent<SpriteRenderer>();
+		}
 	}
 
 	void Update()
@@ -52,6 +64,20 @@ public class Aiming : MonoBehaviour
 			GameObject detect = EnemyManager.Closest(transform.position, hits);
 			//Makt the anchor rotate toward closest enemy detected
 			rotationAnchor.right = (detect.transform.position - transform.position).normalized;
+			//Stop if has no shooter render to invert
+			if(shooterRender == null) return;
+			//If the detect enemy are infront tower
+			if(detect.transform.position.x > transform.position.x)
+			{
+				//Dont invenrt
+				shooterRender.flipY = false;
+			}
+			//If the detect enemy are behind tower
+			else
+			{
+				//Invert
+				shooterRender.flipY = true;
+			}
 		}
 		
 	}
