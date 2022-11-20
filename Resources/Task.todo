@@ -28,16 +28,34 @@
 				▪ Build
 				▪ Fix
 				▪ Destroy
+			▪ Structure Hover:
+				✓ Show tower range.
+				▪ Show structure healthbar.
 			▪ Structure Preview:
 				✓ Show the structure currently select.
 				✓ Show tower range when preview.
 				▪ Change transparency when able to build at preview. @consider
 				▪ Change preview state depend on occupian and what currently previewing. @consider
-		▪ Home: @critical @doing
-			▪ Place home at the middle.
-			▪ Home has health like other structure.
-			▪ Display home health onto GUI.
-			▪ Gome over when home destroy
+			▪ Structure Details:
+			    ▪ Open when press over an tower
+				▪ Close when press out of tower.
+				▪ Display structure name.
+				▪ Display structure appearance.
+				▪ Display structure health details.
+				▪ Display tower stats.
+				▪ Display platform stats simulatiously.
+				▪ Fixing structure:
+					▪ Button
+					▪ Consume Material
+				▪ Upgrade:
+					▪ Buttton
+					▪ Consume Material
+					▪ Growth the tower stats
+		▪ Home: @critical 
+			✓ Place home at the middle. 
+			✓ Home has health like other structure.
+			✓ Display home health onto GUI.
+			✓ Gome over when home destroy
 		▪ Resources:
 			[R = W? S? E?] for quick recipe note
 			▪ Wood, Steel & Gunpowder:
@@ -133,10 +151,6 @@
 		✓ Die:
 			✓ Drop leftover materials on manual death.
 			✓ Make the plot it on unoccupied.
-		▪ Toggle structure UI when press button on it:
-				▪ Display structure name.
-				▪ Display structure appearance.
-				▪ Display structure health.
 		Tower:
 			✓ Damage.
 			X Critical.
@@ -158,11 +172,8 @@
 					✓ Dont allow to place tower.
 					✓ Cease action of latest placed tower until has enough energy.
 					✓ Show an icon on tower that indicate the tower being shutdown.
-			▪ Able to use upgrade to modify how tower work:
-				▪ Upgrade tower stats directly by click on an tower.
-			▪ Also display those info for tower UI:
-				▪ Display tower stats.
-				▪ Display tower equipped gear.
+			▪ Upgrade:
+				▪ Stats growth
 	Enemy:
 		▪ Spawning:
 			▪ Spawning on the edge of the map.
@@ -228,6 +239,7 @@ Settings:
 	▪ Invert scrolling
 		▪ Inventory
 		▪ Crafting
+	▪ Quick build button
 	▪ Change color of preview build
 	▪ Show building grid
 
