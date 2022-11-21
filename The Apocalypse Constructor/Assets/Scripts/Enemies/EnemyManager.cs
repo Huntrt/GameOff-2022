@@ -10,6 +10,7 @@ public class EnemyManager : MonoBehaviour
 	//temp: replace with enemy component
     public List<GameObject> enemies = new List<GameObject>();
 	public LayerMask enemyLayer;
+	public GameObject directSightIndicator, rotateSightIndicator;
 
 	public static void Spawn(GameObject enemy, Vector2 position)
 	{
