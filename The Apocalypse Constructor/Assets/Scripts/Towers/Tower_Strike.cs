@@ -15,6 +15,8 @@ public class Tower_Strike : MonoBehaviour
 
 	protected virtual void OnEnable()
 	{
+		//Stop if caster haven't get assign yet
+		if(caster == null) return;
 		//The ange has get from randomize accuracy
 		float accurate = UnityEngine.Random.Range(-accuracy, accuracy);
 		//Rotate the strike initial rotation with accurate has get
