@@ -173,17 +173,11 @@ MonoBehaviour:
       steel: 0
       gunpowder: 0
     occupied: 0
-  detected: 0
   stats:
     DPS: 15
     damage: 3
     rate: 6
     range: 4
-  growth:
-    DPS: 0
-    damage: 0
-    rate: 0
-    range: 0
   insufficient: 0
   depleted: 24
 --- !u!114 &1207988641941379950
@@ -198,7 +192,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a3ca493d2ca1c44926bc8d704a89d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 1207988641941379951}
+  caster: {fileID: 5408808803194133313}
   mode: 1
   direction: {x: 1, y: 0}
   rotationAnchor: {fileID: 545280611094652515}
@@ -217,7 +211,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ad26e6d2a8def4489600f5fcfd0982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 1207988641941379951}
+  combatLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  detected: 0
+  stats:
+    DPS: 0
+    damage: 0
+    rate: 0
+    range: 0
+  growth:
+    DPS: 0
+    damage: 0
+    rate: 0
+    range: 0
+  flipped: 0
   strikes: []
   strikePrefab: {fileID: 6576820451312240235, guid: 2885fb028fe86b9439a75262005212e0,
     type: 3}

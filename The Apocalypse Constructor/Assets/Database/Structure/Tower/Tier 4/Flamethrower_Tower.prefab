@@ -41,8 +41,8 @@ GameObject:
   - component: {fileID: 5586965533624487573}
   - component: {fileID: 5586965533624487597}
   - component: {fileID: 5586965533624487596}
-  - component: {fileID: 5586965533624487572}
   - component: {fileID: 5144836822592360579}
+  - component: {fileID: 5586965533624487572}
   - component: {fileID: 8651390812777705855}
   m_Layer: 8
   m_Name: Flamethrower_Tower
@@ -83,17 +83,17 @@ MonoBehaviour:
   extends: []
   flipped: 0
   function: 1
-  detected: 0
+  stashed:
+    leftovered:
+      wood: 0
+      steel: 0
+      gunpowder: 0
+    occupied: 0
   stats:
     DPS: 100
     damage: 10
     rate: 12
     range: 4
-  scaling:
-    DPS: 0
-    damage: 15
-    rate: 7
-    range: 3
   insufficient: 0
   depleted: 65
 --- !u!114 &5586965533624487596
@@ -108,11 +108,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a3ca493d2ca1c44926bc8d704a89d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 5586965533624487597}
+  caster: {fileID: 5144836822592360579}
   mode: 0
   direction: {x: 1, y: 0}
   rotationAnchor: {fileID: 0}
   rotateSpeed: 0
+  shooterRender: {fileID: 0}
+  getFirstAsShooter: 0
+--- !u!114 &5144836822592360579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5586965533624487595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb0b420f324539e44936bebaeed844dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  combatLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  detected: 0
+  stats:
+    DPS: 0
+    damage: 0
+    rate: 0
+    range: 0
+  growth:
+    DPS: 0
+    damage: 0
+    rate: 0
+    range: 0
+  flipped: 0
+  strikes: []
+  strikePrefab: {fileID: 5442074865821414176, guid: a566c4c558b42fa46841f008f14d518b,
+    type: 3}
+  barrier: {fileID: 2830040581580288233}
+  amount:
+  - delay: 0
+  - delay: 0
+  - delay: 0
+  - delay: 0
+  - delay: 0
 --- !u!212 &5586965533624487572
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -165,29 +204,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5144836822592360579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5586965533624487595}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb0b420f324539e44936bebaeed844dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tower: {fileID: 5586965533624487597}
-  strikes: []
-  strikePrefab: {fileID: 5442074865821414176, guid: a566c4c558b42fa46841f008f14d518b,
-    type: 3}
-  barrier: {fileID: 2830040581580288233}
-  amount:
-  - delay: 0
-  - delay: 0
-  - delay: 0
-  - delay: 0
-  - delay: 0
 --- !u!61 &8651390812777705855
 BoxCollider2D:
   m_ObjectHideFlags: 0

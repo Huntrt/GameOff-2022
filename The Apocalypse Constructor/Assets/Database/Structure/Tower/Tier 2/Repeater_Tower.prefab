@@ -83,17 +83,17 @@ MonoBehaviour:
   extends: []
   flipped: 0
   function: 1
-  detected: 0
+  stashed:
+    leftovered:
+      wood: 0
+      steel: 0
+      gunpowder: 0
+    occupied: 0
   stats:
     DPS: 6.67
     damage: 8
     rate: 0.8
     range: 6
-  scaling:
-    DPS: 0
-    damage: 15
-    rate: 7
-    range: 3
   insufficient: 0
   depleted: 13
 --- !u!114 &5309010595179667509
@@ -108,11 +108,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88a3ca493d2ca1c44926bc8d704a89d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 5309010595179667508}
+  caster: {fileID: 3840433457026231233}
   mode: 0
   direction: {x: 1, y: 0}
   rotationAnchor: {fileID: 0}
   rotateSpeed: 0
+  shooterRender: {fileID: 0}
+  getFirstAsShooter: 0
 --- !u!114 &3840433457026231233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,7 +127,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7ad26e6d2a8def4489600f5fcfd0982, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tower: {fileID: 5309010595179667508}
+  combatLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  detected: 0
+  stats:
+    DPS: 0
+    damage: 0
+    rate: 0
+    range: 0
+  growth:
+    DPS: 0
+    damage: 0
+    rate: 0
+    range: 0
+  flipped: 0
   strikes: []
   strikePrefab: {fileID: 7526273867490564649, guid: 7fe4bd3b354c8214c9ccf7c1f1bd6254,
     type: 3}
