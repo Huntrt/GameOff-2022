@@ -3,7 +3,7 @@ using System;
 
 public class Tower : Structure
 {
-	public Combats.Stats stats, growth;
+	public Combats.Stats stats;
 	[HideInInspector] public bool insufficient;
 	public int depleted;
 	GameObject insufIndicator;
@@ -23,6 +23,8 @@ public class Tower : Structure
 		manager.fills.Remove(this);
 		//Consume the deplete energy when tower got create
 		Inventory.i.materials.Consume(0,0,0,depleted);
+		//Send flip state to the caster
+		GetComponent<Tower_Caster>().flipped = flipped;
 	}
 
 	public void RefreshInsufficient()

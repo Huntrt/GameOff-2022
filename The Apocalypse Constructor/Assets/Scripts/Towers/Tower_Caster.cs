@@ -5,8 +5,8 @@ using System;
 public class Tower_Caster : MonoBehaviour
 {
 	public LayerMask combatLayer;
-	public Combats.Stats stats;
 	public bool detected;
+	public Combats.Stats stats, growth;
 	public Action onStrike;
 	[HideInInspector] public bool flipped;
 

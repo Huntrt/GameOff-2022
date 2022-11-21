@@ -2,18 +2,13 @@ using UnityEngine;
 
 public class Aiming : MonoBehaviour
 {
-	[SerializeField] bool getCaster;
-	[HideInInspector] public Tower_Caster caster;
+	public Tower_Caster caster;
 	public Mode mode; public enum Mode {Direct, Rotate, Aimless}
 	[HideInInspector] public Vector2 direction;
 	[HideInInspector] public Transform rotationAnchor;
 	[HideInInspector] public float rotateSpeed;
 	[HideInInspector] public SpriteRenderer shooterRender;
 	[HideInInspector] public bool getFirstAsShooter;
-
-	void Reset() 
-	{
-	}
 
 	void OnValidate()
 	{
@@ -23,7 +18,7 @@ public class Aiming : MonoBehaviour
 			//Get first child sprite render as shooter renderer
 			shooterRender = transform.GetChild(0).GetComponent<SpriteRenderer>();
 		}
-		if(getCaster)
+		if(caster == null)
 		{
 			//Get the caster component the moment aim get added
 			caster = GetComponent<Tower_Caster>();

@@ -4,7 +4,7 @@ public class PlayerCursor : MonoBehaviour
 {
 	Camera cam;
     Vector2 mousePos, mouseCoord, preCoord;
-	Transform hoverTower; 
+	Tower hoverTower; 
 	[SerializeField] Structure[] structureHovered = new Structure[0];
 	public StructurePreview structurePreview; [System.Serializable] public class StructurePreview
 	{
@@ -13,6 +13,7 @@ public class PlayerCursor : MonoBehaviour
 		public Sprite defaultSprite;
 		public Color defaultColor;
 		public Aiming previewAim;
+		public Tower previewTower;
 	}
 	[SerializeField] Transform circleRange, rectangleRange;
 	bool selectFlip;
@@ -54,8 +55,8 @@ public class PlayerCursor : MonoBehaviour
 		{
 			//Make the preview follow current mouse coordinates
 			structurePreview.render.transform.position = mouseCoord;
-			//Show tower range at the new mouse coordinates still using select flip
-			ShowTowerRange(structurePreview.previewAim, selectFlip);
+			//Refresh preview range when coordinate change
+			RefreshPreviewRange();
 			//Begin hover over structure
 			StructureHovering();
 			//Has move to an new coordinate
@@ -74,8 +75,8 @@ public class PlayerCursor : MonoBehaviour
 			selectFlip = !selectFlip;
 			//Flip the preview render to be currently flipped
 			structurePreview.render.transform.rotation = Quaternion.Euler(0,(selectFlip)? 180 : 0,0);
-			//Show tower range at mouse coordinates stil using select flip when not hover over any structure
-			if(structureHovered.Length <= 0) ShowTowerRange(structurePreview.previewAim, selectFlip);
+			//Refresh pewview range when flip while not hover over any structure
+			if(structureHovered.Length <= 0) RefreshPreviewRange();
 		}
 	}
 
@@ -88,6 +89,8 @@ public class PlayerCursor : MonoBehaviour
 		{
 			//Hide the tower range
 			HideTowerRange();
+			//Stop if hover over the house
+			if(hovers[0].collider.CompareTag("House")) return;
 			//Renew how many structure being hover
 			structureHovered = new Structure[hovers.Length];
 			//Go through all the structure being hover
@@ -107,12 +110,12 @@ public class PlayerCursor : MonoBehaviour
 				//If hover over an tower
 				if(structure.function == Structure.Function.tower)
 				{
-					//Are now hover over this tower
-					hoverTower = hovered.collider.transform;
+					//Get the tower currently being hover 
+					hoverTower = hovered.collider.GetComponent<Tower>();
 					//Get the aim of tower hovered
 					Aiming hoverAim = hoverTower.GetComponent<Aiming>();
 					//Show range of the tower hover over with it flip
-					ShowTowerRange(hoverAim, hoverAim.caster.flipped);
+					ShowTowerRange(hoverAim, hoverTower, hoverTower.flipped);
 				}
 				//If hover over an dynamo
 				if(structure.function == Structure.Function.dynamo)
@@ -143,8 +146,9 @@ public class PlayerCursor : MonoBehaviour
 			//If select an tower
 			if(selected.prefab.CompareTag("Tower"))
 			{
-				//Get the aiming component at tower currently previwing
+				//Get the aiming and tower component at tower currently previwing
 				structurePreview.previewAim = selected.prefab.GetComponent<Aiming>();
+				structurePreview.previewTower = selected.prefab.GetComponent<Tower>();
 			}
 		}
 		//If inventory select no stash
@@ -154,11 +158,17 @@ public class PlayerCursor : MonoBehaviour
 			structurePreview.render.sprite = structurePreview.defaultSprite;
 			structurePreview.render.color = structurePreview.defaultColor;
 		}
-		//Show tower range at mouse coordinates stil using select flip when not hover over any structure
-		if(structureHovered.Length <= 0) ShowTowerRange(structurePreview.previewAim, selectFlip);
+		//Refresh preview range when not hover over any structure while preview change
+		if(structureHovered.Length <= 0) RefreshPreviewRange();
 	}
 
- 	void ShowTowerRange(Aiming aimed, bool isFlip)
+	void RefreshPreviewRange()
+	{
+		//Show tower range with preview tower and aim with current select flip
+		ShowTowerRange(structurePreview.previewAim, structurePreview.previewTower, selectFlip);
+	}
+
+ 	void ShowTowerRange(Aiming aimed, Tower towered, bool isFlip)
 	{
 		//Hide tower range and stop showing if aim dont exist
 		HideTowerRange(); if(aimed == null) return;
@@ -170,13 +180,13 @@ public class PlayerCursor : MonoBehaviour
 			//Value for adjust the X given position
 			float adjust = pos.x;
 			//Decrease with half tower range and block if flipeed
-			if(isFlip) {adjust -= ((aimed.caster.stats.range/2) + (Map.i.spacing/2));}
+			if(isFlip) {adjust -= ((towered.stats.range/2) + (Map.i.spacing/2));}
 			//Increase with half tower range and block if not flipeed
-			else {adjust += ((aimed.caster.stats.range/2) + (Map.i.spacing/2));}
+			else {adjust += ((towered.stats.range/2) + (Map.i.spacing/2));}
 			//Set range position X to be adjusted and Y to be given position
 			rectangleRange.position = new Vector2(adjust, pos.y);
 			//Set range scale width to be tower range and height to be an spacing
-			rectangleRange.localScale = new Vector2(aimed.caster.stats.range, Map.i.spacing);
+			rectangleRange.localScale = new Vector2(towered.stats.range, Map.i.spacing);
 
 		}
 		//If aim mode of given tower are rotate and aimless mode
@@ -185,7 +195,7 @@ public class PlayerCursor : MonoBehaviour
 			//Move circle range to given tower position
 			circleRange.position = pos;
 			//Circle range size will be double size of tower range
-			circleRange.localScale = new Vector2(aimed.caster.stats.range*2, aimed.caster.stats.range*2);
+			circleRange.localScale = new Vector2(towered.stats.range*2, towered.stats.range*2);
 		}
 	}
 
