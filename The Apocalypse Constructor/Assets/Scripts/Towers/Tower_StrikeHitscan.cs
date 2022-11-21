@@ -42,36 +42,50 @@ public class Tower_StrikeHitscan : Tower_Strike
 		{
 			//Save this object hit
 			RaycastHit2D hit = hits[h];
-			//If collide with either an fill or dynamo structure without phasing
-			if((hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo")) && !phasing)
-			{
-				//End scan at this contact point
-				endPoint = hit.point;
-				//Despawn at this contact point with drawer duration
-				Despawn(hit.point, lineConfig.duration);
-				return;
-			}
-			//If collide with an enemy
-			if(hit.collider.CompareTag("Enemy"))
-			{
-				//Hurt the enemy that got hit with scan point with raw damage
-				Hurting(damage, hit.collider.gameObject, hit.point);
-				//Lose an pierce and when out of it
-				pierced--;  if(pierced <= 0) 
-				{
-					//End scan at this contact point of enemy
-					endPoint = hit.point;
-					//Over at this contact point with drawer duration
-					Over(hit.point, lineConfig.duration);
-					return;
-				}
-			}
+			//Will his hit end the scan
+			bool isEnded = false;
+			//Hit the enemy when combat layer are on enemy
+			if(caster.combatLayer == LayerMask.GetMask("Enemy")) {HitEnemy(hit, out isEnded);}
+			//Stop if scan has ended
+			if(isEnded) return;
 		}
 		//? If still able to pierce but out of hit
 		//Set end point at the end of length when still able to hit
 		endPoint = transform.TransformPoint(Vector2.right * length);
 		//Over at end point with drawer duration
 		Over(endPoint, lineConfig.duration);
+	}
+
+	void HitEnemy(RaycastHit2D hit, out bool ended)
+	{
+		//If collide with either an fill or dynamo structure without phasing
+		if((hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo")) && !phasing)
+		{
+			//End scan at this contact point
+			endPoint = hit.point;
+			//Despawn at this contact point with drawer duration
+			Despawn(hit.point, lineConfig.duration);
+			//This hit will ended scan
+			ended = true; return;
+		}
+		//If collide with an enemy
+		if(hit.collider.CompareTag("Enemy"))
+		{
+			//Hurt the enemy that got hit with scan point with raw damage
+			Hurting(damage, hit.collider.gameObject, hit.point);
+			//Lose an pierce and when out of it
+			pierced--; if(pierced <= 0) 
+			{
+				//End scan at this contact point of enemy
+				endPoint = hit.point;
+				//Over at this contact point with drawer duration
+				Over(hit.point, lineConfig.duration);
+				//This hit will ended scan
+				ended = true; return;
+			}
+		}
+		//This hit havent end scan
+		ended = false; 
 	}
 
 	void DrawLine()
