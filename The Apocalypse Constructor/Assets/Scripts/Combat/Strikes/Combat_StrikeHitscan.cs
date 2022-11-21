@@ -52,6 +52,8 @@ public class Combat_StrikeHitscan : Combat_Strike
 			bool isEnded = false;
 			//Hit the enemy when combat layer are on enemy
 			if(caster.combatLayer == LayerMask.GetMask("Enemy")) {HitEnemy(hit, out isEnded);}
+			//Hit the structure when combat layer are on enemy
+			if(caster.combatLayer == LayerMask.GetMask("Structure")) {HitStructure(hit, out isEnded);}
 			//Stop if scan has ended
 			if(isEnded) return;
 		}
@@ -83,6 +85,28 @@ public class Combat_StrikeHitscan : Combat_Strike
 			pierced--; if(pierced <= 0) 
 			{
 				//End scan at this contact point of enemy
+				endPoint = hit.point;
+				//Over at this contact point with drawer duration
+				Over(hit.point, lineConfig.duration);
+				//This hit will ended scan
+				ended = true; return;
+			}
+		}
+		//This hit havent end scan
+		ended = false; 
+	}
+
+	void HitStructure(RaycastHit2D hit, out bool ended)
+	{
+		//If collide with any function structure
+		if(hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo") || hit.collider.CompareTag("Tower"))
+		{
+			//Hurt the structure that got hit with scan point with raw damage
+			Hurting(damage, hit.collider.gameObject, hit.point);
+			//Lose an pierce and when out of it
+			pierced--; if(pierced <= 0) 
+			{
+				//End scan at this contact point of structure
 				endPoint = hit.point;
 				//Over at this contact point with drawer duration
 				Over(hit.point, lineConfig.duration);
