@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Tower_Caster : MonoBehaviour
+public class Combat_Caster : MonoBehaviour
 {
 	public LayerMask combatLayer;
 	public bool detected;
@@ -11,7 +11,7 @@ public class Tower_Caster : MonoBehaviour
 	[HideInInspector] public bool flipped;
 
 	//Cache all the strike this caster has create
-	public List<Tower_Strike> strikes = new List<Tower_Strike>();
+	public List<Combat_Strike> strikes = new List<Combat_Strike>();
 
 	void OnEnable()
 	{
@@ -42,7 +42,7 @@ public class Tower_Caster : MonoBehaviour
 
 	protected virtual void Attack() {}
 
-	protected virtual Tower_Strike Striking(GameObject strikeObj, Vector2 pos, Quaternion rot)
+	protected virtual Combat_Strike Striking(GameObject strikeObj, Vector2 pos, Quaternion rot)
 	{
 		//Call on strike when create one
 		onStrike?.Invoke();
@@ -50,7 +50,7 @@ public class Tower_Caster : MonoBehaviour
 		for (int s = 0; s < strikes.Count; s++)
 		{
 			//Get this strike has cache
-			Tower_Strike strike = strikes[s];
+			Combat_Strike strike = strikes[s];
 			//If this cached strike is unactive
 			if(!strike.gameObject.activeInHierarchy)
 			{
@@ -63,7 +63,7 @@ public class Tower_Caster : MonoBehaviour
 
 		///When need more strike
 		//Create an new strike at given transform then cache the strike component
-		Tower_Strike newStrike = Instantiate(strikeObj).GetComponent<Tower_Strike>();
+		Combat_Strike newStrike = Instantiate(strikeObj).GetComponent<Combat_Strike>();
 		//Deactive the new strike for waiting to assign it stats
 		newStrike.gameObject.SetActive(false);
 		//Set new strike caster to be this caster
@@ -76,7 +76,7 @@ public class Tower_Caster : MonoBehaviour
 		newStrike.gameObject.SetActive(true); return newStrike;
 	}
 
-	void SetupStrike(Tower_Strike strike, Vector2 pos, Quaternion rot)
+	void SetupStrike(Combat_Strike strike, Vector2 pos, Quaternion rot)
 	{
 		//Set the strike damage to be the caster damage
 		strike.damage = stats.damage;
@@ -85,7 +85,7 @@ public class Tower_Caster : MonoBehaviour
 		strike.transform.rotation = rot;
 	}
 
-	public void StrikeOver(Tower_Strike strike)
+	public void StrikeOver(Combat_Strike strike)
 	{
 		//Move the strike over to be first cache since it now available
 		strikes.Insert(0, strike); strikes.Remove(strike);

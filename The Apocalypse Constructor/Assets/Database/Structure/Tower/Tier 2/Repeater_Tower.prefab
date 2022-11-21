@@ -105,7 +105,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5309010595179667506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88a3ca493d2ca1c44926bc8d704a89d6, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e7ca7c16a4547418c23c92591355b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   caster: {fileID: 3840433457026231233}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5309010595179667506}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ad26e6d2a8def4489600f5fcfd0982, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e8f5b79dcc28824d8247ced492dcf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   combatLayer:
@@ -146,12 +146,6 @@ MonoBehaviour:
   strikePrefab: {fileID: 7526273867490564649, guid: 7fe4bd3b354c8214c9ccf7c1f1bd6254,
     type: 3}
   points:
-  - transform: {fileID: 2550115345947532912}
-    delay: 0.1
-  - transform: {fileID: 2550115345947532912}
-    delay: 0.1
-  - transform: {fileID: 2550115345947532912}
-    delay: 0.1
   - transform: {fileID: 2550115345947532912}
     delay: 0
 --- !u!212 &5309010595179667469

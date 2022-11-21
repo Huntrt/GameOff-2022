@@ -84,7 +84,7 @@ public class RecipePanel : MonoBehaviour, IPointerEnterHandler
 			craft.towerGUI.speedText.text = "Rate: <b>" +  tower.stats.rateTimer + "s</b>";
 			craft.towerGUI.rangeText.text = "Range: <b>" + tower.stats.range + "</b>";
 			craft.towerGUI.depletedText.text = "Depleted: <b>" + tower.depleted + "</b>";
-			craft.towerGUI.aimText.text = "Aim: <b>" + tower.GetComponent<Aiming>().mode + "</b>";
+			craft.towerGUI.aimText.text = "Aim: <b>" + tower.GetComponent<Combat_Aiming>().mode + "</b>";
 		}
 	}
 

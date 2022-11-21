@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower_Strike_Explode : MonoBehaviour
+public class Combat_Strike_Explode : MonoBehaviour
 {
-    [HideInInspector] public Tower_Strike strike;
+    [HideInInspector] public Combat_Strike strike;
 	public Explosion hitExplosion, despawnExplosion;
 	[System.Serializable] public class Explosion
 	{	
@@ -14,7 +14,7 @@ public class Tower_Strike_Explode : MonoBehaviour
 
 	void Reset() 
 	{
-		strike = GetComponent<Tower_Strike>();
+		strike = GetComponent<Combat_Strike>();
 	}
 
 	void OnEnable()

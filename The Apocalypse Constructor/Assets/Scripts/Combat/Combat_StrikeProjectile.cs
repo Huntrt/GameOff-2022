@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower_StrikeProjectile : Tower_Strike
+public class Combat_StrikeProjectile : Combat_Strike
 {
 	public float velocity;
 	public float travel; float traveled; Vector2 prePos;

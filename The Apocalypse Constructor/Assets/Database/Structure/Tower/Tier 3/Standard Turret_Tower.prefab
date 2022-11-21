@@ -75,16 +75,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 7689113517723131196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88a3ca493d2ca1c44926bc8d704a89d6, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e7ca7c16a4547418c23c92591355b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   caster: {fileID: 631518683857421337}
   mode: 1
-  direction: {x: 1, y: 0}
+  direction: {x: 0, y: 0}
   rotationAnchor: {fileID: 9072398747360665654}
   rotateSpeed: 0
   shooterRender: {fileID: 9072398747360665655}
-  getFirstAsShooter: 1
+  getFirstAsShooter: 0
 --- !u!114 &631518683857421337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7689113517723131196}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ad26e6d2a8def4489600f5fcfd0982, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e8f5b79dcc28824d8247ced492dcf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   combatLayer:
@@ -116,7 +116,7 @@ MonoBehaviour:
   strikePrefab: {fileID: 2955081200286827680, guid: 250fe1da8a7c02441a6d2e4e6644288d,
     type: 3}
   points:
-  - transform: {fileID: 9072398746788010982}
+  - transform: {fileID: 9072398747360665654}
     delay: 0
 --- !u!212 &7689113517723131139
 SpriteRenderer:

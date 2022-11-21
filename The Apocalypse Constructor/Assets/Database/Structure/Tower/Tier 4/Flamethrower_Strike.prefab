@@ -43,17 +43,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 5442074865821414176}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a73a596dbc8e25c4cb3da0baf0dae3db, type: 3}
+  m_Script: {fileID: 11500000, guid: 63ada727acb30c84e8f9360464277962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   caster: {fileID: 0}
   hitEffect: {fileID: 73467278545954237, guid: 0bc795e48a9ecef409f26be6a0c72115, type: 3}
-  despawnEffect: {fileID: 0}
+  despawnEffect: {fileID: 73467278545954237, guid: 0bc795e48a9ecef409f26be6a0c72115,
+    type: 3}
   damage: 0
   accuracy: 10
-  velocity: 5
+  velocity: 6
   travel: 4
-  piercing: 2
+  piercing: 1
   rb: {fileID: 5442074865821414180}
   col: {fileID: 5442074865821414179}
 --- !u!212 &5442074865821414177
@@ -120,14 +121,14 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!61 &5442074865821414179
 BoxCollider2D:
@@ -153,5 +154,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.54, y: 0.21000001}
+  m_Size: {x: 0.43010503, y: 0.277}
   m_EdgeRadius: 0

@@ -1,10 +1,8 @@
 using UnityEngine;
-using System;
-using UnityEngine.Serialization;
 
-public class Tower_Strike : MonoBehaviour
+public class Combat_Strike : MonoBehaviour
 {
-	public Tower_Caster caster;
+	public Combat_Caster caster;
 	public OnHit onHit;
 	public delegate void OnHit(Entity entity, Vector2 pos);
 	public OnEnd onOver, onDespawn;
@@ -15,8 +13,6 @@ public class Tower_Strike : MonoBehaviour
 
 	protected virtual void OnEnable()
 	{
-		//Stop if caster haven't get assign yet
-		if(caster == null) return;
 		//The ange has get from randomize accuracy
 		float accurate = UnityEngine.Random.Range(-accuracy, accuracy);
 		//Rotate the strike initial rotation with accurate has get

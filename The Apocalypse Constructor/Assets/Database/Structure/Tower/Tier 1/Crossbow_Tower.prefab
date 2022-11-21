@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4412832412503870588}
   - component: {fileID: 4412832412503870532}
-  - component: {fileID: 4412832412503870533}
+  - component: {fileID: 7303027650281630737}
   - component: {fileID: -4477959766496950351}
   - component: {fileID: 4412832412503870589}
   - component: {fileID: 628971386532475798}
@@ -66,7 +66,7 @@ MonoBehaviour:
     range: 8
   insufficient: 0
   depleted: 6
---- !u!114 &4412832412503870533
+--- !u!114 &7303027650281630737
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -75,7 +75,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4412832412503870530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88a3ca493d2ca1c44926bc8d704a89d6, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e7ca7c16a4547418c23c92591355b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   caster: {fileID: -4477959766496950351}
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4412832412503870530}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7ad26e6d2a8def4489600f5fcfd0982, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e8f5b79dcc28824d8247ced492dcf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   combatLayer:
@@ -115,9 +115,7 @@ MonoBehaviour:
   strikes: []
   strikePrefab: {fileID: 6952306725455050502, guid: a81f796779968fa429dfadd7e3da1cfc,
     type: 3}
-  points:
-  - transform: {fileID: 6337469391673635328}
-    delay: 0
+  points: []
 --- !u!212 &4412832412503870589
 SpriteRenderer:
   m_ObjectHideFlags: 0

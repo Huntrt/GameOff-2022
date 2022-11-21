@@ -29,7 +29,7 @@ public class Tower : Structure
 	{
 		base.FlipStructure(isFlip);
 		//Send flip state to the caster whne it got flip
-		GetComponent<Tower_Caster>().flipped = flipped;
+		GetComponent<Combat_Caster>().flipped = flipped;
 	}
 
 	public void RefreshInsufficient()

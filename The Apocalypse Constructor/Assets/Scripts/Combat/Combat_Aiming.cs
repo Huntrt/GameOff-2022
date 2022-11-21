@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Aiming : MonoBehaviour
+public class Combat_Aiming : MonoBehaviour
 {
-	public Tower_Caster caster;
+	public Combat_Caster caster;
 	public Mode mode; public enum Mode {Direct, Rotate, Aimless}
 	[HideInInspector] public Vector2 direction;
 	[HideInInspector] public Transform rotationAnchor;
@@ -21,7 +21,7 @@ public class Aiming : MonoBehaviour
 		if(caster == null)
 		{
 			//Get the caster component the moment aim get added
-			caster = GetComponent<Tower_Caster>();
+			caster = GetComponent<Combat_Caster>();
 			//Print error if the object dont has caster ti aim
 			if(caster == null) Debug.LogError(gameObject.name + " aiming need to be an caster");
 		}

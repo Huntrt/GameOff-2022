@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Tower_StrikeHitscan : Tower_Strike
+public class Combat_StrikeHitscan : Combat_Strike
 {
 	public float length, width;
 	public int piercing; int pierced;
@@ -19,15 +19,21 @@ public class Tower_StrikeHitscan : Tower_Strike
 	protected override void OnEnable()
 	{
 		base.OnEnable();
+		//Reset pierced count
 		pierced = piercing;
-		Scan();
-		//@ Set the line start and end position
-		render.SetPosition(0, transform.position);
-		render.SetPosition(1, endPoint);
-		//Play the animtion for line if has any
-		if(lineAnimation != null) lineAnimation.Play();
 		//Reset line drawer value
 		lineConfig.fadeCount = 0;
+		//Play the animtion for line if has any
+		if(lineAnimation != null) lineAnimation.Play();
+		//If caster has been assign
+		if(caster != null)
+		{
+			//Begin scan
+			Scan();
+			//@ Set the line start and end position
+			render.SetPosition(0, transform.position);
+			render.SetPosition(1, endPoint);
+		}
 	}
 
 	//Only need to draw line when it dont has animation

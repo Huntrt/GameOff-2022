@@ -43,17 +43,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 596407363013853885}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a73a596dbc8e25c4cb3da0baf0dae3db, type: 3}
+  m_Script: {fileID: 11500000, guid: 63ada727acb30c84e8f9360464277962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   caster: {fileID: 0}
-  hitEffect: {fileID: 2309498005459969901, guid: 370638ae29e44944b8b121083d3bbf01,
+  hitEffect: {fileID: 619863000610655393, guid: e08e5411d16cc474fab76484f513c61b,
     type: 3}
   despawnEffect: {fileID: 0}
   damage: 0
-  accuracy: 0
+  accuracy: 0.5
   velocity: 7
-  travel: 5
+  travel: 6
   piercing: 1
   rb: {fileID: 596407363013853881}
   col: {fileID: 596407363013853886}

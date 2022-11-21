@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Tower_CasterPoints : Tower_Caster
+public class Combat_CasterPoints : Combat_Caster
 {
 	public GameObject strikePrefab;
 	public Point[] points;

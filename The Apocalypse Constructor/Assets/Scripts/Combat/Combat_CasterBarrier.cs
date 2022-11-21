@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Tower_CasterBarrier : Tower_Caster
+public class Combat_CasterBarrier : Combat_Caster
 {
 	public GameObject strikePrefab;
 	[SerializeField] Transform barrier;

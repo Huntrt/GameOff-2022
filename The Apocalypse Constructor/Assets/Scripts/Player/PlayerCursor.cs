@@ -12,7 +12,7 @@ public class PlayerCursor : MonoBehaviour
 		public Color emptyColor;
 		public Sprite defaultSprite;
 		public Color defaultColor;
-		public Aiming previewAim;
+		public Combat_Aiming previewAim;
 		public Tower previewTower;
 	}
 	[SerializeField] Transform circleRange, rectangleRange;
@@ -113,7 +113,7 @@ public class PlayerCursor : MonoBehaviour
 					//Get the tower currently being hover 
 					hoverTower = hovered.collider.GetComponent<Tower>();
 					//Get the aim of tower hovered
-					Aiming hoverAim = hoverTower.GetComponent<Aiming>();
+					Combat_Aiming hoverAim = hoverTower.GetComponent<Combat_Aiming>();
 					//Show range of the tower hover over with it flip
 					ShowTowerRange(hoverAim, hoverTower, hoverTower.flipped);
 				}
@@ -147,7 +147,7 @@ public class PlayerCursor : MonoBehaviour
 			if(selected.prefab.CompareTag("Tower"))
 			{
 				//Get the aiming and tower component at tower currently previwing
-				structurePreview.previewAim = selected.prefab.GetComponent<Aiming>();
+				structurePreview.previewAim = selected.prefab.GetComponent<Combat_Aiming>();
 				structurePreview.previewTower = selected.prefab.GetComponent<Tower>();
 			}
 		}
@@ -168,14 +168,14 @@ public class PlayerCursor : MonoBehaviour
 		ShowTowerRange(structurePreview.previewAim, structurePreview.previewTower, selectFlip);
 	}
 
- 	void ShowTowerRange(Aiming aimed, Tower towered, bool isFlip)
+ 	void ShowTowerRange(Combat_Aiming aimed, Tower towered, bool isFlip)
 	{
 		//Hide tower range and stop showing if aim dont exist
 		HideTowerRange(); if(aimed == null) return;
 		//Center point of range will alway be mouse coordinate
 		Vector2 pos = mouseCoord;
 		//If aim mode of given tower are direct
-		if(aimed.mode == Aiming.Mode.Direct)
+		if(aimed.mode == Combat_Aiming.Mode.Direct)
 		{
 			//Value for adjust the X given position
 			float adjust = pos.x;
@@ -190,7 +190,7 @@ public class PlayerCursor : MonoBehaviour
 
 		}
 		//If aim mode of given tower are rotate and aimless mode
-		else if(aimed.mode == Aiming.Mode.Rotate || aimed.mode == Aiming.Mode.Aimless)
+		else if(aimed.mode == Combat_Aiming.Mode.Rotate || aimed.mode == Combat_Aiming.Mode.Aimless)
 		{
 			//Move circle range to given tower position
 			circleRange.position = pos;

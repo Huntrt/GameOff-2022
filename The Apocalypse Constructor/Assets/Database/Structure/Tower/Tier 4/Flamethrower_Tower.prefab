@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2078781766477328328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.27, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0.05, z: 0}
+  m_LocalScale: {x: 0, y: 0.1, z: 0}
   m_Children: []
   m_Father: {fileID: 5586965533624487573}
   m_RootOrder: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5586965533624487595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88a3ca493d2ca1c44926bc8d704a89d6, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e7ca7c16a4547418c23c92591355b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   caster: {fileID: 5144836822592360579}
@@ -124,7 +124,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5586965533624487595}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb0b420f324539e44936bebaeed844dd, type: 3}
+  m_Script: {fileID: 11500000, guid: d3aac31d8e04b12428ded89eea66927f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   combatLayer:
@@ -147,7 +147,6 @@ MonoBehaviour:
     type: 3}
   barrier: {fileID: 2830040581580288233}
   amount:
-  - delay: 0
   - delay: 0
   - delay: 0
   - delay: 0

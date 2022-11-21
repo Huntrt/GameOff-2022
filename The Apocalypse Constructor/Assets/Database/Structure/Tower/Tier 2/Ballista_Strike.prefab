@@ -43,7 +43,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3533570546120333540}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a73a596dbc8e25c4cb3da0baf0dae3db, type: 3}
+  m_Script: {fileID: 11500000, guid: 63ada727acb30c84e8f9360464277962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   caster: {fileID: 0}
@@ -52,9 +52,9 @@ MonoBehaviour:
   despawnEffect: {fileID: 0}
   damage: 0
   accuracy: 0
-  velocity: 18
-  travel: 10
-  piercing: 4
+  velocity: 9
+  travel: 6
+  piercing: 2
   rb: {fileID: 3533570546120333536}
   col: {fileID: 3533570546120333543}
 --- !u!212 &3533570546120333541
