@@ -52,11 +52,11 @@ public class Combat_StrikeHitscan : Combat_Strike
 			//Will his hit end the scan
 			bool isEnded = false;
 			//Hit the enemy when combat layer are on enemy
-			if(caster.combatLayer == LayerMask.GetMask("Enemy")) {HitEnemy(hit, out isEnded);}
+			if(caster.combatLayer == LayerMask.GetMask("Enemy")) {ScanEnemy(hit, out isEnded);}
 			//Hit the structure when combat layer are on enemy
-			if(caster.combatLayer == LayerMask.GetMask("Structure")) {HitStructure(hit, out isEnded);}
+			if(caster.combatLayer == LayerMask.GetMask("Structure")) {ScanStructure(hit, out isEnded);}
 			//Start to hit house if needed
-			if(hitHouse) HitHouse(hit, out isEnded);
+			if(hitHouse) ScanHouse(hit, out isEnded);
 			//Stop if scan has ended
 			if(isEnded) return;
 		}
@@ -67,7 +67,7 @@ public class Combat_StrikeHitscan : Combat_Strike
 		Over(endPoint, lineConfig.duration);
 	}
 
-	void HitEnemy(RaycastHit2D hit, out bool ended)
+	void ScanEnemy(RaycastHit2D hit, out bool ended)
 	{
 		//If collide with either an fill or dynamo structure without phasing
 		if((hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo")) && !phasing)
@@ -82,65 +82,53 @@ public class Combat_StrikeHitscan : Combat_Strike
 		//If collide with an enemy
 		if(hit.collider.CompareTag("Enemy"))
 		{
-			//Hurt the enemy that got hit with scan point with raw damage
-			Hurting(damage, hit.collider.gameObject, hit.point);
-			//Lose an pierce and when out of it
-			pierced--; if(pierced <= 0) 
-			{
-				//End scan at this contact point of enemy
-				endPoint = hit.point;
-				//Over at this contact point with drawer duration
-				Over(hit.point, lineConfig.duration);
-				//This hit will ended scan
-				ended = true; return;
-			}
+			//Hit scanning to check will it end
+			ended = HitScaning(hit);
 		}
 		//This hit havent end scan
 		ended = false; 
 	}
 
-	void HitStructure(RaycastHit2D hit, out bool ended)
+	void ScanStructure(RaycastHit2D hit, out bool ended)
 	{
 		//If collide with any function structure
 		if(hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo") || hit.collider.CompareTag("Tower"))
 		{
-			//Hurt the structure that got hit with scan point with raw damage
-			Hurting(damage, hit.collider.gameObject, hit.point);
-			//Lose an pierce and when out of it
-			pierced--; if(pierced <= 0) 
-			{
-				//End scan at this contact point of structure
-				endPoint = hit.point;
-				//Over at this contact point with drawer duration
-				Over(hit.point, lineConfig.duration);
-				//This hit will ended scan
-				ended = true; return;
-			}
+			//Hit scanning to check will it end
+			ended = HitScaning(hit);
 		}
 		//This hit havent end scan
 		ended = false; 
 	}
 
-	void HitHouse(RaycastHit2D hit, out bool ended)
+	void ScanHouse(RaycastHit2D hit, out bool ended)
 	{
 		//If collide with an house
 		if(hit.collider.CompareTag("House"))
 		{
-			//Hurt the house that got hit with scan point with raw damage
-			Hurting(damage, hit.collider.gameObject, hit.point);
-			//Lose an pierce and when out of it
-			pierced--; if(pierced <= 0) 
-			{
-				//End scan at this contact point of structure
-				endPoint = hit.point;
-				//Over at this contact point with drawer duration
-				Over(hit.point, lineConfig.duration);
-				//This hit will ended scan
-				ended = true; return;
-			}
+			//Hit scanning to check will it end
+			ended = HitScaning(hit);
 		}
 		//This hit havent end scan
 		ended = false; 
+	}
+
+	bool HitScaning(RaycastHit2D hit)
+	{
+		//Hurt the hit given with scan point with raw damage
+		Hurting(damage, hit.collider.gameObject, hit.point);
+		//Lose an pierce and when out of it
+		pierced--; if(pierced <= 0) 
+		{
+			//End scan at this contact point of structure
+			endPoint = hit.point;
+			//Over at this contact point with drawer duration
+			Over(hit.point, lineConfig.duration);
+			//This hit will ended scan
+			return true;
+		}
+		//Can keep to scan
+		return false;
 	}
 
 	void DrawLine()

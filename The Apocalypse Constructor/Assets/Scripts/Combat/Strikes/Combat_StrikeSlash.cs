@@ -32,77 +32,68 @@ public class Combat_StrikeSlash : Combat_Strike
 			//Will his hit end the scan
 			bool isEnded = false;
 			//Hit the enemy when combat layer are on enemy
-			if(caster.combatLayer == LayerMask.GetMask("Enemy")) {HitEnemy(hit, out isEnded);}
+			if(caster.combatLayer == LayerMask.GetMask("Enemy")) {SlashEnemy(hit, out isEnded);}
 			//Hit the structure when combat layer are on enemy
-			if(caster.combatLayer == LayerMask.GetMask("Structure")) {HitStructure(hit, out isEnded);}
+			if(caster.combatLayer == LayerMask.GetMask("Structure")) {SlashStructure(hit, out isEnded);}
 			//Start to hit house if needed
-			if(hitHouse) HitHouse(hit, out isEnded);
+			if(hitHouse) SlashHouse(hit, out isEnded);
 			//Stop if scan has ended
 			if(isEnded) return;
 		}
-		SlashOver();
+		//Over at slash position with set duration
+		Over(slashPos, duration);
 	}
 
-	void HitEnemy(RaycastHit2D hit, out bool ended)
+	void SlashEnemy(RaycastHit2D hit, out bool ended)
 	{
 		//If collide with an enemy
 		if(hit.collider.CompareTag("Enemy"))
 		{
-			//Hurt the enemy that got hit with scan point with raw damage
-			Hurting(damage, hit.collider.gameObject, hit.point);
-			//Lose an pierce and when out of it
-			pierced--; if(pierced <= 0) 
-			{
-				SlashOver();
-				//This hit will ended scan
-				ended = true; return;
-			}
+			//Slash to check if has ended
+			ended = Slashing(hit);
 		}
 		//This hit havent end scan
 		ended = false; 
 	}
 
-	void HitStructure(RaycastHit2D hit, out bool ended)
+	void SlashStructure(RaycastHit2D hit, out bool ended)
 	{
 		//If collide with any function structure
 		if(hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo") || hit.collider.CompareTag("Tower"))
 		{
-			//Hurt the structure that got hit with scan point with raw damage
-			Hurting(damage, hit.collider.gameObject, hit.point);
-			//Lose an pierce and when out of it
-			pierced--; if(pierced <= 0) 
-			{
-				SlashOver();
-				//This hit will ended scan
-				ended = true; return;
-			}
+			//Slash to check if has ended
+			ended = Slashing(hit);
 		}
 		//This hit havent end scan
 		ended = false; 
 	}
 
-	void HitHouse(RaycastHit2D hit, out bool ended)
+	void SlashHouse(RaycastHit2D hit, out bool ended)
 	{
 		//If collide with an house
 		if(hit.collider.CompareTag("House"))
 		{
-			//Hurt the house that got hit with scan point with raw damage
-			Hurting(damage, hit.collider.gameObject, hit.point);
-			//Lose an pierce and when out of it
-			pierced--; if(pierced <= 0) 
-			{
-				SlashOver();
-				//This hit will ended scan
-				ended = true; return;
-			}
+			//Slash to check if has ended
+			ended = Slashing(hit);
 		}
 		//This hit havent end scan
 		ended = false; 
 	}
 
-	public void SlashOver()
+	
+	bool Slashing(RaycastHit2D hit)
 	{
-		//Over at current position with set duration
-		Over(slashPos, duration);
+		//Hurt the hit given with scan point with raw damage
+		Hurting(damage, hit.collider.gameObject, hit.point);
+		//Lose an pierce and when out of it
+		pierced--; if(pierced <= 0) 
+		{
+			//Over at slash position with set duration
+			Over(slashPos, duration);
+			//This hit will ended scan
+			return true;
+		}
+		//Can keep to scan
+		return false;
 	}
 }
