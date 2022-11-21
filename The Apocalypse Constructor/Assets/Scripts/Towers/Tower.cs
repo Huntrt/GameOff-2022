@@ -3,12 +3,9 @@ using System;
 
 public class Tower : Structure
 {
-	public bool detected; 
 	public Combats.Stats stats, growth;
 	[HideInInspector] public bool insufficient;
 	public int depleted;
-	float countRate;
-	public Action onAttack;
 	GameObject insufIndicator;
 
 	void OnValidate() 
@@ -26,25 +23,6 @@ public class Tower : Structure
 		manager.fills.Remove(this);
 		//Consume the deplete energy when tower got create
 		Inventory.i.materials.Consume(0,0,0,depleted);
-	}
-
-	void Update()
-	{
-		if(detected) Attacking();
-	}
-
-	void Attacking()
-	{
-		//Counting speed for attack
-		countRate += Time.deltaTime;
-		//If has count enough rate
-		if(countRate >= (stats.rateTimer))
-		{
-			//Call attack
-			onAttack?.Invoke();
-			//Reset speed counter
-			countRate -= countRate;
-		}
 	}
 
 	public void RefreshInsufficient()

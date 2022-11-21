@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class Aiming : MonoBehaviour
 {
-	[HideInInspector] public Tower tower;
+	[SerializeField] bool getCaster;
+	[HideInInspector] public Tower_Caster caster;
 	public Mode mode; public enum Mode {Direct, Rotate, Aimless}
 	[HideInInspector] public Vector2 direction;
 	[HideInInspector] public Transform rotationAnchor;
@@ -12,10 +13,6 @@ public class Aiming : MonoBehaviour
 
 	void Reset() 
 	{
-		//Get the tower component the moment aim get added
-		tower = GetComponent<Tower>();
-		//Print error if the object dont has tower for aim
-		if(tower == null) Debug.LogError(gameObject.name + " aiming need to be an tower");
 	}
 
 	void OnValidate()
@@ -26,14 +23,21 @@ public class Aiming : MonoBehaviour
 			//Get first child sprite render as shooter renderer
 			shooterRender = transform.GetChild(0).GetComponent<SpriteRenderer>();
 		}
+		if(getCaster)
+		{
+			//Get the caster component the moment aim get added
+			caster = GetComponent<Tower_Caster>();
+			//Print error if the object dont has caster ti aim
+			if(caster == null) Debug.LogError(gameObject.name + " aiming need to be an caster");
+		}
 	}
 
 	void Update()
 	{
 		//Tower havent detect anything
-		tower.detected = false;
-		//Dont aim when tower insufficient of energy
-		if(tower.insufficient) return;
+		caster.detected = false;
+		//Dont aim when caster is deactived
+		if(!caster.isActiveAndEnabled) return;
 		//@ Deicide which aim mode gonna base on what has choose
 		if(mode == Mode.Direct) DirectAim();
 		else if(mode == Mode.Rotate) RotateAim();
@@ -41,23 +45,23 @@ public class Aiming : MonoBehaviour
 
 	void DirectAim()
 	{
-		//Flip the aim direction if the tower been flip
-		Vector2 dir = direction; if(tower.flipped) dir = -dir;
-		//Create an pillar at this tower to range with radius of an spacing toward set direction on enemy layer
-		RaycastHit2D hit = Physics2D.CircleCast(transform.position, Map.i.spacing/2, dir, tower.stats.range, EnemyManager.i.enemyLayer);
+		//Flip the aim direction if the caster been flip
+		Vector2 dir = direction; if(caster.flipped) dir = -dir;
+		//Create an pillar at this caster to range with radius of an spacing toward set direction on enemy layer
+		RaycastHit2D hit = Physics2D.CircleCast(transform.position, Map.i.spacing/2, dir, caster.stats.range, EnemyManager.i.enemyLayer);
 		//Detect if cast hit an enemy
-		if(hit) tower.detected = true;
+		if(hit) caster.detected = true;
 	}
 
 	void RotateAim()
 	{
-		//Create an circle cast at this tower with radius as it range and only cast on enemy layer
-		RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, tower.stats.range, Vector2.zero,0, EnemyManager.i.enemyLayer);
+		//Create an circle cast at this caster with radius as it range and only cast on enemy layer
+		RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, caster.stats.range, Vector2.zero,0, EnemyManager.i.enemyLayer);
 		//If cast hit anything
 		if(hits.Length > 0)
 		{
-			//Tower has detect an enemy
-			tower.detected = true;
+			//Caster has detect an enemy
+			caster.detected = true;
 			//Dont need to rotate if using aimless mode
 			if(mode == Mode.Aimless) return;
 			//Get the closest enemy that got hit by cast
@@ -66,13 +70,13 @@ public class Aiming : MonoBehaviour
 			rotationAnchor.right = (detect.transform.position - transform.position).normalized;
 			//Stop if has no shooter render to invert
 			if(shooterRender == null) return;
-			//If the detect enemy are infront tower
+			//If the detect enemy are infront caster
 			if(detect.transform.position.x > transform.position.x)
 			{
 				//Dont invenrt
 				shooterRender.flipY = false;
 			}
-			//If the detect enemy are behind tower
+			//If the detect enemy are behind caster
 			else
 			{
 				//Invert
