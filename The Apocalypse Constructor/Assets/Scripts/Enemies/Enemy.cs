@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
+	public Combats.Stats stats;
+
 	protected override void OnEnable()
 	{
 		base.OnEnable();
