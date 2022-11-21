@@ -10,6 +10,7 @@ TagManager:
   - Dynamo
   - Ground
   - Tower Strike
+  - House
   layers:
   - Default
   - TransparentFX

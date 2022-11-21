@@ -42,16 +42,16 @@ public class Aiming : MonoBehaviour
 	{
 		//Flip the aim direction if the caster been flip
 		Vector2 dir = direction; if(caster.flipped) dir = -dir;
-		//Create an pillar at this caster to range with radius of an spacing toward set direction on enemy layer
-		RaycastHit2D hit = Physics2D.CircleCast(transform.position, Map.i.spacing/2, dir, caster.stats.range, EnemyManager.i.enemyLayer);
+		//Create an pillar at this caster to range with radius of an spacing toward set direction on combat layer
+		RaycastHit2D hit = Physics2D.CircleCast(transform.position, Map.i.spacing/2, dir, caster.stats.range, caster.combatLayer);
 		//Detect if cast hit an enemy
 		if(hit) caster.detected = true;
 	}
 
 	void RotateAim()
 	{
-		//Create an circle cast at this caster with radius as it range and only cast on enemy layer
-		RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, caster.stats.range, Vector2.zero,0, EnemyManager.i.enemyLayer);
+		//Create an circle cast at this caster with radius as it range and only cast on the combat layer
+		RaycastHit2D[] hits = Physics2D.CircleCastAll(transform.position, caster.stats.range, Vector2.zero,0, caster.combatLayer);
 		//If cast hit anything
 		if(hits.Length > 0)
 		{
