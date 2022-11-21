@@ -23,7 +23,7 @@ public class Tower_StrikeProjectile : Tower_Strike
 		traveled -= traveled;
 	}
 
-	void LateUpdate()
+	void FixedUpdate()
 	{
 		//Get the travel distance between current position and previous
 		traveled += Vector2.Distance(rb.position, prePos);
