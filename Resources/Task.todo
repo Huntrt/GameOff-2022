@@ -214,10 +214,9 @@
 				✓ Accuracy
 				✓ Distance Travel
 			✓ Hitscan - Create an raycast toward direction able to pierce to deal damage to enemy hit.
-			▪ Slash - Create an circlecast at it position to deal damge to any enemy hit by it.
+			✓ Slash - Create an circlecast at it position to deal damge to any enemy hit by it.
 			Modifiers:
 				✓ Explode - Create an explosion cast when hit enemy or over.
-		▪ Enemy
 
 Settings:
 	▪ UI Scale
