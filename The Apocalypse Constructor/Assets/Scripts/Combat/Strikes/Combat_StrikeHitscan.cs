@@ -15,6 +15,7 @@ public class Combat_StrikeHitscan : Combat_Strike
 		[HideInInspector] public float fadeCount;
 	}
 	Vector2 endPoint;
+	[SerializeField] bool hitHouse;
 
 	protected override void OnEnable()
 	{
@@ -54,6 +55,8 @@ public class Combat_StrikeHitscan : Combat_Strike
 			if(caster.combatLayer == LayerMask.GetMask("Enemy")) {HitEnemy(hit, out isEnded);}
 			//Hit the structure when combat layer are on enemy
 			if(caster.combatLayer == LayerMask.GetMask("Structure")) {HitStructure(hit, out isEnded);}
+			//Start to hit house if needed
+			if(hitHouse) HitHouse(hit, out isEnded);
 			//Stop if scan has ended
 			if(isEnded) return;
 		}
@@ -102,6 +105,28 @@ public class Combat_StrikeHitscan : Combat_Strike
 		if(hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo") || hit.collider.CompareTag("Tower"))
 		{
 			//Hurt the structure that got hit with scan point with raw damage
+			Hurting(damage, hit.collider.gameObject, hit.point);
+			//Lose an pierce and when out of it
+			pierced--; if(pierced <= 0) 
+			{
+				//End scan at this contact point of structure
+				endPoint = hit.point;
+				//Over at this contact point with drawer duration
+				Over(hit.point, lineConfig.duration);
+				//This hit will ended scan
+				ended = true; return;
+			}
+		}
+		//This hit havent end scan
+		ended = false; 
+	}
+
+	void HitHouse(RaycastHit2D hit, out bool ended)
+	{
+		//If collide with an house
+		if(hit.collider.CompareTag("House"))
+		{
+			//Hurt the house that got hit with scan point with raw damage
 			Hurting(damage, hit.collider.gameObject, hit.point);
 			//Lose an pierce and when out of it
 			pierced--; if(pierced <= 0) 
