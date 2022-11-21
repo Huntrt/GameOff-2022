@@ -60,9 +60,9 @@ public class Aiming : MonoBehaviour
 			tower.detected = true;
 			//Dont need to rotate if using aimless mode
 			if(mode == Mode.Aimless) return;
-			//Getet the closest enemy that got hit by cast
-			GameObject detect = EnemyManager.Closest(transform.position, hits);
-			//Makt the anchor rotate toward closest enemy detected
+			//Get the closest enemy that got hit by cast
+			GameObject detect = ClosetCast.Get(transform.position, hits);
+			//Make the anchor rotate toward closest enemy detected
 			rotationAnchor.right = (detect.transform.position - transform.position).normalized;
 			//Stop if has no shooter render to invert
 			if(shooterRender == null) return;
@@ -79,6 +79,5 @@ public class Aiming : MonoBehaviour
 				shooterRender.flipY = true;
 			}
 		}
-		
 	}
 }
