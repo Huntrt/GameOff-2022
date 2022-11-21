@@ -177,53 +177,46 @@
 	Enemy:
 		▪ Spawning:
 			▪ Spawning on the edge of the map.
-			▪ Change rotation base on X axis got spawn.
+			✓ Change rotation base on X axis got spawn.
 			▪ Randomize queue of enemy will spawn on wave.
 		▪ Movement:
-			▪ How fast it move.
-			▪ Walking - only able to move in an straight line until block.
+			✓ Walker - only able to move in an straight line until block.
 			▪ Flyer - start from spawing in the sky and move in an straighe line until block.
 			▪ Jumper - When got block then jump to the highest structure it could reach.
 			▪ Climber - able to climb on as much structure has set. @consider
 		▪ Health:
-			▪ Take damage.
-			▪ Die when out of health.
+			✓ Take damage.
+			✓ Die when out of health.
 			▪ Drop loot:
 				▪ Materials
-		▪ Attack:
-			▪ Detect target using raycast?
-			▪ Begin attack if any structure in sight.
-			▪ Inflict damage to structure.
-			▪ Strike - Melee attack that deal damage to one structure
-			▪ Smash - Melee attack deal damage in arena of effect.
-			▪ Spit - Create an projectile that deal damage to any structure it hit.
-			▪ ??? - Shoot an beam dealing rapid damage to any structure in the path. @consider
+		✓ Sight:
+			✓ Detect target using raycast?
+			✓ Begin attack if any structure in sight.
 		▪ Special: @consider
 			▪ Stealth - Only able to aim it when it attack (change enemy layer to stealth?).
 			▪ Stretcher - Travel using hook-like movement. @consider
 	Combat:
-		▪ Tower
-			✓ Find an way to send stats between caster and strike it create.
-				✓ a. Each caster will now has an mini object pooling of all the strike it created
-				X b. Just get component when strike
-			▪ Caster
-				✓ Core - Core function or every tower caster.
-				✓ Points - An list of position, rotation and delay between them to strike using them.
-				✓ Barrier - Randomly choose position from inside an length of box.
-				▪ Remains - Strike when it die.
-				▪ Laser - Create an line toward X amount of enemy in range to directly damage.
-				▪ Shotgun - Create an an list of random rotation and randomly alter the strike velocity. @consider
-				▪ Pattern - Generate an list of poisition with spacing and cone rotation. @consider
-			✓ Strike
-				✓ Core - Contain basic stats of an strike.
-				✓ Projectile - Object move toward infront with set speed. Deal damage on contact.
-					✓ Velocity
-					✓ Accuracy
-					✓ Distance Travel
-				✓ Hitscan - Create an raycast toward direction able to pierce to deal damage to enemy hit.
-				▪ Slash - Create an circlecast at it position to deal damge to any enemy hit by it.
-				Modifiers:
-					✓ Explode - Create an explosion cast when hit enemy or over.
+		✓ Find an way to send stats between caster and strike it create.
+			✓ a. Each caster will now has an mini object pooling of all the strike it created
+			X b. Just get component when strike
+		▪ Caster
+			✓ Core - Core function or every tower caster.
+			✓ Points - An list of position, rotation and delay between them to strike using them.
+			✓ Barrier - Randomly choose position from inside an length of box.
+			▪ Remains - Strike when it die.
+			▪ Laser - Create an line toward X amount of enemy in range to directly damage.
+			▪ Shotgun - Create an an list of random rotation and randomly alter the strike velocity. @consider
+			▪ Pattern - Generate an list of poisition with spacing and cone rotation. @consider
+		✓ Strike
+			✓ Core - Contain basic stats of an strike.
+			✓ Projectile - Object move toward infront with set speed. Deal damage on contact.
+				✓ Velocity
+				✓ Accuracy
+				✓ Distance Travel
+			✓ Hitscan - Create an raycast toward direction able to pierce to deal damage to enemy hit.
+			▪ Slash - Create an circlecast at it position to deal damge to any enemy hit by it.
+			Modifiers:
+				✓ Explode - Create an explosion cast when hit enemy or over.
 		▪ Enemy
 
 

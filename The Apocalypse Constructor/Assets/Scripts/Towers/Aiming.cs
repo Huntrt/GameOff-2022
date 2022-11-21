@@ -61,7 +61,7 @@ public class Aiming : MonoBehaviour
 			//Dont need to rotate if using aimless mode
 			if(mode == Mode.Aimless) return;
 			//Get the closest enemy that got hit by cast
-			GameObject detect = ClosetCast.Get(transform.position, hits);
+			GameObject detect = GetCloset.Ray(transform.position, hits);
 			//Make the anchor rotate toward closest enemy detected
 			rotationAnchor.right = (detect.transform.position - transform.position).normalized;
 			//Stop if has no shooter render to invert

@@ -16,7 +16,6 @@ public class Enemy_Move : MonoBehaviour
 
 	public void TurnoverMover(bool turn)
 	{
-		print(transform.eulerAngles.z);
 		//Set turn over as given turn
 		turnover = turn;
 		//If turn over then rotate the enemy in X and Y axis 180
