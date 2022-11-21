@@ -15,8 +15,10 @@ public class Combat_Caster : MonoBehaviour
 
 	void OnEnable()
 	{
-		//Get the stats of caster on this caster
-		stats = GetComponent<Tower>().stats;
+		//Get the stats for caster on this structure
+		if(gameObject.CompareTag("Tower"))stats = GetComponent<Tower>().stats;
+		//Get the stats for caster on this structure
+		if(gameObject.CompareTag("Enemy"))stats = GetComponent<Enemy>().stats;
 	}
 
 	void Update()
