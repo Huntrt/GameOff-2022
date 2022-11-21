@@ -38,7 +38,7 @@ public class Tower_Strike_Explode : MonoBehaviour
 		if(hits.Length > 0) for (int h = 0; h < hits.Length; h++)
 		{
 			//Scaling explosion damage for hurting this enemy with given contact point AND dont recall hit
-			strike.Hurting(Tower.Stats.Scale(strike.damage, explosion.damageScaling), hits[h].collider.gameObject, hits[h].point, false);
+			strike.Hurting(Combats.Stats.Scale(strike.damage, explosion.damageScaling), hits[h].collider.gameObject, hits[h].point, false);
 		}
 	}
 

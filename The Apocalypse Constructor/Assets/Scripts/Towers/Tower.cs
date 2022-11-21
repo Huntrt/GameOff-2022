@@ -4,20 +4,12 @@ using System;
 public class Tower : Structure
 {
 	public bool detected; 
-	public Stats stats, growth;
+	public Combats.Stats stats, growth;
 	[HideInInspector] public bool insufficient;
 	public int depleted;
 	float countRate;
 	public Action onAttack;
 	GameObject insufIndicator;
-
-	[Serializable] public class Stats 
-	{
-		public float DPS;
-		public float damage, rate, range;
-		public float rateTimer {get {return (float)System.Math.Round(1/rate,1);}}
-		public static float Scale(float stat, float scaling) {return (scaling /100) * stat;}
-	}
 
 	void OnValidate() 
 	{
