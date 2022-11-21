@@ -2543,12 +2543,14 @@ GameObject:
   m_Component:
   - component: {fileID: 568526121}
   - component: {fileID: 568526128}
+  - component: {fileID: 568526130}
+  - component: {fileID: 568526129}
   - component: {fileID: 568526127}
-  - component: {fileID: 568526126}
   - component: {fileID: 568526125}
   - component: {fileID: 568526124}
-  - component: {fileID: 568526123}
   - component: {fileID: 568526122}
+  - component: {fileID: 568526123}
+  - component: {fileID: 568526126}
   m_Layer: 6
   m_Name: Enemy_Dummy
   m_TagString: Enemy
@@ -2694,14 +2696,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 568526120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a617a473be623c34981eaceed074715f, type: 3}
+  m_Script: {fileID: 11500000, guid: 25f139401702cbe4cbe7fe07e0c4ee16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 568526125}
-  turnover: 0
-  encounter: 0
-  vision: 2
-  speed: 2
+  aim: {fileID: 568526129}
+  caster: {fileID: 568526127}
 --- !u!114 &568526127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2711,14 +2710,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 568526120}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49036bd55eff6d546aa395ba7f720c37, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e8f5b79dcc28824d8247ced492dcf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mover: {fileID: 568526126}
-  mode: 0
-  direction: {x: 1, y: 0}
-  rotationAnchor: {fileID: 0}
-  rotateSpeed: 0
+  combatLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  detected: 0
+  stats:
+    DPS: 0
+    damage: 0
+    rate: 0
+    range: 0
+  growth:
+    DPS: 0
+    damage: 0
+    rate: 0
+    range: 0
+  flipped: 0
+  strikes: []
+  strikePrefab: {fileID: 0}
+  points: []
 --- !u!114 &568526128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2733,6 +2745,46 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 9999999
   health: 0
+  stats:
+    DPS: 0
+    damage: 0
+    rate: 0
+    range: 2
+--- !u!114 &568526129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568526120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e7ca7c16a4547418c23c92591355b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caster: {fileID: 568526127}
+  mode: 1
+  direction: {x: 0, y: 0}
+  rotationAnchor: {fileID: 593504251}
+  rotateSpeed: 0
+  shooterRender: {fileID: 0}
+  getFirstAsShooter: 0
+--- !u!114 &568526130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568526120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a617a473be623c34981eaceed074715f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caster: {fileID: 568526127}
+  rb: {fileID: 568526125}
+  movementSpeed: 2
+  turnover: 0
 --- !u!1 &593504250
 GameObject:
   m_ObjectHideFlags: 0
@@ -10312,12 +10364,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2114836425}
   - component: {fileID: 2114836424}
+  - component: {fileID: 2114836432}
+  - component: {fileID: 2114836431}
   - component: {fileID: 2114836430}
-  - component: {fileID: 2114836429}
   - component: {fileID: 2114836427}
   - component: {fileID: 2114836423}
-  - component: {fileID: 2114836428}
   - component: {fileID: 2114836426}
+  - component: {fileID: 2114836428}
+  - component: {fileID: 2114836429}
   m_Layer: 6
   m_Name: Enemy_Dummy 1
   m_TagString: Enemy
@@ -10391,6 +10445,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 9999999
   health: 0
+  stats:
+    DPS: 0
+    damage: 0
+    rate: 1
+    range: 4
 --- !u!4 &2114836425
 Transform:
   m_ObjectHideFlags: 0
@@ -10477,14 +10536,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2114836422}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a617a473be623c34981eaceed074715f, type: 3}
+  m_Script: {fileID: 11500000, guid: 25f139401702cbe4cbe7fe07e0c4ee16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 2114836427}
-  turnover: 0
-  encounter: 0
-  vision: 2
-  speed: 2
+  aim: {fileID: 2114836431}
+  caster: {fileID: 2114836430}
 --- !u!114 &2114836430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10494,14 +10550,62 @@ MonoBehaviour:
   m_GameObject: {fileID: 2114836422}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49036bd55eff6d546aa395ba7f720c37, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e8f5b79dcc28824d8247ced492dcf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mover: {fileID: 2114836429}
-  mode: 1
+  combatLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  detected: 0
+  stats:
+    DPS: 0
+    damage: 0
+    rate: 0
+    range: 0
+  growth:
+    DPS: 0
+    damage: 0
+    rate: 0
+    range: 0
+  flipped: 0
+  strikes: []
+  strikePrefab: {fileID: 0}
+  points: []
+--- !u!114 &2114836431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114836422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e7ca7c16a4547418c23c92591355b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caster: {fileID: 2114836430}
+  mode: 0
   direction: {x: 1, y: 0}
-  rotationAnchor: {fileID: 1847757953}
+  rotationAnchor: {fileID: 0}
   rotateSpeed: 0
+  shooterRender: {fileID: 0}
+  getFirstAsShooter: 0
+--- !u!114 &2114836432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114836422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a617a473be623c34981eaceed074715f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  caster: {fileID: 2114836430}
+  rb: {fileID: 2114836427}
+  movementSpeed: 2
+  turnover: 0
 --- !u!1 &2135617148
 GameObject:
   m_ObjectHideFlags: 0
