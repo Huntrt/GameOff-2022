@@ -37,21 +37,24 @@ public class Tower_StrikeProjectile : Tower_Strike
 
 	void OnCollisionEnter2D(Collision2D other) 
 	{
-		//If collide with an enemy
-		if(other.collider.CompareTag("Enemy"))
+		//If collide with the ground
+		if(other.collider.CompareTag("Ground"))
 		{
-			//Get the contact point from projectile to enemy it collide with
-			Vector2 contactPoint = other.collider.bounds.ClosestPoint(transform.position);
-			//Hurting the enemy collide with along with it contact point with raw damage
-			Hurting(damage, other.collider.gameObject, contactPoint);
-			//Has pierce this enemy
-			pierced.Add(other.collider);
-			//Ignore the collider of enemy pierced through
-			Physics2D.IgnoreCollision(col, other.collider);
-			//Over when reached the maximum amount pierced
-			if(pierced.Count >= piercing) Over(contactPoint);
+			//Instantly despawn when collide with ground and send the contact point
+			Despawn(other.collider.bounds.ClosestPoint(transform.position));
+			//Dont collide with anything thing else
+			return;
 		}
-		//Despawn if collide with an ground then send that contact point
-		if(other.collider.CompareTag("Ground")) Despawn(other.collider.bounds.ClosestPoint(transform.position));
+		//? Use physic layer to determent contact	
+		//Get the contact point from projectile to entity it collide with
+		Vector2 contactPoint = other.collider.bounds.ClosestPoint(transform.position);
+		//Hurting the entity collide with along with it contact point with raw damage
+		Hurting(damage, other.collider.gameObject, contactPoint);
+		//Has pierce this entity
+		pierced.Add(other.collider);
+		//Ignore the collider of entity pierced through
+		Physics2D.IgnoreCollision(col, other.collider);
+		//Over when reached the maximum amount pierced
+		if(pierced.Count >= piercing) Over(contactPoint);
 	}
 }
