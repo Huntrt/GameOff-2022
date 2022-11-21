@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 462148140024734371}
   - component: {fileID: 7112673862833115405}
   m_Layer: 8
-  m_Name: Shotgun
+  m_Name: Shotgun_Tower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

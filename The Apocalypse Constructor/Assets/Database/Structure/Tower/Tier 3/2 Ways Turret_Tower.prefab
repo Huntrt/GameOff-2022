@@ -160,7 +160,7 @@ GameObject:
   - component: {fileID: 9015082961679381986}
   - component: {fileID: 1855668082207671884}
   m_Layer: 8
-  m_Name: 2 Ways Turret
+  m_Name: 2 Ways Turret_Tower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 24067709323263084}
   - component: {fileID: 7244368811280994242}
   m_Layer: 8
-  m_Name: Reinforce Bow
+  m_Name: Reinforce Bow_Tower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
