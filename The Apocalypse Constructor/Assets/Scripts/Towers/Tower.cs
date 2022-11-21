@@ -23,7 +23,12 @@ public class Tower : Structure
 		manager.fills.Remove(this);
 		//Consume the deplete energy when tower got create
 		Inventory.i.materials.Consume(0,0,0,depleted);
-		//Send flip state to the caster
+	}
+
+	public override void FlipStructure(bool isFlip)
+	{
+		base.FlipStructure(isFlip);
+		//Send flip state to the caster whne it got flip
 		GetComponent<Tower_Caster>().flipped = flipped;
 	}
 

@@ -26,7 +26,7 @@ public class Structure : Entity
 		Extending();
 	}
 
-	public void FlipStructure(bool isFlip)
+	public virtual void FlipStructure(bool isFlip)
 	{
 		//Set structure flipped as given flip
 		flipped = isFlip;
@@ -38,7 +38,6 @@ public class Structure : Entity
 			//Flip it Y of sprite render
 			GetComponent<SpriteRenderer>().flipY = true;
 		}
-		
 	}
 
 	void Extending()
