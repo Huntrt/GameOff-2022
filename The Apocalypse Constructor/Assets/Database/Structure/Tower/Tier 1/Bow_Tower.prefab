@@ -376,6 +376,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8f5b79dcc28824d8247ced492dcf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackAimation:
+    animator: {fileID: 0}
+    scaleWindupWithRate: 0
+    allowSlowdown: 0
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -394,7 +398,9 @@ MonoBehaviour:
   strikes: []
   strikePrefab: {fileID: 596407363013853885, guid: bbe27b5559782034c967890bb28f7770,
     type: 3}
-  points: []
+  points:
+  - transform: {fileID: 85766306}
+    delay: 0
 --- !u!212 &3380852211928699642
 SpriteRenderer:
   m_ObjectHideFlags: 0
