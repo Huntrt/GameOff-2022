@@ -388,7 +388,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6f11cbce430534a9ab698a5b86e3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10000
+  maxHealth: 15
   health: 0
   stats:
     DPS: 4
@@ -409,7 +409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   caster: {fileID: 4736416105052245912}
   rb: {fileID: 4736416105052245916}
-  movementSpeed: 3
+  movementSpeed: 2
   turnover: 0
 --- !u!114 &4736416105052245913
 MonoBehaviour:

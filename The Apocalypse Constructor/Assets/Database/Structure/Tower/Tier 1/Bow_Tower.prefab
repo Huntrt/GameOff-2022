@@ -360,7 +360,7 @@ MonoBehaviour:
   caster: {fileID: -6610358326631464412}
   mode: 1
   direction: {x: 0, y: 0}
-  rotationAnchor: {fileID: 85766306}
+  rotationAnchor: {fileID: 7328282304363915693}
   rotateSpeed: 0
   shooterRender: {fileID: 0}
   getFirstAsShooter: 0
