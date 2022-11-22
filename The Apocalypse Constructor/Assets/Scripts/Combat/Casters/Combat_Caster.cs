@@ -4,14 +4,19 @@ using System;
 
 public class Combat_Caster : MonoBehaviour
 {
+	[SerializeField] AttackAimation attackAimation; [Serializable] class AttackAimation
+	{
+		public Animator animator;
+		public float scaleWindupWithRate;
+		public bool allowSlowdown;
+	}
+	[Header("General")]
 	public LayerMask combatLayer;
 	public bool detected;
 	public Combats.Stats stats, growth;
 	public Action onStrike;
 	[HideInInspector] public bool flipped;
-
-	//Cache all the strike this caster has create
-	public List<Combat_Strike> strikes = new List<Combat_Strike>();
+	[HideInInspector] public List<Combat_Strike> strikes = new List<Combat_Strike>();
 
 	void OnEnable()
 	{
@@ -35,8 +40,24 @@ public class Combat_Caster : MonoBehaviour
 		//If has count enough rate
 		if(countRate >= (stats.rateTimer))
 		{
-			//Begin attack
-			Attack();
+			//If there is attack animator
+			if(attackAimation.animator != null)
+			{
+				//Get scaled value by multiply stats rate with set windup scale
+				float scaled = stats.rate * attackAimation.scaleWindupWithRate;
+				//Lock scale to 1 if not allow it to slow down windup speed
+				if(scaled < 1 && !attackAimation.allowSlowdown) {scaled = 1;}
+				//Set windup float as scaled value
+				attackAimation.animator.SetFloat("Windup", scaled);
+				//STart attack trigger in animator
+				attackAimation.animator.SetTrigger("Attack");
+			}
+			//If there no attack animator
+			else
+			{
+				//Manually attack
+				Attack();
+			}
 			//Reset speed counter
 			countRate -= countRate;
 		}
