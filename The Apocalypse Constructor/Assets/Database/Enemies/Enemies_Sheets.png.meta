@@ -14,6 +14,9 @@ TextureImporter:
   - first:
       213: -6934375173991209001
     second: Enemy_PartRight
+  - first:
+      213: 1989583613793948460
+    second: Enemies_PartCenter
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -140,7 +143,7 @@ TextureImporter:
       name: Enemy_PartDown
       rect:
         serializedVersion: 2
-        x: 525
+        x: 550
         y: 1000
         width: 500
         height: 500
@@ -161,7 +164,7 @@ TextureImporter:
       name: Enemy_PartLeft
       rect:
         serializedVersion: 2
-        x: 1050
+        x: 1100
         y: 1000
         width: 500
         height: 500
@@ -182,7 +185,7 @@ TextureImporter:
       name: Enemy_PartRight
       rect:
         serializedVersion: 2
-        x: 1575
+        x: 1650
         y: 1000
         width: 500
         height: 500
@@ -195,6 +198,27 @@ TextureImporter:
       bones: []
       spriteID: 7d767f6e48624cf90800000000000000
       internalID: -6934375173991209001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemies_PartCenter
+      rect:
+        serializedVersion: 2
+        x: 2200
+        y: 1000
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c23502761cb6c9b10800000000000000
+      internalID: 1989583613793948460
       vertices: []
       indices: 
       edges: []
