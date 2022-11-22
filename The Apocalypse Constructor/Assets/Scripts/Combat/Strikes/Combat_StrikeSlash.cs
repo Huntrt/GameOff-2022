@@ -12,15 +12,17 @@ public class Combat_StrikeSlash : Combat_Strike
 	protected override void OnEnable()
 	{
 		base.OnEnable();
+		//Stop if caster havent been assign
+		if(caster == null) return;
 		//Reset pierced count
 		pierced = piercing;
-		//Begin scan if caster has been assign
-		if(caster != null) Scan();
+		//Begin slash
+		Slash();
 		//Move forward from current position to get slash pos
 		slashPos = transform.position + (transform.right * forward);
 	}
 
-	void Scan()
+	void Slash()
 	{
 		//Create an circle cast at this object with width toward it right direction with set length
 		RaycastHit2D[] hits = Physics2D.CircleCastAll(slashPos, width/2, transform.right, length);
@@ -46,38 +48,38 @@ public class Combat_StrikeSlash : Combat_Strike
 
 	void SlashEnemy(RaycastHit2D hit, out bool ended)
 	{
+		//This slash havent end
+		ended = false;
 		//If collide with an enemy
 		if(hit.collider.CompareTag("Enemy"))
 		{
 			//Slash to check if has ended
 			ended = Slashing(hit);
 		}
-		//This hit havent end scan
-		ended = false; 
 	}
 
 	void SlashStructure(RaycastHit2D hit, out bool ended)
 	{
+		//This slash havent end
+		ended = false; 
 		//If collide with any function structure
 		if(hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo") || hit.collider.CompareTag("Tower"))
 		{
 			//Slash to check if has ended
 			ended = Slashing(hit);
 		}
-		//This hit havent end scan
-		ended = false; 
 	}
 
 	void SlashHouse(RaycastHit2D hit, out bool ended)
 	{
+		//This slash havent end
+		ended = false; 
 		//If collide with an house
 		if(hit.collider.CompareTag("House"))
 		{
 			//Slash to check if has ended
 			ended = Slashing(hit);
 		}
-		//This hit havent end scan
-		ended = false; 
 	}
 
 	

@@ -20,21 +20,19 @@ public class Combat_StrikeHitscan : Combat_Strike
 	protected override void OnEnable()
 	{
 		base.OnEnable();
+		//Stop if caster havent been assign
+		if(caster == null) return;
 		//Reset pierced count
 		pierced = piercing;
 		//Reset line drawer value
 		lineConfig.fadeCount = 0;
 		//Play the animtion for line if has any
 		if(lineAnimation != null) lineAnimation.Play();
-		//If caster has been assign
-		if(caster != null)
-		{
-			//Begin scan
-			Scan();
-			//@ Set the line start and end position
-			render.SetPosition(0, transform.position);
-			render.SetPosition(1, endPoint);
-		}
+		//Begin hit scan
+		Scan();
+		//@ Set the line start and end position
+		render.SetPosition(0, transform.position);
+		render.SetPosition(1, endPoint);
 	}
 
 	//Only need to draw line when it dont has animation
@@ -69,6 +67,8 @@ public class Combat_StrikeHitscan : Combat_Strike
 
 	void ScanEnemy(RaycastHit2D hit, out bool ended)
 	{
+		//This hit havent end
+		ended = false; 
 		//If collide with either an fill or dynamo structure without phasing
 		if((hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo")) && !phasing)
 		{
@@ -84,33 +84,35 @@ public class Combat_StrikeHitscan : Combat_Strike
 		{
 			//Hit scanning to check will it end
 			ended = HitScaning(hit);
+			//Stop if has end scan
+			if(ended) return;
 		}
-		//This hit havent end scan
-		ended = false; 
 	}
 
 	void ScanStructure(RaycastHit2D hit, out bool ended)
 	{
+		//This hit havent end
+		ended = false; 
 		//If collide with any function structure
 		if(hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo") || hit.collider.CompareTag("Tower"))
 		{
 			//Hit scanning to check will it end
 			ended = HitScaning(hit);
 		}
-		//This hit havent end scan
-		ended = false; 
 	}
 
 	void ScanHouse(RaycastHit2D hit, out bool ended)
 	{
+		//This hit havent end
+		ended = false; 
 		//If collide with an house
 		if(hit.collider.CompareTag("House"))
 		{
 			//Hit scanning to check will it end
 			ended = HitScaning(hit);
+			//Stop if has end scan
+			if(ended) return;
 		}
-		//This hit havent end scan
-		ended = false; 
 	}
 
 	bool HitScaning(RaycastHit2D hit)
