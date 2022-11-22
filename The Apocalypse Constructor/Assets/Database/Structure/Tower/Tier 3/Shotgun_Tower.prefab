@@ -60,8 +60,8 @@ MonoBehaviour:
       gunpowder: 0
     occupied: 0
   stats:
-    DPS: 2
-    damage: 5
+    DPS: 1.6
+    damage: 4
     rate: 0.4
     range: 4
   insufficient: 0
@@ -97,6 +97,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3aac31d8e04b12428ded89eea66927f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackAimation:
+    animator: {fileID: 0}
+    scaleWindupWithRate: 0
+    allowSlowdown: 0
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -117,6 +121,11 @@ MonoBehaviour:
     type: 3}
   barrier: {fileID: 1241722316232926278}
   amount:
+  - delay: 0
+  - delay: 0
+  - delay: 0
+  - delay: 0
+  - delay: 0
   - delay: 0
   - delay: 0
   - delay: 0
