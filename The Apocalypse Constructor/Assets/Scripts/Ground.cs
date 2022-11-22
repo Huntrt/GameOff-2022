@@ -4,7 +4,8 @@ public class Ground : MonoBehaviour
 {
 	public Vector2 initalSize;
 	public int groundLeft, groundRight, fill;
-	public GameObject dirtPrefab, fillerPrefab; Transform grouper;
+	public GameObject dirtPrefab, fillerPrefab;
+	[SerializeField] Transform grouper;
 
 	void Start()
 	{
@@ -20,8 +21,6 @@ public class Ground : MonoBehaviour
 
 	void InitializeGround()
 	{
-		//Renew the group grouper
-		if(grouper != null) {Destroy(grouper);} grouper = new GameObject().transform; grouper.name = "Grounds";
 		//Create an dirt at center
 		CreateDirt(0);
 		//Go through all the width need to create
