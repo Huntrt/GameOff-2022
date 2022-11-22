@@ -16,7 +16,7 @@ TextureImporter:
     second: Enemy_PartRight
   - first:
       213: 1989583613793948460
-    second: Enemies_PartCenter
+    second: Enemy_PartCenter
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -203,7 +203,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemies_PartCenter
+      name: Enemy_PartCenter
       rect:
         serializedVersion: 2
         x: 2200
@@ -211,7 +211,7 @@ TextureImporter:
         width: 500
         height: 500
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
