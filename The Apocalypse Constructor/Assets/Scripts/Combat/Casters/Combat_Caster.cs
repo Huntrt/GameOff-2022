@@ -4,7 +4,7 @@ using System;
 
 public class Combat_Caster : MonoBehaviour
 {
-	[SerializeField] AttackAimation attackAimation; [Serializable] class AttackAimation
+	[SerializeField] AttackAnimation attackAnimation; [Serializable] class AttackAnimation
 	{
 		public Animator animator;
 		public float scaleWindupWithRate;
@@ -41,16 +41,16 @@ public class Combat_Caster : MonoBehaviour
 		if(countRate >= (stats.rateTimer))
 		{
 			//If there is attack animator
-			if(attackAimation.animator != null)
+			if(attackAnimation.animator != null)
 			{
 				//Get scaled value by multiply stats rate with set windup scale
-				float scaled = stats.rate * attackAimation.scaleWindupWithRate;
+				float scaled = stats.rate * attackAnimation.scaleWindupWithRate;
 				//Lock scale to 1 if not allow it to slow down windup speed
-				if(scaled < 1 && !attackAimation.allowSlowdown) {scaled = 1;}
+				if(scaled < 1 && !attackAnimation.allowSlowdown) {scaled = 1;}
 				//Set windup float as scaled value
-				attackAimation.animator.SetFloat("Windup", scaled);
+				attackAnimation.animator.SetFloat("Windup", scaled);
 				//STart attack trigger in animator
-				attackAimation.animator.SetTrigger("Attack");
+				attackAnimation.animator.SetTrigger("Attack");
 			}
 			//If there no attack animator
 			else

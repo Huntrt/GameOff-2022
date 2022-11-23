@@ -358,7 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8f5b79dcc28824d8247ced492dcf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAimation:
+  attackAnimation:
     animator: {fileID: 7827106682408671846}
     scaleWindupWithRate: 1
     allowSlowdown: 0
