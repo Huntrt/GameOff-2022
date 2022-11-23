@@ -25,13 +25,13 @@ TextureImporter:
     second: Enemy_Spitter_Head_Shooter
   - first:
       213: -8724215144592304469
-    second: Enemy_Bird_Head
+    second: Enemy_Flyer_Head
   - first:
       213: 105011747204823308
-    second: Enemy_Bird_Wing
+    second: Enemy_Flyer_Wing
   - first:
       213: -2662446285887516642
-    second: Enemy_Bird_Body
+    second: Enemy_Flyer_Body
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -281,7 +281,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_Bird_Head
+      name: Enemy_Flyer_Head
       rect:
         serializedVersion: 2
         x: 1099
@@ -289,7 +289,7 @@ TextureImporter:
         width: 502
         height: 326
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -302,15 +302,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_Bird_Wing
+      name: Enemy_Flyer_Wing
       rect:
         serializedVersion: 2
         x: 1650
         y: 537
         width: 501
         height: 351
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.95, y: 0.9}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -323,7 +323,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Enemy_Bird_Body
+      name: Enemy_Flyer_Body
       rect:
         serializedVersion: 2
         x: 2199
@@ -331,7 +331,7 @@ TextureImporter:
         width: 501
         height: 163
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
