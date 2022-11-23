@@ -7,8 +7,7 @@ public class EnemiesManager : MonoBehaviour
 	public static EnemiesManager i {get{if(_i==null){_i = GameObject.FindObjectOfType<EnemiesManager>();}return _i;}} static EnemiesManager _i;
 	#endregion
 
-	//temp: replace with enemy component
-    public List<GameObject> enemies = new List<GameObject>();
+    public List<Enemy> enemies = new List<Enemy>();
 	public LayerMask enemyLayer;
 	public GameObject directSightIndicator, rotateSightIndicator;
 
@@ -21,7 +20,7 @@ public class EnemiesManager : MonoBehaviour
 	}
 
 	//Record given enemy to total list
-	public static void Record(GameObject enemy) {i.enemies.Add(enemy);}
+	public static void Record(Enemy enemy) {i.enemies.Add(enemy);}
 	//Erased given enemy from total list
-	public static void Erased(GameObject enemy) {i.enemies.Remove(enemy);}
+	public static void Erased(Enemy enemy) {i.enemies.Remove(enemy);}
 }
