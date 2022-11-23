@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyManager : MonoBehaviour
+public class EnemiesManager : MonoBehaviour
 {
 	#region Set this class to singleton
-	public static EnemyManager i {get{if(_i==null){_i = GameObject.FindObjectOfType<EnemyManager>();}return _i;}} static EnemyManager _i;
+	public static EnemiesManager i {get{if(_i==null){_i = GameObject.FindObjectOfType<EnemiesManager>();}return _i;}} static EnemiesManager _i;
 	#endregion
 
 	//temp: replace with enemy component

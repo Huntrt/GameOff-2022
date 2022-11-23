@@ -6371,7 +6371,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1295052397}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bf7f94a5370490488a67c6bf2621a03, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cf5cb21772fde34599f40e2e782e716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   enemies: []
@@ -6397,7 +6397,7 @@ MonoBehaviour:
   - enemy: {fileID: 11400000, guid: 0c968aa788a30c243a7cef8b55bd1983, type: 2}
     rarity: 75
   - enemy: {fileID: 11400000, guid: 21242bf22931502438948669816df3b2, type: 2}
-    rarity: 10000
+    rarity: 50
   - enemy: {fileID: 11400000, guid: e33b69f3294fc3c4895400a9881929fd, type: 2}
     rarity: 45
   - enemy: {fileID: 11400000, guid: ed4a9cafc4434f147a888c3d5816b40b, type: 2}

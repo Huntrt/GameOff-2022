@@ -13,12 +13,12 @@ public class Enemy : Entity
 	protected override void OnEnable()
 	{
 		base.OnEnable();
-		EnemyManager.Record(gameObject);
+		EnemiesManager.Record(gameObject);
 	}
 
 	public override void Die()
 	{
-		EnemyManager.Erased(gameObject);
+		EnemiesManager.Erased(gameObject);
 		base.Die();
 	}
 }

@@ -33,7 +33,7 @@ public class Combat_Strike_Explode : MonoBehaviour
 	void Exploding(Explosion explosion, Vector2 pos)
 	{
 		//Create circle cast at given pos with given explosion radius to hit enemy only
-		RaycastHit2D[] hits = Physics2D.CircleCastAll(pos, explosion.radius/2, Vector2.zero, 0, EnemyManager.i.enemyLayer);
+		RaycastHit2D[] hits = Physics2D.CircleCastAll(pos, explosion.radius/2, Vector2.zero, 0, EnemiesManager.i.enemyLayer);
 		//Go through all the enemy has hit
 		if(hits.Length > 0) for (int h = 0; h < hits.Length; h++)
 		{
