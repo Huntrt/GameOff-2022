@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3307243705021273365}
   m_Layer: 8
   m_Name: Wooden Platform
-  m_TagString: Untagged
+  m_TagString: Filler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,6 +51,12 @@ MonoBehaviour:
   - {x: 0, y: 1}
   flipped: 0
   function: 0
+  stashed:
+    leftovered:
+      wood: 0
+      steel: 0
+      gunpowder: 0
+    occupied: 0
 --- !u!212 &8980818939178888589
 SpriteRenderer:
   m_ObjectHideFlags: 0
