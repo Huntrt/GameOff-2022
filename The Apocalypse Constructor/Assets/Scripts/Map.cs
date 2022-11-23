@@ -164,15 +164,13 @@ public class Map : MonoBehaviour
 		//If the plot try to delete does not exist
 		if(plot == null)
 		{
-			//Print an error
-			Debug.LogError("Fail to delete structure at " + structure.transform.position + " since no plot exist there");
+			//Print an error if try to delete an structure without plot
+			Debug.LogError("Fail to delete '" + structure.gameObject.name + "' since no plot exist there");
 			//Stop deleteing
 			return;
 		}
 		//Reduce the plot occupation with deleted structure occupation
 		plot.occupation -= (int)structure.stashed.occupied;
-		//Given structure instantly die
-		structure.Die();
 		//Remove the plot from list if plot no longer has any extend and it is empty
 		if(plot.extended <= 0 && plot.occupation == 0) i.plots.Remove(plot);
 	}

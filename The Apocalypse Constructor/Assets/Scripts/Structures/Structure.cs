@@ -65,7 +65,8 @@ public class Structure : Entity
 
 	public override void Die()
 	{
-		Retracting();
+		//Retract then delete itself off the map
+		Retracting(); Map.Deleting(this);
 		//Erased track of this structure and as filler
 		manager.structures.Remove(this);
 		manager.fills.Add(this);
