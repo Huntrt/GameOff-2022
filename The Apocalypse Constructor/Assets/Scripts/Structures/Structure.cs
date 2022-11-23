@@ -46,8 +46,8 @@ public class Structure : Entity
 		{
 			//Get an coordinate using structure position increase with this extend that got spaced
 			Vector2 coord = Map.SnapPosition((Vector2)transform.position + (extends[e]*Map.i.spacing));
-			//Extend an new empty plot at coordinate has get
-			Map.ExtendPlot(null, coord, 0);
+			//Extend an empty plot at this coordinate
+			Map.ExtendPlot(coord, 0);
 		}
 	}
 
@@ -58,7 +58,7 @@ public class Structure : Entity
 		{
 			//Get an coordinate using structure position increase with this extend that got spaced
 			Vector2 coord = Map.SnapPosition((Vector2)transform.position + (extends[e]*Map.i.spacing));
-			//Retract the plot at coordinate has get
+			//Retract the plot at this coordinate
 			Map.RetractPlot(coord);
 		}
 	}

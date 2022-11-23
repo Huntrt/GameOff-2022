@@ -55,10 +55,12 @@ public class Ground : MonoBehaviour
 
 	void CreateDirt(float widthPos)
 	{
-		//Extend an plot on the map for the dirt at width given and block it
-		GameObject dirt = Map.ExtendPlot(dirtPrefab, new Vector2(widthPos, initalSize.y), 3);
+		//Extend an empty plot on the map at given position
+		Map.ExtendPlot(new Vector2(widthPos, initalSize.y), 0);
+		//Placing the blocked dirt prefab at position just extend
+		GameObject dirt = Map.Placing(dirtPrefab, new Vector2(widthPos, initalSize.y), 3);
 		//Extend an empty plot above the dirt created
-		Map.ExtendPlot(null, new Vector2(widthPos, initalSize.y + Map.i.spacing), 0);
+		Map.ExtendPlot(new Vector2(widthPos, initalSize.y + Map.i.spacing), 0);
 		//Group then rename the dirt created
 		dirt.transform.SetParent(grouper); dirt.name = widthPos + " -  Dirt";
 		//Go through all the time need to fill this ground

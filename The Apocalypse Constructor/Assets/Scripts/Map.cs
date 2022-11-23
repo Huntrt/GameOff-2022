@@ -30,7 +30,7 @@ public class Map : MonoBehaviour
 
 	public static Plot FindPlot(Vector2 coordinate)
 	{
-		//If the given coordnate divide with spacing are not whole number
+		//? If the given coordnate divide with spacing are not whole number
 		if((coordinate.x / i.spacing) % 1 != 0 || (coordinate.y / i.spacing) % 1 != 0)
 		{
 			//Print an warning
@@ -47,41 +47,45 @@ public class Map : MonoBehaviour
 	}
 	
 	/// Extending an new plot
-	public static GameObject ExtendPlot(GameObject structure, Vector2 coordinate, int occupying)
+	public static void ExtendPlot(Vector2 coordinate, int occupying)
 	{
 		//Find the plot at given coordinate to extend at it
 		Plot plot = FindPlot(coordinate);
-		//If the plot find don't exist yet
+		//If the extending plot don't exist yet
 		if(plot == null)
 		{
-			//Create an new plot with given coordinate and occupian
+			//Create an new plot ar extend coordinate with given occupying
 			plot = new Plot(coordinate, occupying);
-			//The plot gonna crerate has been extend
+			//The new plot has been extend by 1
 			plot.extended++;
 			//Add newly create plot to list
 			i.plots.Add(plot);
 		}
-		//If the plot find already exist
+		//If the extending plot already exist
 		else
 		{
 			//The plot has been extend one more time
 			plot.extended++;
 		}
-		//Create the given structure at given coordinates then return it if does need to create any
-		if(structure != null) return Instantiate(structure, coordinate, Quaternion.identity); return null;
 	}
 
 	public static void RetractPlot(Vector2 coordinate)
 	{
 		//Find the plot at given coordinate to retract at it
 		Plot plot = FindPlot(coordinate);
-		//If plot gonna retract does exist
+		//If the plot gonna retract does exist
 		if(plot != null)
 		{
 			//The plot lost an extend
 			plot.extended--;
 			//Remove the plot from list if plot no longer has any extend and it is empty
 			if(plot.extended <= 0 && plot.occupation == 0) i.plots.Remove(plot);
+		}
+		//If the plot gonna retract dont exist
+		else
+		{
+			//Print error to make sure when try to retract plot haven't exist
+			Debug.LogWarning("Cant retract an plot at '" + coordinate + "'since it don't exist");
 		}
 	}
 	

@@ -8,8 +8,8 @@ public class House : Entity
 	protected override void OnEnable()
 	{
 		base.OnEnable();
-		//Placing itself onto the map at it position and then block the occupation plot
-		Map.ExtendPlot(null, transform.position, 3);
+		//Extend the plot at house position then blocked it
+		Map.ExtendPlot(transform.position, 3);
 		//Update the health bar when place
 		UpdateHealthBar();
 	}
