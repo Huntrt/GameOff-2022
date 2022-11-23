@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1051fe06b221f734a9b8ab3ff62ff936, type: 3}
+  m_Name: Flyer
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2651461044457126248, guid: 44861aca07c57744689aac5e2cf7b968, type: 3}
+  spawnOffset:
+    min: {x: 0, y: 0.5}
+    max: {x: 0, y: 4}

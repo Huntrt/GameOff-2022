@@ -1,7 +1,7 @@
 ﻿Gameplay:
 	Progression:
 		▪ Days counter.
-		▪ Better ally stats the more day suvive.
+		X Better ally stats the more day suvive. 
 		▪ Stronger enemy the more day suvive.
 	Map:
 		✓ An list of plot to build
@@ -176,12 +176,12 @@
 				▪ Stats growth
 	Enemy:
 		▪ Spawning:
-			▪ Spawning on the edge of the map.
+			✓ Spawning on the edge of the map.
 			✓ Change rotation base on X axis got spawn.
-			▪ Randomize queue of enemy will spawn on wave.
+			▪ Randomize enemy when night time.
 		▪ Movement:
 			✓ Walker - only able to move in an straight line until block.
-			▪ Flyer - start from spawing in the sky and move in an straighe line until block.
+			✓ Flyer - start from spawing in the sky and move in an straighe line until block.
 			▪ Jumper - When got block then jump to the highest structure it could reach.
 			▪ Climber - able to climb on as much structure has set. @consider
 		▪ Health:
@@ -246,4 +246,5 @@ Bugs:
 
 Improve:
 	✓ Flip an structure are very messy try to improve it later. @minimal
-	▪ Find an way to make tower unable to attack if it and what it extend is floating
+	▪ Find an way to make tower unable to attack if it and what it extend is floating. @caution
+	▪ Make enemy rarity inside it spawn scriptable object when find an better way to view/edit rarity. @minimal

@@ -3153,7 +3153,7 @@ GameObject:
   m_Component:
   - component: {fileID: 636643186}
   - component: {fileID: 636643187}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object Pooling
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3537,7 +3537,7 @@ GameObject:
   m_Component:
   - component: {fileID: 683603095}
   - component: {fileID: 683603096}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Rectangle Sight Indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4412,7 +4412,7 @@ GameObject:
   m_Component:
   - component: {fileID: 832834008}
   - component: {fileID: 832834009}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Structures
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4598,7 +4598,7 @@ GameObject:
   m_Component:
   - component: {fileID: 877164657}
   - component: {fileID: 877164658}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Circle SightIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5394,7 +5394,7 @@ GameObject:
   - component: {fileID: 1045366059}
   - component: {fileID: 1045366060}
   - component: {fileID: 1045366061}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Map
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5826,7 +5826,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1117527712}
   - component: {fileID: 1117527713}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Crafting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6338,7 +6338,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1295052398}
   - component: {fileID: 1295052399}
-  m_Layer: 0
+  - component: {fileID: 1295052400}
+  m_Layer: 3
   m_Name: Enemies
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6379,6 +6380,37 @@ MonoBehaviour:
     m_Bits: 64
   directSightIndicator: {fileID: 683603094}
   rotateSightIndicator: {fileID: 877164656}
+--- !u!114 &1295052400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295052397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2780cb3bf3eb024885ac68cb4ee619a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnRate: 1
+  spawns:
+  - enemy: {fileID: 11400000, guid: 0c968aa788a30c243a7cef8b55bd1983, type: 2}
+    rarity: 75
+  - enemy: {fileID: 11400000, guid: 21242bf22931502438948669816df3b2, type: 2}
+    rarity: 50
+  - enemy: {fileID: 11400000, guid: e33b69f3294fc3c4895400a9881929fd, type: 2}
+    rarity: 45
+  - enemy: {fileID: 11400000, guid: ed4a9cafc4434f147a888c3d5816b40b, type: 2}
+    rarity: 35
+  - enemy: {fileID: 11400000, guid: c9cacc9c21151dd45923147a05492788, type: 2}
+    rarity: 25
+  - enemy: {fileID: 11400000, guid: 0dbc510e05e4e4545a87960028030032, type: 2}
+    rarity: 15
+  spawnPoint:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  spawnPointInward: 3
+  ground: {fileID: 1045366061}
 --- !u!1 &1310672469
 GameObject:
   m_ObjectHideFlags: 0
@@ -10066,7 +10098,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2081953828}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
