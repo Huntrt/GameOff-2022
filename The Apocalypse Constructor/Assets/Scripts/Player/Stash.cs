@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Stash Name", menuName = "Stash", order = 0)]
+[CreateAssetMenu(fileName = "Stash Name", menuName = "Scriptable Object/Stash", order = 0)]
 public class Stash : ScriptableObject
 {
 	[Header("Item")]
