@@ -32,6 +32,15 @@ TextureImporter:
   - first:
       213: -2662446285887516642
     second: Enemy_Flyer_Body
+  - first:
+      213: -985667470276714685
+    second: Enemy_Soarer_Wing
+  - first:
+      213: -7128032133256032271
+    second: Enemy_Soarer_Body
+  - first:
+      213: 7267121326372707492
+    second: Enemy_Soarer_Head
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -138,7 +147,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 1000
+        y: 2000
         width: 500
         height: 500
       alignment: 2
@@ -159,7 +168,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 550
-        y: 1000
+        y: 2000
         width: 500
         height: 500
       alignment: 7
@@ -180,7 +189,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1100
-        y: 1000
+        y: 2000
         width: 500
         height: 500
       alignment: 4
@@ -201,7 +210,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1650
-        y: 1000
+        y: 2000
         width: 500
         height: 500
       alignment: 5
@@ -222,7 +231,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2200
-        y: 1000
+        y: 2000
         width: 500
         height: 500
       alignment: 0
@@ -243,7 +252,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 500
+        y: 1500
         width: 500
         height: 400
       alignment: 9
@@ -264,7 +273,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 550
-        y: 500
+        y: 1500
         width: 500
         height: 400
       alignment: 9
@@ -285,7 +294,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1099
-        y: 537
+        y: 1537
         width: 502
         height: 326
       alignment: 0
@@ -306,7 +315,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1650
-        y: 537
+        y: 1537
         width: 501
         height: 351
       alignment: 9
@@ -327,7 +336,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2199
-        y: 622
+        y: 1622
         width: 501
         height: 163
       alignment: 0
@@ -339,6 +348,69 @@ TextureImporter:
       bones: []
       spriteID: e10dd1095371d0bd0800000000000000
       internalID: -2662446285887516642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Soarer_Wing
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1000
+        width: 500
+        height: 300
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34f9f7778a43252f0800000000000000
+      internalID: -985667470276714685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Soarer_Body
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 1025
+        width: 500
+        height: 250
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff44bd6a84241d90800000000000000
+      internalID: -7128032133256032271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Soarer_Head
+      rect:
+        serializedVersion: 2
+        x: 1100
+        y: 974
+        width: 500
+        height: 346
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ac5c1ee7500ad460800000000000000
+      internalID: 7267121326372707492
       vertices: []
       indices: 
       edges: []
