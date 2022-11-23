@@ -17,6 +17,12 @@ TextureImporter:
   - first:
       213: 1989583613793948460
     second: Enemy_PartCenter
+  - first:
+      213: -5729812248874386948
+    second: Enemy_Spitter_Head
+  - first:
+      213: 6405392624213848118
+    second: Enemy_Spitter_Head_Shooter
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -219,6 +225,48 @@ TextureImporter:
       bones: []
       spriteID: c23502761cb6c9b10800000000000000
       internalID: 1989583613793948460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Spitter_Head
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 500
+        width: 500
+        height: 400
+      alignment: 9
+      pivot: {x: 0.3, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf9f8241e1e9b70b0800000000000000
+      internalID: -5729812248874386948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Enemy_Spitter_Head_Shooter
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 500
+        width: 500
+        height: 400
+      alignment: 9
+      pivot: {x: 0.3, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6307c2d87a684e850800000000000000
+      internalID: 6405392624213848118
       vertices: []
       indices: 
       edges: []
