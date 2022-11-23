@@ -181,9 +181,12 @@ public class Map : MonoBehaviour
 	
 	void OnDrawGizmos()
 	{
-		if(plots.Count > 0) foreach (Plot plot in plots) if(plot.occupation == 0)
+		if(plots.Count > 0) foreach (Plot plot in plots) 
 		{
-			Gizmos.color = Color.cyan;
+			if(plot.occupation == 0) Gizmos.color = Color.green;
+			if(plot.occupation == 1) Gizmos.color = Color.cyan;
+			if(plot.occupation == 2) Gizmos.color = Color.yellow;
+			if(plot.occupation == 3) Gizmos.color = Color.red;
 			Gizmos.DrawWireCube(plot.coordinate, Vector2.one * (spacing - (spacing/10)));
 		}
 	}
