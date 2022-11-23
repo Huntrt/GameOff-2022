@@ -213,8 +213,8 @@ public class PlayerCursor : MonoBehaviour
 		{
 			//Refund the leftover ingredients of structure being delete
 			Inventory.Refund(structureHovered[s].stashed.leftovered);
-			//Delete each of them off the map
-			Map.Deleting(structureHovered[s]);
+			//Instantly kill the structure wanted to delete
+			structureHovered[s].Die();
 		}
 		
 		//Refresh the structure hovering
