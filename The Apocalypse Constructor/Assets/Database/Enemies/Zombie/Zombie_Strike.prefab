@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7860092815343834265}
   - component: {fileID: 2396960830020473500}
   - component: {fileID: 1525015213622267085}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Zombie_Strike
-  m_TagString: Untagged
+  m_TagString: Enemy Strike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

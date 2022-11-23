@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 4456488617839069504}
   - component: {fileID: 8182969196109401925}
   - component: {fileID: 5036705871534510356}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprinter_Strike
-  m_TagString: Untagged
+  m_TagString: Enemy Strike
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
