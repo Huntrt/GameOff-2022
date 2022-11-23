@@ -60,7 +60,7 @@ MonoBehaviour:
     DPS: 8
     damage: 4
     rate: 2
-    range: 4
+    range: 2
 --- !u!114 &2651461044457126245
 MonoBehaviour:
   m_ObjectHideFlags: 0

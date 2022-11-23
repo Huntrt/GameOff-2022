@@ -15,4 +15,4 @@ MonoBehaviour:
   prefab: {fileID: 2651461044457126248, guid: 44861aca07c57744689aac5e2cf7b968, type: 3}
   spawnOffset:
     min: {x: 0, y: 0.5}
-    max: {x: 0, y: 4}
+    max: {x: 0, y: 2}

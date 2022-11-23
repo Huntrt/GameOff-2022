@@ -6397,7 +6397,7 @@ MonoBehaviour:
   - enemy: {fileID: 11400000, guid: 0c968aa788a30c243a7cef8b55bd1983, type: 2}
     rarity: 75
   - enemy: {fileID: 11400000, guid: 21242bf22931502438948669816df3b2, type: 2}
-    rarity: 50
+    rarity: 10000
   - enemy: {fileID: 11400000, guid: e33b69f3294fc3c4895400a9881929fd, type: 2}
     rarity: 45
   - enemy: {fileID: 11400000, guid: ed4a9cafc4434f147a888c3d5816b40b, type: 2}
