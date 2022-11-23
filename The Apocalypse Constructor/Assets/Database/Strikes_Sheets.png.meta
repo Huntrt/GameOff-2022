@@ -4,28 +4,28 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -7144696499773773277
-    second: Tower_Strikes_Arrow
+    second: Strike_Arrow
   - first:
       213: 3543028804557378815
-    second: Tower_Strikes_ReinforceArrow
+    second: Strike_ReinforceArrow
   - first:
       213: -3885255961132223249
-    second: Tower_Strikes_Stake
+    second: Strike_Stake
   - first:
       213: 2128778480612139910
-    second: Tower_Strikes_Flame
+    second: Strike_Flame
   - first:
       213: -3381744741582391365
-    second: Tower_Strikes_Flame
+    second: Strike_Flame
   - first:
       213: -1431894267490329210
-    second: Tower_Strike_Triangle
+    second: Strike_Triangle
   - first:
       213: -8953416351194256462
-    second: Tower_Strikes_Rocket
+    second: Strike_Rocket
   - first:
       213: 6040280092692889578
-    second: Tower_Strikes_Rocket
+    second: Strike_Rocket
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -128,7 +128,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tower_Strikes_Arrow
+      name: Strike_Arrow
       rect:
         serializedVersion: 2
         x: 22
@@ -149,7 +149,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower_Strikes_ReinforceArrow
+      name: Strike_ReinforceArrow
       rect:
         serializedVersion: 2
         x: 497
@@ -170,7 +170,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower_Strikes_Stake
+      name: Strike_Stake
       rect:
         serializedVersion: 2
         x: 1021
@@ -191,7 +191,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower_Strikes_Flame
+      name: Strike_Flame
       rect:
         serializedVersion: 2
         x: 1581
@@ -212,7 +212,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower_Strike_Triangle
+      name: Strike_Triangle
       rect:
         serializedVersion: 2
         x: 2175
@@ -233,7 +233,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower_Strikes_Rocket
+      name: Strike_Rocket
       rect:
         serializedVersion: 2
         x: 2854
@@ -254,7 +254,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Tower_Strikes_Missle
+      name: Strike_Missle
       rect:
         serializedVersion: 2
         x: 3518
@@ -262,7 +262,7 @@ TextureImporter:
         width: 504
         height: 78
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
