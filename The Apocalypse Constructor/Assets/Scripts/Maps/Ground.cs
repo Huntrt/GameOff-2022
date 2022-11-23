@@ -5,6 +5,7 @@ public class Ground : MonoBehaviour
 	public Vector2 initalSize;
 	public int groundLeft, groundRight, fill;
 	public GameObject dirtPrefab, fillerPrefab;
+	public System.Action onExpand;
 	[SerializeField] Transform grouper;
 
 	void Start()
@@ -28,8 +29,8 @@ public class Ground : MonoBehaviour
 		{
 			//Convert width with spacing
 			float setWidth = Map.Spaced(x);
-			//Create dirt for both side on this width
-			CreateDirt(setWidth); CreateDirt(-setWidth);
+			//Expand both side of the map
+			ExpandGround(0);
 		}
 	}
 
@@ -41,16 +42,22 @@ public class Ground : MonoBehaviour
 			Debug.LogError("Cant expand the ground in ["+direction+"] direction");
 			return;
 		}
+		//If wanted to expand both way
 		if(direction == 0)
 		{
+			//Create dirt in both direction
 			CreateDirt(Map.Spaced(groundRight+1));
-			CreateDirt(Map.Spaced(-groundLeft-1));
+			CreateDirt(Map.Spaced(groundLeft-1));
 		}
+		//If only wanted to expand in an single direction
 		else
 		{
-			if(direction == +1) {CreateDirt(Map.Spaced((groundRight+1)));}
-			if(direction == -1) {CreateDirt(Map.Spaced((-groundLeft-1)));}
+			//Get the way of ground left or right base on given direction
+			int groundWay = (direction == 1)? groundRight : groundLeft;
+			//Create dirt in the given direction with way has get
+			CreateDirt(Map.Spaced(groundWay+(1 * direction)));
 		}
+		onExpand?.Invoke();
 	}
 
 	void CreateDirt(float widthPos)
@@ -74,6 +81,6 @@ public class Ground : MonoBehaviour
 			filler.transform.SetParent(grouper); filler.name = y + " - Filler";
 		}
 		//Ground increase to the right if width pos are positive and opposite if negative
-		if(widthPos > 0) groundRight++; if(widthPos < 0) groundLeft++;
+		if(widthPos > 0) groundRight++; if(widthPos < 0) groundLeft--;
 	}
 }
