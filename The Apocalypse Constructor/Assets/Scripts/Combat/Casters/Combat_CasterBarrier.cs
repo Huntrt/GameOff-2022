@@ -13,7 +13,7 @@ public class Combat_CasterBarrier : Combat_Caster
 		//Reset the amount has repeat
 		repeated -= repeated;
 		//Begin repeating amount gonna strike
-		Invoke("RepeatAmount", 0);
+		RepeatAmount();
 	}
 
 	void RepeatAmount()

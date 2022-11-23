@@ -11,8 +11,8 @@ public class Combat_CasterPoints : Combat_Caster
 	{
 		//Reset the amount has repeat
 		repeated -= repeated;
-		//Begin repeating amount gonna strike
-		Invoke("RepeatPoints", 0);
+		//Begin repeating point gonna strike
+		RepeatPoints();
 	}
 
 	void RepeatPoints()
