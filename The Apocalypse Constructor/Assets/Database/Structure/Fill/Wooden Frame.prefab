@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8091278653732040030}
   m_Layer: 8
   m_Name: Wooden Frame
-  m_TagString: Filler
+  m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +54,12 @@ MonoBehaviour:
   - {x: 1, y: 0}
   flipped: 0
   function: 0
+  stashed:
+    leftovered:
+      wood: 0
+      steel: 0
+      gunpowder: 0
+    occupied: 0
 --- !u!212 &2090459923969207561
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -123,7 +129,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.499, y: 0.499}
+    oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

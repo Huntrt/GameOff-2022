@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1111844283456233628}
   m_Layer: 8
   m_Name: Wind Turbine
-  m_TagString: Dynamo
+  m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -51,6 +51,12 @@ MonoBehaviour:
   extends: []
   flipped: 0
   function: 2
+  stashed:
+    leftovered:
+      wood: 0
+      steel: 0
+      gunpowder: 0
+    occupied: 0
   provide: 35
 --- !u!212 &7335110260253774846
 SpriteRenderer:
@@ -180,6 +186,12 @@ MonoBehaviour:
   extends: []
   flipped: 0
   function: 2
+  stashed:
+    leftovered:
+      wood: 0
+      steel: 0
+      gunpowder: 0
+    occupied: 0
   provide: 25
 --- !u!212 &8427077283202040952
 SpriteRenderer:

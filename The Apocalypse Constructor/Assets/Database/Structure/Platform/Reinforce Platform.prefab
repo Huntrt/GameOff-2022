@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6457745309190816201}
   m_Layer: 8
   m_Name: Reinforce Platform
-  m_TagString: Filler
+  m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

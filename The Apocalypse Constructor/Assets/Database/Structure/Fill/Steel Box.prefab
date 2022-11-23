@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 9095892461056395272}
   m_Layer: 8
   m_Name: Steel Box
-  m_TagString: Filler
+  m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,6 +54,12 @@ MonoBehaviour:
   - {x: 1, y: 0}
   flipped: 0
   function: 0
+  stashed:
+    leftovered:
+      wood: 0
+      steel: 0
+      gunpowder: 0
+    occupied: 0
 --- !u!212 &1400666939731363935
 SpriteRenderer:
   m_ObjectHideFlags: 0

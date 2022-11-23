@@ -6,12 +6,11 @@ TagManager:
   tags:
   - Enemy
   - Tower
-  - Filler
-  - Dynamo
   - Ground
   - Tower Strike
   - House
   - Enemy Strike
+  - Structure
   layers:
   - Default
   - TransparentFX

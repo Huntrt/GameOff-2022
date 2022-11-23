@@ -62,8 +62,8 @@ public class Combat_StrikeSlash : Combat_Strike
 	{
 		//This slash havent end
 		ended = false; 
-		//If collide with any function structure
-		if(hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo") || hit.collider.CompareTag("Tower"))
+		//If collide with an structure or tower
+		if(hit.collider.CompareTag("Structure") || hit.collider.CompareTag("Tower"))
 		{
 			//Slash to check if has ended
 			ended = Slashing(hit);

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7317489411570413733}
   m_Layer: 8
   m_Name: Furnace
-  m_TagString: Dynamo
+  m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +50,12 @@ MonoBehaviour:
   extends: []
   flipped: 0
   function: 2
+  stashed:
+    leftovered:
+      wood: 0
+      steel: 0
+      gunpowder: 0
+    occupied: 0
   provide: 25
 --- !u!212 &1092521270573843399
 SpriteRenderer:

@@ -92,9 +92,9 @@ public class Combat_StrikeHitscan : Combat_Strike
 	void ScanStructure(RaycastHit2D hit, out bool ended)
 	{
 		//This hit havent end
-		ended = false; 
-		//If collide with any function structure
-		if(hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo") || hit.collider.CompareTag("Tower"))
+		ended = false;
+		//If collide with an structure or tower
+		if(hit.collider.CompareTag("Structure") || hit.collider.CompareTag("Tower"))
 		{
 			//Hit scanning to check will it end
 			ended = HitScaning(hit);

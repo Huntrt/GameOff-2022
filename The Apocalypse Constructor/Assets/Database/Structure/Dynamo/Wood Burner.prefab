@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -7607816797891027752}
   m_Layer: 8
   m_Name: Wood Burner
-  m_TagString: Dynamo
+  m_TagString: Structure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +50,12 @@ MonoBehaviour:
   extends: []
   flipped: 0
   function: 2
+  stashed:
+    leftovered:
+      wood: 0
+      steel: 0
+      gunpowder: 0
+    occupied: 0
   provide: 10
 --- !u!212 &8993127125766533050
 SpriteRenderer:
