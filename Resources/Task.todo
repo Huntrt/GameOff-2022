@@ -136,10 +136,10 @@
 		✓ Lost an stack in inventory when build.
 		✓ Able to destroy structure.
 		✓ Destroy structure will remove what it extend.
-		✓ What happen to other structure if connection get destroy???
-			✓ a. tower no longer attack if floating (check extend value of the plot it on?) 
-			b. they just float (balanced of by jumping enemy)
-			c. tower get and structure destroy if float
+		▪ What happen to other structure if connection get destroy???
+			▪ a. tower no longer attack if floating (check extend value of the plot it on?) 
+			▪ b. they just float (balanced by jumping enemy)
+			▪ c. tower get and structure destroy if float
 	Structure:
 		✓ Health:
 			✓ Take damage.
@@ -246,3 +246,4 @@ Bugs:
 
 Improve:
 	✓ Flip an structure are very messy try to improve it later. @minimal
+	▪ Find an way to make tower unable to attack if it and what it extend is floating
