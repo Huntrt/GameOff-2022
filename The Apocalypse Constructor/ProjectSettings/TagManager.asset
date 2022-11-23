@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - Tower Strike
   - House
+  - Enemy Strike
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Ground
   - Structure
   - Tower Strike
-  - 
+  - Enemy Strike
   - 
   - 
   - 
