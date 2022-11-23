@@ -6,7 +6,6 @@ public class Structure : Entity
 	[SerializeField] Vector2[] extends;
 	[HideInInspector] public bool flipped;
 	public enum Function {filler, tower, dynamo}; public Function function;
-	public Action onDie;
 	protected StructureManager manager;
 	[HideInInspector] public StructureStashData stashed; [Serializable] public class StructureStashData
 	{
@@ -66,8 +65,6 @@ public class Structure : Entity
 
 	public override void Die()
 	{
-		//Call die action
-		onDie?.Invoke();
 		Retracting();
 		//Erased track of this structure and as filler
 		manager.structures.Remove(this);
