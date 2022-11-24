@@ -34,6 +34,12 @@ public class Ground : MonoBehaviour
 		}
 	}
 
+	public int LongestGroundWay()
+	{
+		//Return depend on which way of ground the longer
+		if((Mathf.Abs(groundLeft) > groundRight)) return groundLeft; return groundRight;
+	}
+
 	/// 1 To expand to the right | -1 To expand to the left | 0 to expand both side
 	public void ExpandGround(int direction)
 	{
