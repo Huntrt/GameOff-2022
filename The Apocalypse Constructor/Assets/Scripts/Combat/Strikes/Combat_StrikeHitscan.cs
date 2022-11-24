@@ -69,8 +69,8 @@ public class Combat_StrikeHitscan : Combat_Strike
 	{
 		//This hit havent end
 		ended = false; 
-		//If collide with either an fill or dynamo structure without phasing
-		if((hit.collider.CompareTag("Filler") || hit.collider.CompareTag("Dynamo")) && !phasing)
+		//If collide with structure without phasing
+		if(hit.collider.CompareTag("Structure") && !phasing)
 		{
 			//End scan at this contact point
 			endPoint = hit.point;
