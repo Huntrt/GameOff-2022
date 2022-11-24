@@ -11254,20 +11254,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2780cb3bf3eb024885ac68cb4ee619a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 0
+  spawnRate: 1
+  haltDifficulty: 35
   spawns:
   - enemy: {fileID: 11400000, guid: 0c968aa788a30c243a7cef8b55bd1983, type: 2}
-    rarity: 75
+    rarity: 150
+    scaledRarity: 0
   - enemy: {fileID: 11400000, guid: 21242bf22931502438948669816df3b2, type: 2}
-    rarity: 50
+    rarity: 199
+    scaledRarity: 0
   - enemy: {fileID: 11400000, guid: e33b69f3294fc3c4895400a9881929fd, type: 2}
-    rarity: 45
+    rarity: 50
+    scaledRarity: 0
   - enemy: {fileID: 11400000, guid: ed4a9cafc4434f147a888c3d5816b40b, type: 2}
     rarity: 35
+    scaledRarity: 0
   - enemy: {fileID: 11400000, guid: c9cacc9c21151dd45923147a05492788, type: 2}
     rarity: 25
+    scaledRarity: 0
   - enemy: {fileID: 11400000, guid: 0dbc510e05e4e4545a87960028030032, type: 2}
     rarity: 15
+    scaledRarity: 0
   spawnPoint:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
