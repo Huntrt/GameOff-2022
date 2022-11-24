@@ -44,7 +44,4 @@ public class DaysManager : MonoBehaviour
 			isNight = false; onCycle?.Invoke(false);
 		}
 	}
-
-	//Return when ever the day are morning or night
-	public bool Morning() {return (progress <= 0.5f)? true : false;}
 }

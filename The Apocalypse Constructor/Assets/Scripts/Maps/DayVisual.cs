@@ -4,18 +4,21 @@ using UnityEngine;
 public class DayVisual : MonoBehaviour
 {
     DaysManager day;
+	[SerializeField] Ground ground;
 	[Header("Skybox")]
 	Camera skybox;
 	[SerializeField] float cycleSpeed, cycleDuration; [SerializeField]float cycleTimer;
 	[SerializeField] Color morningColor, nightColor;
+	[Header("Background")]
+	[SerializeField] ParticleSystem[] mountains;
 
 	void OnEnable()
 	{
 		day = DaysManager.i;
 		skybox = Camera.main;
 		day.onCycle += WhenCycleChange;
+		ground.onExpand += WhenGroundExpand;
 	}
-
 	
 	void WhenCycleChange(bool night)
 	{
@@ -38,12 +41,30 @@ public class DayVisual : MonoBehaviour
 			skybox.backgroundColor = Color.Lerp(curColor, cycleColor, cycleTimer/cycleDuration);
 			yield return null;
 		}
-		print("**");
 	}
 
+	void WhenGroundExpand()
+	{
+		int longestGround = ground.LongestGroundWay();
+		//Go through all the mountains background
+		for (int b = 0; b < mountains.Length; b++)
+		{
+			//Scale this mountains size as the longest ground
+			mountains[b].transform.localScale = new Vector2(longestGround, 1);
+			//Get the burst of particle system in this mountain
+			ParticleSystem.Burst burst = mountains[b].emission.GetBurst(0);
+			//Set the amount of burst the same as longest ground
+			burst.count = longestGround;
+			//@ Refresh particle system
+			mountains[b].emission.SetBurst(0, burst);
+			mountains[b].Clear();
+			mountains[b].Play();
+		}
+	}
 	
 	void OnDisable()
 	{
 		day.onCycle -= WhenCycleChange;
+		ground.onExpand -= WhenGroundExpand;
 	}
 }
