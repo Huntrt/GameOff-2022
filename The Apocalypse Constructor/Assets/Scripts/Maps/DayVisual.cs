@@ -11,6 +11,8 @@ public class DayVisual : MonoBehaviour
 	[SerializeField] Color morningColor, nightColor;
 	[Header("Background")]
 	[SerializeField] ParticleSystem[] mountains;
+	[SerializeField] Transform clouds;
+	[SerializeField] ParticleSystem stars;
 
 	void OnEnable()
 	{
@@ -46,6 +48,13 @@ public class DayVisual : MonoBehaviour
 	void WhenGroundExpand()
 	{
 		int longestGround = ground.LongestGroundWay();
+		UpdateMoutains(longestGround);
+		UpdateClouds();
+		UpdateStars(longestGround);
+	}
+
+	void UpdateMoutains(float longestGround)
+	{
 		//Go through all the mountains background
 		for (int b = 0; b < mountains.Length; b++)
 		{
@@ -60,6 +69,22 @@ public class DayVisual : MonoBehaviour
 			mountains[b].Clear();
 			mountains[b].Play();
 		}
+	}
+
+	void UpdateClouds()
+	{
+		//Move the cloud to the alway be right side of the map
+		clouds.position = new Vector2(Map.Spaced(ground.groundRight), clouds.position.y);
+	}
+
+	void UpdateStars(float longestGround)
+	{
+		//Scale this stars size X as longest ground
+		stars.transform.localScale = new Vector2(longestGround, stars.transform.localScale.y);
+		//Get the buremissionst of particle system in stars
+		ParticleSystem.EmissionModule emission = stars.emission;
+		//Set the emission rate the same as longest ground
+		emission.rateOverTime = longestGround;
 	}
 	
 	void OnDisable()
