@@ -5392,6 +5392,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1045366059}
+  - component: {fileID: 1045366062}
   - component: {fileID: 1045366060}
   - component: {fileID: 1045366061}
   m_Layer: 3
@@ -5450,6 +5451,21 @@ MonoBehaviour:
   fillerPrefab: {fileID: 6251759755276565602, guid: ea7e8a8700391bb499c5ddc0392df57a,
     type: 3}
   grouper: {fileID: 4108844054084674470}
+--- !u!114 &1045366062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045366058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f33123fd771534e46b669824c6c01768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  counter: 0
+  duration: 5
+  progress: 0
 --- !u!1 &1085803262
 GameObject:
   m_ObjectHideFlags: 0
@@ -6392,7 +6408,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2780cb3bf3eb024885ac68cb4ee619a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
+  spawnRate: 0
   spawns:
   - enemy: {fileID: 11400000, guid: 0c968aa788a30c243a7cef8b55bd1983, type: 2}
     rarity: 75
