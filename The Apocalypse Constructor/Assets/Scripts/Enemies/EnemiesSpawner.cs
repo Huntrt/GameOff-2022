@@ -10,8 +10,17 @@ public class EnemiesSpawner : MonoBehaviour
 	[System.Serializable] public class EnemySpawning
 	{
 		public EnemySpawn enemy;
-		public float rarity;
+		public float initialRarity;
 		public float scaledRarity;
+		[SerializeField] float finalRarity;
+		public float FinalRarity 
+		{ 
+			get 
+			{ 
+				finalRarity = scaledRarity + initialRarity;
+				return scaledRarity + initialRarity;
+			}
+		}
 	}
     [SerializeField] Vector2[] spawnPoint = new Vector2[2];
 	[SerializeField] float spawnPointInward;
@@ -42,8 +51,8 @@ public class EnemiesSpawner : MonoBehaviour
 		{
 			//Get difficulty by how many day has pass increase by how much been halt
 			float diff = DaysManager.i.counter + haltDifficulty;
-			//Scaled each of the enemy rarity up using decilog scale that take into account difficulty
-			spawns[s].scaledRarity = diff * Mathf.Log(spawns[s].rarity) / Unity.Mathematics.math.LN10;
+			//Scaled each of the enemy final rarity using decilog scale that take into account difficulty
+			spawns[s].scaledRarity += diff * Mathf.Log(spawns[s].FinalRarity) / Unity.Mathematics.math.LN10;
 		}
 	}
 
@@ -59,15 +68,15 @@ public class EnemiesSpawner : MonoBehaviour
 	{
 		//Choose wich spawn point will be use
 		Vector2 pos = spawnPoint[Random.Range(0,2)];
-		//Get the sum amount all spawn scaled rarity
-		float sum = 0; for (int s = 0; s < spawns.Length; s++) sum += spawns[s].scaledRarity;
+		//Get the sum amount all spawn final rarity
+		float sum = 0; for (int s = 0; s < spawns.Length; s++) sum += spawns[s].FinalRarity;
 		//Randomize inside the sum
 		sum = Random.Range(0, sum);
 		//Go through all the enemy could spawn
 		for (int s = 0; s < spawns.Length; s++)
 		{
-			//If this enemy scaled rarity take all the sum
-			if(sum - spawns[s].scaledRarity <= 0)
+			//If this enemy final rarity take all the sum
+			if(sum - spawns[s].FinalRarity <= 0)
 			{
 				//Spawn this enemy
 				SpawnEnemy(spawns[s].enemy, pos); break;
@@ -75,8 +84,8 @@ public class EnemiesSpawner : MonoBehaviour
 			//If there sill sum left over
 			else
 			{
-				//Reduce the sum with this enemy scaled rarity
-				sum -= spawns[s].scaledRarity;
+				//Reduce the sum with this enemy final rarity
+				sum -= spawns[s].FinalRarity;
 			}
 		}
 	}
