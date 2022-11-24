@@ -38,7 +38,7 @@ public class Combat_Caster : MonoBehaviour
 		//Counting speed for attack
 		countRate += Time.deltaTime;
 		//If has count enough rate
-		if(countRate >= (stats.rateTimer))
+		if(countRate >= (1/stats.rate))
 		{
 			//If there is attack animator
 			if(attackAnimation.animator != null)
