@@ -6,7 +6,7 @@ public class DaysManager : MonoBehaviour
 	public static DaysManager i {get{if(_i==null){_i = GameObject.FindObjectOfType<DaysManager>();}return _i;}} static DaysManager _i;
 	#endregion
 
-	public int counter; //How many day has pass
+	public int passes; //How many day has pass
 	public float duration; //How long an day in second
 	[Range(0,1)] public float progress; //How many percent of an day has progress
 	[Range(0,1)] public float halfDay; //At which percent day has been half
@@ -37,7 +37,7 @@ public class DaysManager : MonoBehaviour
 		if(dayTimer >= duration)
 		{
 			//Another day has pass
-			counter++;
+			passes++;
 			//Reset progress and timer
 			progress = 0; dayTimer -= dayTimer;
 			//Day has cycle back to the morning

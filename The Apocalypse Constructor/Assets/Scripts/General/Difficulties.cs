@@ -18,7 +18,7 @@ public class Difficulties : MonoBehaviour
 		public void ScaleEnemySpawnRarity()
 		{
 			//Get spawning difficulty by multiply days with boost 
-			float diff = i.days.counter * spawnBoost;
+			float diff = i.days.passes * spawnBoost;
 			//Go through all the enemy could spawn
 			for (int s = 0; s < spawner.spawns.Length; s++)
 			{
@@ -34,7 +34,7 @@ public class Difficulties : MonoBehaviour
 		public void GrowthSpawnRate()
 		{
 			//When every set day has pass
-			if(i.days.counter % spawnRateGrowEveryDay == 0)
+			if(i.days.passes % spawnRateGrowEveryDay == 0)
 			{	
 				//Increase spawn rate with an set amount
 				spawner.spawnRate += spawnRateGrowthFor;
