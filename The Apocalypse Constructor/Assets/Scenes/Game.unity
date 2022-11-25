@@ -11254,8 +11254,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2780cb3bf3eb024885ac68cb4ee619a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 0
-  haltDifficulty: 1
+  spawnRate: 0.25
   spawns:
   - enemy: {fileID: 11400000, guid: 0c968aa788a30c243a7cef8b55bd1983, type: 2}
     initialRarity: 650
@@ -28938,8 +28937,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1971259837}
-  - component: {fileID: 1971259839}
   - component: {fileID: 1971259838}
+  - component: {fileID: 1971259839}
   m_Layer: 3
   m_Name: Day
   m_TagString: Untagged
@@ -29620,8 +29619,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   days: {fileID: 1971259838}
-  spawner: {fileID: 1295052400}
-  spawnBoost: 5
+  spawning:
+    spawner: {fileID: 1295052400}
+    spawnBoost: 50
+    spawnRateGrowEveryDay: 3
+    spawnRateGrowthFor: 0.15
 --- !u!1 &2103119132
 GameObject:
   m_ObjectHideFlags: 0
