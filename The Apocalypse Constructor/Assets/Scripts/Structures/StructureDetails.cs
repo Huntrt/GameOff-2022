@@ -71,8 +71,8 @@ public class StructureDetails : MonoBehaviour
 
 	void DetailStructure(Structure structure, StructureDetailPanel panel)
 	{
-		//@ Display structure name and description
-		panel.nameText.text = structure.name; 
+		//@ Display structure raw name and description
+		panel.nameText.text = structure.stashed.prefab.name; 
 		panel.descText.text = structure.stashed.description;
 		//@ Display structure health text and health bar
 		panel.healthText.text = "Health: " + structure.health + "/" + structure.maxHealth;
