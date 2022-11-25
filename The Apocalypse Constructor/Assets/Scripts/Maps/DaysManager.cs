@@ -9,7 +9,6 @@ public class DaysManager : MonoBehaviour
 	public int passes; //How many day has pass
 	public float duration; //How long an day in second
 	[Range(0,1)] public float progress; //How many percent of an day has progress
-	[Range(0,1)] public float halfDay; //At which percent day has been half
 	public delegate void OnCycle(bool night); public OnCycle onCycle; //When day cycle between night and moring
 	public bool isNight; //Is the day nightime now?
 	float dayTimer; //How many second has pass in one day
@@ -32,7 +31,7 @@ public class DaysManager : MonoBehaviour
 		//Get % progress of an day
 		progress = dayTimer/duration;
 		//If has reach half day but still havent night time then cycle to night
-		if(progress >= halfDay && !isNight) {isNight = true; onCycle?.Invoke(true);}
+		if(progress >= 0.5f && !isNight) {isNight = true; onCycle?.Invoke(true);}
 		//If timer has rached duration
 		if(dayTimer >= duration)
 		{
