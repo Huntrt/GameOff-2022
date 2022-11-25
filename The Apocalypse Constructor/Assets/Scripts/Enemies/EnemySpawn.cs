@@ -4,6 +4,5 @@ using UnityEngine;
 public class EnemySpawn : ScriptableObject
 {
 	public GameObject prefab;
-	public SpawnOffset spawnOffset;
-    [System.Serializable] public struct SpawnOffset {public Vector2 min, max;}
+	public MinMaxVector2 spawnOffset;
 }

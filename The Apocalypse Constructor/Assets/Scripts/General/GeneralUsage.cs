@@ -26,3 +26,6 @@ public class GetCloset
 		return potential;
 	}
 }
+
+[System.Serializable] public class MinMaxFloat {public float min, max;}
+[System.Serializable] public class MinMaxVector2 {public Vector2 min, max;}

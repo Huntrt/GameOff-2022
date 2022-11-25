@@ -71,8 +71,8 @@ public class EnemiesSpawner : MonoBehaviour
 
 	void SpawnEnemy(EnemySpawn spawn, Vector2 pos)
 	{
-		//Get the off set of given spawn
-		EnemySpawn.SpawnOffset offset = spawn.spawnOffset;
+		//Get the min/max off set of given spawn
+		MinMaxVector2 offset = spawn.spawnOffset;
 		//Randmoize offset with given position to decide true spawn position
 		Vector2 spawnPos = pos + new Vector2(Random.Range(offset.min.x, offset.max.x), Random.Range(offset.min.y, offset.max.y));
 		//Pooling the given spawn enemy
