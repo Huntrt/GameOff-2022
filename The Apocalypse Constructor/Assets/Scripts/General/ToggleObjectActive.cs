@@ -4,7 +4,7 @@ public class ToggleObjectActive : MonoBehaviour
 {
     [SerializeField] GameObject[] objectsToToggle;
 
-	void Toggling()
+	public void Toggling()
 	{
 		//Go through all object to toggle them
 		for (int o = 0; o < objectsToToggle.Length; o++)
