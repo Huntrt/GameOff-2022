@@ -11254,27 +11254,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2780cb3bf3eb024885ac68cb4ee619a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 1
-  haltDifficulty: 35
+  spawnRate: 0
+  haltDifficulty: 1
   spawns:
   - enemy: {fileID: 11400000, guid: 0c968aa788a30c243a7cef8b55bd1983, type: 2}
-    rarity: 150
+    initialRarity: 650
     scaledRarity: 0
+    finalRarity: 0
   - enemy: {fileID: 11400000, guid: 21242bf22931502438948669816df3b2, type: 2}
-    rarity: 199
+    initialRarity: 300
     scaledRarity: 0
+    finalRarity: 0
   - enemy: {fileID: 11400000, guid: e33b69f3294fc3c4895400a9881929fd, type: 2}
-    rarity: 50
+    initialRarity: 125
     scaledRarity: 0
+    finalRarity: 0
   - enemy: {fileID: 11400000, guid: ed4a9cafc4434f147a888c3d5816b40b, type: 2}
-    rarity: 35
+    initialRarity: 120
     scaledRarity: 0
+    finalRarity: 0
   - enemy: {fileID: 11400000, guid: c9cacc9c21151dd45923147a05492788, type: 2}
-    rarity: 25
+    initialRarity: 70
     scaledRarity: 0
+    finalRarity: 0
   - enemy: {fileID: 11400000, guid: 0dbc510e05e4e4545a87960028030032, type: 2}
-    rarity: 15
+    initialRarity: 50
     scaledRarity: 0
+    finalRarity: 0
   spawnPoint:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
@@ -28973,7 +28979,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   counter: 0
-  duration: 30
+  duration: 10
   progress: 0
   halfDay: 0.5
   isNight: 0
@@ -29573,6 +29579,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2081953828}
+  - component: {fileID: 2081953829}
   m_Layer: 3
   m_Name: Manager
   m_TagString: Untagged
@@ -29600,6 +29607,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2081953829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2081953827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24821694f1bb4d4ebf8b3a005b8fa85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  days: {fileID: 1971259838}
+  spawner: {fileID: 1295052400}
+  spawnBoost: 5
 --- !u!1 &2103119132
 GameObject:
   m_ObjectHideFlags: 0
