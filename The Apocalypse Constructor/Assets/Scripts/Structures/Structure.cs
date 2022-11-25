@@ -7,11 +7,7 @@ public class Structure : Entity
 	[HideInInspector] public bool flipped;
 	public enum Function {filler, tower, dynamo}; public Function function;
 	protected StructureManager manager;
-	[HideInInspector] public StructureStashData stashed; [Serializable] public class StructureStashData
-	{
-		public Stash.Ingredients leftovered;
-		public Stash.Occupation occupied;
-	}
+	[HideInInspector] public Stash stashed;
 
 	protected override void OnEnable()
 	{

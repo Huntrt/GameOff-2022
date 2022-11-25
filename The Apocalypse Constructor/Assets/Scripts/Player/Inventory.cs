@@ -226,12 +226,8 @@ public class Inventory : MonoBehaviour
 			Structure structCmp = placed.GetComponent<Structure>();
 			//Flip the structure base on given flip
 			structCmp.FlipStructure(flip);
-			//Create an data storage for structure for it to contain it needed stash data
-			structCmp.stashed = new Structure.StructureStashData();
-			//Set the leftover amount of structure as select stash
-			structCmp.stashed.leftovered = select.Leftovering();
-			//Set the occupied layer of structure as select stash
-			structCmp.stashed.occupied = select.occupation;
+			//Set the placed structure stash as selected stash
+			structCmp.stashed = select;
 		}
 	}
 

@@ -5,7 +5,7 @@ public class PlayerCursor : MonoBehaviour
 	Camera cam;
     Vector2 mousePos, mouseCoord, preCoord;
 	Tower hoverTower; 
-	[SerializeField] Structure[] structureHovered = new Structure[0];
+	public Structure[] structureHovered = new Structure[0];
 	public StructurePreview structurePreview; [System.Serializable] public class StructurePreview
 	{
 		public SpriteRenderer render;
@@ -212,7 +212,7 @@ public class PlayerCursor : MonoBehaviour
 		for (int s = 0; s < structureHovered.Length; s++)
 		{
 			//Refund the leftover ingredients of structure being delete
-			Inventory.Refund(structureHovered[s].stashed.leftovered);
+			Inventory.Refund(structureHovered[s].stashed.Leftovering());
 			//Instantly kill the structure wanted to delete
 			structureHovered[s].Die();
 		}
