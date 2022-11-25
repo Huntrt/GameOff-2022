@@ -43,7 +43,7 @@ public class Crafting : MonoBehaviour
 	}	
 	[Serializable] public class TowerGUI : FillGUI
 	{
-		public TextMeshProUGUI damageText, speedText, rangeText, depletedText, aimText;
+		public TextMeshProUGUI damageText, rateText, rangeText, depletedText, aimText;
 	}
 	#endregion
 
