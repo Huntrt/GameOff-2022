@@ -247,4 +247,5 @@ Bugs:
 Improve:
 	✓ Flip an structure are very messy try to improve it later. @minimal
 	▪ Find an way to make tower unable to attack if it and what it extend is floating. @caution
+	▪ Allow to change at which percent day reached half. @minimal
 	X Make enemy rarity inside it spawn scriptable object when find an better way to view/edit rarity. @minimal

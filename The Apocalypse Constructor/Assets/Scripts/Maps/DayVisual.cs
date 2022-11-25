@@ -1,9 +1,11 @@
 using System.Collections;
+using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class DayVisual : MonoBehaviour
 {
-    DaysManager day;
+    DaysManager days;
 	[SerializeField] Ground ground;
 	[Header("Skybox")]
 	Camera skybox;
@@ -13,19 +15,31 @@ public class DayVisual : MonoBehaviour
 	[SerializeField] ParticleSystem[] mountains;
 	[SerializeField] Transform clouds;
 	[SerializeField] ParticleSystem stars;
+	[Header("GUI")]
+	[SerializeField] TextMeshProUGUI dayCounterText;
+	[SerializeField] Image cycleProgressBar;
 
 	void OnEnable()
 	{
-		day = DaysManager.i;
+		days = DaysManager.i;
 		skybox = Camera.main;
-		day.onCycle += WhenCycleChange;
+		days.onCycle += WhenCycleChange;
 		ground.onExpand += WhenGroundExpand;
+	}
+
+	void Update()
+	{
+		UpdateProgressBar();
 	}
 	
 	void WhenCycleChange(bool night)
 	{
-		//Begin cycle skybox toward night/morning color base on given state
-		StartCoroutine(SkyboxCycle((night) ? nightColor : morningColor));
+		//Get the given cycle color
+		Color cycleColor = (night) ? nightColor : morningColor;
+		//Begin transition skybox color toward cycle color
+		StartCoroutine(SkyboxCycle(cycleColor));
+		//Update the day counter when it morning
+		if(!night) dayCounterText.text = "DAYS: " + days.passes;
 	}
 
 	IEnumerator SkyboxCycle(Color cycleColor)
@@ -86,10 +100,18 @@ public class DayVisual : MonoBehaviour
 		//Set the emission rate the same as longest ground
 		emission.rateOverTime = longestGround;
 	}
-	
+
+	void UpdateProgressBar()
+	{
+		//Get progress of an cycle
+		float cycleProgress = days.progress * 2;
+		//Set fill amount as cycle progress that shifted base on whole progress
+		cycleProgressBar.fillAmount = (cycleProgress >= 1) ? cycleProgress-1 : cycleProgress;;
+	}
+
 	void OnDisable()
 	{
-		day.onCycle -= WhenCycleChange;
+		days.onCycle -= WhenCycleChange;
 		ground.onExpand -= WhenGroundExpand;
 	}
 }

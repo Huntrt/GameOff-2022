@@ -30997,10 +30997,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33123fd771534e46b669824c6c01768, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  counter: 0
+  passes: 0
   duration: 10
   progress: 0
-  halfDay: 0.5
   isNight: 0
 --- !u!114 &1971259839
 MonoBehaviour:
@@ -31026,6 +31025,8 @@ MonoBehaviour:
   - {fileID: 662768051}
   clouds: {fileID: 2112229510}
   stars: {fileID: 1922057635}
+  dayCounterText: {fileID: 1802403164}
+  cycleProgressBar: {fileID: 1927720372}
 --- !u!1 &1979364870
 GameObject:
   m_ObjectHideFlags: 0
