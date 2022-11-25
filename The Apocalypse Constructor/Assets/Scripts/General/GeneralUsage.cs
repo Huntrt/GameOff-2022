@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public static class GetCloset
+public class GetCloset
 {
     public static GameObject Ray(Vector2 point, RaycastHit2D[] detects)
 	{
