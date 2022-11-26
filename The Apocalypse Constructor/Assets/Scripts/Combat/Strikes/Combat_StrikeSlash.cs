@@ -16,10 +16,10 @@ public class Combat_StrikeSlash : Combat_Strike
 		if(caster == null) return;
 		//Reset pierced count
 		pierced = piercing;
+		//Move slash forward from current position to get slash pos
+		slashPos = transform.position + (transform.right * forward);
 		//Begin slash
 		Slash();
-		//Move forward from current position to get slash pos
-		slashPos = transform.position + (transform.right * forward);
 	}
 
 	void Slash()
@@ -54,7 +54,7 @@ public class Combat_StrikeSlash : Combat_Strike
 		if(hit.collider.CompareTag("Enemy"))
 		{
 			//Slash to check if has ended
-			ended = Slashing(hit);
+			ended = HitSlashing(hit);
 		}
 	}
 
@@ -66,7 +66,7 @@ public class Combat_StrikeSlash : Combat_Strike
 		if(hit.collider.CompareTag("Structure") || hit.collider.CompareTag("Tower"))
 		{
 			//Slash to check if has ended
-			ended = Slashing(hit);
+			ended = HitSlashing(hit);
 		}
 	}
 
@@ -78,12 +78,12 @@ public class Combat_StrikeSlash : Combat_Strike
 		if(hit.collider.CompareTag("House"))
 		{
 			//Slash to check if has ended
-			ended = Slashing(hit);
+			ended = HitSlashing(hit);
 		}
 	}
 
 	
-	bool Slashing(RaycastHit2D hit)
+	bool HitSlashing(RaycastHit2D hit)
 	{
 		//Hurt the hit given with scan point with raw damage
 		Hurting(damage, hit.collider.gameObject, hit.point);

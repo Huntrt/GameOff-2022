@@ -14960,7 +14960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2780cb3bf3eb024885ac68cb4ee619a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 0.25
+  spawnRate: 0.1
   spawns:
   - enemy: {fileID: 11400000, guid: 0c968aa788a30c243a7cef8b55bd1983, type: 2}
     initialRarity: 650
@@ -14975,7 +14975,7 @@ MonoBehaviour:
     scaledRarity: 0
     finalRarity: 0
   - enemy: {fileID: 11400000, guid: ed4a9cafc4434f147a888c3d5816b40b, type: 2}
-    initialRarity: 120
+    initialRarity: 10000
     scaledRarity: 0
     finalRarity: 0
   - enemy: {fileID: 11400000, guid: c9cacc9c21151dd45923147a05492788, type: 2}
