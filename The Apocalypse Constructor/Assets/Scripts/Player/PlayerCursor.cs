@@ -8,15 +8,23 @@ public class PlayerCursor : MonoBehaviour
 	public Structure[] structureHovered = new Structure[0];
 	public StructurePreview structurePreview; [System.Serializable] public class StructurePreview
 	{
-		public PlayerCursor pCursour;
+		public PlayerCursor pCursor;
 		public SpriteRenderer render;
 		public Color emptyColor;
 		public Sprite defaultSprite;
 		public Color defaultColor;
 		public Tower previewTower;
 		public Combat_Aiming previewAim;
+
 		//Refresh the show tower range of preview tower
-		public void RefreshRange() {pCursour.ShowTowerRange(previewAim, previewTower, pCursour.selectFlip);}
+		public void RefreshRange() {pCursor.ShowTowerRange(previewAim, previewTower, pCursor.selectFlip);}
+		public void PreviewingRange()
+		{
+			//Get how many structure currently hover
+			int hL = pCursor.structureHovered.Length;
+			//Refresh range if hover over nothing OR only hover over an platform
+			if(hL <= 0 || (hL == 1 && pCursor.HoverPlatfrom(pCursor.structureHovered[0]))) RefreshRange();
+		}
 	}
 	[SerializeField] Transform circleRange, rectangleRange;
 	bool selectFlip;
@@ -78,8 +86,8 @@ public class PlayerCursor : MonoBehaviour
 			selectFlip = !selectFlip;
 			//Flip the preview render to be currently flipped
 			structurePreview.render.transform.rotation = Quaternion.Euler(0,(selectFlip)? 180 : 0,0);
-			//Refresh pewview range when flip while not hover over any structure
-			if(structureHovered.Length <= 0) structurePreview.RefreshRange();
+			//Begin previewing range
+			structurePreview.PreviewingRange();
 		}
 	}
 
@@ -105,12 +113,17 @@ public class PlayerCursor : MonoBehaviour
 				Structure structure = hovered.collider.GetComponent<Structure>();
 				//Save this hover structure component
 				structureHovered[h] = structure;
-				//If hover over an filler
+				///If hover over an filler
 				if(structure.function == Structure.Function.filler)
 				{
-					///... Do something
+					//But the filler are an platform while preview an tower aim
+					if(HoverPlatfrom(structure) && structurePreview.previewAim != null)
+					{
+						//Refresh preview tower's range
+						structurePreview.RefreshRange();
+					}
 				}
-				//If hover over an tower
+				/// If hover over an tower
 				if(structure.function == Structure.Function.tower)
 				{
 					//Get the tower currently being hover 
@@ -119,11 +132,6 @@ public class PlayerCursor : MonoBehaviour
 					Combat_Aiming hoverAim = hoverTower.GetComponent<Combat_Aiming>();
 					//Show range of the tower hover over with it flip
 					ShowTowerRange(hoverAim, hoverTower, hoverTower.flipped);
-				}
-				//If hover over an dynamo
-				if(structure.function == Structure.Function.dynamo)
-				{
-					///... Do something
 				}
 			}
 		}
@@ -134,6 +142,9 @@ public class PlayerCursor : MonoBehaviour
 			hoverTower = null;
 		}
 	}
+
+	//Function to check if hover over an platform
+	bool HoverPlatfrom(Structure s) {return s.stashed.occupation == Stash.Occupation.platform;}
 
 	void ChangePreview(Stash selected)
 	{
@@ -161,8 +172,8 @@ public class PlayerCursor : MonoBehaviour
 			structurePreview.render.sprite = structurePreview.defaultSprite;
 			structurePreview.render.color = structurePreview.defaultColor;
 		}
-		//Refresh preview range when not hover over any structure while preview change
-		if(structureHovered.Length <= 0) structurePreview.RefreshRange();
+		//Begin previewing range
+		structurePreview.PreviewingRange();
 	}
 
  	void ShowTowerRange(Combat_Aiming aimed, Tower towered, bool isFlip)
@@ -195,7 +206,6 @@ public class PlayerCursor : MonoBehaviour
 			circleRange.localScale = new Vector2(towered.stats.range*2, towered.stats.range*2);
 		}
 	}
-
 	void HideTowerRange()
 	{
 		//Reset both range size to zero
