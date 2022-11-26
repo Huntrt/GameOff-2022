@@ -1,6 +1,5 @@
 ﻿Gameplay:
 	Progression:
-		✓ Days counter.
 		X Better ally stats the more day suvive. @consider
 		✓ Rarer enemy the more day suvive.
 		▪ Enemy stats scale with day
@@ -17,6 +16,8 @@
 			▪ Randomize ground sprite. @consider
 		✓ Days
 			✓ Visual changing.
+			✓ Days counter.
+			▪ Change which percent day reached half. @paused @minimal
 	Player:
 		X Movement.
 		▪ Camera
@@ -29,9 +30,12 @@
 				X Build
 				X Fix
 				X Destroy
-			▪ Structure Hover:
+			✓ Structure Hover:
 				✓ Show tower range.
-				▪ Show structure healthbar.
+			✓ Structure Overlay:
+				✓ Health
+					✓ Show hover structure healthbar over.
+					▪ Toggle to show all structure healthbar. @paused @caution
 			▪ Structure Preview:
 				✓ Show the structure currently select.
 				✓ Show tower range when preview.
@@ -131,14 +135,14 @@
 			✓ Click and panel will craft it:
 				✓ Cosnume resource
 				✓ Will send an error if don't has enough material or inventory is full.
-	Build:
+	✓ Build:
 		✓ Able to build on plot that is available.
 		✓ Only block the plot if the structure required to.
 		✓ Able to flip the tower when building them.
 		✓ Lost an stack in inventory when build.
 		✓ Able to destroy structure.
 		✓ Destroy structure will remove what it extend.
-		▪ What happen to other structure if connection get destroy???
+		▪ What happen to other structure if connection get destroy??? @paused @caution
 			a. tower no longer attack if floating (check extend value of the plot it on?) 
 			b. they just float (balanced by jumping enemy)
 			c. tower get and structure destroy if float
@@ -182,6 +186,9 @@
 			✓ Spawning on the edge of the map.
 			✓ Change rotation base on X axis got spawn.
 			✓ Randomize enemy when night time.
+			✓ Rarity Spawning:
+				✓ List of enemy could spawn and their rarity.
+				▪ Scriptable object about enemy sapwn contain rarity. @paused @minimal
 		✓ Movement:
 			✓ Walker - only able to move in an straight line until block.
 			✓ Flyer - start from spawing in the sky and move in an straighe line until block.
@@ -247,8 +254,5 @@ Bugs:
 		> Just get distance between shooter and it firepoint 
 		> Decrease the distace has get onto firepoint Y position when inverted
 
-Improve:
-	✓ Flip an structure are very messy try to improve it later. @minimal
-	▪ Find an way to make tower unable to attack if it and what it extend is floating. @caution
-	▪ Allow to change at which percent day reached half. @minimal
-	X Make enemy rarity inside it spawn scriptable object when find an better way to view/edit rarity. @minimal
+Cleanup:
+	Player cursor are extremly messy
