@@ -103,8 +103,6 @@ public class PlayerCursor : MonoBehaviour
 			HideTowerRange();
 			//Stop if hover over the house
 			if(hovers[0].collider.CompareTag("House")) return;
-			//Call on hover event
-			onHover?.Invoke();
 			//Renew how many structure being hover
 			structureHovered = new Structure[hovers.Length];
 			//Go through all the structure being hover
@@ -144,6 +142,8 @@ public class PlayerCursor : MonoBehaviour
 			structureHovered = new Structure[0];
 			hoverTower = null;
 		}
+		//Call on hover event
+		onHover?.Invoke();
 	}
 
 	//Function to check if hover over an platform
