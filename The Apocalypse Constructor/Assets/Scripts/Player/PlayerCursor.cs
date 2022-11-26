@@ -6,6 +6,7 @@ public class PlayerCursor : MonoBehaviour
     Vector2 mousePos, mouseCoord, preCoord;
 	Tower hoverTower; 
 	public Structure[] structureHovered = new Structure[0];
+	public System.Action onHover;
 	public StructurePreview structurePreview; [System.Serializable] public class StructurePreview
 	{
 		public PlayerCursor pCursor;
@@ -102,6 +103,8 @@ public class PlayerCursor : MonoBehaviour
 			HideTowerRange();
 			//Stop if hover over the house
 			if(hovers[0].collider.CompareTag("House")) return;
+			//Call on hover event
+			onHover?.Invoke();
 			//Renew how many structure being hover
 			structureHovered = new Structure[hovers.Length];
 			//Go through all the structure being hover
