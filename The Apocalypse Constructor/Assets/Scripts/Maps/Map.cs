@@ -201,10 +201,19 @@ public class Map : MonoBehaviour
 	//note: 0 = empty | 1 = tower | 2 = platform | 3 = blocked 
 	public int occupation;
 	public int extended;
+	[HideInInspector] public SpriteRenderer visual;
 
 	public Plot(Vector2 coordinate, int occupied)
 	{
 		this.coordinate = coordinate;
 		this.occupation = occupied;
+	}
+
+	public void Remove(List<Plot> plots)
+	{
+		//Destroy it visual if it does has one
+		if(visual != null) Object.Destroy(visual.gameObject);
+		//Remove itself from given list
+		plots.Remove(this);
 	}
 }
