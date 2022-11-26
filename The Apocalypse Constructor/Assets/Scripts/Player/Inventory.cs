@@ -9,7 +9,6 @@ public class Inventory : MonoBehaviour
 	#endregion
 
 	public Materials materials;
-	public Slot[] slots;
 	public int selected; int scrollSelect; public Stash selectedStash;
 	public delegate void OnSelect(Stash selected); public OnSelect onSelect;
 	[HideInInspector] public bool trashMode;
@@ -18,6 +17,7 @@ public class Inventory : MonoBehaviour
 	[SerializeField] Image selectIndicator;
 	[SerializeField] Color selectDefault, selectTrash;
 	[SerializeField] TextMeshProUGUI selectNameText;
+	public Slot[] slots;
 	Camera cam;
 
 	[System.Serializable] public class Slot 
@@ -91,10 +91,10 @@ public class Inventory : MonoBehaviour
 	// 	{
 	// 		//Save this child
 	// 		Transform panel = slotLayout.GetChild(c);
-	// 		//The first child will be display the stack
-	// 		slots[c].stackText = panel.GetChild(0).GetComponent<TextMeshProUGUI>();
-	// 		//The second child will be display the icon
-	// 		slots[c].iconImage = panel.GetChild(1).GetComponent<Image>();
+	// 		//The first child will be display the icon
+	// 		slots[c].iconImage = panel.GetChild(0).GetComponent<Image>();
+	// 		//The second child first will be display the stack
+	// 		slots[c].stackText = panel.GetChild(1).GetChild(0).GetComponent<TextMeshProUGUI>();
 	// 	}
 	// }
 	#endregion
