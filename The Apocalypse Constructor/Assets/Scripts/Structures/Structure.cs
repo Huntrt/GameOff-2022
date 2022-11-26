@@ -18,7 +18,10 @@ public class Structure : Entity
 		manager.structures.Add(this);
 		//Keep track of this structure as filler
 		manager.fills.Add(this);
+		//Begin extending
 		Extending();
+		//Map has been rextend
+		Map.i.onRextend?.Invoke();
 	}
 
 	public virtual void FlipStructure(bool isFlip)
@@ -63,6 +66,8 @@ public class Structure : Entity
 	{
 		//Retract then delete itself off the map
 		Retracting(); Map.Deleting(this);
+		//Map has been rextend upon structure death
+		Map.i.onRextend?.Invoke();
 		//Erased track of this structure and as filler
 		manager.structures.Remove(this);
 		manager.fills.Add(this);

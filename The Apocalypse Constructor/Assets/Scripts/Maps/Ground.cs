@@ -70,6 +70,8 @@ public class Ground : MonoBehaviour
 	{
 		//Extend an empty plot on the map at given position
 		Map.ExtendPlot(new Vector2(widthPos, initalSize.y), 0);
+		//Map has been rextend
+		Map.i.onRextend?.Invoke();
 		//Placing the blocked dirt prefab at position just extend
 		GameObject dirt = Map.Placing(dirtPrefab, new Vector2(widthPos, initalSize.y), 3);
 		//Extend an empty plot above the dirt created
