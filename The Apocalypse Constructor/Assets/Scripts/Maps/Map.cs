@@ -78,8 +78,8 @@ public class Map : MonoBehaviour
 		{
 			//The plot lost an extend
 			plot.extended--;
-			//Remove the plot from list if plot no longer has any extend and it is empty
-			if(plot.extended <= 0 && plot.occupation == 0) i.plots.Remove(plot);
+			//Remove the plot from map list if plot no longer has any extend and it is empty
+			if(plot.extended <= 0 && plot.occupation == 0) plot.Remove(i.plots);
 		}
 		//If the plot gonna retract dont exist
 		else
@@ -156,8 +156,6 @@ public class Map : MonoBehaviour
 			//Plot are now locked by structure
 			plot.occupation = 3;
 		}
-		//Has build soemthing
-		i.onBuilding?.Invoke();
 		//Create the given object at given coordinates then return it if need to create any
 		return Instantiate(structure, coordinate, Quaternion.identity);
 	}
@@ -176,23 +174,22 @@ public class Map : MonoBehaviour
 		}
 		//Reduce the plot occupation with deleted structure occupation
 		plot.occupation -= (int)structure.stashed.occupation;
-		//Remove the plot from list if plot no longer has any extend and it is empty
-		if(plot.extended <= 0 && plot.occupation == 0) i.plots.Remove(plot);
-		//Has build soemthing
-		i.onBuilding?.Invoke();
+		//Remove the plot from map list if plot no longer has any extend and it is empty
+		if(plot.extended <= 0 && plot.occupation == 0) plot.Remove(i.plots);
 	}
 	
-	void OnDrawGizmos()
-	{
-		if(plots.Count > 0) foreach (Plot plot in plots) 
-		{
-			if(plot.occupation == 0) Gizmos.color = Color.green;
-			if(plot.occupation == 1) Gizmos.color = Color.cyan;
-			if(plot.occupation == 2) Gizmos.color = Color.yellow;
-			if(plot.occupation == 3) Gizmos.color = Color.red;
-			Gizmos.DrawWireCube(plot.coordinate, Vector2.one * (spacing - (spacing/10)));
-		}
-	}
+	//% Map Grid Gizmo
+	// void OnDrawGizmos()
+	// {
+	// 	if(plots.Count > 0) foreach (Plot plot in plots) 
+	// 	{
+	// 		if(plot.occupation == 0) Gizmos.color = Color.green;
+	// 		if(plot.occupation == 1) Gizmos.color = Color.cyan;
+	// 		if(plot.occupation == 2) Gizmos.color = Color.yellow;
+	// 		if(plot.occupation == 3) Gizmos.color = Color.red;
+	// 		Gizmos.DrawWireCube(plot.coordinate, Vector2.one * (spacing - (spacing/10)));
+	// 	}
+	// }
 }
 
 [System.Serializable] public class Plot
