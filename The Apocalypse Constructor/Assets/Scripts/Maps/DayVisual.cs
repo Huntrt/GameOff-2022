@@ -39,7 +39,7 @@ public class DayVisual : MonoBehaviour
 		//Begin transition skybox color toward cycle color
 		StartCoroutine(SkyboxCycle(cycleColor));
 		//Update the day counter when it morning
-		if(!night) dayCounterText.text = "DAYS: " + days.passes;
+		if(!night) dayCounterText.text = "" + days.passes;
 	}
 
 	IEnumerator SkyboxCycle(Color cycleColor)
