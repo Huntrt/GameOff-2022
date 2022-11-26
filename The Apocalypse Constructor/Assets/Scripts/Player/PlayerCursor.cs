@@ -8,12 +8,15 @@ public class PlayerCursor : MonoBehaviour
 	public Structure[] structureHovered = new Structure[0];
 	public StructurePreview structurePreview; [System.Serializable] public class StructurePreview
 	{
+		public PlayerCursor pCursour;
 		public SpriteRenderer render;
 		public Color emptyColor;
 		public Sprite defaultSprite;
 		public Color defaultColor;
-		public Combat_Aiming previewAim;
 		public Tower previewTower;
+		public Combat_Aiming previewAim;
+		//Refresh the show tower range of preview tower
+		public void RefreshRange() {pCursour.ShowTowerRange(previewAim, previewTower, pCursour.selectFlip);}
 	}
 	[SerializeField] Transform circleRange, rectangleRange;
 	bool selectFlip;
@@ -56,7 +59,7 @@ public class PlayerCursor : MonoBehaviour
 			//Make the preview follow current mouse coordinates
 			structurePreview.render.transform.position = mouseCoord;
 			//Refresh preview range when coordinate change
-			RefreshPreviewRange();
+			structurePreview.RefreshRange();
 			//Begin hover over structure
 			StructureHovering();
 			//Has move to an new coordinate
@@ -76,7 +79,7 @@ public class PlayerCursor : MonoBehaviour
 			//Flip the preview render to be currently flipped
 			structurePreview.render.transform.rotation = Quaternion.Euler(0,(selectFlip)? 180 : 0,0);
 			//Refresh pewview range when flip while not hover over any structure
-			if(structureHovered.Length <= 0) RefreshPreviewRange();
+			if(structureHovered.Length <= 0) structurePreview.RefreshRange();
 		}
 	}
 
@@ -159,13 +162,7 @@ public class PlayerCursor : MonoBehaviour
 			structurePreview.render.color = structurePreview.defaultColor;
 		}
 		//Refresh preview range when not hover over any structure while preview change
-		if(structureHovered.Length <= 0) RefreshPreviewRange();
-	}
-
-	void RefreshPreviewRange()
-	{
-		//Show tower range with preview tower and aim with current select flip
-		ShowTowerRange(structurePreview.previewAim, structurePreview.previewTower, selectFlip);
+		if(structureHovered.Length <= 0) structurePreview.RefreshRange();
 	}
 
  	void ShowTowerRange(Combat_Aiming aimed, Tower towered, bool isFlip)
