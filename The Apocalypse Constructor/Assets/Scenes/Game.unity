@@ -2006,8 +2006,9 @@ GameObject:
   - component: {fileID: 249466383}
   - component: {fileID: 249466382}
   - component: {fileID: 249466381}
+  - component: {fileID: 249466384}
   m_Layer: 5
-  m_Name: Settings
+  m_Name: Pause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2030,8 +2031,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 15, y: 0}
-  m_SizeDelta: {x: 30, y: 20}
+  m_AnchoredPosition: {x: 10, y: 0}
+  m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &249466381
 MonoBehaviour:
@@ -2076,7 +2077,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 249466382}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 249466384}
+        m_TargetAssemblyTypeName: ToggleBetweenColor, Assembly-CSharp
+        m_MethodName: Toggling
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &249466382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2115,6 +2128,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 249466379}
   m_CullTransparentMesh: 1
+--- !u!114 &249466384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249466379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16999281bc9983c41acb55a7122bf1f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggled: 0
+  graphics:
+  - {fileID: 1436234959}
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  toggleColor: {r: 0, g: 0.79819536, b: 1, a: 1}
 --- !u!1 &287151782
 GameObject:
   m_ObjectHideFlags: 0
@@ -3151,7 +3181,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &425381745
 Transform:
   m_ObjectHideFlags: 0
@@ -11735,14 +11765,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 832834007}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3e8f0bf78ecefb4a828f35e4bbb524b, type: 3}
+  m_Script: {fileID: 11500000, guid: 590484848600fb24f9b19b36f46d8087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  overlayPrefab: {fileID: 4892810771084631846, guid: bb38b049ee4422b4ebbfb97775b53097,
-    type: 3}
-  overlayGrouper: {fileID: 1217522773}
-  structs: []
-  overlays: []
   pCursor: {fileID: 1705175438}
   hoverHealthOverlay:
   - {fileID: 4399634034679878966}
@@ -13546,7 +13571,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 369fad8125d1f804b8a82da8524bf6e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  show: 1
+  show: 0
   gridVisualPrefab: {fileID: 4790037883398848056, guid: dd2c6e331d0503247b1c993af94a16a2,
     type: 3}
   gridVisualGrouper: {fileID: 425381745}
@@ -14384,6 +14409,7 @@ GameObject:
   - component: {fileID: 1141537484}
   - component: {fileID: 1141537483}
   - component: {fileID: 1141537482}
+  - component: {fileID: 1141537485}
   m_Layer: 5
   m_Name: Map Grid Toggle
   m_TagString: Untagged
@@ -14409,7 +14435,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 45, y: 0}
   m_SizeDelta: {x: 30, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1141537482
@@ -14468,6 +14494,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1141537485}
+        m_TargetAssemblyTypeName: ToggleBetweenColor, Assembly-CSharp
+        m_MethodName: Toggling
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1141537483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14506,6 +14544,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141537480}
   m_CullTransparentMesh: 1
+--- !u!114 &1141537485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141537480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16999281bc9983c41acb55a7122bf1f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggled: 0
+  graphics:
+  - {fileID: 719608790}
+  - {fileID: 866798606}
+  baseColor: {r: 1, g: 1, b: 1, a: 1}
+  toggleColor: {r: 0, g: 0.79819536, b: 1, a: 1}
 --- !u!1 &1149235088
 GameObject:
   m_ObjectHideFlags: 0
@@ -16775,13 +16831,13 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1436234957}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 249466380}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -16807,7 +16863,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '|||'
+  m_text: '||'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e55e8e49152f060409c418dfab3d279f, type: 2}
   m_sharedMaterial: {fileID: 1679297306543734544, guid: e55e8e49152f060409c418dfab3d279f,
@@ -16835,8 +16891,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13
-  m_fontSizeBase: 13
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -16845,7 +16901,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 4096
   m_textAlignment: 65535
-  m_characterSpacing: -30
+  m_characterSpacing: -15
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
