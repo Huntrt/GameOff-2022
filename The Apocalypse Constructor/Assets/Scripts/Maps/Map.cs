@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Collections;
 using UnityEngine;
 
 public class Map : MonoBehaviour
@@ -11,6 +10,7 @@ public class Map : MonoBehaviour
 	public float spacing;
 	///List of all the plot has create
 	public List<Plot> plots = new List<Plot>();
+	public System.Action onBuilding;
 	
 	//Function to make any value take into account of spacing
 	public static float Spaced(float value) {return (value) * i.spacing;}
@@ -156,7 +156,8 @@ public class Map : MonoBehaviour
 			//Plot are now locked by structure
 			plot.occupation = 3;
 		}
-
+		//Has build soemthing
+		i.onBuilding?.Invoke();
 		//Create the given object at given coordinates then return it if need to create any
 		return Instantiate(structure, coordinate, Quaternion.identity);
 	}
@@ -177,6 +178,8 @@ public class Map : MonoBehaviour
 		plot.occupation -= (int)structure.stashed.occupation;
 		//Remove the plot from list if plot no longer has any extend and it is empty
 		if(plot.extended <= 0 && plot.occupation == 0) i.plots.Remove(plot);
+		//Has build soemthing
+		i.onBuilding?.Invoke();
 	}
 	
 	void OnDrawGizmos()
