@@ -49,8 +49,8 @@ public class PlayerCursor : MonoBehaviour
 		//todo: Use Slot Keybind to use inventory
 		if(Input.GetKeyDown(KeyCode.Mouse0))
 		{
-			//Use the stash in inventory at mouse coordinate and flip if not in trash mode
-			if(!Inventory.i.trashMode) Inventory.i.Use(mouseCoord, selectFlip);
+			//Use the stash in inventory at mouse coordinate and flip
+			Inventory.i.Use(mouseCoord, selectFlip);
 			//Refresh the structure hovering to hover over structure just use
 			StructureHovering();
 		}

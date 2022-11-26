@@ -80,12 +80,12 @@
 				X Choose slot by clicking on it.
 				✓ Show selected item name.
 				✓ Show item stack.
-			▪ Action:
+			✓ Action:
 				✓ On using button press call use on slot selected.
 				✓ Deselect when select the same slot.
 				✓ Each item has an maximum of stack.
 				X Dual key to delete the item currently select.
-				▪ An button to trash item currently select.
+				✓ An button to trash item currently select.
 		✓ Crafting:
 			✓ Toggle crafting ui.
 			✓ An database of recipe:

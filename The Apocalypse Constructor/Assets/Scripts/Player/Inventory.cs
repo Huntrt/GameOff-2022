@@ -11,11 +11,11 @@ public class Inventory : MonoBehaviour
 	public Materials materials;
 	public int selected; int scrollSelect; public Stash selectedStash;
 	public delegate void OnSelect(Stash selected); public OnSelect onSelect;
-	[HideInInspector] public bool trashMode;
+	bool trashMode;
 	
 	[Header("GUI")]
 	[SerializeField] Image selectIndicator;
-	[SerializeField] Color selectDefault, selectTrash;
+	[SerializeField] Color indicatorDefaultColor, indicatorTrashColor;
 	[SerializeField] TextMeshProUGUI selectNameText;
 	public Slot[] slots;
 	Camera cam;
@@ -107,17 +107,6 @@ public class Inventory : MonoBehaviour
 	
 	void Update()
 	{
-		//todo: When press the key to enter trash mode
-		if(Input.GetKey(KeyCode.Delete))
-		{
-			trashMode = true;
-			//Set indicator color to trash mode coloe
-			selectIndicator.color = selectTrash;
-			//Trash the stash of currently select slot when press left mouse for refund
-			if(Input.GetKeyDown(KeyCode.Mouse0)) Trash(selected, true);
-		}
-		//todo: When no longer press trash mode then reset indicator color
-		if(Input.GetKeyUp(KeyCode.Delete)) {selectIndicator.color = selectDefault; trashMode = false;}
 		ChoosingSlot();
 	}
 
@@ -195,6 +184,8 @@ public class Inventory : MonoBehaviour
 		}
 		//Move indicator to selected slot position
 		selectIndicator.transform.position = slots[selected].iconImage.transform.position;
+		//Refresh transhing mode indicator
+		RefreshTrashIndicator();
 	}
 	
 	public void Use(Vector2 position, bool flip)
@@ -260,6 +251,21 @@ public class Inventory : MonoBehaviour
 		}
 		//There are no slot left
 		return false;
+	}
+
+	public void TrashSelected() {Trash(selected, true);}
+
+	public void ToggleTrashMode(bool enable) {trashMode = enable; RefreshTrashIndicator();}
+
+	void RefreshTrashIndicator()
+	{
+		//Color that will be choose base on transh mode
+		Color choose = Color.black;
+		//Change select color to trash color if enable trash mode or default if nit
+		if(trashMode) {choose = indicatorTrashColor;} else {choose =  indicatorDefaultColor;}
+		//Overwrite indicator and select name color but not it alpha value
+		selectIndicator.color = new Color(choose.r, choose.g, choose.b, selectIndicator.color.a);
+		selectNameText.color = new Color(choose.r, choose.g, choose.b, selectNameText.color.a);;
 	}
 
 	public static void Trash(int slot, bool refund)
