@@ -24,6 +24,7 @@ public class StructureDetails : MonoBehaviour
 
 	[System.Serializable] class StructureDetailPanel
 	{
+		public Structure structure;
 		public GameObject grouper;
 		public TextMeshProUGUI nameText, descText, healthText; 
 		public Image healthBar;
@@ -38,18 +39,28 @@ public class StructureDetails : MonoBehaviour
 			//Get the structure current hovering
 			detailings = pCursor.structureHovered;
 			//Open and close details base on does hover anything
-			if(detailings.Length > 0) OpenDetails(); else CloseDetails();
+			if(detailings.Length > 0) OpenAllDetails(); else CloseAllDetails();
+		}
+		//If detailnig any structure
+		if(detailings.Length > 0)
+		{
+			//@ Update structure health onto details panel or close the panel if structure no longger exist
+			if(towerDetailPanel.structure != null) DetailHealth(towerDetailPanel); else CloseDetails(towerDetailPanel);
+			if(dynamoDetailPanel.structure != null) DetailHealth(dynamoDetailPanel); else CloseDetails(dynamoDetailPanel);
+			if(fillerDetailPanel.structure != null) DetailHealth(fillerDetailPanel); else CloseDetails(fillerDetailPanel);
 		}
 	}
 
-	void OpenDetails()
+	void OpenAllDetails()
 	{
-		CloseDetails();
+		CloseAllDetails();
 		//Go through all the structure need to details
 		for (int d = 0; d < detailings.Length; d++)
 		{
 			//Save this structure need to detalis
 			Structure detail = detailings[d];
+			//Skip if attempt to details nothing
+			if(detail == null) continue;
 			//@ Detailing panel base on what function this structure does
 			if(detail.function == Structure.Function.tower)
 			{
@@ -69,14 +80,21 @@ public class StructureDetails : MonoBehaviour
 		}
 	}
 
+	void DetailHealth(StructureDetailPanel panel)
+	{
+		//@ Display the given details panel's structure health
+		panel.healthText.text = "Health: " + panel.structure.health + "/" + panel.structure.maxHealth;
+		panel.healthBar.fillAmount = panel.structure.health / panel.structure.maxHealth;
+	}
+
 	void DetailStructure(Structure structure, StructureDetailPanel panel)
 	{
+		//Save the structure currently details
+		panel.structure = structure;
 		//@ Display structure stash name and description
 		panel.nameText.text = structure.stashed.name; 
 		panel.descText.text = structure.stashed.description;
-		//@ Display structure health text and health bar
-		panel.healthText.text = "Health: " + structure.health + "/" + structure.maxHealth;
-		panel.healthBar.fillAmount = structure.health / structure.maxHealth;
+		DetailHealth(panel);
 	}
 
 	void DetailTower(Tower tower, TowerDetailPanel panel)
@@ -101,11 +119,18 @@ public class StructureDetails : MonoBehaviour
 		panel.energyText.text = "Energy: <b>+" + dynamo.provide + "</b>";
 	}
 
-	void CloseDetails()
+	void CloseAllDetails()
 	{
-		//@ Close all details panels
-		towerDetailPanel.grouper.SetActive(false);
-		dynamoDetailPanel.grouper.SetActive(false);
-		fillerDetailPanel.grouper.SetActive(false);
+		CloseDetails(towerDetailPanel);
+		CloseDetails(dynamoDetailPanel);
+		CloseDetails(fillerDetailPanel);
+	}
+
+	void CloseDetails(StructureDetailPanel panel)
+	{
+		//Given panel structure are now null
+		panel.structure = null;
+		//Deactive given panel grouper
+		panel.grouper.SetActive(false);
 	}
 }
