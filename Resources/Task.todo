@@ -1,8 +1,9 @@
 ﻿Gameplay:
 	Progression:
 		✓ Days counter.
-		▪ Better ally stats the more day suvive. @consider
-		✓ Stronger enemy the more day suvive.
+		X Better ally stats the more day suvive. @consider
+		✓ Rarer enemy the more day suvive.
+		▪ Enemy stats scale with day
 	Map:
 		✓ An list of plot to build
 			✓ All coordinate
@@ -14,20 +15,20 @@
 			✓ Upon expand ground will also generate an plots for them.
 			✓ Able to expand ground to each side in realtime.
 			▪ Randomize ground sprite. @consider
-		▪ Days
-			▪ Visual changing.
+		✓ Days
+			✓ Visual changing.
 	Player:
 		X Movement.
 		▪ Camera
 			▪ Move
 			▪ Zoom
-		▪ Mouse
+		▪ Interaction
 			✓ Get coordinates
-			▪ Custom icon
-				▪ Default
-				▪ Build
-				▪ Fix
-				▪ Destroy
+			X Custom icon
+				X Default
+				X Build
+				X Fix
+				X Destroy
 			▪ Structure Hover:
 				✓ Show tower range.
 				▪ Show structure healthbar.
@@ -37,20 +38,20 @@
 				▪ Change transparency when able to build at preview. @consider
 				▪ Change preview state depend on occupian and what currently previewing. @consider
 			▪ Structure Details:
-			    ▪ Open when press over an tower
-				▪ Close when press out of tower.
-				▪ Display structure name.
-				▪ Display structure appearance.
-				▪ Display structure health details.
-				▪ Display tower stats.
-				▪ Display platform stats simulatiously.
+			    ✓ Open when press over an tower
+				✓ Close when press out of tower.
+				✓ Display structure name.
+				X Display structure appearance.
+				✓ Display structure health details.
+				✓ Display tower stats.
+				✓ Display platform stats simulatiously.
 				▪ Fixing structure:
 					▪ Button
 					▪ Consume Material
-				▪ Upgrade:
+				▪ Upgrade structure:
 					▪ Buttton
 					▪ Consume Material
-					▪ Growth the tower stats
+					▪ Growth the structure stats
 		▪ Home: @critical 
 			✓ Place home at the middle. 
 			✓ Home has health like other structure.
@@ -60,7 +61,7 @@
 			[R = W? S? E?] for quick recipe note
 			▪ Wood, Steel & Gunpowder:
 				▪ How to gather
-					▪ ???
+					▪ Enemy drop
 				✓ Able to use for crafting
 				✓ Consume when use for craft
 			✓ Energy:
@@ -75,11 +76,12 @@
 				X Choose slot by clicking on it.
 				✓ Show selected item name.
 				✓ Show item stack.
-			✓ Action:
+			▪ Action:
 				✓ On using button press call use on slot selected.
 				✓ Deselect when select the same slot.
-				✓ Dual key to delete the item currently select.
 				✓ Each item has an maximum of stack.
+				X Dual key to delete the item currently select.
+				▪ An button to trash item currently select.
 		✓ Crafting:
 			✓ Toggle crafting ui.
 			✓ An database of recipe:
@@ -137,9 +139,9 @@
 		✓ Able to destroy structure.
 		✓ Destroy structure will remove what it extend.
 		▪ What happen to other structure if connection get destroy???
-			▪ a. tower no longer attack if floating (check extend value of the plot it on?) 
-			▪ b. they just float (balanced by jumping enemy)
-			▪ c. tower get and structure destroy if float
+			a. tower no longer attack if floating (check extend value of the plot it on?) 
+			b. they just float (balanced by jumping enemy)
+			c. tower get and structure destroy if float
 	Structure:
 		✓ Health:
 			✓ Take damage.
@@ -174,16 +176,17 @@
 					✓ Show an icon on tower that indicate the tower being shutdown.
 			▪ Upgrade:
 				▪ Stats growth
+				▪ Consume an percented of original material
 	Enemy:
 		✓ Spawning:
 			✓ Spawning on the edge of the map.
 			✓ Change rotation base on X axis got spawn.
 			✓ Randomize enemy when night time.
-		▪ Movement:
+		✓ Movement:
 			✓ Walker - only able to move in an straight line until block.
 			✓ Flyer - start from spawing in the sky and move in an straighe line until block.
-			▪ Jumper - When got block then jump to the highest structure it could reach.
-			▪ Climber - able to climb on as much structure has set. @consider
+			X Jumper - When got block then jump to the highest structure it could reach.
+			X Climber - able to climb on as much structure has set. @consider
 		▪ Health:
 			✓ Take damage.
 			✓ Die when out of health.
@@ -204,9 +207,9 @@
 			✓ Points - An list of position, rotation and delay between them to strike using them.
 			✓ Barrier - Randomly choose position from inside an length of box.
 			▪ Remains - Strike when it die.
-			▪ Laser - Create an line toward X amount of enemy in range to directly damage.
-			▪ Shotgun - Create an an list of random rotation and randomly alter the strike velocity. @consider
-			▪ Pattern - Generate an list of poisition with spacing and cone rotation. @consider
+			X Laser - Create an line toward X amount of enemy in range to directly damage.
+			X Shotgun - Create an an list of random rotation and randomly alter the strike velocity. @consider
+			X Pattern - Generate an list of poisition with spacing and cone rotation. @consider
 		✓ Strike
 			✓ Core - Contain basic stats of an strike.
 			✓ Projectile - Object move toward infront with set speed. Deal damage on contact.
