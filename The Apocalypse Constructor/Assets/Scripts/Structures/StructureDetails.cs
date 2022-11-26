@@ -9,6 +9,7 @@ public class StructureDetails : MonoBehaviour
     public Structure[] detailings;
 	#region  GUI
 	[Header("GUI")]
+	[SerializeField] Transform indicator;
 	[SerializeField] TowerDetailPanel towerDetailPanel;
 	[SerializeField] DynamoDetailPanel dynamoDetailPanel;
 	[SerializeField] StructureDetailPanel fillerDetailPanel;
@@ -55,6 +56,10 @@ public class StructureDetails : MonoBehaviour
 	void OpenAllDetails()
 	{
 		CloseAllDetails();
+		//Move indicator to detailing position
+		indicator.position = detailings[0].transform.position;
+		//Show the indicator
+		indicator.gameObject.SetActive(true);
 		//Go through all the structure need to details
 		for (int d = 0; d < detailings.Length; d++)
 		{
@@ -122,6 +127,7 @@ public class StructureDetails : MonoBehaviour
 
 	void CloseAllDetails()
 	{
+		indicator.gameObject.SetActive(false);
 		CloseDetails(towerDetailPanel);
 		CloseDetails(dynamoDetailPanel);
 		CloseDetails(fillerDetailPanel);

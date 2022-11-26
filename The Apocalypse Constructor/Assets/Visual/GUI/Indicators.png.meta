@@ -8,6 +8,9 @@ TextureImporter:
   - first:
       213: 2852735084993214469
     second: Indicators_Select
+  - first:
+      213: -5600187374325216002
+    second: Indicators_Details
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -147,6 +150,27 @@ TextureImporter:
       bones: []
       spriteID: 50870530273f69720800000000000000
       internalID: 2852735084993214469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indicators_Details
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efcc7bd01432842b0800000000000000
+      internalID: -5600187374325216002
       vertices: []
       indices: 
       edges: []
