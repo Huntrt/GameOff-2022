@@ -44,8 +44,8 @@ public class PlayerCursor : MonoBehaviour
 	{
 		MousePositioning();
 		FlipStructure();
-		//todo: Use Slot Keybind to use inventory
-		if(Input.GetKeyDown(KeyCode.Mouse0))
+		//When press use item key
+		if(Input.GetKeyDown(KeyOperator.i.UseItem))
 		{
 			//Use the stash in inventory at mouse coordinate and flip
 			Inventory.i.Use(mouseCoord, selectFlip);
@@ -78,8 +78,8 @@ public class PlayerCursor : MonoBehaviour
 	{
 		//Does inventory select any stash
 		Stash select = Inventory.i.selectedStash;
-		//todo: When press flip keybind and inventory has select something
-		if(Input.GetKeyDown(KeyCode.R) && select != null) 
+		//When press flip key and inventory has select something
+		if(Input.GetKeyDown(KeyOperator.i.FlipStructure) && select != null) 
 		{
 			//Toggle between flip
 			selectFlip = !selectFlip;

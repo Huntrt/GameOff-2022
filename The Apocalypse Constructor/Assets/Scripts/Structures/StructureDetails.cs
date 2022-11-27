@@ -35,8 +35,8 @@ public class StructureDetails : MonoBehaviour
 
 	void Update()
 	{
-		//todo: Add keybinds to details structure hover only when not clicking over any GUI
-		if(Input.GetKeyDown(KeyCode.Mouse0) && !EventSystem.current.IsPointerOverGameObject())
+		//When press open structure details key while not pointer over any GUI
+		if(Input.GetKeyDown(KeyOperator.i.OpenDetails) && !EventSystem.current.IsPointerOverGameObject())
 		{
 			//Get the structure current hovering
 			detailings = pCursor.structureHovered;
