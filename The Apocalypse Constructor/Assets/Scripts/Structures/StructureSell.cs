@@ -5,6 +5,13 @@ public class StructureSell : MonoBehaviour
 	[SerializeField] StructureDetails details;
 	[SerializeField] Structure.Function function;
 
+	void Update()
+	{
+		//? This is totally depend on the facet that this script is on an Active UI
+		//Also selling if press the sell key
+		if(Input.GetKeyDown(KeyOperator.i.SellStructure)) Selling();
+	}
+
     public void Selling()
 	{
 		//Go through all the structure currently detail
