@@ -16,11 +16,10 @@ public class KeyOperator : MonoBehaviour
 			_i = GameObject.FindObjectOfType<KeyOperator>();
 		}
 		return _i;}
-	} 
+	}
 
 	/// Added key here... ///
-	public KeyCode CameraUp, CameraDown, CameraLeft, CameraRight;
-	public KeyCode OpenCraft, SellStructure, MapGrid;
+	public KeyCode OpenCraft, UseItem, FlipStructure, OpenDetails, SellStructure, MapGrid;
 	
 	public void StartAssign(KeyAssigner assigner)
 	{

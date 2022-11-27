@@ -21,9 +21,9 @@
 			▪ Change which percent day reached half. @paused @minimal
 	Player:
 		X Movement.
-		▪ Camera
-			▪ Move
-			▪ Zoom
+		X Camera
+			X Move
+			X Zoom
 		▪ Interaction
 			✓ Get coordinates
 			X Custom icon
