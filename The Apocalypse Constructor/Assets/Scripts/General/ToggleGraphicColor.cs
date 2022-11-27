@@ -1,7 +1,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 
-public class ToggleBetweenColor : MonoBehaviour
+public class ToggleGraphicColor : MonoBehaviour
 {
     
 	[SerializeField] bool toggled;
