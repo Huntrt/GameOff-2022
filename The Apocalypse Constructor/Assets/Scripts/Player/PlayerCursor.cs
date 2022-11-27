@@ -44,8 +44,6 @@ public class PlayerCursor : MonoBehaviour
 	{
 		MousePositioning();
 		FlipStructure();
-		//todo: When press delete keybind then delete structure currently hover
-		if(Input.GetKeyDown(KeyCode.A)) DeleteStructure();
 		//todo: Use Slot Keybind to use inventory
 		if(Input.GetKeyDown(KeyCode.Mouse0))
 		{
@@ -214,21 +212,6 @@ public class PlayerCursor : MonoBehaviour
 		//Reset both range size to zero
 		rectangleRange.localScale = Vector2.zero;
 		circleRange.localScale = Vector2.zero;
-	}
-
-	void DeleteStructure()
-	{
-		//Go through all the structure currently hover
-		for (int s = 0; s < structureHovered.Length; s++)
-		{
-			//Refund the leftover ingredients of structure being delete
-			Inventory.Refund(structureHovered[s].stashed.Leftovering());
-			//Instantly kill the structure wanted to delete
-			structureHovered[s].Die();
-		}
-		
-		//Refresh the structure hovering
-		StructureHovering();
 	}
 
 	void OnDisable()
