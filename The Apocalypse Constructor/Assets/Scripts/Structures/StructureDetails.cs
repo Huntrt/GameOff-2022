@@ -43,13 +43,18 @@ public class StructureDetails : MonoBehaviour
 			//Open and close details base on does hover anything
 			if(detailings.Length > 0) OpenAllDetails(); else CloseAllDetails();
 		}
-		//If detailnig any structure
+		//If detailing any structure
 		if(detailings.Length > 0)
 		{
+			//Go through all structure current details to check how many details are null
+			int nullDetails = 0; for (int d = 0; d < detailings.Length; d++) if(detailings[d] == null) nullDetails++;
+			//Hide the indicator if all detail are null
+			if(nullDetails >= detailings.Length) indicator.gameObject.SetActive(false);
 			//@ Update structure health onto details panel or close the panel if structure no longger exist
 			if(towerDetailPanel.structure != null) DetailHealth(towerDetailPanel); else CloseDetails(towerDetailPanel);
 			if(dynamoDetailPanel.structure != null) DetailHealth(dynamoDetailPanel); else CloseDetails(dynamoDetailPanel);
 			if(fillerDetailPanel.structure != null) DetailHealth(fillerDetailPanel); else CloseDetails(fillerDetailPanel);
+			
 		}
 	}
 
