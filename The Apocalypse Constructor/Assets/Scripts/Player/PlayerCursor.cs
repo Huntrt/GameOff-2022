@@ -154,9 +154,10 @@ public class PlayerCursor : MonoBehaviour
 		//If inventory has select an stash
 		if(selected != null)
 		{
-			//Preview render the selected satsh icon 
+			//Preview render the selected stas icon 
 			structurePreview.render.sprite = selected.icon;
-			//temp: empty color
+			//todo: change color below base on hover occupation
+			//Change preview color to empty color
 			structurePreview.render.color = structurePreview.emptyColor;
 			//If select an tower
 			if(selected.prefab.CompareTag("Tower"))
