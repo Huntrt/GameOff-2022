@@ -13,13 +13,6 @@ public class Ground : MonoBehaviour
 		InitializeGround();
 	}
 
-	void Update()
-	{
-		if(Input.GetKeyDown(KeyCode.DownArrow)) ExpandGround(0);
-		if(Input.GetKeyDown(KeyCode.RightArrow)) ExpandGround(1);
-		if(Input.GetKeyDown(KeyCode.LeftArrow)) ExpandGround(-1);
-	}
-
 	void InitializeGround()
 	{
 		//Create an dirt at center

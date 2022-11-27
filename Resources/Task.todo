@@ -14,6 +14,7 @@
 			✓ Ground are grid base using plots and is automaticly blocked.
 			✓ Upon expand ground will also generate an plots for them.
 			✓ Able to expand ground to each side in realtime.
+			▪ Expend ground as an reward. @paused
 			▪ Randomize ground sprite. @consider
 		✓ Days
 			✓ Visual changing.
@@ -57,7 +58,7 @@
 					▪ Buttton
 					▪ Consume Material
 					▪ Growth the structure stats
-		▪ Home: @critical 
+		✓ Home:
 			✓ Place home at the middle. 
 			✓ Home has health like other structure.
 			✓ Display home health onto GUI.
@@ -189,7 +190,7 @@
 			✓ Randomize enemy when night time.
 			✓ Rarity Spawning:
 				✓ List of enemy could spawn and their rarity.
-				▪ Scriptable object about enemy sapwn contain rarity. @paused @minimal
+				X Scriptable object about enemy spawn contain rarity. @paused @minimal
 		✓ Movement:
 			✓ Walker - only able to move in an straight line until block.
 			✓ Flyer - start from spawing in the sky and move in an straighe line until block.
