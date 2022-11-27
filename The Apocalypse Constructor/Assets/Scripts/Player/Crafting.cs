@@ -55,8 +55,8 @@ public class Crafting : MonoBehaviour
 	
 	void Update()
 	{
-		//todo: keybinds CRAFTING GUI
-		if(Input.GetKeyDown(KeyCode.C))
+		//When press open craft key
+		if(Input.GetKeyDown(KeyOperator.i.OpenCraft))
 		{
 			//Toggle craft gui active
 			craftingGUI.SetActive(!craftingGUI.activeInHierarchy);

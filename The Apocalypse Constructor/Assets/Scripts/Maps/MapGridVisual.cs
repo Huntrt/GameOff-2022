@@ -6,11 +6,34 @@ public class MapGridVisual : MonoBehaviour
 	[SerializeField] GameObject gridVisualPrefab;
 	[SerializeField] Transform gridVisualGrouper;
 	[SerializeField] Color emptyColor, towerColor, platformColor, blockColor;
+	[SerializeField] ToggleGraphicColor togglerGraphic;
 	Map map;
 
 	void OnEnable() {map = Map.i; map.onRextend += RefreshGridVisual;}
 
 	void OnDisable() {map.onRextend -= RefreshGridVisual;}
+
+	void Update()
+	{
+		//If press the ma grid toggle key
+		if(Input.GetKeyDown(KeyOperator.i.MapGrid))
+		{
+			//Toggling the toggler's graphic
+			togglerGraphic.Toggling();
+			//Toggle the visual grid
+			ToggleVisualGrid();
+		}
+	}
+	
+	public void ToggleVisualGrid()
+	{
+		//Toggle between showing or not
+		show = !show;
+		//Refresh the grid visual
+		RefreshGridVisual();
+		//Enable the visual grouper base on showing
+		gridVisualGrouper.gameObject.SetActive(show);
+	}
 
 	void RefreshGridVisual()
 	{
@@ -41,15 +64,5 @@ public class MapGridVisual : MonoBehaviour
 				case 3: plot.visual.color = blockColor; break;
 			}
 		}
-	}
-
-	public void ToggleVisualGrid()
-	{
-		//Toggle between showing or not
-		show = !show;
-		//Refresh the grid visual
-		RefreshGridVisual();
-		//Enable the visual grouper base on showing
-		gridVisualGrouper.gameObject.SetActive(show);
 	}
 }
