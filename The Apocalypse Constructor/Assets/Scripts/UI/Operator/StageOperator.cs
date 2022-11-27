@@ -40,6 +40,11 @@ public class StageOperator : MonoBehaviour
 		if(pauseMenu != null && Input.GetKeyDown(KeyCode.Escape)) Pausing();
 	}
 
-    public void LoadSceneIndex(int i) {SceneManager.LoadScene(i, LoadSceneMode.Single);}
+    public void LoadSceneIndex(int i) 
+	{
+		//Unpause if currently pause
+		if(paused) Pausing();
+		SceneManager.LoadScene(i, LoadSceneMode.Single);
+	}
     public void QuitGame()  {Application.Quit();}
 }
