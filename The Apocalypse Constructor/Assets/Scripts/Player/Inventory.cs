@@ -17,6 +17,7 @@ public class Inventory : MonoBehaviour
 	[SerializeField] Image selectIndicator;
 	[SerializeField] Color indicatorDefaultColor, indicatorTrashColor;
 	[SerializeField] TextMeshProUGUI selectNameText;
+	[SerializeField] GameObject nightDisableWarning;
 	public Slot[] slots;
 	Camera cam;
 
@@ -188,7 +189,7 @@ public class Inventory : MonoBehaviour
 		RefreshTrashIndicator();
 	}
 	
-	public void Use(Vector2 position, bool flip)
+	void Use(Vector2 position, bool flip)
 	{
 		//Dont allow to use if crafting gui are still open
 		if(Crafts.Crafting.i.craftingGUI.activeInHierarchy) return;
@@ -196,7 +197,9 @@ public class Inventory : MonoBehaviour
 		Stash select = selectedStash;
 		//Dont use if there is no selected stash at slot
 		if(select == null) return;
-		//Will not deplete any energy
+		//If currently night time then show warning and stop use
+		if(DaysManager.i.isNight) {nightDisableWarning.SetActive(true); return;}
+		//Will select deplete any energy?
 		int depleting = 0;
 		//If using select are an tower tower
 		if(select.prefab.CompareTag("Tower"))
