@@ -1,13 +1,12 @@
 using UnityEngine;
 
-public class StructureSell : MonoBehaviour
+public class StructureSellButton : MonoBehaviour
 {
 	[SerializeField] StructureDetails details;
 	[SerializeField] Structure.Function function;
 
 	void Update()
 	{
-		//? This is totally depend on the facet that this script is on an Active UI
 		//Also selling if press the sell key
 		if(Input.GetKeyDown(KeyOperator.i.SellStructure)) Selling();
 	}

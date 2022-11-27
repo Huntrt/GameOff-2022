@@ -3,7 +3,7 @@
 	Progression:
 		X Better ally stats the more day suvive. @consider
 		✓ Rarer enemy the more day suvive.
-		▪ Enemy stats scale with day
+		▪ Enemy stats scale with day @next
 	Map:
 		✓ An list of plot to build
 			✓ All coordinate
@@ -51,9 +51,12 @@
 				✓ Display structure health details.
 				✓ Display tower stats.
 				✓ Display platform stats simulatiously.
-				▪ Fixing structure:
-					▪ Button
-					▪ Consume Material
+				✓ Sell structure:
+					✓ Button
+					✓ Consume Material
+				X Fixing structure:
+					X Button
+					X Consume Material
 				▪ Upgrade structure:
 					▪ Buttton
 					▪ Consume Material
