@@ -19,7 +19,8 @@ public class KeyOperator : MonoBehaviour
 	} 
 
 	/// Added key here... ///
-	public KeyCode Up, Down, Left, Right;
+	public KeyCode CameraUp, CameraDown, CameraLeft, CameraRight;
+	public KeyCode OpenCraft, SellStructure, MapGrid;
 	
 	public void StartAssign(KeyAssigner assigner)
 	{
