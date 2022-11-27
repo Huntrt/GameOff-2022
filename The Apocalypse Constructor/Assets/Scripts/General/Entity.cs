@@ -1,7 +1,8 @@
 using UnityEngine;
 
 public class Entity : MonoBehaviour
-{ 
+{
+	
 	public float maxHealth;
 	public float health;
 	public OnHealth onHurt, onHeal, onDeath;
@@ -34,6 +35,6 @@ public class Entity : MonoBehaviour
 
 	public virtual void Die()
 	{
-		Destroy(gameObject);
+		
 	}
 }
