@@ -1,9 +1,11 @@
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class House : Entity
 {
-	public Image healthBar;
+	[SerializeField] Image healthBar;
+	[SerializeField] TextMeshProUGUI healthCounter;
 
 	protected override void OnEnable()
 	{
@@ -11,22 +13,26 @@ public class House : Entity
 		//Extend the plot at house position then blocked it
 		Map.ExtendPlot(transform.position, 3);
 		//Update the health bar when place
-		UpdateHealthBar();
+		UpdateHealthGUI();
 	}
 
 	public override void Hurt(float amount)
 	{
 		base.Hurt(amount);
-		UpdateHealthBar();
+		UpdateHealthGUI();
 	}
 
 	public override void Heal(float amount)
 	{
 		base.Heal(amount);
-		UpdateHealthBar();
+		UpdateHealthGUI();
 	}
 
-	void UpdateHealthBar() {healthBar.fillAmount = health/maxHealth;}
+	void UpdateHealthGUI() 
+	{
+		healthBar.fillAmount = health/maxHealth;
+		healthCounter.text = health + "/" + maxHealth;
+	}
 
 	public override void Die()
 	{
