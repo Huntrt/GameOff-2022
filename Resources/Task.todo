@@ -241,13 +241,16 @@ Settings:
 			▪ Trying modify the value "Refrence Solution" inside canvas scaler.
 	▪ Controls:
 		▪ Invert scrolling @paused
-		▪ Keybinds:
-			▪ Craft open
+		✓ Keybinds:
+			✓ Craft open
 			X Trash mode
 			▪ Invetory slot 1 -> 10 @paused
-			▪ Sell Structure
+			✓ Use Item
+			✓ Flip Structure
+			✓ Structure Details
+			✓ Sell Structure
 			▪ Upgrade Structure @paused
-			▪ Map Grid Toggle
+			✓ Map Grid Toggle
 
 Bugs:
 	✓ 2022 Nov 17: Projectile bounce off when piercing enemy. @caution

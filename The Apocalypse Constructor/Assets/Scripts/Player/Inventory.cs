@@ -189,7 +189,7 @@ public class Inventory : MonoBehaviour
 		RefreshTrashIndicator();
 	}
 	
-	void Use(Vector2 position, bool flip)
+	public void Use(Vector2 position, bool flip)
 	{
 		//Dont allow to use if crafting gui are still open
 		if(Crafts.Crafting.i.craftingGUI.activeInHierarchy) return;
