@@ -23,6 +23,8 @@ public class Enemy : Entity
 			//Grow enemy health that use day pass as level 
 			GrowingHealth(DaysManager.i.passes);
 		}
+		//% Set the final stats of caster as initial stats
+		caster.finalStats = caster.InitialStats;
 	}
 
 	public override void Die()
