@@ -28,8 +28,12 @@ public class Enemy : Entity
 	public override void Die()
 	{
 		EnemiesManager.Erased(this);
-		//Gain the amount of materials this enemy will drop
-		Inventory.i.materials.Gain(drops.wood,drops.steel, drops.gunpowder,0,0);
+		//If inventory exist
+		if(Inventory.i != null)
+		{
+			//Gain the amount of materials this enemy will drop
+			Inventory.i.materials.Gain(drops.wood,drops.steel, drops.gunpowder,0,0);
+		}
 		//Entity die then deactive the enemy after
 		base.Die(); gameObject.SetActive(false);
 	}
