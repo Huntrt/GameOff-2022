@@ -388,13 +388,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6f11cbce430534a9ab698a5b86e3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  initialMaxHP: 20
+  growthMaxHP: 3.5
+  finalMaxHP: 0
   health: 0
-  stats:
-    DPS: 4
-    damage: 2
-    rate: 2
-    range: 0.25
+  caster: {fileID: 4736416105052245912}
+  drops:
+    wood: 2
+    steel: 3
+    gunpowder: 0
 --- !u!114 &4736416105052245917
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,7 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   caster: {fileID: 4736416105052245912}
   rb: {fileID: 4736416105052245916}
-  movementSpeed: 2
+  movementSpeed: 3
   turnover: 0
 --- !u!114 &4736416105052245913
 MonoBehaviour:
@@ -442,6 +444,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8f5b79dcc28824d8247ced492dcf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialStats:
+    DPS: 8
+    damage: 4
+    rate: 2
+    range: 0.75
+  growthStats:
+    DPS: 0
+    damage: 0
+    rate: 0
+    range: 0
+  finalStats:
+    DPS: 0
+    damage: 0
+    rate: 0
+    range: 0
   attackAnimation:
     animator: {fileID: 4736416105052245906}
     scaleWindupWithRate: 1
@@ -450,16 +467,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   detected: 0
-  stats:
-    DPS: 0
-    damage: 0
-    rate: 0
-    range: 0
-  growth:
-    DPS: 0
-    damage: 0
-    rate: 0
-    range: 0
   flipped: 0
   strikes: []
   strikePrefab: {fileID: 979111320714350122, guid: 03ad43f77e0620549892e68dc17f924a,
