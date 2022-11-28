@@ -15,6 +15,7 @@ public class DayVisual : MonoBehaviour
 	[Header("GUI")]
 	[SerializeField] TextMeshProUGUI dayCounterText;
 	[SerializeField] Image cycleProgressBar;
+	[SerializeField] GameObject skipMorningButton;
 
 	void OnEnable()
 	{
@@ -34,6 +35,8 @@ public class DayVisual : MonoBehaviour
 		dayAnimator.SetBool("To Night", night);
 		//Update the day counter when it morning
 		if(!night) dayCounterText.text = "" + days.passes;
+		//Swwitch skip morning button active base on cycle
+		skipMorningButton.SetActive(!night);
 	}
 
 	void WhenGroundExpand()

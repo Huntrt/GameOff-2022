@@ -11,7 +11,6 @@ public class DaysManager : MonoBehaviour
 	[Range(0,1)] public float progress; //How many percent of an day has progress
 	public delegate void OnCycle(bool night); public OnCycle onCycle; //When day cycle between night and moring
 	public bool isNight; //Is the day nightime now?
-	[SerializeField] GameObject skipMorningButton;
 	float dayTimer; //How many second has pass in one day
 
 	void Start()
@@ -55,8 +54,6 @@ public class DaysManager : MonoBehaviour
 	{
 		//Day has cycle back to the morning
 		isNight = false; onCycle?.Invoke(false);
-		//Enable skip morning button
-		skipMorningButton.SetActive(true);
 	}
 
 	public void SkipMorning() {dayTimer = duration/2;}
