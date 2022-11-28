@@ -11,6 +11,8 @@ public class Tower : Structure
 	{
 		//Get the caster of the tower if needed
 		if(caster == null) caster = GetComponent<Combat_Caster>();
+		//Refresh dps amount of initial stats
+		caster.InitialStats.RefreshDPS();
 	}
 
 	protected override void OnEnable()
