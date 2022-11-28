@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-	
 	public float maxHealth;
-	public float health;
+	[SerializeField] float health; public float Health {get{return health;}}
 	public OnHealth onHurt, onHeal, onDeath;
+
 	public delegate void OnHealth(float amount);
 
 	protected virtual void OnEnable()

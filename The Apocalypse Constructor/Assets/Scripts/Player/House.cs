@@ -30,8 +30,8 @@ public class House : Entity
 
 	void UpdateHealthGUI() 
 	{
-		healthBar.fillAmount = health/maxHealth;
-		healthCounter.text = health + "/" + maxHealth;
+		healthBar.fillAmount = Health/maxHealth;
+		healthCounter.text = Health + "/" + maxHealth;
 	}
 
 	public override void Die()
