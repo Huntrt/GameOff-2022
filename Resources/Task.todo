@@ -1,9 +1,11 @@
-﻿Gameplay:
-	▪ Tutorial
+﻿▪ Tutorial
+▪ Credits
+
+Gameplay:
 	Progression:
 		X Better ally stats the more day suvive. @consider
 		✓ Rarer enemy the more day suvive.
-		▪ Enemy stats scale with day @next
+		▪ Enemy stats scale with day @doing
 	Map:
 		✓ An list of plot to build
 			✓ All coordinate
@@ -19,6 +21,7 @@
 		✓ Days
 			✓ Visual changing.
 			✓ Days counter.
+			▪ Skip monring
 			▪ Change which percent day reached half. @paused @minimal
 	Player:
 		X Movement.
@@ -57,7 +60,7 @@
 				X Fixing structure:
 					X Button
 					X Consume Material
-				▪ Upgrade structure:
+				▪ Upgrade structure: @next
 					▪ Buttton
 					▪ Consume Material
 					▪ Growth the structure stats
@@ -66,7 +69,7 @@
 			✓ Home has health like other structure.
 			✓ Display home health onto GUI.
 			✓ Gome over when home destroy
-		▪ Resources:
+		▪ Resources: @next
 			[R = W? S? E?] for quick recipe note
 			▪ Wood, Steel & Gunpowder:
 				▪ How to gather
