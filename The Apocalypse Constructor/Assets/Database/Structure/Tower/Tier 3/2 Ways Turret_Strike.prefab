@@ -53,7 +53,7 @@ MonoBehaviour:
   damage: 0
   accuracy: 0
   velocity: 14
-  travel: 6
+  travel: 7
   piercing: 1
   rb: {fileID: 3372612690338875351}
   col: {fileID: 3372612690338875344}

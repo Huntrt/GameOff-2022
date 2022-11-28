@@ -51,9 +51,9 @@ MonoBehaviour:
     type: 3}
   despawnEffect: {fileID: 0}
   damage: 0
-  accuracy: 0
-  velocity: 13
-  travel: 7
+  accuracy: 3
+  velocity: 14
+  travel: 5
   piercing: 1
   rb: {fileID: 8057565866627276595}
   col: {fileID: 8057565866627276596}

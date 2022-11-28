@@ -20,8 +20,12 @@ MonoBehaviour:
   ingredients:
     wood: 5
     steel: 25
-    gunpowder: 20
+    gunpowder: 30
   leftover:
     wood: 50
     steel: 50
     gunpowder: 25
+  upgrading:
+    wood: 1
+    steel: 12
+    gunpowder: 16

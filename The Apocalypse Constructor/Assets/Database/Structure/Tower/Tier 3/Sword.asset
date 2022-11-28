@@ -14,14 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 2905518391223213999, guid: 98cc8d580d00cec44b01d2d41f3e54ef, type: 3}
   icon: {fileID: 712035800519618848, guid: 397730c1026a3354d9586f7c8f49ed4c, type: 3}
-  description: Stab alot of enemy infront of it
+  description: Slash multiple enemy infront of it
   occupation: 1
   maxStack: 3
   ingredients:
     wood: 0
-    steel: 35
+    steel: 30
     gunpowder: 0
   leftover:
     wood: 0
     steel: 25
+    gunpowder: 0
+  upgrading:
+    wood: 0
+    steel: 13
     gunpowder: 0

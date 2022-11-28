@@ -14,14 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 665354745128790515, guid: fcc1d5d2adda3c0439e64dfb9a3caae1, type: 3}
   icon: {fileID: -8277574145844957068, guid: f988e0867fc418944b6878629c62b630, type: 3}
-  description: Fire an deathly missile directly infront of it
+  description: Fire an powerful missile directly infront of it
   occupation: 1
   maxStack: 3
   ingredients:
     wood: 0
     steel: 30
-    gunpowder: 30
+    gunpowder: 37
   leftover:
     wood: 0
     steel: 50
     gunpowder: 10
+  upgrading:
+    wood: 0
+    steel: 14
+    gunpowder: 16

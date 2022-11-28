@@ -51,9 +51,9 @@ MonoBehaviour:
     type: 3}
   damage: 0
   accuracy: 0
-  length: 15
+  length: 25
   width: 0.05
-  piercing: 3
+  piercing: 5
   phasing: 0
   render: {fileID: 4517096045299343569}
   lineAnimation: {fileID: 0}
@@ -63,6 +63,7 @@ MonoBehaviour:
     end: {r: 0.90196085, g: 0.75294125, b: 0, a: 0}
     expand: 0.1
     fadeCount: 0
+  hitHouse: 0
 --- !u!120 &4517096045299343569
 LineRenderer:
   m_ObjectHideFlags: 0
