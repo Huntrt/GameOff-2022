@@ -6,8 +6,10 @@ public class Structure : Entity
 	[SerializeField] Vector2[] extends;
 	[HideInInspector] public bool flipped;
 	public enum Function {filler, tower, dynamo}; public Function function;
-	protected StructureManager manager;
 	[HideInInspector] public Stash stashed;
+	[SerializeField] int level; public int Level {get{return level;}}
+	protected StructureManager manager;
+
 
 	protected override void OnEnable()
 	{
@@ -22,6 +24,15 @@ public class Structure : Entity
 		Extending();
 		//Map has been rextend
 		Map.i.onRextend?.Invoke();
+		//Renew level up from 0
+		LevelUp();
+	}
+	
+	public virtual void LevelUp()
+	{
+		//Increase level
+		level++;
+		//todo: Increase tower health here
 	}
 
 	public virtual void FlipStructure(bool isFlip)
@@ -64,6 +75,8 @@ public class Structure : Entity
 
 	public override void Die()
 	{
+		//Reset structure level to 0
+		level = 0;
 		//Retract then delete itself off the map
 		Retracting(); Map.Deleting(this);
 		//Map has been rextend upon structure death
