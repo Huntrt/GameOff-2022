@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemy : Entity
 {
 	public Combat_Caster caster;
+	public Stash.Ingredients drops;
 
 	void OnValidate() 
 	{
@@ -27,6 +28,8 @@ public class Enemy : Entity
 	public override void Die()
 	{
 		EnemiesManager.Erased(this);
+		//Gain the amount of materials this enemy will drop
+		Inventory.i.materials.Gain(drops.wood,drops.steel, drops.gunpowder,0,0);
 		//Entity die then deactive the enemy after
 		base.Die(); gameObject.SetActive(false);
 	}
