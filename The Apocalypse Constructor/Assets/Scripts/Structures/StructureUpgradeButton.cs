@@ -30,12 +30,14 @@ public class StructureUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPoin
 	{
 		//Get the cost of upgrading button's structure
 		Stash.Ingredients cost = structure.stashed.upgrading;
-		//Consume the cost to upgrade structure
-		Inventory.i.materials.Consume(cost.wood, cost.steel, cost.gunpowder, 0);
-		//Button's structure level up
-		structure.LevelUp();
-		//Refresh the details
-		details.RefreshDetails();
+		//If able to consume the cost to upgrade structure
+		if(Inventory.i.materials.Consume(cost.wood, cost.steel, cost.gunpowder, 0))
+		{
+			//Button's structure level up
+			structure.LevelUp();
+			//Refresh the details
+			details.RefreshDetails();
+		}
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
