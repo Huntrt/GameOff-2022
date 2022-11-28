@@ -1,7 +1,9 @@
 using UnityEngine.EventSystems;
 using UnityEngine;
-public class StructureSellButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+
+public class StructureUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    
 	[SerializeField] StructureDetails details;
 	Structure structure;
 	[SerializeField] Structure.Function function;
@@ -10,7 +12,7 @@ public class StructureSellButton : MonoBehaviour, IPointerEnterHandler, IPointer
 	void Update()
 	{
 		//Also selling if press the sell key
-		if(Input.GetKeyDown(KeyOperator.i.SellStructure)) Selling();
+		if(Input.GetKeyDown(KeyOperator.i.UpgradeStructure)) Upgrading();
 	}
 
 	//? When the details panel of this sell button get active
@@ -24,18 +26,20 @@ public class StructureSellButton : MonoBehaviour, IPointerEnterHandler, IPointer
 		}
 	}
 
-    public void Selling()
+    public void Upgrading()
 	{
-		//Refund the left over of this button's structure
-		Inventory.Refund(structure.stashed.Leftovering());
-		//Instanly kill this button's structure
-		structure.Die();
+		//Get the cost of upgrading button's structure
+		Stash.Ingredients cost = structure.stashed.upgrading;
+		//Consume the cost to upgrade structure
+		Inventory.i.materials.Consume(cost.wood, cost.steel, cost.gunpowder, 0);
+		//Button's structure level up
+		structure.LevelUp();
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		//Show the modifier that will display gain left over ingredients
-		Inventory.i.materials.gameGui.ShowModifier(structure.stashed.Leftovering(), true);
+		//Show the modifier that will display upgrade cost ingredients
+		Inventory.i.materials.gameGui.ShowModifier(structure.stashed.upgrading, false);
 		//Being pointer over
 		pointerOver = true;
 	}
