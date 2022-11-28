@@ -85,8 +85,7 @@ public class Structure : Entity
 		//Erased track of this structure and as filler
 		manager.structures.Remove(this);
 		manager.fills.Add(this);
-		//Destroy the structure upon dealth
-		Destroy(gameObject);
-		base.Die();
+		//Entity die then destroy the structure after
+		base.Die(); Destroy(gameObject);
 	}
 }

@@ -25,8 +25,7 @@ public class Enemy : Entity
 	public override void Die()
 	{
 		EnemiesManager.Erased(this);
-		//Deactive the enemy upon dealth
-		gameObject.SetActive(false);
-		base.Die();
+		//Entity die then deactive the enemy after
+		base.Die(); gameObject.SetActive(false);
 	}
 }
