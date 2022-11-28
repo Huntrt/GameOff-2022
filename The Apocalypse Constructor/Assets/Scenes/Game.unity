@@ -8861,6 +8861,10 @@ MonoBehaviour:
   finalMaxHP: 0
   health: 0
   caster: {fileID: 568526127}
+  drops:
+    wood: 0
+    steel: 0
+    gunpowder: 0
 --- !u!114 &568526129
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23763,7 +23767,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295052397}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2780cb3bf3eb024885ac68cb4ee619a, type: 3}
   m_Name: 
@@ -39156,11 +39160,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materials:
-    wood: 999
-    steel: 999
-    gunpowder: 999
+    wood: 50
+    steel: 20
+    gunpowder: 10
     energy: 0
-    maxEnergy: 999
+    maxEnergy: 10
     gameGui:
       woodAmountText: {fileID: 1877719820}
       steelAmountText: {fileID: 655586483}
@@ -47782,7 +47786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   passes: 1
-  duration: 10
+  duration: 40
   progress: 0
   isNight: 0
   skipMorningButton: {fileID: 306512272}
