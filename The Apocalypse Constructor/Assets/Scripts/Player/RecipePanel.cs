@@ -94,11 +94,13 @@ public class RecipePanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 		else if(structure.function == Structure.Function.tower)
 		{
 			StatsInfoHidden(2);
+			//Save the initial stats of tower
+			Combats.Stats stats = tower.caster.initialStats;
 			craft.towerGUI.descriptionText.text = stash.description;
 			craft.towerGUI.healthText.text = "Health: <b>" + structure.maxHealth + "</b>";
-			craft.towerGUI.damageText.text = "Damage: <b>" + tower.stats.damage + "</b>";
-			craft.towerGUI.rateText.text = "Rate: <b>" +  tower.stats.rateTimer + "s</b>";
-			craft.towerGUI.rangeText.text = "Range: <b>" + tower.stats.range + "</b>";
+			craft.towerGUI.damageText.text = "Damage: <b>" + stats.damage + "</b>";
+			craft.towerGUI.rateText.text = "Rate: <b>" +  stats.rateTimer + "s</b>";
+			craft.towerGUI.rangeText.text = "Range: <b>" + stats.range + "</b>";
 			craft.towerGUI.depletedText.text = "Depleted: <b>" + tower.depleted + "</b>";
 			craft.towerGUI.aimText.text = "Aim: <b>" + tower.GetComponent<Combat_Aiming>().mode + "</b>";
 		}

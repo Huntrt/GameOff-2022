@@ -27,14 +27,14 @@ public class DisplayEnemyRange : MonoBehaviour
 		if(aim.mode == Combat_Aiming.Mode.Direct)
 		{
 			//Set the indicator scale as mover vision
-			indicator.localScale = new Vector2(caster.stats.range, Map.i.spacing);
+			indicator.localScale = new Vector2(caster.finalStats.range, Map.i.spacing);
 			//Adjust the indicator vision by moving it half of vision and block size
-			indicator.localPosition = new Vector2(((caster.stats.range/2) + (Map.i.spacing/2)), 0);
+			indicator.localPosition = new Vector2(((caster.finalStats.range/2) + (Map.i.spacing/2)), 0);
 		}
 		//If indicator are rotate node then indicator radius are double mover vision
 		else if(aim.mode == Combat_Aiming.Mode.Rotate)
 		{
-			indicator.transform.localScale = new Vector2(caster.stats.range*2, caster.stats.range*2);
+			indicator.transform.localScale = new Vector2(caster.finalStats.range*2, caster.finalStats.range*2);
 		}
 	}
 }

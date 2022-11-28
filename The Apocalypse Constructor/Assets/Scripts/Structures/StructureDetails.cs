@@ -113,7 +113,7 @@ public class StructureDetails : MonoBehaviour
 		//Detail anything about tower's structure first
 		DetailStructure(tower, panel);
 		//Get the stats from tower's caster
-		Combats.Stats stats = tower.GetComponent<Combat_Caster>().stats;
+		Combats.Stats stats = tower.GetComponent<Combat_Caster>().finalStats;
 		//@ Display the tower stats
 		panel.damageText.text = "Damage: <b>" + stats.damage + "</b>";
 		panel.rateText.text = "Rate: <b>" + stats.rateTimer + "s</b>";

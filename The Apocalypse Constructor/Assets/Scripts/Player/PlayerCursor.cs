@@ -184,19 +184,21 @@ public class PlayerCursor : MonoBehaviour
 		HideTowerRange(); if(aimed == null) return;
 		//Center point of range will alway be mouse coordinate
 		Vector2 pos = mouseCoord;
+		//Get the range of tower's initial stats
+		float towerRange = towered.caster.initialStats.range;
 		//If aim mode of given tower are direct
 		if(aimed.mode == Combat_Aiming.Mode.Direct)
 		{
 			//Value for adjust the X given position
 			float adjust = pos.x;
 			//Decrease with half tower range and block if flipeed
-			if(isFlip) {adjust -= ((towered.stats.range/2) + (Map.i.spacing/2));}
+			if(isFlip) {adjust -= ((towerRange/2) + (Map.i.spacing/2));}
 			//Increase with half tower range and block if not flipeed
-			else {adjust += ((towered.stats.range/2) + (Map.i.spacing/2));}
+			else {adjust += ((towerRange/2) + (Map.i.spacing/2));}
 			//Set range position X to be adjusted and Y to be given position
 			rectangleRange.position = new Vector2(adjust, pos.y);
 			//Set range scale width to be tower range and height to be an spacing
-			rectangleRange.localScale = new Vector2(towered.stats.range, Map.i.spacing);
+			rectangleRange.localScale = new Vector2(towerRange, Map.i.spacing);
 
 		}
 		//If aim mode of given tower are rotate and aimless mode
@@ -205,7 +207,7 @@ public class PlayerCursor : MonoBehaviour
 			//Move circle range to given tower position
 			circleRange.position = pos;
 			//Circle range size will be double size of tower range
-			circleRange.localScale = new Vector2(towered.stats.range*2, towered.stats.range*2);
+			circleRange.localScale = new Vector2(towerRange*2, towerRange*2);
 		}
 	}
 	void HideTowerRange()
