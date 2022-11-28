@@ -1,5 +1,4 @@
 using UnityEngine;
-using System;
 
 public class Tower : Structure
 {
@@ -23,6 +22,14 @@ public class Tower : Structure
 		manager.fills.Remove(this);
 		//Consume the deplete energy when tower got create
 		Inventory.i.materials.Consume(0,0,0,depleted);
+	}
+
+	public override void LevelUp()
+	{
+		//When structure level up
+		base.LevelUp();
+		//Getting the tower final stats with it current level
+		caster.finalStats = Combats.GrowingStats(Level, caster.initialStats, caster.growthStats);
 	}
 
 	public override void FlipStructure(bool isFlip)
