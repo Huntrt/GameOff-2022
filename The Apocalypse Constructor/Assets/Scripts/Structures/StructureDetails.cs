@@ -65,6 +65,11 @@ public class StructureDetails : MonoBehaviour
 		indicator.position = detailings[0].transform.position;
 		//Show the indicator
 		indicator.gameObject.SetActive(true);
+		RefreshDetails();
+	}
+
+	public void RefreshDetails()
+	{
 		//Go through all the structure need to details
 		for (int d = 0; d < detailings.Length; d++)
 		{

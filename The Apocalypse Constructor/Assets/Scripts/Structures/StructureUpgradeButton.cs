@@ -34,6 +34,8 @@ public class StructureUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPoin
 		Inventory.i.materials.Consume(cost.wood, cost.steel, cost.gunpowder, 0);
 		//Button's structure level up
 		structure.LevelUp();
+		//Refresh the details
+		details.RefreshDetails();
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
