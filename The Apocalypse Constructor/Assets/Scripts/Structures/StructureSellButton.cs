@@ -1,6 +1,6 @@
 using UnityEngine.EventSystems;
 using UnityEngine;
-public class StructureSellButton : MonoBehaviour
+public class StructureSellButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 	[SerializeField] StructureDetails details;
 	Structure structure;
@@ -29,5 +29,15 @@ public class StructureSellButton : MonoBehaviour
 		Inventory.Refund(structure.stashed.Leftovering());
 		//Instanly kill this button's structure
 		structure.Die();
+	}
+
+	public void OnPointerEnter(PointerEventData eventData)
+	{
+		Inventory.i.materials.gameGui.ShowModifier(structure.stashed.ingredients, true);
+	}
+
+	public void OnPointerExit(PointerEventData eventData)
+	{
+		Inventory.i.materials.gameGui.ShowModifier(null);
 	}
 }
