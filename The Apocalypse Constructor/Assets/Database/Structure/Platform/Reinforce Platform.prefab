@@ -45,18 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ab2b0b3c9628945aaf658d906d0a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 25
+  initialMaxHP: 35
+  growthMaxHP: 25
+  finalMaxHP: 0
   health: 0
   extends:
   - {x: 0, y: 1}
   flipped: 0
   function: 0
-  stashed:
-    leftovered:
-      wood: 0
-      steel: 0
-      gunpowder: 0
-    occupied: 0
+  stashed: {fileID: 0}
+  level: 0
 --- !u!212 &637666966762994001
 SpriteRenderer:
   m_ObjectHideFlags: 0
