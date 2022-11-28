@@ -17,8 +17,12 @@ public class PlayerCursor : MonoBehaviour
 		public Tower previewTower;
 		public Combat_Aiming previewAim;
 
-		//Refresh the show tower range of preview tower
-		public void RefreshRange() {pCursor.ShowTowerRange(previewAim, previewTower, pCursor.selectFlip);}
+		public void RefreshRange() 
+		{
+			//Refresh the show tower range of preview tower
+			pCursor.ShowTowerRange(previewAim, previewTower, pCursor.selectFlip, false);
+		}
+
 		public void PreviewingRange()
 		{
 			//Get how many structure currently hover
@@ -130,7 +134,7 @@ public class PlayerCursor : MonoBehaviour
 					//Get the aim of tower hovered
 					Combat_Aiming hoverAim = hoverTower.GetComponent<Combat_Aiming>();
 					//Show range of the tower hover over with it flip
-					ShowTowerRange(hoverAim, hoverTower, hoverTower.flipped);
+					ShowTowerRange(hoverAim, hoverTower, hoverTower.flipped, true);
 				}
 			}
 		}
@@ -178,14 +182,14 @@ public class PlayerCursor : MonoBehaviour
 		structurePreview.PreviewingRange();
 	}
 
- 	void ShowTowerRange(Combat_Aiming aimed, Tower towered, bool isFlip)
+ 	void ShowTowerRange(Combat_Aiming aimed, Tower towered, bool isFlip, bool hover)
 	{
 		//Hide tower range and stop showing if aim dont exist
 		HideTowerRange(); if(aimed == null) return;
 		//Center point of range will alway be mouse coordinate
 		Vector2 pos = mouseCoord;
-		//Get the range of tower's initial stats
-		float towerRange = towered.caster.InitialStats.range;
+		//Set the tower range as initial if not being hover or final if being hover
+		float towerRange = (!hover) ? towered.caster.InitialStats.range : towered.caster.finalStats.range;
 		//If aim mode of given tower are direct
 		if(aimed.mode == Combat_Aiming.Mode.Direct)
 		{
