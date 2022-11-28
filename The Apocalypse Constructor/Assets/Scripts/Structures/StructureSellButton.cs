@@ -5,6 +5,7 @@ public class StructureSellButton : MonoBehaviour, IPointerEnterHandler, IPointer
 	[SerializeField] StructureDetails details;
 	Structure structure;
 	[SerializeField] Structure.Function function;
+	bool pointerOver;
 
 	void Update()
 	{
@@ -33,11 +34,29 @@ public class StructureSellButton : MonoBehaviour, IPointerEnterHandler, IPointer
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		Inventory.i.materials.gameGui.ShowModifier(structure.stashed.ingredients, true);
+		//Show the modifier that will display gain left over ingredients
+		Inventory.i.materials.gameGui.ShowModifier(structure.stashed.Leftovering(), true);
+		//Being pointer over
+		pointerOver = true;
 	}
 
 	public void OnPointerExit(PointerEventData eventData)
 	{
+		//Close the modifier
 		Inventory.i.materials.gameGui.ShowModifier(null);
+		//No longer pointer over
+		pointerOver = true;
+	}
+	
+	void OnDisable()
+	{
+		//If get disable while still point over this panel
+		if(pointerOver)
+		{
+			//Close the materials modifier
+			Inventory.i.materials.gameGui.ShowModifier(null);
+			//No longer being pointer over
+			pointerOver = false;
+		}
 	}
 }
