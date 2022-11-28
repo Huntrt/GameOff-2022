@@ -14,6 +14,12 @@ public class Enemy : Entity
 	{
 		base.OnEnable();
 		EnemiesManager.Record(this);
+		//If there is day mananger
+		if(DaysManager.i != null)
+		{
+			//Grow enemy health that use day pass as level 
+			GrowingHealth(DaysManager.i.passes);
+		}
 	}
 
 	public override void Die()
