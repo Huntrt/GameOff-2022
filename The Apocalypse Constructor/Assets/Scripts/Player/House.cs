@@ -12,6 +12,8 @@ public class House : Entity
 		base.OnEnable();
 		//Extend the plot at house position then blocked it
 		Map.ExtendPlot(transform.position, 3);
+		//Grow the house health
+		GrowingHealth(0);
 		//Update the health bar when place
 		UpdateHealthGUI();
 	}
