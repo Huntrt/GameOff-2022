@@ -4,27 +4,19 @@ using System;
 
 public class Combat_Caster : MonoBehaviour
 {
+	public Combats.Stats initialStats, growthStats, finalStats;
+
 	[SerializeField] AttackAnimation attackAnimation; [Serializable] class AttackAnimation
 	{
 		public Animator animator;
 		public float scaleWindupWithRate;
 		public bool allowSlowdown;
 	}
-	[Header("General")]
 	public LayerMask combatLayer;
 	public bool detected;
-	public Combats.Stats stats, growth;
 	public Action onStrike;
 	[HideInInspector] public bool flipped;
 	[HideInInspector] public List<Combat_Strike> strikes = new List<Combat_Strike>();
-
-	void OnEnable()
-	{
-		//Get the stats for caster on this structure
-		if(gameObject.CompareTag("Tower"))stats = GetComponent<Tower>().stats;
-		//Get the stats for caster on this structure
-		if(gameObject.CompareTag("Enemy"))stats = GetComponent<Enemy>().stats;
-	}
 
 	void Update()
 	{
@@ -38,13 +30,13 @@ public class Combat_Caster : MonoBehaviour
 		//Counting speed for attack
 		countRate += Time.deltaTime;
 		//If has count enough rate
-		if(countRate >= (1/stats.rate))
+		if(countRate >= (1/finalStats.rate))
 		{
 			//If there is attack animator
 			if(attackAnimation.animator != null)
 			{
 				//Get scaled value by multiply stats rate with set windup scale
-				float scaled = stats.rate * attackAnimation.scaleWindupWithRate;
+				float scaled = finalStats.rate * attackAnimation.scaleWindupWithRate;
 				//Lock scale to 1 if not allow it to slow down windup speed
 				if(scaled < 1 && !attackAnimation.allowSlowdown) {scaled = 1;}
 				//Set windup float as scaled value
@@ -102,7 +94,7 @@ public class Combat_Caster : MonoBehaviour
 	void SetupStrike(Combat_Strike strike, Vector2 pos, Quaternion rot)
 	{
 		//Set the strike damage to be the caster damage
-		strike.damage = stats.damage;
+		strike.damage = finalStats.damage;
 		//Set the strike to be given position and rotation
 		strike.transform.position = pos;
 		strike.transform.rotation = rot;
