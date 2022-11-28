@@ -246,8 +246,8 @@ public class Inventory : MonoBehaviour
 	
 	public void Use(Vector2 position, bool flip)
 	{
-		//Dont allow to use if crafting gui are still open
-		if(Crafts.Crafting.i.craftingGUI.activeInHierarchy) return;
+		//Dont allow to use if click on any gui
+		if(UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject()) return;
 		//Shorting the selected stash
 		Stash select = selectedStash;
 		//Dont use if there is no selected stash at slot
