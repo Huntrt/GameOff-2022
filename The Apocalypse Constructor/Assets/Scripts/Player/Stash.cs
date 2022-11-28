@@ -14,6 +14,8 @@ public class Stash : ScriptableObject
 	public Ingredients ingredients;
 	[Tooltip("How much percent of ingredients will be return when manually destroy")]
 	[SerializeField] Ingredients leftover;
+	[Tooltip("How much ingredients will be needed to upgrade")]
+	public Ingredients upgrading;
 
 	public Ingredients Leftovering()
 	{
