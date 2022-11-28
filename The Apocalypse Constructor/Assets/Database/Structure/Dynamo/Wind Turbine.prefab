@@ -46,18 +46,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54b6fee59ac4ed41a8255bd048e0c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 25
+  initialMaxHP: 30
+  growthMaxHP: 25
+  finalMaxHP: 0
   health: 0
   extends: []
   flipped: 0
   function: 2
-  stashed:
-    leftovered:
-      wood: 0
-      steel: 0
-      gunpowder: 0
-    occupied: 0
-  provide: 35
+  stashed: {fileID: 0}
+  level: 0
+  provide: 40
 --- !u!212 &7335110260253774846
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -181,17 +179,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e54b6fee59ac4ed41a8255bd048e0c4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 19
+  initialMaxHP: 0
+  growthMaxHP: 0
+  finalMaxHP: 0
   health: 0
   extends: []
   flipped: 0
   function: 2
-  stashed:
-    leftovered:
-      wood: 0
-      steel: 0
-      gunpowder: 0
-    occupied: 0
+  stashed: {fileID: 0}
+  level: 0
   provide: 25
 --- !u!212 &8427077283202040952
 SpriteRenderer:
