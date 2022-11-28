@@ -32,9 +32,6 @@ public class Inventory : MonoBehaviour
 	[System.Serializable] public class Materials 
 	{
 		public int wood, steel, gunpowder, energy, maxEnergy;
-		[Header("GUI")]
-		public TextMeshProUGUI woodText;
-		public TextMeshProUGUI steelText, gunpowderText, capacityText;
 
 		public void Gain(int wood, int steel, int gunpowder, int energy, int maxEnergy)
 		{
@@ -75,11 +72,69 @@ public class Inventory : MonoBehaviour
 			if(gunpowder < 0) gunpowder = 0;
 			if(energy < 0) energy = 0;
 			if(maxEnergy < 0) maxEnergy = 0;
-			//@ Display material value to it text
-			woodText.text = wood.ToString();
-			steelText.text = steel.ToString();
-			gunpowderText.text = gunpowder.ToString();
-			capacityText.text = energy + "/" + maxEnergy;
+			//Refresh the amount gui
+			gameGui.RefreshAmount(this);
+		}
+		
+		public GameGUI gameGui; [System.Serializable] public class GameGUI
+		{
+			public TextMeshProUGUI woodAmountText, steelAmountText, gunpowderAmountText, capacityAmountText;
+			public TextMeshProUGUI woodModifierText, steelModifierText, gunpowderModifierText;
+			[SerializeField] Color modifierGainColor, modifierConsumeColor;
+			int modifierShowed;
+
+			public void RefreshAmount(Materials mat)
+			{
+				//@ Display given material value to it text
+				woodAmountText.text = mat.wood.ToString();
+				steelAmountText.text = mat.steel.ToString();
+				gunpowderAmountText.text = mat.gunpowder.ToString();
+				capacityAmountText.text = mat.energy + "/" + mat.maxEnergy;
+			}
+			
+			public void ShowModifier(Stash.Ingredients ingredients, bool gain = false)
+			{
+				//If given no ingredients to modify
+				if(ingredients == null)
+				{	
+					//Lost an modifier showind and clamp it from going below 0
+					modifierShowed--; modifierShowed = Mathf.Clamp(modifierShowed, 0, 10);
+					//Close all the modifier if no one showing them
+					if(modifierShowed == 0) CloseAllModifier();
+				}
+				//If has given an ingredients to modify
+				if(ingredients != null)
+				{
+					//Showing another modifier
+					modifierShowed++;
+					//Close all modifier to prepare for setting
+					CloseAllModifier();
+					//@ Update modifier of given ingredients
+					if(ingredients.wood != 0) SetModifier(woodModifierText, ingredients.wood, gain);
+					if(ingredients.steel != 0) SetModifier(steelModifierText, ingredients.steel, gain);
+					if(ingredients.gunpowder != 0) SetModifier(gunpowderModifierText, ingredients.gunpowder, gain);
+				}
+			}
+
+			void SetModifier(TextMeshProUGUI text, float modify, bool gain)
+			{
+				//Change the modifier symbol base on gain
+				string symbol = (gain) ? "+" : "-";
+				// Change the modifier text color base on gain
+				text.color = (gain) ? modifierGainColor : modifierConsumeColor;
+				//Set the given text to by set symbol with given modify value
+				text.text = symbol + modify;
+				//Active given text's panel
+				text.transform.parent.gameObject.SetActive(true);
+			}
+
+			void CloseAllModifier()
+			{
+				//@ Default deactive all the modifier text
+				woodModifierText.transform.parent.gameObject.SetActive(false);
+				steelModifierText.transform.parent.gameObject.SetActive(false);
+				gunpowderModifierText.transform.parent.gameObject.SetActive(false);
+			}
 		}
 	}
 
