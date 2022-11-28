@@ -327,8 +327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a080f35dfeb9544c861582eb6decb9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialMaxHP: 50
-  growthMaxHP: 50
+  initialMaxHP: 14
+  growthMaxHP: 10
   finalMaxHP: 0
   health: 0
   extends: []
@@ -371,15 +371,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialStats:
-    DPS: 0
+    DPS: 4.17
     damage: 5
-    rate: 5
+    rate: 0.8
     range: 5
   growthStats:
     DPS: 0
-    damage: 50
-    rate: 50
-    range: 50
+    damage: 10
+    rate: 25
+    range: 2.5
   finalStats:
     DPS: 0
     damage: 0
