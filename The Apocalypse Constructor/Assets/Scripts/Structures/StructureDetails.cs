@@ -94,8 +94,8 @@ public class StructureDetails : MonoBehaviour
 	void DetailHealth(StructureDetailPanel panel)
 	{
 		//@ Display the given details panel's structure health
-		panel.healthText.text = "Health: " + panel.structure.Health + "/" + panel.structure.maxHealth;
-		panel.healthBar.fillAmount = panel.structure.Health / panel.structure.maxHealth;
+		panel.healthText.text = "Health: " + panel.structure.Health + "/" + panel.structure.finalMaxHP;
+		panel.healthBar.fillAmount = panel.structure.Health / panel.structure.finalMaxHP;
 	}
 
 	void DetailStructure(Structure structure, StructureDetailPanel panel)

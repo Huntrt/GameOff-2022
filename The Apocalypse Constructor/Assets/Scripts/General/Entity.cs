@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-	public float maxHealth;
 	[SerializeField] float initialMaxHP; public float InitialMaxHP {get => initialMaxHP;}
 	[SerializeField] float growthMaxHP; public float GrowthMaxHP {get => growthMaxHP;}
 	public float finalMaxHP;
@@ -44,8 +43,8 @@ public class Entity : MonoBehaviour
 		health += amount;
 		//Call heal event with damage has take
 		onHeal?.Invoke(amount);
-		//Cap health from going beyond max health
-		health = Mathf.Clamp(health, 0, maxHealth);
+		//Cap health from going beyond final max health
+		health = Mathf.Clamp(health, 0, finalMaxHP);
 	}
 
 	public virtual void Die()

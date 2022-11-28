@@ -19,6 +19,6 @@ public class HealthOverlay : MonoBehaviour
 		//Deactive the overlay if it has no entity to display
 		if(entity == null) {gameObject.SetActive(false); return;}
 		//Fill health bar with set entity health
-		healthbar.fillAmount = entity.Health / entity.maxHealth;
+		healthbar.fillAmount = entity.Health / entity.finalMaxHP;
 	}
 }
