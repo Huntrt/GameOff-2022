@@ -30,16 +30,17 @@ public class Structure : Entity
 	
 	public virtual void LevelUp()
 	{
-		//Increase level
+		//Growing structure's health
+		GrowingHealth(level);
+		/// Increase level AFTER growing stats
 		level++;
-		//todo: Increase tower health here
 	}
 
 	public virtual void FlipStructure(bool isFlip)
 	{
 		//Set structure flipped as given flip
 		flipped = isFlip;
-		//If the tower is flipped
+		//If the structure is flipped
 		if(flipped)
 		{
 			//Flip it X and Y rotation

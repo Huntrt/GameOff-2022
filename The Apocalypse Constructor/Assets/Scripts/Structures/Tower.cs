@@ -26,10 +26,10 @@ public class Tower : Structure
 
 	public override void LevelUp()
 	{
-		//When structure level up
-		base.LevelUp();
-		//Getting the tower final stats with it current level
+		//Growing the intial stats stats with tower current level to get final stats
 		caster.finalStats = Combats.GrowingStats(Level, caster.InitialStats, caster.GrowthStats);
+		//Structure level up
+		base.LevelUp();
 	}
 
 	public override void FlipStructure(bool isFlip)
