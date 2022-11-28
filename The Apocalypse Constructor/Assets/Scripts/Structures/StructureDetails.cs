@@ -102,8 +102,8 @@ public class StructureDetails : MonoBehaviour
 	{
 		//Save the structure currently details
 		panel.structure = structure;
-		//@ Display structure stash name and description
-		panel.nameText.text = structure.stashed.name; 
+		//@ Display structure stash name with level and description
+		panel.nameText.text = structure.stashed.name + " LV." + structure.Level;
 		panel.descText.text = structure.stashed.description;
 		DetailHealth(panel);
 	}
