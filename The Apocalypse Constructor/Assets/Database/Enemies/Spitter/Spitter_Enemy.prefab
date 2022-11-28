@@ -304,7 +304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6f11cbce430534a9ab698a5b86e3f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialMaxHP: 35
+  initialMaxHP: 15
   growthMaxHP: 5
   finalMaxHP: 0
   health: 0
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   caster: {fileID: 7827106682408671848}
   rb: {fileID: 7827106682408671852}
-  movementSpeed: 1
+  movementSpeed: 1.5
   turnover: 0
 --- !u!114 &7827106682408671849
 MonoBehaviour:
