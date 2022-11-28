@@ -23795,7 +23795,7 @@ MonoBehaviour:
     scaledRarity: 0
     finalRarity: 0
   - enemy: {fileID: 11400000, guid: 0dbc510e05e4e4545a87960028030032, type: 2}
-    initialRarity: 50
+    initialRarity: 500000
     scaledRarity: 0
     finalRarity: 0
   spawnPoint:
