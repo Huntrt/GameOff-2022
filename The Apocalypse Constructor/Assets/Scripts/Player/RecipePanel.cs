@@ -5,43 +5,59 @@ using TMPro;
 
 namespace Crafts
 {
-public class RecipePanel : MonoBehaviour, IPointerEnterHandler
+public class RecipePanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
 	[SerializeField] TextMeshProUGUI nameDisplay;
 	[SerializeField] Image iconImage;
 	[SerializeField] Button craftButton;
-	Stash recipe; Crafting craft;
+	Stash stash; Crafting craft; Inventory inv;
 	Structure structure; Tower tower; Dynamo dynamo;
+	bool pointerOver;
 
-	void Start() {craft = Crafting.i;}
+	void Start() {craft = Crafting.i; inv = Inventory.i;}
 
 	public void SetupPanel(Stash recipe)
 	{
-		//Save the recipe that given from setup
-		this.recipe = recipe;
+		//Save the stash that given from recipe
+		stash = recipe;
 		//Display item name on text
-		nameDisplay.text = recipe.name;
+		nameDisplay.text = stash.name;
 		//Display the item icon on image
-		iconImage.sprite = recipe.icon;
+		iconImage.sprite = stash.icon;
 		//Clear any existing crafting event
 		craftButton.onClick.RemoveAllListeners();
-		//Add crafting event to it button to craft this recipe
-		craftButton.onClick.AddListener(delegate {Crafting.i.Craft(recipe);});
-		//Begin setup this recipe info
+		//Add crafting event to it button to craft this stash
+		craftButton.onClick.AddListener(delegate {Crafting.i.Craft(stash);});
+		//Begin setup this stash info
 		SetupInfo();
 	}
 
 	void SetupInfo()
 	{
-		//Get the structure component from recipe prefab
-		structure = recipe.prefab.GetComponent<Structure>();
+		//Get the structure component from stash of this panel
+		structure = stash.prefab.GetComponent<Structure>();
 		//If structure are dynamo then save it
-		if(structure.function == Structure.Function.dynamo) dynamo = recipe.prefab.GetComponent<Dynamo>();
+		if(structure.function == Structure.Function.dynamo) dynamo = stash.prefab.GetComponent<Dynamo>();
 		//If structure are tower then save it
-		if(structure.function == Structure.Function.tower) tower = recipe.prefab.GetComponent<Tower>();
+		if(structure.function == Structure.Function.tower) tower = stash.prefab.GetComponent<Tower>();
 	}
 
-	public void OnPointerEnter(PointerEventData eventData) => DisplayInfo();
+	public void OnPointerEnter(PointerEventData eventData) 
+	{
+		//Toggle consume modifer of this panel's stash
+		inv.materials.gameGui.ShowModifier(stash.ingredients, false);
+		//This panel are now over pointer
+		pointerOver = true;
+		DisplayInfo();
+	}
+
+	public void OnPointerExit(PointerEventData eventData)
+	{
+		//Close the modifer
+		inv.materials.gameGui.ShowModifier(null, false);
+		//This panel no longer over pointer
+		pointerOver = false;
+	}
 
 	void DisplayInfo()
 	{
@@ -51,12 +67,12 @@ public class RecipePanel : MonoBehaviour, IPointerEnterHandler
 
 	void DisplayGeneralInfo()
 	{
-		craft.infoGUI.iconImage.sprite = recipe.icon;
-		craft.infoGUI.nameText.text = recipe.name;
+		craft.infoGUI.iconImage.sprite = stash.icon;
+		craft.infoGUI.nameText.text = stash.name;
 		//Display materials
-		craft.infoGUI.woodText.text = recipe.ingredients.wood.ToString();
-		craft.infoGUI.steelText.text = recipe.ingredients.steel.ToString();
-		craft.infoGUI.gunpowderText.text = recipe.ingredients.gunpowder.ToString();
+		craft.infoGUI.woodText.text = stash.ingredients.wood.ToString();
+		craft.infoGUI.steelText.text = stash.ingredients.steel.ToString();
+		craft.infoGUI.gunpowderText.text = stash.ingredients.gunpowder.ToString();
 	}
 
 	void DisplayStructureStats()
@@ -65,20 +81,20 @@ public class RecipePanel : MonoBehaviour, IPointerEnterHandler
 		if(structure.function == Structure.Function.filler)
 		{
 			StatsInfoHidden(0);
-			craft.fillGUI.descriptionText.text = recipe.description;
+			craft.fillGUI.descriptionText.text = stash.description;
 			craft.fillGUI.healthText.text = "Health:<b> " + structure.maxHealth + "</b>";
 		}
 		else if(structure.function == Structure.Function.dynamo)
 		{
 			StatsInfoHidden(1);
-			craft.dynamoGUI.descriptionText.text = recipe.description;
+			craft.dynamoGUI.descriptionText.text = stash.description;
 			craft.dynamoGUI.healthText.text = "Health:<b> " + structure.maxHealth + "</b>";
 			craft.dynamoGUI.energyText.text = "Energy: <b>+" + dynamo.provide + "</b>";
 		}
 		else if(structure.function == Structure.Function.tower)
 		{
 			StatsInfoHidden(2);
-			craft.towerGUI.descriptionText.text = recipe.description;
+			craft.towerGUI.descriptionText.text = stash.description;
 			craft.towerGUI.healthText.text = "Health: <b>" + structure.maxHealth + "</b>";
 			craft.towerGUI.damageText.text = "Damage: <b>" + tower.stats.damage + "</b>";
 			craft.towerGUI.rateText.text = "Rate: <b>" +  tower.stats.rateTimer + "s</b>";
@@ -100,6 +116,18 @@ public class RecipePanel : MonoBehaviour, IPointerEnterHandler
 			case 0: craft.fillGUI.group.SetActive(true); break;
 			case 1: craft.dynamoGUI.group.SetActive(true); break;
 			case 2: craft.towerGUI.group.SetActive(true); break;
+		}
+	}
+
+	void OnDisable()
+	{
+		//If get disable while still point over this panel
+		if(pointerOver)
+		{
+			//Close the materials modifier
+			Inventory.i.materials.gameGui.ShowModifier(null);
+			//No longer being pointer over
+			pointerOver = false;
 		}
 	}
 }
