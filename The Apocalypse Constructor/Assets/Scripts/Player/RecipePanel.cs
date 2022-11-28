@@ -95,7 +95,7 @@ public class RecipePanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 		{
 			StatsInfoHidden(2);
 			//Save the initial stats of tower
-			Combats.Stats stats = tower.caster.initialStats;
+			Combats.Stats stats = tower.caster.InitialStats;
 			craft.towerGUI.descriptionText.text = stash.description;
 			craft.towerGUI.healthText.text = "Health: <b>" + structure.maxHealth + "</b>";
 			craft.towerGUI.damageText.text = "Damage: <b>" + stats.damage + "</b>";

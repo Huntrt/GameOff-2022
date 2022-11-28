@@ -4,7 +4,9 @@ using System;
 
 public class Combat_Caster : MonoBehaviour
 {
-	public Combats.Stats initialStats, growthStats, finalStats;
+	[SerializeField] Combats.Stats initialStats; public Combats.Stats InitialStats {get => initialStats;}
+	[SerializeField] Combats.Stats growthStats; public Combats.Stats GrowthStats {get => growthStats;}
+	public Combats.Stats finalStats;
 
 	[SerializeField] AttackAnimation attackAnimation; [Serializable] class AttackAnimation
 	{
@@ -25,6 +27,7 @@ public class Combat_Caster : MonoBehaviour
 	}
 
 	float countRate;
+
 	void Attacking()
 	{
 		//Counting speed for attack

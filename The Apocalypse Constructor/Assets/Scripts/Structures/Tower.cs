@@ -29,7 +29,7 @@ public class Tower : Structure
 		//When structure level up
 		base.LevelUp();
 		//Getting the tower final stats with it current level
-		caster.finalStats = Combats.GrowingStats(Level, caster.initialStats, caster.growthStats);
+		caster.finalStats = Combats.GrowingStats(Level, caster.InitialStats, caster.GrowthStats);
 	}
 
 	public override void FlipStructure(bool isFlip)

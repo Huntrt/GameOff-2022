@@ -185,7 +185,7 @@ public class PlayerCursor : MonoBehaviour
 		//Center point of range will alway be mouse coordinate
 		Vector2 pos = mouseCoord;
 		//Get the range of tower's initial stats
-		float towerRange = towered.caster.initialStats.range;
+		float towerRange = towered.caster.InitialStats.range;
 		//If aim mode of given tower are direct
 		if(aimed.mode == Combat_Aiming.Mode.Direct)
 		{
