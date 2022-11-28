@@ -128,9 +128,9 @@ MonoBehaviour:
     range: 2
   growthStats:
     DPS: 0
-    damage: 5
+    damage: 1
     rate: 35
-    range: 1
+    range: 0.4
   finalStats:
     DPS: 0
     damage: 0

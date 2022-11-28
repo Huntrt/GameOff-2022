@@ -98,8 +98,8 @@ MonoBehaviour:
     range: 1
   growthStats:
     DPS: 0
-    damage: 20
-    rate: 10
+    damage: 10
+    rate: 5
     range: 2
   finalStats:
     DPS: 0

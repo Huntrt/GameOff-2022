@@ -1,4 +1,5 @@
-﻿▪ Gameover @doing
+﻿✓ Gameover
+	✓ Day survive count
 ▪ Tutorial @next
 ✓ Credits
 
@@ -70,7 +71,7 @@ Gameplay:
 			✓ Home has health like other structure.
 			✓ Display home health onto GUI.
 			✓ Gome over when home destroy
-		✓ Resources:
+		▪ Resources:
 			✓ Wood, Steel & Gunpowder:
 				✓ How to gather
 					✓ Enemy drop
@@ -79,6 +80,7 @@ Gameplay:
 			✓ Energy:
 				✓ Build structure that provide energy to increase max limit.
 				✓ Remove when the structure provide them get destroy.
+			▪ Send an popup warning if out of any resource @doing
 		✓ Inventory:
 			✓ UI:
 				✓ Display at an bottom.

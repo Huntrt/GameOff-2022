@@ -51,7 +51,7 @@ MonoBehaviour:
     type: 3}
   damage: 0
   accuracy: 5
-  length: 7
+  length: 40
   width: 0.025
   piercing: 1
   phasing: 0
@@ -63,6 +63,7 @@ MonoBehaviour:
     end: {r: 0.6, g: 0.24313727, b: 0.6, a: 0}
     expand: 0.075
     fadeCount: 0
+  hitHouse: 0
 --- !u!120 &9044382793086903546
 LineRenderer:
   m_ObjectHideFlags: 0

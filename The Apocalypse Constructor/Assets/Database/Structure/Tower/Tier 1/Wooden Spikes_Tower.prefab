@@ -128,8 +128,8 @@ MonoBehaviour:
     range: 1
   growthStats:
     DPS: 0
-    damage: 35
-    rate: 35
+    damage: 8
+    rate: 8
     range: 0
   finalStats:
     DPS: 0

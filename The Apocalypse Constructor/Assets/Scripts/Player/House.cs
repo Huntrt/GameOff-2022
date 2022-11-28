@@ -6,6 +6,8 @@ public class House : Entity
 {
 	[SerializeField] Image healthBar;
 	[SerializeField] TextMeshProUGUI healthCounter;
+	[SerializeField] GameObject gameOverPanel;
+	[SerializeField] TextMeshProUGUI gameOverTitleText;
 
 	protected override void OnEnable()
 	{
@@ -38,7 +40,9 @@ public class House : Entity
 
 	public override void Die()
 	{
-		//Game are over instead of destroy house
-		print("Game Over");
+		//Set the game over title text display
+		gameOverTitleText.text = "You survive for <color=red><size=40>"+ DaysManager.i.passes+"</color></size> days";
+		//Enable game over panel
+		gameOverPanel.SetActive(true);
 	}
 }
