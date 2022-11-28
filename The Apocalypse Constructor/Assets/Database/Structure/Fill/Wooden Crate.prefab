@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11ab2b0b3c9628945aaf658d906d0a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialMaxHP: 0
-  growthMaxHP: 0
+  initialMaxHP: 50
+  growthMaxHP: 10
   finalMaxHP: 0
   health: 0
   extends:

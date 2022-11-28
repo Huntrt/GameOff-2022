@@ -19,9 +19,13 @@ MonoBehaviour:
   maxStack: 10
   ingredients:
     wood: 0
-    steel: 12
+    steel: 9
     gunpowder: 0
   leftover:
     wood: 50
     steel: 50
+    gunpowder: 0
+  upgrading:
+    wood: 0
+    steel: 5
     gunpowder: 0
