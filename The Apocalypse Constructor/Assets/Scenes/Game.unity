@@ -23772,10 +23772,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2780cb3bf3eb024885ac68cb4ee619a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnRate: 0.25
+  spawnRate: 0.2
   spawns:
   - enemy: {fileID: 11400000, guid: 0c968aa788a30c243a7cef8b55bd1983, type: 2}
-    initialRarity: 650
+    initialRarity: 800
     scaledRarity: 0
     finalRarity: 0
   - enemy: {fileID: 11400000, guid: 21242bf22931502438948669816df3b2, type: 2}
