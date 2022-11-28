@@ -52,7 +52,7 @@ MonoBehaviour:
   despawnEffect: {fileID: 7790490718699626117, guid: 1dc7754816c08254ca6c185929eb4ad5,
     type: 3}
   damage: 0
-  accuracy: 10
+  accuracy: 12
   velocity: 6
   travel: 5
   piercing: 1

@@ -78,24 +78,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a080f35dfeb9544c861582eb6decb9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 14
+  initialMaxHP: 30
+  growthMaxHP: 10
+  finalMaxHP: 0
   health: 0
   extends: []
   flipped: 0
   function: 1
-  stashed:
-    leftovered:
-      wood: 0
-      steel: 0
-      gunpowder: 0
-    occupied: 0
-  stats:
-    DPS: 6.67
-    damage: 8
-    rate: 0.8
-    range: 6
+  stashed: {fileID: 0}
+  level: 0
+  caster: {fileID: 3840433457026231233}
   insufficient: 0
-  depleted: 13
+  depleted: 15
 --- !u!114 &5309010595179667509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,27 +121,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e8f5b79dcc28824d8247ced492dcf6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialStats:
+    DPS: 6.67
+    damage: 8
+    rate: 0.8
+    range: 6
+  growthStats:
+    DPS: 0
+    damage: 13
+    rate: 10
+    range: 7
+  finalStats:
+    DPS: 0
+    damage: 0
+    rate: 0
+    range: 0
+  attackAnimation:
+    animator: {fileID: 0}
+    scaleWindupWithRate: 0
+    allowSlowdown: 0
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
   detected: 0
-  stats:
-    DPS: 0
-    damage: 0
-    rate: 0
-    range: 0
-  growth:
-    DPS: 0
-    damage: 0
-    rate: 0
-    range: 0
   flipped: 0
   strikes: []
   strikePrefab: {fileID: 7526273867490564649, guid: 7fe4bd3b354c8214c9ccf7c1f1bd6254,
     type: 3}
   points:
   - transform: {fileID: 2550115345947532912}
-    delay: 0
+    delay: 0.1
+  - transform: {fileID: 2550115345947532912}
+    delay: 0.1
+  - transform: {fileID: 2550115345947532912}
+    delay: 0.1
+  - transform: {fileID: 2550115345947532912}
+    delay: 0.1
 --- !u!212 &5309010595179667469
 SpriteRenderer:
   m_ObjectHideFlags: 0

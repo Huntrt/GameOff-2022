@@ -14,14 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 1370752946627880266, guid: c6594c37dce454747914960847dc8a96, type: 3}
   icon: {fileID: -6737056491550946398, guid: 1eb491ed1e4dfc14f960b0a8487137d7, type: 3}
-  description: Shoot 5 bullet with inaccurate precision.
+  description: Shoot an pack wooden chunk with inaccurate precision.
   occupation: 1
   maxStack: 3
   ingredients:
-    wood: 24
-    steel: 7
+    wood: 28
+    steel: 10
     gunpowder: 0
   leftover:
     wood: 50
     steel: 50
+    gunpowder: 0
+  upgrading:
+    wood: 13
+    steel: 4
     gunpowder: 0
