@@ -7,11 +7,8 @@ public class DayVisual : MonoBehaviour
 {
     DaysManager days;
 	[SerializeField] Ground ground;
-	[Header("Skybox")]
-	Camera skybox;
-	[SerializeField] float cycleSpeed, cycleDuration; [SerializeField]float cycleTimer;
-	[SerializeField] Color morningColor, nightColor;
 	[Header("Background")]
+	[SerializeField] Animator dayAnimator;
 	[SerializeField] ParticleSystem[] mountains;
 	[SerializeField] Transform clouds;
 	[SerializeField] ParticleSystem stars;
@@ -22,7 +19,6 @@ public class DayVisual : MonoBehaviour
 	void OnEnable()
 	{
 		days = DaysManager.i;
-		skybox = Camera.main;
 		days.onCycle += WhenCycleChange;
 		ground.onExpand += WhenGroundExpand;
 	}
@@ -34,29 +30,10 @@ public class DayVisual : MonoBehaviour
 	
 	void WhenCycleChange(bool night)
 	{
-		//Get the given cycle color
-		Color cycleColor = (night) ? nightColor : morningColor;
-		//Begin transition skybox color toward cycle color
-		StartCoroutine(SkyboxCycle(cycleColor));
+		//Animated day to be the given morning/night cycle
+		dayAnimator.SetBool("To Night", night);
 		//Update the day counter when it morning
 		if(!night) dayCounterText.text = "" + days.passes;
-	}
-
-	IEnumerator SkyboxCycle(Color cycleColor)
-	{
-		//Get current color of skybox
-		Color curColor = skybox.backgroundColor;
-		//Reset the cycle timer
-		cycleTimer -= cycleTimer;
-		//While cycle timer havent reached duration
-		while(cycleTimer <= cycleDuration)
-		{
-			//Counting cycle timer with speed
-			cycleTimer += Time.deltaTime * cycleSpeed;
-			//Lerp skybox color from current color to color will be cycle
-			skybox.backgroundColor = Color.Lerp(curColor, cycleColor, cycleTimer/cycleDuration);
-			yield return null;
-		}
 	}
 
 	void WhenGroundExpand()
