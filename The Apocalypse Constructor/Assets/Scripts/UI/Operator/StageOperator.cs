@@ -42,8 +42,8 @@ public class StageOperator : MonoBehaviour
 
     public void LoadSceneIndex(int i) 
 	{
-		//Unpause if currently pause
-		if(paused) Pausing();
+		//Reset time scale back to 1
+		Time.timeScale = 1;
 		SceneManager.LoadScene(i, LoadSceneMode.Single);
 	}
     public void QuitGame()  {Application.Quit();}
