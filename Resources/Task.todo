@@ -21,7 +21,7 @@ Gameplay:
 		✓ Days
 			✓ Visual changing.
 			✓ Days counter.
-			▪ Skip monring
+			✓ Skip monring
 			▪ Change which percent day reached half. @paused @minimal
 	Player:
 		X Movement.
