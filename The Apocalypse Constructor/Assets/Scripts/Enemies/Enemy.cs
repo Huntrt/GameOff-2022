@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Enemy : Entity
 {
-	public Combats.Stats stats;
+	public Combat_Caster caster;
 
 	void OnValidate() 
 	{
-		//Update stats DPS
-		stats.DPS = (float)System.Math.Round(stats.damage / stats.rateTimer,2);
+		//Get the caster of the tower if needed
+		if(caster == null) caster = GetComponent<Combat_Caster>();
 	}
 
 	protected override void OnEnable()
