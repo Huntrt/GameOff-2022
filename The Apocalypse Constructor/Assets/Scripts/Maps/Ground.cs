@@ -7,6 +7,7 @@ public class Ground : MonoBehaviour
 	public GameObject dirtPrefab, fillerPrefab;
 	public System.Action onExpand;
 	[SerializeField] Transform grouper;
+	[SerializeField] Sprite[] dirtTexture;
 
 	void Start()
 	{
@@ -67,6 +68,8 @@ public class Ground : MonoBehaviour
 		Map.i.onRextend?.Invoke();
 		//Placing the blocked dirt prefab at position just extend
 		GameObject dirt = Map.Placing(dirtPrefab, new Vector2(widthPos, initalSize.y), 3);
+		//Randomize the dirt texture when dirt got create
+		dirt.GetComponent<SpriteRenderer>().sprite = dirtTexture[Random.Range(0, dirtTexture.Length)];
 		//Extend an empty plot above the dirt created
 		Map.ExtendPlot(new Vector2(widthPos, initalSize.y + Map.i.spacing), 0);
 		//Group then rename the dirt created

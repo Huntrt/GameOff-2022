@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -3489798645787528697
-    second: Dirt
+    second: Structure_Dirt1
   - first:
       213: 4374014802658380202
     second: Structure_WoodenCrate
@@ -50,6 +50,15 @@ TextureImporter:
   - first:
       213: 2040344784402361886
     second: Structure_House
+  - first:
+      213: 6810203477654716575
+    second: Structure_Dirt2
+  - first:
+      213: -3965543641560585064
+    second: Structure_Dirt3
+  - first:
+      213: -8360860732729450542
+    second: Structure_Dirt4
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -152,7 +161,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Dirt
+      name: Structure_Dirt1
       rect:
         serializedVersion: 2
         x: 0
@@ -470,7 +479,7 @@ TextureImporter:
       name: Structure_House
       rect:
         serializedVersion: 2
-        x: 525
+        x: 2100
         y: 1750
         width: 500
         height: 500
@@ -483,6 +492,69 @@ TextureImporter:
       bones: []
       spriteID: e1eaf9d65c2c05c10800000000000000
       internalID: 2040344784402361886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_Dirt2
+      rect:
+        serializedVersion: 2
+        x: 525
+        y: 1750
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f904dbd1bf3b28e50800000000000000
+      internalID: 6810203477654716575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_Dirt3
+      rect:
+        serializedVersion: 2
+        x: 1050
+        y: 1750
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89ce87f711f87f8c0800000000000000
+      internalID: -3965543641560585064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Structure_Dirt4
+      rect:
+        serializedVersion: 2
+        x: 1575
+        y: 1750
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2df1629167148fb80800000000000000
+      internalID: -8360860732729450542
       vertices: []
       indices: 
       edges: []
