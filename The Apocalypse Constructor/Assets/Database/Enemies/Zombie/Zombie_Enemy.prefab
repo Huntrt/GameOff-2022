@@ -560,6 +560,10 @@ MonoBehaviour:
   growthMaxHP: 5
   finalMaxHP: 0
   health: 0
+  spawnSound: {fileID: 0}
+  hurtSound: {fileID: 0}
+  healSound: {fileID: 8300000, guid: f6eea9fbe87cdfc4d97bf7e5a06b0030, type: 3}
+  dieSound: {fileID: 0}
   caster: {fileID: 1609576366129146202}
   drops:
     wood: 5
@@ -631,6 +635,7 @@ MonoBehaviour:
     animator: {fileID: 1609576366129146192}
     scaleWindupWithRate: 1
     allowSlowdown: 0
+  attackSound: {fileID: 0}
   combatLayer:
     serializedVersion: 2
     m_Bits: 256
