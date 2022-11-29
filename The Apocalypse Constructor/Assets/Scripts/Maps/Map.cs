@@ -12,8 +12,6 @@ public class Map : MonoBehaviour
 	///List of all the plot has create
 	public List<Plot> plots = new List<Plot>();
 	[SerializeField] GameObject occupyPopup;
-	[SerializeField] AudioClip placingSound;
-	[SerializeField] AudioClip deleteSound;
 	public System.Action onRextend;
 	
 	//Function to make any value take into account of spacing
@@ -160,8 +158,6 @@ public class Map : MonoBehaviour
 			//Plot are now locked by structure
 			plot.occupation = 3;
 		}
-		//Play the sound upon placed an structure
-		SessionOperator.i.audios.soundSource.PlayOneShot(i.placingSound);
 		//Create the given object at given coordinates then return it if need to create any
 		return Instantiate(structure, coordinate, Quaternion.identity);
 	}
@@ -182,8 +178,6 @@ public class Map : MonoBehaviour
 		plot.occupation -= (int)structure.stashed.occupation;
 		//Remove the plot from map list if plot no longer has any extend and it is empty
 		if(plot.extended <= 0 && plot.occupation == 0) plot.Remove(i.plots);
-		//Play the delete sound upon delete an structure
-		SessionOperator.i.audios.soundSource.PlayOneShot(i.deleteSound);
 	}
 
 	void OccupyWarningPopup(string popText)
