@@ -16,6 +16,8 @@ public class DisplayEnemyRange : MonoBehaviour
 
     void OnEnable()
 	{
+		//Dont need to indicate if already does
+		if(indicator != null) return;
 		//@ Choose the indicator base on sighting mode
 		if(aim.mode == Combat_Aiming.Mode.Direct) indicator = EnemiesManager.i.directSightIndicator.transform;
 		else if(aim.mode == Combat_Aiming.Mode.Rotate) indicator = EnemiesManager.i.rotateSightIndicator.transform;
