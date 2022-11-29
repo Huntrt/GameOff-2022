@@ -6,5 +6,5 @@ public class SelfDeactive : MonoBehaviour
 
 	void OnEnable() {CancelInvoke("Activing"); Invoke("Activing", delay);}
 
-    public void Activing() {gameObject.SetActive(false);}
+    public void Deactiving() {gameObject.SetActive(false);}
 }
