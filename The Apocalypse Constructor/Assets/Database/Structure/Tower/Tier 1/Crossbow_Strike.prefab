@@ -54,7 +54,7 @@ MonoBehaviour:
   accuracy: 0
   velocity: 10
   travel: 8
-  piercing: 1
+  piercing: 3
   rb: {fileID: 6952306725455050498}
   col: {fileID: 6952306725455050501}
 --- !u!212 &6952306725455050503
