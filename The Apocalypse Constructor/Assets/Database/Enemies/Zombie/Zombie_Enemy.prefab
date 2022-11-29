@@ -567,7 +567,7 @@ MonoBehaviour:
   caster: {fileID: 1609576366129146202}
   drops:
     wood: 5
-    steel: 0
+    steel: 1
     gunpowder: 0
 --- !u!114 &1609576366129146207
 MonoBehaviour:

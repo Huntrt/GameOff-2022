@@ -302,9 +302,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialStats:
-    DPS: 2.35
+    DPS: 2
     damage: 4
-    rate: 0.6
+    rate: 0.5
     range: 3
   growthStats:
     DPS: 0
