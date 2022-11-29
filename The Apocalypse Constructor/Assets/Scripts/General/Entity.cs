@@ -6,6 +6,7 @@ public class Entity : MonoBehaviour
 	[SerializeField] float growthMaxHP; public float GrowthMaxHP {get => growthMaxHP;}
 	public float finalMaxHP;
 	[SerializeField] float health; public float Health {get => health;}
+	[SerializeField] AudioClip hurtSound, healSound;
 
 	public OnHealth onHurt, onHeal, onDeath;
 
@@ -35,6 +36,8 @@ public class Entity : MonoBehaviour
 		if(health <= 0) {onDeath?.Invoke(amount); Die(); return;}
 		//Call hurt event with damage has take
 		onHurt?.Invoke(amount);
+		//Play the hurt sound when this entity take damage
+		if(hurtSound) SessionOperator.i.audios.soundSource.PlayOneShot(hurtSound);
 	}
 
 	public virtual void Heal(float amount)
@@ -45,6 +48,8 @@ public class Entity : MonoBehaviour
 		onHeal?.Invoke(amount);
 		//Cap health from going beyond final max health
 		health = Mathf.Clamp(health, 0, finalMaxHP);
+		//Play the heal sound when this entity get heal
+		if(healSound) SessionOperator.i.audios.soundSource.PlayOneShot(healSound);
 	}
 
 	public virtual void Die()
