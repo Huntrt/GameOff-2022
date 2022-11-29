@@ -393,8 +393,8 @@ MonoBehaviour:
   finalMaxHP: 0
   health: 0
   spawnSound: {fileID: 0}
-  hurtSound: {fileID: 0}
-  healSound: {fileID: 8300000, guid: f6eea9fbe87cdfc4d97bf7e5a06b0030, type: 3}
+  hurtSound: {fileID: 8300000, guid: f6eea9fbe87cdfc4d97bf7e5a06b0030, type: 3}
+  healSound: {fileID: 0}
   dieSound: {fileID: 0}
   caster: {fileID: 4736416105052245912}
   drops:
