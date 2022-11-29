@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour
 	[SerializeField] Color indicatorDefaultColor, indicatorTrashColor;
 	[SerializeField] TextMeshProUGUI selectNameText;
 	[SerializeField] GameObject nightDisableWarning;
+	[SerializeField] AudioClip trashedSound, craftedSound;
 	public Slot[] slots;
 	Camera cam;
 
@@ -306,6 +307,8 @@ public class Inventory : MonoBehaviour
 			{
 				//Skip if this stash has reached max stack
 				if(slots[s].stack >= slots[s].stashed.maxStack) continue;
+				//Play the crafted sound when crafting addthe given stash
+				SessionOperator.i.audios.soundSource.PlayOneShot(i.craftedSound);
 				//Stack stash then refresh display and successfully add item
 				slots[s].stack++; Refresh(s); return true;
 			}
@@ -318,6 +321,8 @@ public class Inventory : MonoBehaviour
 			{
 				//This stash will be the given stash
 				slots[s].stashed = stashing;
+				//Play the crafted sound when crafting addthe given stash
+				SessionOperator.i.audios.soundSource.PlayOneShot(i.craftedSound);
 				//Stack stash then refresh display and successfully add item
 				slots[s].stack++; Refresh(s); return true;
 			}
@@ -347,6 +352,8 @@ public class Inventory : MonoBehaviour
 		Slot[] slots = i.slots; Slot trashing = slots[slot];
 		//Stop if try to trash nothing
 		if(trashing.stashed == null) return;
+		//Play the trashed sound when inventory remove the item at given slot
+		SessionOperator.i.audios.soundSource.PlayOneShot(i.trashedSound);
 		//Refund the trashed left over of stash if needed
 		if(refund) Refund(trashing.stashed.Leftovering());
 		//Remove the stash stack
