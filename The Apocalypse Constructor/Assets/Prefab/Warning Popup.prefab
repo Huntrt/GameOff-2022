@@ -148,6 +148,7 @@ GameObject:
   - component: {fileID: 6229307343520053462}
   - component: {fileID: 6229307343520053460}
   - component: {fileID: 6229307343520053461}
+  - component: {fileID: -4255764903079692979}
   m_Layer: 5
   m_Name: Warning Popup
   m_TagString: Untagged
@@ -218,7 +219,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &6229307343520053460
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,6 +249,19 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &-4255764903079692979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6229307343520053483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438757b2064b2d74fa4ed02759441639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 0}
 --- !u!1 &6229307343757955967
 GameObject:
   m_ObjectHideFlags: 0
