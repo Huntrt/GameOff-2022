@@ -18,8 +18,8 @@ MonoBehaviour:
   occupation: 3
   maxStack: 10
   ingredients:
-    wood: 8
-    steel: 5
+    wood: 4
+    steel: 2
     gunpowder: 0
   leftover:
     wood: 50
