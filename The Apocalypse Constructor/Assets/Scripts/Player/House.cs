@@ -42,6 +42,8 @@ public class House : Entity
 
 	public override void Die()
 	{
+		//Stop if the game already over
+		if(gameOverPanel.activeInHierarchy) return;
 		//Play the game over sound upon die
 		SessionOperator.i.audios.soundSource.PlayOneShot(gameOverSound);
 		//Play game over particle
