@@ -6,6 +6,7 @@ public class House : Entity
 {
 	[SerializeField] Image healthBar;
 	[SerializeField] TextMeshProUGUI healthCounter;
+	[SerializeField] AudioClip gameOverSound;
 	[SerializeField] GameObject gameOverParticle;
 	[SerializeField] GameObject gameOverPanel;
 	[SerializeField] TextMeshProUGUI gameOverTitleText;
@@ -41,6 +42,8 @@ public class House : Entity
 
 	public override void Die()
 	{
+		//Play the game over sound upon die
+		SessionOperator.i.audios.soundSource.PlayOneShot(gameOverSound);
 		//Play game over particle
 		gameOverParticle.SetActive(true);
 		//Set the game over title text display
