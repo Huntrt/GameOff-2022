@@ -331,7 +331,13 @@ public class Inventory : MonoBehaviour
 		return false;
 	}
 
-	public void TrashSelected() {Trash(selected, true);}
+	public void TrashSelected() 
+	{
+		//Play the trashed sound when inventory remove the item at given slot
+		SessionOperator.i.audios.soundSource.PlayOneShot(i.trashedSound);
+		//Begin trash currently select
+		Trash(selected, true);
+	}
 
 	public void ToggleTrashMode(bool enable) {trashMode = enable; RefreshTrashIndicator();}
 
@@ -352,8 +358,6 @@ public class Inventory : MonoBehaviour
 		Slot[] slots = i.slots; Slot trashing = slots[slot];
 		//Stop if try to trash nothing
 		if(trashing.stashed == null) return;
-		//Play the trashed sound when inventory remove the item at given slot
-		SessionOperator.i.audios.soundSource.PlayOneShot(i.trashedSound);
 		//Refund the trashed left over of stash if needed
 		if(refund) Refund(trashing.stashed.Leftovering());
 		//Remove the stash stack
