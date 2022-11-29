@@ -7,7 +7,7 @@ public class PlayerCursor : MonoBehaviour
 	#endregion
 
 	Camera cam;
-    Vector2 mousePos, mouseCoord, preCoord;
+    [HideInInspector] public Vector2 mousePos, mouseCoord, preCoord;
 	Tower hoverTower; 
 	public Structure[] structureHovered = new Structure[0];
 	public System.Action onHover;
