@@ -5,6 +5,7 @@ public class Combat_Strike_Explode : MonoBehaviour
 {
     [HideInInspector] public Combat_Strike strike;
 	public Explosion hitExplosion, despawnExplosion;
+	[SerializeField] AudioClip explodeSound;
 	[System.Serializable] public class Explosion
 	{	
 		public bool enable;
@@ -32,6 +33,8 @@ public class Combat_Strike_Explode : MonoBehaviour
 
 	void Exploding(Explosion explosion, Vector2 pos)
 	{
+		//Play the exploding sound upon exploding
+		SessionOperator.i.audios.soundSource.PlayOneShot(explodeSound);
 		//Create circle cast at given pos with given explosion radius to hit enemy only
 		RaycastHit2D[] hits = Physics2D.CircleCastAll(pos, explosion.radius/2, Vector2.zero, 0, EnemiesManager.i.enemyLayer);
 		//Go through all the enemy has hit
