@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 6229307343520053460}
   - component: {fileID: 6229307343520053461}
   m_Layer: 5
-  m_Name: Out Of Consume Popup
+  m_Name: Warning Popup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
