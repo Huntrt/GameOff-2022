@@ -5174,9 +5174,9 @@ RectTransform:
   m_Father: {fileID: 865269647}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &249724543
@@ -6464,9 +6464,9 @@ RectTransform:
   m_Father: {fileID: 1047132899}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &329731349
@@ -7606,7 +7606,7 @@ MonoBehaviour:
   finalMaxHP: 0
   health: 0
   spawnSound: {fileID: 0}
-  hurtSound: {fileID: 0}
+  hurtSound: {fileID: 8300000, guid: 2005d6745bb82a74f9d52275650d0c84, type: 3}
   healSound: {fileID: 0}
   dieSound: {fileID: 0}
   healthBar: {fileID: 1135117442}
@@ -28236,6 +28236,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1295052398}
   - component: {fileID: 1295052399}
+  - component: {fileID: 1295052401}
   - component: {fileID: 1295052400}
   m_Layer: 3
   m_Name: Enemies
@@ -28293,7 +28294,7 @@ MonoBehaviour:
   spawnRate: 0.2
   spawns:
   - enemy: {fileID: 11400000, guid: 0c968aa788a30c243a7cef8b55bd1983, type: 2}
-    initialRarity: 1500
+    initialRarity: 2000
     scaledRarity: 0
     finalRarity: 0
   - enemy: {fileID: 11400000, guid: 21242bf22931502438948669816df3b2, type: 2}
@@ -28321,6 +28322,23 @@ MonoBehaviour:
   - {x: 0, y: 0}
   spawnPointInward: 15
   ground: {fileID: 4108844054084674475}
+--- !u!114 &1295052401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295052397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0c0a5abb698897479e0efc17679ac86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  days: {fileID: 1971259838}
+  spawner: {fileID: 1295052400}
+  spawnBoost: 2
+  spawnRateGrowEveryDay: 3
+  spawnRateGrowthFor: 0.1
 --- !u!1 &1298720794
 GameObject:
   m_ObjectHideFlags: 0
@@ -37394,7 +37412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1559715329
@@ -56176,7 +56194,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2081953828}
-  - component: {fileID: 2081953829}
   m_Layer: 3
   m_Name: Manager
   m_TagString: Untagged
@@ -56206,24 +56223,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2081953829
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2081953827}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c24821694f1bb4d4ebf8b3a005b8fa85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  days: {fileID: 1971259838}
-  spawning:
-    spawner: {fileID: 1295052400}
-    spawnBoost: 50
-    spawnRateGrowEveryDay: 3
-    spawnRateGrowthFor: 0.15
 --- !u!1 &2086716090
 GameObject:
   m_ObjectHideFlags: 0

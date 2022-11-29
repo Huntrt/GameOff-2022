@@ -6,7 +6,7 @@ public class EnemiesDifficulties : MonoBehaviour
 {
     [SerializeField] DaysManager days;
 	[SerializeField] EnemiesSpawner spawner;
-	[Tooltip("The bigger the number the rarer enemy could spawn")] [SerializeField] float spawnBoost;
+	[Tooltip("The bigger the number the rarer enemy could spawn (2 = avg")] [SerializeField] float spawnBoost;
 	[SerializeField] float spawnRateGrowEveryDay;
 	[SerializeField] float spawnRateGrowthFor;
 	
