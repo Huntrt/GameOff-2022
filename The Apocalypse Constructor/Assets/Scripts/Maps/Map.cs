@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Map : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Map : MonoBehaviour
 	public float spacing;
 	///List of all the plot has create
 	public List<Plot> plots = new List<Plot>();
+	[SerializeField] GameObject occupyPopup;
 	public System.Action onRextend;
 	
 	//Function to make any value take into account of spacing
@@ -103,7 +105,7 @@ public class Map : MonoBehaviour
 		/// If this plot has been blocked
 		if(plot.occupation == 3) 
 		{
-			Debug.LogWarning("This plot has been block");
+			i.OccupyWarningPopup("This plot has been block");
 			return null;
 		}
 		/// If gonna get occupy by an TOWER
@@ -112,7 +114,7 @@ public class Map : MonoBehaviour
 			//But already occupy by another TOWER
 			if(plot.occupation == 1)
 			{
-				Debug.LogWarning("Cant place another tower on top of one");
+				i.OccupyWarningPopup("Cant place tower on top of one");
 				return null;
 			}
 			//But already occupy by an PLATFORM
@@ -131,7 +133,7 @@ public class Map : MonoBehaviour
 			//But already occupy by another PLATFORM
 			if(plot.occupation == 2)
 			{
-				Debug.LogWarning("Cant place another platform on top of one");
+				i.OccupyWarningPopup("Cant place platform on top of one");
 				return null;
 			}
 			//But already occupy by an TOWER
@@ -176,6 +178,14 @@ public class Map : MonoBehaviour
 		plot.occupation -= (int)structure.stashed.occupation;
 		//Remove the plot from map list if plot no longer has any extend and it is empty
 		if(plot.extended <= 0 && plot.occupation == 0) plot.Remove(i.plots);
+	}
+
+	void OccupyWarningPopup(string popText)
+	{
+		//Pool the occupy popup at mouse coordinate
+		GameObject popUp = Pooler.i.Create(occupyPopup, PlayerCursor.i.mouseCoord, Quaternion.identity);
+		//Set the popup text as popup text has get
+		popUp.GetComponentInChildren<TextMeshProUGUI>().text = popText;
 	}
 	
 	//% Map Grid Gizmo
