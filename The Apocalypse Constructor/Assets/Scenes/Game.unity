@@ -5176,7 +5176,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &249724543
@@ -6466,7 +6466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &329731349
@@ -37414,7 +37414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1559715329
@@ -45220,6 +45220,8 @@ MonoBehaviour:
   indicatorTrashColor: {r: 0.9019608, g: 0.13725486, b: 0.27921695, a: 1}
   selectNameText: {fileID: 1036577470}
   nightDisableWarning: {fileID: 396459279}
+  trashedSound: {fileID: 8300000, guid: 8c1ed0413896fc5448119288770bb34d, type: 3}
+  craftedSound: {fileID: 8300000, guid: 46d0b7af590ed0a47874df2c5c3195b0, type: 3}
   slots:
   - stashed: {fileID: 0}
     stack: 0

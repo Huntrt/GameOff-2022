@@ -16,7 +16,7 @@ public class AudioOperator : MonoBehaviour
 		//Get master volume at given value 
 		masterVolume = value; 
 		//Apply master volume to audio listener
-		AudioListener.volume = masterVolume/100;
+		AudioListener.volume = 1;
 	}
 
 	public void SetSound(float value)
