@@ -53,6 +53,8 @@ public class Tower : Structure
 		}
 		//Show insufficient indicator base on tower's insufficient
 		insufIndicator.SetActive(insufficient);
+		//Set caster's active base on opposite of tower's insufficient
+		caster.enabled = !insufficient;
 	}
 
 	public override void Die()
