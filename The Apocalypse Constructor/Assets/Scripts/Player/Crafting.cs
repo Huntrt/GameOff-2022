@@ -55,12 +55,14 @@ public class Crafting : MonoBehaviour
 	
 	void Update()
 	{
-		//When press open craft key
-		if(Input.GetKeyDown(KeyOperator.i.OpenCraft))
-		{
-			//Toggle craft gui active
-			craftingGUI.SetActive(!craftingGUI.activeInHierarchy);
-		}
+		//When press open craft key toggle the craft gui
+		if(Input.GetKeyDown(KeyOperator.i.OpenCraft)) ToggleGUI();
+	}
+
+	public void ToggleGUI()
+	{
+		//Switch between craft gui active
+		craftingGUI.SetActive(!craftingGUI.activeInHierarchy);
 	}
 
 	void AddPanels()
