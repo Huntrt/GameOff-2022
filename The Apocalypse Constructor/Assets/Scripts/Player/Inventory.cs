@@ -208,6 +208,17 @@ public class Inventory : MonoBehaviour
 			Select(scrollSelect);
 		}
 	}
+	
+	void RefreshSelectIndicator()
+	{
+		//Color that will be choose base on transh mode
+		Color choose = Color.black;
+		//Change select color to trash color if enable trash mode or default if nit
+		if(trashMode) {choose = indicatorTrashColor;} else {choose =  indicatorDefaultColor;}
+		//Overwrite indicator and select name color but not it alpha value
+		selectIndicator.color = new Color(choose.r, choose.g, choose.b, selectIndicator.color.a);
+		selectNameText.color = new Color(choose.r, choose.g, choose.b, selectNameText.color.a);;
+	}
 
 	void Select(int slot, bool refresh = false)
 	{
@@ -257,7 +268,7 @@ public class Inventory : MonoBehaviour
 		//Move indicator to selected slot position
 		selectIndicator.transform.position = slots[selected].iconImage.transform.position;
 		//Refresh transhing mode indicator
-		RefreshTrashIndicator();
+		RefreshSelectIndicator();
 	}
 	
 	public void Use(Vector2 position, bool flip)
@@ -331,25 +342,20 @@ public class Inventory : MonoBehaviour
 		return false;
 	}
 
+	public void ToggleTrashMode(bool enable) 
+	{
+		//Trash mode to be given enable
+		trashMode = enable;
+		//Refresh select indicator for it to show trash
+		RefreshSelectIndicator();
+	}
+
 	public void TrashSelected() 
 	{
 		//Play the trashed sound when inventory remove the item at given slot
 		SessionOperator.i.audios.soundSource.PlayOneShot(i.trashedSound);
 		//Begin trash currently select
 		Trash(selected, true);
-	}
-
-	public void ToggleTrashMode(bool enable) {trashMode = enable; RefreshTrashIndicator();}
-
-	void RefreshTrashIndicator()
-	{
-		//Color that will be choose base on transh mode
-		Color choose = Color.black;
-		//Change select color to trash color if enable trash mode or default if nit
-		if(trashMode) {choose = indicatorTrashColor;} else {choose =  indicatorDefaultColor;}
-		//Overwrite indicator and select name color but not it alpha value
-		selectIndicator.color = new Color(choose.r, choose.g, choose.b, selectIndicator.color.a);
-		selectNameText.color = new Color(choose.r, choose.g, choose.b, selectNameText.color.a);;
 	}
 
 	public static void Trash(int slot, bool refund)
