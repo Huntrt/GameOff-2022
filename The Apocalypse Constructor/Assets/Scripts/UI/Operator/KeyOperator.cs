@@ -19,7 +19,7 @@ public class KeyOperator : MonoBehaviour
 	}
 
 	/// Added key here... ///
-	public KeyCode OpenCraft, UseItem, FlipStructure, OpenDetails, UpgradeStructure, SellStructure, MapGrid;
+	public KeyCode OpenCraft, UseItem, FlipStructure, OpenDetails, UpgradeStructure, SellStructure, MapGrid, SpeedUp;
 	
 	public void StartAssign(KeyAssigner assigner)
 	{
