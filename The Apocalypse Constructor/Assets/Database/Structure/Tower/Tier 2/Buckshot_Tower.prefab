@@ -228,7 +228,7 @@ MonoBehaviour:
     animator: {fileID: 0}
     scaleWindupWithRate: 0
     allowSlowdown: 0
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 2e26f3b8e868a70439533283e9fe5314, type: 3}
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
