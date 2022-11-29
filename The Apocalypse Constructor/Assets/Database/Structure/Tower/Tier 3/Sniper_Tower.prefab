@@ -96,14 +96,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialStats:
-    DPS: 20
+    DPS: 10
     damage: 50
-    rate: 0.4
+    rate: 0.2
     range: 10
   growthStats:
     DPS: 0
     damage: 40
-    rate: 10
+    rate: 5
     range: 25
   finalStats:
     DPS: 0

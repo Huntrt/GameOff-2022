@@ -99,7 +99,7 @@ MonoBehaviour:
     DPS: 8
     damage: 8
     rate: 1
-    range: 7
+    range: 8
   growthStats:
     DPS: 0
     damage: 7

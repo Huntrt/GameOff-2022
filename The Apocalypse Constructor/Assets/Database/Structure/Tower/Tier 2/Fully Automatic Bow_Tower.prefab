@@ -210,8 +210,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialStats:
-    DPS: 5
-    damage: 1
+    DPS: 10
+    damage: 2
     rate: 5
     range: 6
   growthStats:

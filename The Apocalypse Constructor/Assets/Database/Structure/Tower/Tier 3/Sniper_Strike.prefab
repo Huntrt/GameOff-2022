@@ -54,7 +54,7 @@ MonoBehaviour:
   length: 25
   width: 0.05
   piercing: 5
-  phasing: 0
+  phasing: 1
   render: {fileID: 4517096045299343569}
   lineAnimation: {fileID: 0}
   lineConfig:
