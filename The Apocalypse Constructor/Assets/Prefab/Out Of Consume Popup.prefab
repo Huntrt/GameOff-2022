@@ -75,8 +75,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4282852326
+  m_fontColor: {r: 0.9019608, g: 0.13725486, b: 0.27921695, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 6229307343520053460}
   - component: {fileID: 6229307343520053461}
   m_Layer: 5
-  m_Name: Text Popup
+  m_Name: Out Of Consume Popup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -193,8 +193,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 1447316131
-  m_SortingOrder: 20
+  m_SortingLayerID: 799088411
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &6229307343520053462
 MonoBehaviour:

@@ -46,11 +46,25 @@ public class Inventory : MonoBehaviour
 
 		public bool Consume(int wood, int steel, int gunpowder, int energy, bool check = false)
 		{
-			//@ Checking if there still enough material to consume
-			if(this.wood - wood < 0)              {print("Out of Wood"); return false;}
-			if(this.steel - steel < 0)            {print("Out of Steel"); return false;}
-			if(this.gunpowder - gunpowder < 0)    {print("Out of Gunpowder"); return false;}
-			if(this.energy + energy > maxEnergy)  {print("Energy Maxxed"); return false;}
+			//Text that will be display on popup
+			string popText = "Out of";
+			//How many resource are out of
+			int outOf = 0;
+			//@ Checking if out of any of material given to comsume 
+			if(this.wood - wood < 0)              {outOf++; popText += " Wood";}
+			if(this.steel - steel < 0)            {outOf++; popText += " Steel";}
+			if(this.gunpowder - gunpowder < 0)    {outOf++; popText += " Gunpowder";}
+			if(this.energy + energy > maxEnergy)  {outOf++; popText += " Energy";}
+			//If has out of an single material
+			if(outOf > 0)
+			{
+				//Pool the consume popup at mouse coordinate
+				GameObject popUp = Pooler.i.Create(gameGui.consumePopup, PlayerCursor.i.mouseCoord, Quaternion.identity);
+				//Set the popup text as popup text has get
+				popUp.GetComponentInChildren<TextMeshProUGUI>().text = popText;
+				//Fail to cosume
+				return false;
+			}
 			//Dont consume if this just an check
 			if(check) return true;
 			//@ If has enough material then consume them
@@ -78,6 +92,7 @@ public class Inventory : MonoBehaviour
 		
 		public GameGUI gameGui; [System.Serializable] public class GameGUI
 		{
+			public GameObject consumePopup;
 			public TextMeshProUGUI woodAmountText, steelAmountText, gunpowderAmountText, capacityAmountText;
 			public TextMeshProUGUI woodModifierText, steelModifierText, gunpowderModifierText;
 			[SerializeField] Color modifierGainColor, modifierConsumeColor;
