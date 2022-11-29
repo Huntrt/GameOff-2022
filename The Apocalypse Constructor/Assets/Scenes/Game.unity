@@ -5174,9 +5174,9 @@ RectTransform:
   m_Father: {fileID: 865269647}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &249724543
@@ -6464,9 +6464,9 @@ RectTransform:
   m_Father: {fileID: 1047132899}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 250, y: -10}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &329731349
@@ -7605,8 +7605,13 @@ MonoBehaviour:
   growthMaxHP: 0
   finalMaxHP: 0
   health: 0
+  spawnSound: {fileID: 0}
+  hurtSound: {fileID: 0}
+  healSound: {fileID: 0}
+  dieSound: {fileID: 0}
   healthBar: {fileID: 1135117442}
   healthCounter: {fileID: 1847503175}
+  gameOverSound: {fileID: 8300000, guid: 83d11177f0e741541b6df261fdecccbc, type: 3}
   gameOverParticle: {fileID: 8058303261281762850}
   gameOverPanel: {fileID: 4655919}
   gameOverTitleText: {fileID: 662134942}
@@ -20326,6 +20331,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 832834010}
   function: 0
+  upgradeSound: {fileID: 8300000, guid: 821d605a8f1f55d4fa8fee064f7ba612, type: 3}
 --- !u!1 &830942571
 GameObject:
   m_ObjectHideFlags: 0
@@ -26199,6 +26205,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 832834010}
   function: 1
+  upgradeSound: {fileID: 8300000, guid: 821d605a8f1f55d4fa8fee064f7ba612, type: 3}
 --- !u!1 &1117527711
 GameObject:
   m_ObjectHideFlags: 0
@@ -37407,7 +37414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1559715329
@@ -45112,6 +45119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   details: {fileID: 832834010}
   function: 2
+  upgradeSound: {fileID: 8300000, guid: 821d605a8f1f55d4fa8fee064f7ba612, type: 3}
 --- !u!1 &1705175437
 GameObject:
   m_ObjectHideFlags: 0
