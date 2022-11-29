@@ -49,6 +49,10 @@ MonoBehaviour:
   growthMaxHP: 50
   finalMaxHP: 0
   health: 0
+  spawnSound: {fileID: 8300000, guid: daaf1ec7f21e74d409561749c7198084, type: 3}
+  hurtSound: {fileID: 8300000, guid: 2005d6745bb82a74f9d52275650d0c84, type: 3}
+  healSound: {fileID: 0}
+  dieSound: {fileID: 8300000, guid: c74e655e2b507544aaa2fc7c8645929f, type: 3}
   extends:
   - {x: 0, y: 1}
   - {x: 0, y: -1}
