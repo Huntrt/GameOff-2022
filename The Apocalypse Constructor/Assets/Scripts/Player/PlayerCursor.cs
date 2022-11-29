@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class PlayerCursor : MonoBehaviour
 {
+	#region Set this class to singleton
+	public static PlayerCursor i {get{if(_i==null){_i = GameObject.FindObjectOfType<PlayerCursor>();}return _i;}} static PlayerCursor _i;
+	#endregion
+
 	Camera cam;
     Vector2 mousePos, mouseCoord, preCoord;
 	Tower hoverTower; 
