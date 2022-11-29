@@ -82,13 +82,13 @@ public class RecipePanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 		{
 			StatsInfoHidden(0);
 			craft.fillGUI.descriptionText.text = stash.description;
-			craft.fillGUI.healthText.text = "Health:<b> " + structure.finalMaxHP + "</b>";
+			craft.fillGUI.healthText.text = "Health:<b> " + structure.InitialMaxHP + "</b>";
 		}
 		else if(structure.function == Structure.Function.dynamo)
 		{
 			StatsInfoHidden(1);
 			craft.dynamoGUI.descriptionText.text = stash.description;
-			craft.dynamoGUI.healthText.text = "Health:<b> " + structure.finalMaxHP + "</b>";
+			craft.dynamoGUI.healthText.text = "Health:<b> " + structure.InitialMaxHP + "</b>";
 			craft.dynamoGUI.energyText.text = "Energy: <b>+" + dynamo.provide + "</b>";
 		}
 		else if(structure.function == Structure.Function.tower)
@@ -97,7 +97,7 @@ public class RecipePanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 			//Save the initial stats of tower
 			Combats.Stats stats = tower.caster.InitialStats;
 			craft.towerGUI.descriptionText.text = stash.description;
-			craft.towerGUI.healthText.text = "Health: <b>" + structure.finalMaxHP + "</b>";
+			craft.towerGUI.healthText.text = "Health: <b>" + structure.InitialMaxHP + "</b>";
 			craft.towerGUI.damageText.text = "Damage: <b>" + stats.damage + "</b>";
 			craft.towerGUI.rateText.text = "Rate: <b>" +  stats.rateTimer + "s</b>";
 			craft.towerGUI.rangeText.text = "Range: <b>" + stats.range + "</b>";
