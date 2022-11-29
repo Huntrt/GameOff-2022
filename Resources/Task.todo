@@ -18,8 +18,8 @@ Gameplay:
 			✓ Ground are grid base using plots and is automaticly blocked.
 			✓ Upon expand ground will also generate an plots for them.
 			✓ Able to expand ground to each side in realtime.
-			▪ Expend ground as an reward. @paused
-			▪ Randomize ground sprite. @consider
+			▪ Expand ground as an reward. @paused
+			✓ Randomize ground sprite.
 		✓ Days
 			✓ Visual changing.
 			✓ Days counter.
