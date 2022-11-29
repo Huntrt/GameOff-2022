@@ -10,6 +10,7 @@ public class Combat_CasterBarrier : Combat_Caster
 
 	protected override void Attack()
 	{
+		base.Attack();
 		//Reset the amount has repeat
 		repeated -= repeated;
 		//Begin repeating amount gonna strike
