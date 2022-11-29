@@ -7,6 +7,7 @@ public class StructureUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPoin
 	[SerializeField] StructureDetails details;
 	Structure structure;
 	[SerializeField] Structure.Function function;
+	[SerializeField] AudioClip upgradeSound;
 	bool pointerOver;
 
 	void Update()
@@ -37,6 +38,8 @@ public class StructureUpgradeButton : MonoBehaviour, IPointerEnterHandler, IPoin
 			structure.LevelUp();
 			//Refresh the details
 			details.RefreshDetails();
+			//Play the upgrade sound upon placed an upgrade
+			SessionOperator.i.audios.soundSource.PlayOneShot(upgradeSound);
 		}
 	}
 
