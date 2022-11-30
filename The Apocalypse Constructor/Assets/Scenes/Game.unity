@@ -26644,18 +26644,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   structureRecipes:
+  - {fileID: 11400000, guid: 1e79a156c95083940a9f99b20264a530, type: 2}
+  - {fileID: 11400000, guid: 81bc1ec63e6488f44a5820302aa9b255, type: 2}
+  - {fileID: 11400000, guid: 25512993db81bf6448b24d17350582a2, type: 2}
+  - {fileID: 11400000, guid: b1b7826c879cad546949f61084010156, type: 2}
   - {fileID: 11400000, guid: 722ae91127e58d344a4638814043f5f2, type: 2}
   - {fileID: 11400000, guid: edd5eef24dd44dd4fab9d4eee6fe0c90, type: 2}
   - {fileID: 11400000, guid: f7a93f8fe93cc0a4996730a78503bf15, type: 2}
-  - {fileID: 11400000, guid: 1e79a156c95083940a9f99b20264a530, type: 2}
   - {fileID: 11400000, guid: b7922016caea4ed4b9281ca07dbf78ba, type: 2}
   - {fileID: 11400000, guid: 460b84ed46d76c64c931f18ff6599f32, type: 2}
-  - {fileID: 11400000, guid: 81bc1ec63e6488f44a5820302aa9b255, type: 2}
   - {fileID: 11400000, guid: d91e54344e90c4c4a8d5d8b2e143aed5, type: 2}
   - {fileID: 11400000, guid: 8f27abb71278015458b4bd722bbb4ef6, type: 2}
   - {fileID: 11400000, guid: c6b1e1155d032064a9265efee3d25169, type: 2}
-  - {fileID: 11400000, guid: 25512993db81bf6448b24d17350582a2, type: 2}
-  - {fileID: 11400000, guid: b1b7826c879cad546949f61084010156, type: 2}
   towerRecipes:
   - {fileID: 11400000, guid: abbbf23bdfe77914385a7eaf2b5fe855, type: 2}
   - {fileID: 11400000, guid: b37368714d3a09e4e934639d8fce6c18, type: 2}
@@ -26664,6 +26664,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8250e63df8d7fea4bbc458379387acbe, type: 2}
   - {fileID: 11400000, guid: 04dddc3c805c31342ba2aaa6294dd40c, type: 2}
   - {fileID: 11400000, guid: a0b2a1681c9ef7b408efbf94a90c9c69, type: 2}
+  - {fileID: 11400000, guid: a570f77733b68574193ab88d4e14a5fd, type: 2}
   - {fileID: 11400000, guid: ed7ab5a028b5f6e4fbdf07e0cfbc1b9a, type: 2}
   - {fileID: 11400000, guid: 3d2182d70be5a584caed19fff40a7562, type: 2}
   - {fileID: 11400000, guid: 41beb3766202afa4aa19b532e35a2b15, type: 2}
@@ -26674,10 +26675,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7c76d0b96d5859f4bbad7300dcf17bf8, type: 2}
   - {fileID: 11400000, guid: a21e068e0589273429af4cde43be69ed, type: 2}
   - {fileID: 11400000, guid: 1e87cf7d93906d042b1cd1664f4b1e2e, type: 2}
+  - {fileID: 11400000, guid: 705d6cfba4d54d54193b575aef6aef39, type: 2}
   - {fileID: 11400000, guid: 1d9539f70b3cbce4391a2dea475fb162, type: 2}
+  - {fileID: 11400000, guid: 22244d25f2769ae46af15e679843ca7e, type: 2}
   - {fileID: 11400000, guid: 43cc80dba6463774bb2c2bfaabb87dd4, type: 2}
+  - {fileID: 11400000, guid: a5b2938349344aa46b6dd96fbff56317, type: 2}
+  - {fileID: 11400000, guid: f3976e80f8ed67c45a633366c222e05e, type: 2}
   - {fileID: 11400000, guid: 8fd3ab5d77fde4246b6c2e41dfedd8a8, type: 2}
   - {fileID: 11400000, guid: 95c5834de8b97634c81624de233e904e, type: 2}
+  - {fileID: 11400000, guid: 9aa26fb8a29d93641872a16ae7191963, type: 2}
+  - {fileID: 11400000, guid: e39307f2ec9c86e4abb38c746516eae9, type: 2}
   craftingGUI: {fileID: 1043963516}
   recipePanel: {fileID: 8098166822165449138, guid: ca046729364d45e4a914ea1fe1c03b17,
     type: 3}
@@ -28711,26 +28718,32 @@ MonoBehaviour:
     initialRarity: 2000
     scaledRarity: 0
     finalRarity: 0
+    dayAppear: 0
   - enemy: {fileID: 11400000, guid: 21242bf22931502438948669816df3b2, type: 2}
     initialRarity: 300
     scaledRarity: 0
     finalRarity: 0
+    dayAppear: 0
   - enemy: {fileID: 11400000, guid: e33b69f3294fc3c4895400a9881929fd, type: 2}
     initialRarity: 125
     scaledRarity: 0
     finalRarity: 0
+    dayAppear: 0
   - enemy: {fileID: 11400000, guid: ed4a9cafc4434f147a888c3d5816b40b, type: 2}
     initialRarity: 100
     scaledRarity: 0
     finalRarity: 0
+    dayAppear: 0
   - enemy: {fileID: 11400000, guid: c9cacc9c21151dd45923147a05492788, type: 2}
     initialRarity: 70
     scaledRarity: 0
     finalRarity: 0
+    dayAppear: 0
   - enemy: {fileID: 11400000, guid: 0dbc510e05e4e4545a87960028030032, type: 2}
-    initialRarity: 50
+    initialRarity: 10000
     scaledRarity: 0
     finalRarity: 0
+    dayAppear: 2
   spawnPoint:
   - {x: 0, y: 0}
   - {x: 0, y: 0}

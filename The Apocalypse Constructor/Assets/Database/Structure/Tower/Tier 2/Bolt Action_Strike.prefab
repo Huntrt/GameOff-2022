@@ -53,12 +53,12 @@ MonoBehaviour:
   accuracy: 0
   length: 25
   width: 0.025
-  piercing: 5
+  piercing: 1
   phasing: 1
   render: {fileID: 5166839125409418080}
   lineAnimation: {fileID: 0}
   lineConfig:
-    duration: 0.3
+    duration: 0.1
     start: {r: 0.86274517, g: 0.86274517, b: 0.86274517, a: 1}
     end: {r: 0.86274517, g: 0.86274517, b: 0.86274517, a: 0}
     expand: 0.08

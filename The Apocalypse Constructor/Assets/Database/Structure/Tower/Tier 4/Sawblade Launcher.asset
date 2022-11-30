@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sawblade Launcher
   m_EditorClassIdentifier: 
   prefab: {fileID: 720695817930157015, guid: e071713466762de40a2ae45b1cfc3865, type: 3}
-  icon: {fileID: 5539562234298695857, guid: 07291577a018b7a4baa1d1364d22abda, type: 3}
+  icon: {fileID: -6876980903028805048, guid: 3f8c26a581884524fbcaa1939f99f1bd, type: 3}
   description: Fire an slow moving sawblade that deal damage when enemy come to contact
   occupation: 1
   maxStack: 3
