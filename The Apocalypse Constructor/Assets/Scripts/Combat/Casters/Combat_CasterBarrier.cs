@@ -30,8 +30,8 @@ public class Combat_CasterBarrier : Combat_Caster
 	Vector2 GetBarrierLength()
 	{
 		//Randomize from the top to bottom of barrier scale height
-		float length = Random.Range(-barrier.localScale.y,barrier.localScale.y)/6;
-		//Get position inside barrier with length has randomize
+		float length = Random.Range(-barrier.localScale.y, barrier.localScale.y);
+		//Get position upward from barrier with length has randomize
 		return barrier.TransformPoint(Vector2.up * length);
 	}
 }
