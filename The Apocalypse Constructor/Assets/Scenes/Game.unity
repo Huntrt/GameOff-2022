@@ -45608,11 +45608,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materials:
-    wood: 100
-    steel: 15
-    gunpowder: 5
+    wood: 10000
+    steel: 15000
+    gunpowder: 50000
     energy: 0
-    maxEnergy: 10
+    maxEnergy: 1000
     gameGui:
       consumePopup: {fileID: 6229307343520053483, guid: 1c76cc43619eae3499bbe6339aebfae0,
         type: 3}

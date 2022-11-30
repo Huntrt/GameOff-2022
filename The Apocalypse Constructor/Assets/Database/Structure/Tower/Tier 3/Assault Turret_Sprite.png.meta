@@ -118,10 +118,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 550
+        width: 630
         height: 500
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.435, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -137,7 +137,7 @@ TextureImporter:
       name: Tower_AssaultTurret_Foundation
       rect:
         serializedVersion: 2
-        x: 636
+        x: 736
         y: 0
         width: 277
         height: 266
@@ -158,12 +158,12 @@ TextureImporter:
       name: Tower_AssaultTurret_Shooter
       rect:
         serializedVersion: 2
-        x: 1099
-        y: 164
-        width: 552
-        height: 197
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1119
+        y: 104
+        width: 631
+        height: 257
+      alignment: 9
+      pivot: {x: 0.435, y: 0.565}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
