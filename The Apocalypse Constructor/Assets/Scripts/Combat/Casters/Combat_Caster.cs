@@ -15,6 +15,7 @@ public class Combat_Caster : MonoBehaviour
 		public bool allowSlowdown;
 	}
 	[SerializeField] AudioClip attackSound;
+	[Tooltip("Player each strike instead of single attack")] [SerializeField] bool soundOnStrike;
 	public LayerMask combatLayer;
 	public bool detected;
 	public Action onStrike;
@@ -61,12 +62,14 @@ public class Combat_Caster : MonoBehaviour
 
 	protected virtual void Attack() 
 	{
-		//Player the caster's attack sound if needed
-		if(attackSound != null) SessionOperator.i.audios.soundSource.PlayOneShot(attackSound);
+		//Player the caster's attack sound if needed and strike not playing sound
+		if(attackSound != null && !soundOnStrike) SessionOperator.i.audios.soundSource.PlayOneShot(attackSound);
 	}
 
 	protected virtual Combat_Strike Striking(GameObject strikeObj, Vector2 pos, Quaternion rot)
 	{
+		//Play attack sound when strike if wanted
+		if(soundOnStrike) SessionOperator.i.audios.soundSource.PlayOneShot(attackSound);
 		//Call on strike when create one
 		onStrike?.Invoke();
 		//Go through all the strike has cache

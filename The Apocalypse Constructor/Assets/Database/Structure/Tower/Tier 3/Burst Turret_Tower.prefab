@@ -115,6 +115,7 @@ MonoBehaviour:
     scaleWindupWithRate: 0
     allowSlowdown: 0
   attackSound: {fileID: 8300000, guid: b8f643c1b0f0cad4a9b4523f3176a565, type: 3}
+  soundOnStrike: 1
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
