@@ -257,8 +257,9 @@ Settings:
 			✓ Flip Structure
 			✓ Structure Details
 			✓ Sell Structure
-			▪ Upgrade Structure @paused
+			✓ Upgrade Structure
 			✓ Map Grid Toggle
+			✓ Speed Uo
 
 Bugs:
 	✓ 2022 Nov 17: Projectile bounce off when piercing enemy. @caution
@@ -269,7 +270,7 @@ Bugs:
 	▪ 2022 Nov 20: When shooter invert it fire point wont invert along @minimal
 		> Just get distance between shooter and it firepoint 
 		> Decrease the distace has get onto firepoint Y position when inverted
-	▪ 2022 Nov 30: Direct aim wont work with enemy that utilize firepoint rotation.
+	▪ 2022 Nov 30: Direct aim wont work with enemy that utilize firepoint rotation. @minimal
 		> Flip the firepoint X roation to 180 when enemy is flip 
 
 Cleanup:
