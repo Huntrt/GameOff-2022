@@ -5177,7 +5177,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &249724543
@@ -6467,7 +6467,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &329731349
@@ -28740,7 +28740,7 @@ MonoBehaviour:
     finalRarity: 0
     dayAppear: 6
   - enemy: {fileID: 11400000, guid: b604da1078c9ed442a9917600f782f1d, type: 2}
-    initialRarity: 70
+    initialRarity: 140
     scaledRarity: 0
     finalRarity: 0
     dayAppear: 7
@@ -37844,7 +37844,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 250, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1559715329
