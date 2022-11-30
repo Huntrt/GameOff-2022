@@ -28723,27 +28723,27 @@ MonoBehaviour:
     initialRarity: 300
     scaledRarity: 0
     finalRarity: 0
-    dayAppear: 0
+    dayAppear: 3
   - enemy: {fileID: 11400000, guid: e33b69f3294fc3c4895400a9881929fd, type: 2}
     initialRarity: 125
     scaledRarity: 0
     finalRarity: 0
-    dayAppear: 0
-  - enemy: {fileID: 11400000, guid: ed4a9cafc4434f147a888c3d5816b40b, type: 2}
-    initialRarity: 100
-    scaledRarity: 0
-    finalRarity: 0
-    dayAppear: 0
+    dayAppear: 5
   - enemy: {fileID: 11400000, guid: c9cacc9c21151dd45923147a05492788, type: 2}
     initialRarity: 70
     scaledRarity: 0
     finalRarity: 0
-    dayAppear: 0
-  - enemy: {fileID: 11400000, guid: 0dbc510e05e4e4545a87960028030032, type: 2}
-    initialRarity: 10000
+    dayAppear: 5
+  - enemy: {fileID: 11400000, guid: ed4a9cafc4434f147a888c3d5816b40b, type: 2}
+    initialRarity: 100
     scaledRarity: 0
     finalRarity: 0
-    dayAppear: 2
+    dayAppear: 6
+  - enemy: {fileID: 11400000, guid: 0dbc510e05e4e4545a87960028030032, type: 2}
+    initialRarity: 40
+    scaledRarity: 0
+    finalRarity: 0
+    dayAppear: 10
   spawnPoint:
   - {x: 0, y: 0}
   - {x: 0, y: 0}

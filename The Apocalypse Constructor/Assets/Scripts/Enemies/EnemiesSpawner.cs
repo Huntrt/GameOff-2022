@@ -9,8 +9,10 @@ public class EnemiesSpawner : MonoBehaviour
 	{
 		public EnemySpawn enemy;
 		public float initialRarity;
-		public float scaledRarity;
-		public float finalRarity;
+		[HideInInspector] public float scaledRarity;
+		[HideInInspector] public float finalRarity;
+		public int dayAppear; 
+		public bool allowToAppear {get {return DaysManager.i.passes >= dayAppear;}}
 	}
     [SerializeField] Vector2[] spawnPoint = new Vector2[2];
 	[SerializeField] float spawnPointInward;
@@ -48,12 +50,20 @@ public class EnemiesSpawner : MonoBehaviour
 		//Choose wich spawn point will be use
 		Vector2 pos = spawnPoint[Random.Range(0,2)];
 		//Get the sum amount all spawn final rarity
-		float sum = 0; for (int s = 0; s < spawns.Length; s++) sum += spawns[s].finalRarity;
+		float sum = 0; for (int s = 0; s < spawns.Length; s++)
+		{
+			//If this enemy haven't able to appear yet then skip if
+			if(!spawns[s].allowToAppear) continue;
+			//Sum of final rarity has been increase
+			sum += spawns[s].finalRarity;
+		}
 		//Randomize inside the sum
 		sum = Random.Range(0, sum);
 		//Go through all the enemy could spawn
 		for (int s = 0; s < spawns.Length; s++)
 		{
+			//If this enemy haven't able to appear yet then skip if
+			if(!spawns[s].allowToAppear) continue;
 			//If this enemy final rarity take all the sum
 			if(sum - spawns[s].finalRarity <= 0)
 			{
