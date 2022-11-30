@@ -115,6 +115,7 @@ MonoBehaviour:
     scaleWindupWithRate: 0
     allowSlowdown: 0
   attackSound: {fileID: 8300000, guid: 3a83af0bdb9efd544ba5f113f5bbf7d2, type: 3}
+  soundOnStrike: 0
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -234,7 +235,7 @@ Transform:
   m_GameObject: {fileID: 4527175998608428108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.435, y: -0.002, z: 0}
-  m_LocalScale: {x: 0, y: 0.45, z: 1}
+  m_LocalScale: {x: 1, y: 0.2, z: 1}
   m_Children: []
   m_Father: {fileID: 4527175999257114527}
   m_RootOrder: 0
