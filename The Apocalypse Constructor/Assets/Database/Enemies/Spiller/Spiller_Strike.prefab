@@ -50,7 +50,7 @@ MonoBehaviour:
   hitEffect: {fileID: 73467278545954237, guid: 0bc795e48a9ecef409f26be6a0c72115, type: 3}
   despawnEffect: {fileID: 0}
   damage: 0
-  accuracy: 0
+  accuracy: 10
   velocity: 4
   travel: 3
   piercing: 1

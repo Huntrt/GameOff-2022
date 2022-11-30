@@ -43,11 +43,11 @@ Gameplay:
 				✓ Health
 					✓ Show hover structure healthbar over.
 					▪ Toggle to show all structure healthbar. @paused @caution
-			▪ Structure Preview:
+			✓ Structure Preview:
 				✓ Show the structure currently select.
 				✓ Show tower range when preview.
-				▪ Change transparency when able to build at preview. @consider
-				▪ Change preview state depend on occupian and what currently previewing. @consider
+				X Change transparency when able to build at preview. @consider
+				X Change preview state depend on occupian and what currently previewing. @consider
 			✓ Structure Details:
 			    ✓ Open when press over an tower
 				✓ Close when press out of tower.
@@ -71,7 +71,7 @@ Gameplay:
 			✓ Home has health like other structure.
 			✓ Display home health onto GUI.
 			✓ Gome over when home destroy
-		▪ Resources:
+		✓ Resources:
 			✓ Wood, Steel & Gunpowder:
 				✓ How to gather
 					✓ Enemy drop
@@ -80,7 +80,7 @@ Gameplay:
 			✓ Energy:
 				✓ Build structure that provide energy to increase max limit.
 				✓ Remove when the structure provide them get destroy.
-			▪ Send an popup warning if out of any resource @doing
+			✓ Send an popup warning if out of any resource
 		✓ Inventory:
 			✓ UI:
 				✓ Display at an bottom.
@@ -212,18 +212,18 @@ Gameplay:
 		✓ Sight:
 			✓ Detect target using raycast?
 			✓ Begin attack if any structure in sight.
-		▪ Special: @consider
-			▪ Stealth - Only able to aim it when it attack (change enemy layer to stealth?).
-			▪ Stretcher - Travel using hook-like movement. @consider
+		X Special: @consider
+			X Stealth - Only able to aim it when it attack (change enemy layer to stealth?).
+			X Stretcher - Travel using hook-like movement. @consider
 	Combat:
 		✓ Find an way to send stats between caster and strike it create.
 			✓ a. Each caster will now has an mini object pooling of all the strike it created
 			X b. Just get component when strike
-		▪ Caster
+		✓ Caster
 			✓ Core - Core function or every tower caster.
 			✓ Points - An list of position, rotation and delay between them to strike using them.
 			✓ Barrier - Randomly choose position from inside an length of box.
-			▪ Remains - Strike when it die.
+			X Remains - Strike when it die. @paused
 			X Laser - Create an line toward X amount of enemy in range to directly damage.
 			X Shotgun - Create an an list of random rotation and randomly alter the strike velocity. @consider
 			X Pattern - Generate an list of poisition with spacing and cone rotation. @consider
@@ -269,6 +269,8 @@ Bugs:
 	▪ 2022 Nov 20: When shooter invert it fire point wont invert along @minimal
 		> Just get distance between shooter and it firepoint 
 		> Decrease the distace has get onto firepoint Y position when inverted
+	▪ 2022 Nov 30: Direct aim wont work with enemy that utilize firepoint rotation.
+		> Flip the firepoint X roation to 180 when enemy is flip 
 
 Cleanup:
 	Player cursor are extremly messy

@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   caster: {fileID: 8613122242340790911}
-  mode: 0
+  mode: 1
   direction: {x: 1, y: 0}
   rotationAnchor: {fileID: 7875825328490585585}
   rotateSpeed: 0
@@ -482,9 +482,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialStats:
-    DPS: 16.67
-    damage: 5
-    rate: 3
+    DPS: 30
+    damage: 3
+    rate: 9
     range: 2
   growthStats:
     DPS: 0
