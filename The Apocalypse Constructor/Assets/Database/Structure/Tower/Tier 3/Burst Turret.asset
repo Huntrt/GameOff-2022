@@ -10,22 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
-  m_Name: Bolt Action
+  m_Name: Burst Turret
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1437096351173715251, guid: a4ea8c379c647bc48ad8b03e3ecc0e76, type: 3}
-  icon: {fileID: -1550427787460161600, guid: 9a538ba47df4cb14dbb2220d822bbe2f, type: 3}
-  description: Rapidly shoot 3 fast moving bullet then reloading.
+  prefab: {fileID: 7618654013583574096, guid: df6a8a8358f4d89478855d832ffb3c3d, type: 3}
+  icon: {fileID: 2885062734728556271, guid: 36d53fe1b1c4e0a4c97b0f10e8942bab, type: 3}
+  description: Shoot regular bullet in an burst of 3.
   occupation: 1
   maxStack: 3
   ingredients:
-    wood: 18
-    steel: 11
-    gunpowder: 4
+    wood: 0
+    steel: 35
+    gunpowder: 20
   leftover:
-    wood: 50
-    steel: 40
-    gunpowder: 100
+    wood: 0
+    steel: 50
+    gunpowder: 10
   upgrading:
-    wood: 7
-    steel: 5
-    gunpowder: 1
+    wood: 0
+    steel: 17
+    gunpowder: 9

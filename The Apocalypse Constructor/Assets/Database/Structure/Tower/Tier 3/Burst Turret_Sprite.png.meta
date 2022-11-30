@@ -1,7 +1,16 @@
 fileFormatVersion: 2
 guid: 36d53fe1b1c4e0a4c97b0f10e8942bab
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 2885062734728556271
+    second: Tower_Burst Turret_Full
+  - first:
+      213: -9095698573288559204
+    second: Tower_Burst Turret_Foundation
+  - first:
+      213: 6140574209578602981
+    second: Tower_Burst Turret_Shooter
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -102,7 +111,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Tower_Burst Turret_Full
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 660
+        height: 500
+      alignment: 9
+      pivot: {x: 0.35, y: 0.525}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fee6632854dc90820800000000000000
+      internalID: 2885062734728556271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tower_Burst Turret_Foundation
+      rect:
+        serializedVersion: 2
+        x: 893
+        y: 0
+        width: 283
+        height: 265
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9dab13b65695c180800000000000000
+      internalID: -9095698573288559204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tower_Burst Turret_Shooter
+      rect:
+        serializedVersion: 2
+        x: 1592
+        y: 142
+        width: 658
+        height: 245
+      alignment: 9
+      pivot: {x: 0.35, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e19bde95b3b73550800000000000000
+      internalID: 6140574209578602981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
