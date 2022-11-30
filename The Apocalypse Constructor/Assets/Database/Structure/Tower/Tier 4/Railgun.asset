@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
+  m_Name: Railgun
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1964275131655911663, guid: 37377f8ad1d662d45b80af1565ec5efd, type: 3}
+  icon: {fileID: 3824370779738315176, guid: 9b8d9b12d4e11f14ab453b5459aaed7f, type: 3}
+  description: 
+  occupation: 1
+  maxStack: 3
+  ingredients:
+    wood: 0
+    steel: 60
+    gunpowder: 50
+  leftover:
+    wood: 0
+    steel: 0
+    gunpowder: 0
+  upgrading:
+    wood: 0
+    steel: 20
+    gunpowder: 16
