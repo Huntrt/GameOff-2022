@@ -28739,6 +28739,11 @@ MonoBehaviour:
     scaledRarity: 0
     finalRarity: 0
     dayAppear: 6
+  - enemy: {fileID: 11400000, guid: b604da1078c9ed442a9917600f782f1d, type: 2}
+    initialRarity: 70
+    scaledRarity: 0
+    finalRarity: 0
+    dayAppear: 7
   - enemy: {fileID: 11400000, guid: 0dbc510e05e4e4545a87960028030032, type: 2}
     initialRarity: 40
     scaledRarity: 0
