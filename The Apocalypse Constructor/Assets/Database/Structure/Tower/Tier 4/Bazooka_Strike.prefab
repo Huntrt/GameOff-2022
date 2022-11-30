@@ -80,6 +80,7 @@ MonoBehaviour:
     enable: 0
     damageScaling: 0
     radius: 0
+  explodeSound: {fileID: 8300000, guid: a0c404a8f9b0ea5498a7ab7ec5d9fe75, type: 3}
 --- !u!212 &3919956591068735320
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -170,7 +171,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.5041231, y: 0.078}
+    oldSize: {x: 0.504, y: 0.07806093}
     newSize: {x: 0.54013187, y: 0.21000001}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

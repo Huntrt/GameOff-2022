@@ -80,6 +80,7 @@ MonoBehaviour:
     enable: 0
     damageScaling: 0
     radius: 0
+  explodeSound: {fileID: 8300000, guid: b8f643c1b0f0cad4a9b4523f3176a565, type: 3}
 --- !u!212 &8297490328766879704
 SpriteRenderer:
   m_ObjectHideFlags: 0
