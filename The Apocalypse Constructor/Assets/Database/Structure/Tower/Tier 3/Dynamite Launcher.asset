@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
+  m_Name: Dynamite Launcher
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 5986748309816168531, guid: 0a24db048c5b20a4dbebec17b413fd76, type: 3}
+  icon: {fileID: -6326776152153037293, guid: 3c4754a4bb774da4d91e3bf895a33402, type: 3}
+  description: Shoot 3 explosive dynamite
+  occupation: 1
+  maxStack: 3
+  ingredients:
+    wood: 5
+    steel: 20
+    gunpowder: 40
+  leftover:
+    wood: 0
+    steel: 0
+    gunpowder: 0
+  upgrading:
+    wood: 2
+    steel: 8
+    gunpowder: 18
