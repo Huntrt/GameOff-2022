@@ -63,7 +63,7 @@ MonoBehaviour:
   level: 0
   caster: {fileID: 850133118090370421}
   insufficient: 0
-  depleted: 32
+  depleted: 35
 --- !u!114 &7618654013583574103
 MonoBehaviour:
   m_ObjectHideFlags: 0
