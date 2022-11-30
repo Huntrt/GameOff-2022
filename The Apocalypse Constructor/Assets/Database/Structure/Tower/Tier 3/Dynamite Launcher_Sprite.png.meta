@@ -1,7 +1,16 @@
 fileFormatVersion: 2
 guid: 3c4754a4bb774da4d91e3bf895a33402
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -6326776152153037293
+    second: Tower_Dynamite Launcher_Full
+  - first:
+      213: -4524713503238133810
+    second: Tower_Dynamite Launcher_Foundation
+  - first:
+      213: -7298839132278352955
+    second: Tower_Dynamite Launcher_Shooter
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -41,12 +50,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1000
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -102,7 +111,70 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Tower_Dynamite Launcher_Full
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 446
+        height: 500
+      alignment: 9
+      pivot: {x: 0.335, y: 0.6}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 316618d3c96c238a0800000000000000
+      internalID: -6326776152153037293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tower_Dynamite Launcher_Foundation
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 0
+        width: 184
+        height: 301
+      alignment: 9
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec7e311ba0df431c0800000000000000
+      internalID: -4524713503238133810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tower_Dynamite Launcher_Shooter
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 179
+        width: 447
+        height: 229
+      alignment: 9
+      pivot: {x: 0.35, y: 0.53}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c314d7ea7055ba90800000000000000
+      internalID: -7298839132278352955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
