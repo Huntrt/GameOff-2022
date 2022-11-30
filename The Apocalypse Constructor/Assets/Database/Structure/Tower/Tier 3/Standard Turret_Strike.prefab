@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   caster: {fileID: 0}
-  hitEffect: {fileID: 6787835767209436302, guid: 0a2b498b179e09c44a6f1cd6a234512b,
+  hitEffect: {fileID: 5223668451825432699, guid: 2963c2e49ad238d4d83407066eec79d8,
     type: 3}
   despawnEffect: {fileID: 6787835767209436302, guid: 0a2b498b179e09c44a6f1cd6a234512b,
     type: 3}
