@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -6876980903028805048
-    second: Tower_Sawblade Laucher_Full
+    second: Tower_Sawblade Launcher_Full
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -107,7 +107,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tower_Sawblade Laucher_Full
+      name: Tower_Sawblade Launcher_Full
       rect:
         serializedVersion: 2
         x: 0

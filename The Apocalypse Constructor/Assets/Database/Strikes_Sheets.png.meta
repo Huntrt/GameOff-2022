@@ -26,6 +26,9 @@ TextureImporter:
   - first:
       213: 6040280092692889578
     second: Strike_Rocket
+  - first:
+      213: 5539562234298695857
+    second: Strikes_Sawblade
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -270,6 +273,27 @@ TextureImporter:
       bones: []
       spriteID: aefb2d4ddb263d350800000000000000
       internalID: 6040280092692889578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Strikes_Sawblade
+      rect:
+        serializedVersion: 2
+        x: 4300
+        y: 0
+        width: 500
+        height: 500
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1b00b82908a70ec40800000000000000
+      internalID: 5539562234298695857
       vertices: []
       indices: 
       edges: []

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 743673b4d8f87e142b9438a134b0c6d6, type: 3}
+  m_Name: Sawblade Launcher
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 720695817930157015, guid: e071713466762de40a2ae45b1cfc3865, type: 3}
+  icon: {fileID: 5539562234298695857, guid: 07291577a018b7a4baa1d1364d22abda, type: 3}
+  description: Fire an slow moving sawblade that deal damage when enemy come to contact
+  occupation: 1
+  maxStack: 3
+  ingredients:
+    wood: 0
+    steel: 100
+    gunpowder: 20
+  leftover:
+    wood: 0
+    steel: 0
+    gunpowder: 0
+  upgrading:
+    wood: 0
+    steel: 35
+    gunpowder: 10
