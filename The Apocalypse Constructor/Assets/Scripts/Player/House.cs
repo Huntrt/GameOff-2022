@@ -44,6 +44,8 @@ public class House : Entity
 	{
 		//Stop if the game already over
 		if(gameOverPanel.activeInHierarchy) return;
+		//Disable enemy spawner upon game over
+		EnemiesManager.i.GetComponent<EnemiesSpawner>().enabled = false;
 		//Play the game over sound upon die
 		SessionOperator.i.audios.soundSource.PlayOneShot(gameOverSound);
 		//Play game over particle
