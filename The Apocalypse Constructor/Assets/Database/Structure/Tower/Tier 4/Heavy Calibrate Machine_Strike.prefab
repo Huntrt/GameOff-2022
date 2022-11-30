@@ -59,8 +59,8 @@ MonoBehaviour:
   lineAnimation: {fileID: 0}
   lineConfig:
     duration: 0.25
-    start: {r: 0.6, g: 0.24313727, b: 0.6, a: 1}
-    end: {r: 0.6, g: 0.24313727, b: 0.6, a: 0}
+    start: {r: 0.86274517, g: 0.86274517, b: 0.86274517, a: 1}
+    end: {r: 0.86274517, g: 0.86274517, b: 0.86274517, a: 1}
     expand: 0.075
     fadeCount: 0
   hitHouse: 0
@@ -127,8 +127,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.6, g: 0.24313727, b: 0.6, a: 1}
-      key1: {r: 0.6, g: 0.24313727, b: 0.6, a: 1}
+      key0: {r: 0.86274517, g: 0.86274517, b: 0.86274517, a: 1}
+      key1: {r: 0.86274517, g: 0.86274517, b: 0.86274517, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
