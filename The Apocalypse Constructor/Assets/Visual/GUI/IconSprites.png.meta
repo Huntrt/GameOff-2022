@@ -20,6 +20,24 @@ TextureImporter:
   - first:
       213: -5998405588025577769
     second: Icon_Hammer
+  - first:
+      213: -4369058322580361244
+    second: Icon_Sword
+  - first:
+      213: -1289489306310150869
+    second: Icon_Rate
+  - first:
+      213: -9002040300837483429
+    second: Icon_Range
+  - first:
+      213: -8555839267898322859
+    second: Icon_Aim
+  - first:
+      213: -888734995715953369
+    second: Icon_Depleted
+  - first:
+      213: -2379268057769947603
+    second: Icon_Health
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -126,7 +144,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 400
         width: 400
         height: 400
       alignment: 0
@@ -147,7 +165,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 400
-        y: 0
+        y: 400
         width: 400
         height: 400
       alignment: 0
@@ -168,7 +186,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 800
-        y: 0
+        y: 400
         width: 400
         height: 400
       alignment: 0
@@ -189,7 +207,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1200
-        y: 0
+        y: 400
         width: 400
         height: 400
       alignment: 0
@@ -210,7 +228,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1600
-        y: 0
+        y: 400
         width: 400
         height: 400
       alignment: 0
@@ -231,6 +249,27 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2000
+        y: 400
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7de640b06e161cca0800000000000000
+      internalID: -5998405588025577769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Sword
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 0
         width: 400
         height: 400
@@ -241,8 +280,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7de640b06e161cca0800000000000000
-      internalID: -5998405588025577769
+      spriteID: 4ef22a79a9cfd53c0800000000000000
+      internalID: -4369058322580361244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Rate
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b25f7b3de40da1ee0800000000000000
+      internalID: -1289489306310150869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Range
+      rect:
+        serializedVersion: 2
+        x: 800
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5cc4de8a04521380800000000000000
+      internalID: -9002040300837483429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Aim
+      rect:
+        serializedVersion: 2
+        x: 1200
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5501591448d834980800000000000000
+      internalID: -8555839267898322859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Depleted
+      rect:
+        serializedVersion: 2
+        x: 1600
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72d64e8ea349aa3f0800000000000000
+      internalID: -888734995715953369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Icon_Health
+      rect:
+        serializedVersion: 2
+        x: 2000
+        y: 0
+        width: 400
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2e403fae442bfed0800000000000000
+      internalID: -2379268057769947603
       vertices: []
       indices: 
       edges: []

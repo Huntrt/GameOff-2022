@@ -1,6 +1,6 @@
 ﻿✓ Gameover
 	✓ Day survive count
-▪ Tutorial @next
+✓ Tutorial
 ✓ Credits
 
 Gameplay:
@@ -249,6 +249,7 @@ Settings:
 			▪ Trying modify the value "Refrence Solution" inside canvas scaler.
 	▪ Controls:
 		▪ Invert scrolling @paused
+		X Modify scrolling speed
 		✓ Keybinds:
 			✓ Craft open
 			X Trash mode
@@ -277,6 +278,8 @@ Bugs:
 		> Rare since enemy need to be exact position in order to work.
 		> Fix are easy just created an counter to check how many time has explode then reset it.
 		> Nvm it cause by when piercing over but it dont return
+	▪ 2022 Nov 1: Speed up keybind will ignore game pause @minimal
+		> Flip the firepoint X roation to 180 when enemy is flip
 
 Cleanup:
 	Player cursor are extremly messy
