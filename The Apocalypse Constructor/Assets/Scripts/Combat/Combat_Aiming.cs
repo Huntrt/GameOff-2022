@@ -65,7 +65,7 @@ public class Combat_Aiming : MonoBehaviour
 			rotationAnchor.right = (detect.transform.position - transform.position).normalized;
 			//Check does detected enemy are from behind of enemy to be aim backward or not
 			bool aimBackward = detect.transform.position.x < transform.position.x;
-			//Flip the caster to base on aim backward only once
+			//Invert the caster if haven't flip to be aiming backward
 			if(caster.Inverted != aimBackward) caster.InvertingCaster(aimBackward);
 			//Flip the shooter render sprite Y if aim backward 
 			if(shooterRender != null) shooterRender.flipY = aimBackward;

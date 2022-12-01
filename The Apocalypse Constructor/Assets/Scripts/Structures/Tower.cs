@@ -41,6 +41,8 @@ public class Tower : Structure
 		Combat_Aiming aiming = GetComponent<Combat_Aiming>();
 		//Flip the aiming shooter sprite like tower if it exist
 		if(aiming.shooterRender != null) aiming.shooterRender.flipY = isFlip;
+		//Invert caster like flip but ONLY ADJUST FIREPOINT if not flip
+		aiming.caster.InvertingCaster(isFlip, !isFlip);
 	}
 
 	public void RefreshInsufficient()

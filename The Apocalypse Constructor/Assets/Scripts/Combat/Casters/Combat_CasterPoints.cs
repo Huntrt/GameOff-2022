@@ -12,11 +12,11 @@ public class Combat_CasterPoints : Combat_Caster
 	}
 	int repeated;
 
-	public override void InvertingCaster(bool isInvert)
+	public override void InvertingCaster(bool isInvert, bool dontAdjustPoint = false)
 	{
 		base.InvertingCaster(isInvert);
-		//Ggo through all the point when get invert
-		for (int p = 0; p < points.Length; p++)
+		//Go through all the point when get invert ONLY WHEN NEEDED
+		if(!dontAdjustPoint) for (int p = 0; p < points.Length; p++)
 		{
 			//Skip if this point dont need adjust
 			if(points[p].disableAdjust) continue;

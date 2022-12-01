@@ -283,3 +283,7 @@ Bugs:
 
 Cleanup:
 	Player cursor are extremly messy
+	Caster fire pint ad just position is harcorded
+		> Reason is because tower invert caster will break adjust position toggle
+		> Is it like 11010101 and the first 1 are tower the next pattern are aiming
+		> There no clean way to fix it since barrier are also depends on invert

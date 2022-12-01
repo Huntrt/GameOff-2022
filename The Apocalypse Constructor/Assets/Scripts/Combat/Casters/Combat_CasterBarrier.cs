@@ -8,7 +8,7 @@ public class Combat_CasterBarrier : Combat_Caster
 	[System.Serializable] public class Amount {public float delay;}
 	int repeated;
 
-	public override void InvertingCaster(bool isInvert)
+	public override void InvertingCaster(bool isInvert, bool dontAdjustPoint = false)
 	{
 		base.InvertingCaster(isInvert);
 		//Adjust the barrier Y to the absolute negative if caster is flipped
