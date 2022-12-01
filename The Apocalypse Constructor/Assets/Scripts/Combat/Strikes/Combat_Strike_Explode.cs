@@ -27,9 +27,9 @@ public class Combat_Strike_Explode : MonoBehaviour
 		if(despawnExplosion.enable) strike.onDespawn += ExplodeOnDespawn;
 	}
 
-	void ExplodeOnHit(Entity hitted, Vector2 pos) => Exploding(hitExplosion, pos);
-
-	void ExplodeOnDespawn(Vector2 pos) => Exploding(hitExplosion, pos);
+	void ExplodeOnHit(Entity hitted, Vector2 pos) {Exploding(hitExplosion, pos);}
+	//Only explode when depsawn if havent explode on strike
+	void ExplodeOnDespawn(Vector2 pos){Exploding(despawnExplosion, pos);}
 
 	void Exploding(Explosion explosion, Vector2 pos)
 	{
@@ -40,7 +40,7 @@ public class Combat_Strike_Explode : MonoBehaviour
 		//Go through all the enemy has hit
 		if(hits.Length > 0) for (int h = 0; h < hits.Length; h++)
 		{
-			//Scaling explosion damage for hurting this enemy with given contact point AND dont recall hit
+			//Scaling explosion damage to hurting this entity with given contact point AND dont recall hit
 			strike.Hurting(Combats.Stats.Scale(strike.damage, explosion.damageScaling), hits[h].collider.gameObject, hits[h].point, false);
 		}
 	}
