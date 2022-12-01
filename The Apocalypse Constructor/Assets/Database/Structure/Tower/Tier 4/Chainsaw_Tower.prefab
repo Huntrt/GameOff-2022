@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialMaxHP: 85
-  growthMaxHP: 17
+  growthMaxHP: 20
   finalMaxHP: 0
   health: 0
   spawnSound: {fileID: 8300000, guid: daaf1ec7f21e74d409561749c7198084, type: 3}
@@ -157,6 +157,7 @@ MonoBehaviour:
   points:
   - transform: {fileID: 688553432637771172}
     delay: 0
+    disableAdjust: 0
 --- !u!212 &7151868857848804313
 SpriteRenderer:
   m_ObjectHideFlags: 0

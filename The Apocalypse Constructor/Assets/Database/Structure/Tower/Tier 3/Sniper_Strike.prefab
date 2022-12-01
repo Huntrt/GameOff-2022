@@ -60,7 +60,7 @@ MonoBehaviour:
   lineConfig:
     duration: 0.5
     start: {r: 0.86274517, g: 0.86274517, b: 0.86274517, a: 1}
-    end: {r: 0.86274517, g: 0.86274517, b: 0.86274517, a: 1}
+    end: {r: 0.86274517, g: 0.86274517, b: 0.86274517, a: 0}
     expand: 0.1
     fadeCount: 0
   hitHouse: 0

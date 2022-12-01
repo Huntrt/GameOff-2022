@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a080f35dfeb9544c861582eb6decb9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialMaxHP: 45
+  initialMaxHP: 60
   growthMaxHP: 25
   finalMaxHP: 0
   health: 0
@@ -144,18 +144,20 @@ MonoBehaviour:
     animator: {fileID: 0}
     scaleWindupWithRate: 0
     allowSlowdown: 0
+    currentAnimating: 0
   attackSound: {fileID: 8300000, guid: 80d2b41f22f9f8845bfd4e50ad58aaf4, type: 3}
+  soundOnStrike: 0
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
   detected: 0
-  flipped: 0
   strikes: []
   strikePrefab: {fileID: 6587056833456600245, guid: f4c7b28d136cab742a5487095f255988,
     type: 3}
   points:
   - transform: {fileID: 1244596406642174490}
     delay: 0
+    disableAdjust: 0
 --- !u!212 &8902209849100850279
 SpriteRenderer:
   m_ObjectHideFlags: 0
