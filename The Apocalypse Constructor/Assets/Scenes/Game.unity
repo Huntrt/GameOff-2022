@@ -29104,17 +29104,17 @@ MonoBehaviour:
     initialRarity: 120
     scaledRarity: 0
     finalRarity: 0
-    dayAppear: 10
-  - enemy: {fileID: 11400000, guid: ecf6a1ccf1c2c65499e474a112feffd2, type: 2}
-    initialRarity: 20
-    scaledRarity: 0
-    finalRarity: 0
-    dayAppear: 15
-  - enemy: {fileID: 11400000, guid: 5d8107d3729a9664abbb1a4bfca46269, type: 2}
-    initialRarity: 20
-    scaledRarity: 0
-    finalRarity: 0
     dayAppear: 17
+  - enemy: {fileID: 11400000, guid: ecf6a1ccf1c2c65499e474a112feffd2, type: 2}
+    initialRarity: 40
+    scaledRarity: 0
+    finalRarity: 0
+    dayAppear: 24
+  - enemy: {fileID: 11400000, guid: 5d8107d3729a9664abbb1a4bfca46269, type: 2}
+    initialRarity: 40
+    scaledRarity: 0
+    finalRarity: 0
+    dayAppear: 24
   spawnPoint:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
