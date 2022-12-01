@@ -37,8 +37,12 @@ public class Tower : Structure
 	public override void FlipStructure(bool isFlip)
 	{
 		base.FlipStructure(isFlip);
-		//Send flip state to the caster whne it got flip
-		GetComponent<Combat_Caster>().flipped = flipped;
+		//Get the aiming of this tower
+		Combat_Aiming aiming = GetComponent<Combat_Aiming>();
+		//Flip the aiming shooter sprite like tower if it exist
+		if(aiming.shooterRender != null) aiming.shooterRender.flipY = isFlip;
+		//Also flip caster via aiming
+		aiming.caster.FlipCaster(isFlip);
 	}
 
 	public void RefreshInsufficient()
