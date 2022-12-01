@@ -10,13 +10,13 @@ public class Combat_CasterPoints : Combat_Caster
 	public override void InvertingCaster(bool isInvert)
 	{
 		base.InvertingCaster(isInvert);
-		//If caster has been flip then go through all the point
-		if(isInvert) for (int p = 0; p < points.Length; p++)
+		//Ggo through all the point when get invert
+		for (int p = 0; p < points.Length; p++)
 		{
 			//Get this point local position
 			Vector2 pPos = points[p].transform.localPosition;
-			//Adjust this point Y to the absolute negative if caster is flipped
-			float flipAdjustY = (isInvert) ? -Mathf.Abs(pPos.y) : pPos.y; 
+			//Adjust this point Y to be opposite of it current 
+			float flipAdjustY = -pPos.y;
 			//Move this point position to be adjust
 			points[p].transform.localPosition = new Vector2(pPos.x, flipAdjustY);
 		}
