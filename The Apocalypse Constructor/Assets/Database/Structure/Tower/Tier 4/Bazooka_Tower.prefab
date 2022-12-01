@@ -99,12 +99,12 @@ MonoBehaviour:
     DPS: 17.86
     damage: 25
     rate: 0.7
-    range: 7
+    range: 3.75
   growthStats:
     DPS: 0
     damage: 30
     rate: 10
-    range: 4
+    range: 2.5
   finalStats:
     DPS: 0
     damage: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
     scaleWindupWithRate: 0
     allowSlowdown: 0
   attackSound: {fileID: 8300000, guid: 26dc001d17b227649b21b442418c38ee, type: 3}
+  soundOnStrike: 0
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
