@@ -228,12 +228,13 @@ MonoBehaviour:
     animator: {fileID: 0}
     scaleWindupWithRate: 0
     allowSlowdown: 0
+    currentAnimating: 0
   attackSound: {fileID: 8300000, guid: 2e26f3b8e868a70439533283e9fe5314, type: 3}
+  soundOnStrike: 0
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
   detected: 0
-  flipped: 0
   strikes: []
   strikePrefab: {fileID: 8974726149701137698, guid: dacaa9c41c072ee4ba8decbc84b5f3f0,
     type: 3}

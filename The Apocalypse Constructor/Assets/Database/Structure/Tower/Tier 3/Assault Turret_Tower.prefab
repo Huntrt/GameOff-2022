@@ -114,12 +114,13 @@ MonoBehaviour:
     animator: {fileID: 0}
     scaleWindupWithRate: 0
     allowSlowdown: 0
+    currentAnimating: 0
   attackSound: {fileID: 8300000, guid: b8f643c1b0f0cad4a9b4523f3176a565, type: 3}
+  soundOnStrike: 0
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
   detected: 0
-  flipped: 0
   strikes: []
   strikePrefab: {fileID: 8057565866627276599, guid: 19e8f7a7ba1ad574ea03c92eb3f86ed0,
     type: 3}
@@ -228,7 +229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8520076771554555246}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.275, y: 0.025, z: 0}
+  m_LocalPosition: {x: 0.36, y: 0.04, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 8520076772103868093}

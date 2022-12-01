@@ -114,12 +114,13 @@ MonoBehaviour:
     animator: {fileID: 0}
     scaleWindupWithRate: 0
     allowSlowdown: 0
+    currentAnimating: 0
   attackSound: {fileID: 8300000, guid: 3a83af0bdb9efd544ba5f113f5bbf7d2, type: 3}
+  soundOnStrike: 0
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
   detected: 0
-  flipped: 0
   strikes: []
   strikePrefab: {fileID: 9044382793086903545, guid: 5b4e39c8e7726c14fa156678e82903a4,
     type: 3}
@@ -194,8 +195,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.625, y: 0.5}
+    pivot: {x: 0.25, y: 0.5}
+    oldSize: {x: 0.725, y: 0.5}
     newSize: {x: 0.65, y: 0.5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -228,7 +229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7610907893419781886}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.31, y: 0.048, z: 0}
+  m_LocalPosition: {x: 0.52, y: 0.048, z: 0}
   m_LocalScale: {x: 0, y: 0.06, z: 1}
   m_Children: []
   m_Father: {fileID: 4093441015635627939}
