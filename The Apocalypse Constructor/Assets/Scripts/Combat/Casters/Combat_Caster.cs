@@ -22,10 +22,10 @@ public class Combat_Caster : MonoBehaviour
 	public Action onStrike;
 	[HideInInspector] public List<Combat_Strike> strikes = new List<Combat_Strike>();
 
-	public virtual void InvertingCaster(bool isFlip)
+	public virtual void InvertingCaster(bool isInvert)
 	{
 		//Caster has been flip like given
-		inverted = isFlip;
+		inverted = isInvert;
 	}
 
 	void Update()
