@@ -55,7 +55,7 @@ public class Inventory : MonoBehaviour
 			if(this.wood - wood < 0)              {outOf++; popText += " Wood";}
 			if(this.steel - steel < 0)            {outOf++; popText += " Steel";}
 			if(this.gunpowder - gunpowder < 0)    {outOf++; popText += " Gunpowder";}
-			if(this.energy + energy > maxEnergy)  {outOf++; popText += " Energy";}
+			if(this.energy + energy > maxEnergy && energy > 0)  {outOf++; popText += " Energy";}
 			//If has out of an single material
 			if(outOf > 0)
 			{
