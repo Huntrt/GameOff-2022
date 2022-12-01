@@ -18,14 +18,14 @@ public class Combat_Caster : MonoBehaviour
 	[Tooltip("Player each strike instead of single attack")] [SerializeField] bool soundOnStrike;
 	public LayerMask combatLayer;
 	public bool detected;
-	protected bool flipped; public bool Flipped {get {return flipped;}}
+	bool inverted; public bool Inverted {get {return inverted;}}
 	public Action onStrike;
 	[HideInInspector] public List<Combat_Strike> strikes = new List<Combat_Strike>();
 
-	public virtual void FlipCaster(bool isFlip)
+	public virtual void InvertingCaster(bool isFlip)
 	{
 		//Caster has been flip like given
-		flipped = isFlip;
+		inverted = isFlip;
 	}
 
 	void Update()

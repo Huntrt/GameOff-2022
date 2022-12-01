@@ -42,7 +42,7 @@ public class Tower : Structure
 		//Flip the aiming shooter sprite like tower if it exist
 		if(aiming.shooterRender != null) aiming.shooterRender.flipY = isFlip;
 		//Also flip caster via aiming
-		aiming.caster.FlipCaster(isFlip);
+		aiming.caster.InvertingCaster(isFlip);
 	}
 
 	public void RefreshInsufficient()

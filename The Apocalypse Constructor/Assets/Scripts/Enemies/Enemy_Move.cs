@@ -17,7 +17,7 @@ public class Enemy_Move : MonoBehaviour
 		//Turn over if spawn on the right side of map
 		if(transform.position.x > 0) TurnoverMover(true);
 		//Flip the caster if move been turnover
-		caster.FlipCaster(turnover);
+		caster.InvertingCaster(turnover);
 	}
 
 	public void TurnoverMover(bool turn)

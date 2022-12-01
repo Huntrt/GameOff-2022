@@ -7,9 +7,9 @@ public class Combat_CasterPoints : Combat_Caster
 	[System.Serializable] public class Point {public Transform transform; public float delay;}
 	int repeated;
 
-	public override void FlipCaster(bool isFlip)
+	public override void InvertingCaster(bool isFlip)
 	{
-		base.FlipCaster(isFlip);
+		base.InvertingCaster(isFlip);
 		//If caster has been flip then go through all the point
 		if(isFlip) for (int p = 0; p < points.Length; p++)
 		{
