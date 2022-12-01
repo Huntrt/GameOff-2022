@@ -4,7 +4,12 @@ public class Combat_CasterPoints : Combat_Caster
 {
 	public GameObject strikePrefab;
 	public Point[] points;
-	[System.Serializable] public class Point {public Transform transform; public float delay;}
+	[System.Serializable] public class Point 
+	{
+		public Transform transform; 
+		public float delay;
+		public bool disableAdjust;
+	}
 	int repeated;
 
 	public override void InvertingCaster(bool isInvert)
@@ -13,6 +18,8 @@ public class Combat_CasterPoints : Combat_Caster
 		//Ggo through all the point when get invert
 		for (int p = 0; p < points.Length; p++)
 		{
+			//Skip if this point dont need adjust
+			if(points[p].disableAdjust) continue;
 			//Get this point local position
 			Vector2 pPos = points[p].transform.localPosition;
 			//Adjust this point Y to be opposite of it current 
