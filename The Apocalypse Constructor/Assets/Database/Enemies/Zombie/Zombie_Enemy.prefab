@@ -566,8 +566,8 @@ MonoBehaviour:
   dieSound: {fileID: 0}
   caster: {fileID: 1609576366129146202}
   drops:
-    wood: 5
-    steel: 1
+    wood: 6
+    steel: 3
     gunpowder: 0
 --- !u!114 &1609576366129146207
 MonoBehaviour:
@@ -635,18 +635,20 @@ MonoBehaviour:
     animator: {fileID: 1609576366129146192}
     scaleWindupWithRate: 1
     allowSlowdown: 0
+    currentAnimating: 0
   attackSound: {fileID: 0}
+  soundOnStrike: 0
   combatLayer:
     serializedVersion: 2
     m_Bits: 256
   detected: 0
-  flipped: 0
   strikes: []
   strikePrefab: {fileID: 6726839090480403443, guid: 8b7d39a8583adb9418f9c72fbba2acf1,
     type: 3}
   points:
   - transform: {fileID: 1609576366664479735}
     delay: 0
+    disableAdjust: 0
 --- !u!95 &1609576366129146192
 Animator:
   serializedVersion: 3

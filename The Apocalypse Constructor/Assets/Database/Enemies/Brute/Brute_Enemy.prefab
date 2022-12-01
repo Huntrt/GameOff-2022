@@ -797,9 +797,9 @@ MonoBehaviour:
   dieSound: {fileID: 8300000, guid: cbc7dcf823ea8334ba36861c7b5ae9ac, type: 3}
   caster: {fileID: 4115491987563347269}
   drops:
-    wood: 5
-    steel: 1
-    gunpowder: 0
+    wood: 0
+    steel: 30
+    gunpowder: 40
 --- !u!114 &4115491987563347264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -879,6 +879,7 @@ MonoBehaviour:
   points:
   - transform: {fileID: 4590252648977259683}
     delay: 0
+    disableAdjust: 1
 --- !u!50 &4115491987563347265
 Rigidbody2D:
   serializedVersion: 4

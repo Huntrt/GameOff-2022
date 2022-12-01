@@ -630,7 +630,7 @@ MonoBehaviour:
   drops:
     wood: 7
     steel: 20
-    gunpowder: 15
+    gunpowder: 50
 --- !u!114 &8768329477561882168
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -710,6 +710,7 @@ MonoBehaviour:
   points:
   - transform: {fileID: 8768329478099307664}
     delay: 0
+    disableAdjust: 0
 --- !u!50 &8768329477561882169
 Rigidbody2D:
   serializedVersion: 4
