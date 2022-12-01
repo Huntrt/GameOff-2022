@@ -12,6 +12,12 @@ public class Dynamo : Structure
 		//Provide max energy on being build
 		Inventory.i.materials.Gain(0,0,0,0,+provide);
 	}
+
+	public override void FlipStructure(bool isFlip)
+	{
+		//Set structure flipped as given flip
+		flipped = isFlip;
+	}
 	
 	public override void Die()
 	{
