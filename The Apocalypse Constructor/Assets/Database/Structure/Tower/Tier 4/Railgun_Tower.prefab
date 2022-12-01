@@ -210,13 +210,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialStats:
-    DPS: 8.5
-    damage: 85
-    rate: 0.1
+    DPS: 18.66
+    damage: 125
+    rate: 0.15
     range: 9
   growthStats:
     DPS: 0
-    damage: 50
+    damage: 25
     rate: 6
     range: 25
   finalStats:
@@ -228,19 +228,20 @@ MonoBehaviour:
     animator: {fileID: 0}
     scaleWindupWithRate: 0
     allowSlowdown: 0
+    currentAnimating: 0
   attackSound: {fileID: 8300000, guid: e3bcfeedcb5d3134880fd3104eaed873, type: 3}
   soundOnStrike: 0
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
   detected: 0
-  flipped: 0
   strikes: []
   strikePrefab: {fileID: 6965856757987297838, guid: 874edb95166995948a93afcd2e1914b3,
     type: 3}
   points:
   - transform: {fileID: 869224715276713525}
     delay: 0
+    disableAdjust: 0
 --- !u!212 &1964275131655911632
 SpriteRenderer:
   m_ObjectHideFlags: 0

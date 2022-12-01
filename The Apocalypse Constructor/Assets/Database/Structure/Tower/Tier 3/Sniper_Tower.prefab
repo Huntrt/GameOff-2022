@@ -102,7 +102,7 @@ MonoBehaviour:
     range: 8
   growthStats:
     DPS: 0
-    damage: 25
+    damage: 18
     rate: 5
     range: 17
   finalStats:
@@ -127,6 +127,7 @@ MonoBehaviour:
   points:
   - transform: {fileID: 1620754878735206173}
     delay: 0
+    disableAdjust: 0
 --- !u!212 &84593604349870584
 SpriteRenderer:
   m_ObjectHideFlags: 0
