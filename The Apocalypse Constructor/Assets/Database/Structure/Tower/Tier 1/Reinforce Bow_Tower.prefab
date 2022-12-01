@@ -96,10 +96,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialStats:
-    DPS: 4.62
-    damage: 6
+    DPS: 3.85
+    damage: 5
     rate: 0.75
-    range: 6.5
+    range: 5.5
   growthStats:
     DPS: 0
     damage: 9
@@ -114,13 +114,13 @@ MonoBehaviour:
     animator: {fileID: 0}
     scaleWindupWithRate: 0
     allowSlowdown: 0
+    currentAnimating: 0
   attackSound: {fileID: 8300000, guid: fdb272c2f081de24583662ec209673b0, type: 3}
   soundOnStrike: 0
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
   detected: 0
-  flipped: 0
   strikes: []
   strikePrefab: {fileID: 7435291343656166358, guid: 35221031967756b4f96cb0151a39f6d1,
     type: 3}

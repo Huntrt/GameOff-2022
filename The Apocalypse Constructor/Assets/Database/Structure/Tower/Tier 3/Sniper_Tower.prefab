@@ -102,9 +102,9 @@ MonoBehaviour:
     range: 8
   growthStats:
     DPS: 0
-    damage: 40
+    damage: 25
     rate: 5
-    range: 25
+    range: 17
   finalStats:
     DPS: 0
     damage: 0
@@ -114,13 +114,13 @@ MonoBehaviour:
     animator: {fileID: 0}
     scaleWindupWithRate: 0
     allowSlowdown: 0
+    currentAnimating: 0
   attackSound: {fileID: 8300000, guid: 9958b46bce5e9fa43b9adbb07dacccc2, type: 3}
   soundOnStrike: 0
   combatLayer:
     serializedVersion: 2
     m_Bits: 64
   detected: 0
-  flipped: 0
   strikes: []
   strikePrefab: {fileID: 4517096045299343570, guid: 276181ae5efb6a5419f15734768936f1,
     type: 3}
