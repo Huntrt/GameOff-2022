@@ -41,7 +41,7 @@ public class Combat_Aiming : MonoBehaviour
 	void DirectAim()
 	{
 		//Flip the aim direction if the caster been flip
-		Vector2 dir = direction; if(caster.flipped) dir = -dir;
+		Vector2 dir = direction; if(caster.Inverted) dir = -dir;
 		//Create an pillar at this caster to range with radius of an spacing toward set direction on combat layer
 		RaycastHit2D hit = Physics2D.CircleCast(transform.position, Map.i.spacing/2, dir, caster.finalStats.range, caster.combatLayer);
 		//Detect if cast hit an enemy
@@ -63,20 +63,12 @@ public class Combat_Aiming : MonoBehaviour
 			GameObject detect = GetCloset.Ray(transform.position, hits);
 			//Make the anchor rotate toward closest enemy detected
 			rotationAnchor.right = (detect.transform.position - transform.position).normalized;
-			//Stop if has no shooter render to invert
-			if(shooterRender == null) return;
-			//If the detect enemy are infront caster
-			if(detect.transform.position.x > transform.position.x)
-			{
-				//Dont invenrt
-				shooterRender.flipY = false;
-			}
-			//If the detect enemy are behind caster
-			else
-			{
-				//Invert
-				shooterRender.flipY = true;
-			}
+			//Check does detected enemy are from behind of enemy to be aim backward or not
+			bool aimBackward = detect.transform.position.x > transform.position.x;
+			//Flip the caster depends on if aim backward
+			caster.InvertingCaster(aimBackward);
+			//Flip the shooter render sprite Y if aim backward
+			if(shooterRender == null) shooterRender.flipY = aimBackward;
 		}
 	}
 }
