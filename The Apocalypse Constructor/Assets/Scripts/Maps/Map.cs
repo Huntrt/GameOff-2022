@@ -9,6 +9,7 @@ public class Map : MonoBehaviour
 	#endregion
 	
 	public float spacing;
+	public Ground ground;
 	///List of all the plot has create
 	public List<Plot> plots = new List<Plot>();
 	[SerializeField] GameObject occupyPopup;
@@ -209,15 +210,20 @@ public class Map : MonoBehaviour
 	public int occupation;
 	public int extended;
 	[HideInInspector] public SpriteRenderer visual;
+	[HideInInspector] public bool grounded;
 
-	public Plot(Vector2 coordinate, int occupied)
+	public Plot(Vector2 coordinate, int occupied) 
 	{
 		this.coordinate = coordinate;
 		this.occupation = occupied;
+		//This plot are belong to ground if it coordinate match ground Y
+		grounded = coordinate.y == Map.i.ground.initalSize.y;
 	}
 
 	public void Remove(List<Plot> plots)
 	{
+		//Dont allow removal of ground plot
+		if(grounded) return;
 		//Destroy it visual if it does has one
 		if(visual != null) Object.Destroy(visual.gameObject);
 		//Remove itself from given list
