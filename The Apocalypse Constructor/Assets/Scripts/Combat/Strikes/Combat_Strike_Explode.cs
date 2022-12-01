@@ -35,8 +35,8 @@ public class Combat_Strike_Explode : MonoBehaviour
 	{
 		//Play the exploding sound upon exploding
 		SessionOperator.i.audios.soundSource.PlayOneShot(explodeSound);
-		//Create circle cast at given pos with given explosion radius to hit enemy only
-		RaycastHit2D[] hits = Physics2D.CircleCastAll(pos, explosion.radius/2, Vector2.zero, 0, EnemiesManager.i.enemyLayer);
+		//Create circle cast at given pos with given explosion radius to hit entity in combat layer only
+		RaycastHit2D[] hits = Physics2D.CircleCastAll(pos, explosion.radius/2, Vector2.zero, 0, strike.caster.combatLayer);
 		//Go through all the enemy has hit
 		if(hits.Length > 0) for (int h = 0; h < hits.Length; h++)
 		{
