@@ -8,6 +8,15 @@ public class Combat_CasterBarrier : Combat_Caster
 	[System.Serializable] public class Amount {public float delay;}
 	int repeated;
 
+	public override void FlipCaster(bool isFlip)
+	{
+		base.FlipCaster(isFlip);
+		//Adjust the barrier Y to the negative if caster is flipped
+		float flipAdjust = barrier.localPosition.y * ((isFlip) ? -1f : 1f); 
+		//Move this barrier position to be adjust
+		barrier.localPosition = new Vector2(barrier.localPosition.x, flipAdjust);
+	}
+
 	protected override void Attack()
 	{
 		base.Attack();

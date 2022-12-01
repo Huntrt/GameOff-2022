@@ -7,6 +7,21 @@ public class Combat_CasterPoints : Combat_Caster
 	[System.Serializable] public class Point {public Transform transform; public float delay;}
 	int repeated;
 
+	public override void FlipCaster(bool isFlip)
+	{
+		base.FlipCaster(isFlip);
+		//If caster has been flip then go through all the point
+		if(isFlip) for (int p = 0; p < points.Length; p++)
+		{
+			//Get this point local position
+			Vector2 pPos = points[p].transform.localPosition;
+			//Adjust this point Y to the negative if caster is flipped
+			float flipAdjust = pPos.y * ((isFlip) ? -1f : 1f); 
+			//Move this point position to be adjust
+			points[p].transform.localPosition = new Vector2(pPos.x, flipAdjust);
+		}
+	}
+
 	protected override void Attack()
 	{
 		base.Attack();
