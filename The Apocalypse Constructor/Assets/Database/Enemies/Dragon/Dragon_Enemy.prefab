@@ -625,7 +625,7 @@ MonoBehaviour:
   spawnSound: {fileID: 0}
   hurtSound: {fileID: 8300000, guid: f6eea9fbe87cdfc4d97bf7e5a06b0030, type: 3}
   healSound: {fileID: 0}
-  dieSound: {fileID: 0}
+  dieSound: {fileID: 8300000, guid: cbc7dcf823ea8334ba36861c7b5ae9ac, type: 3}
   caster: {fileID: 8768329477561882173}
   drops:
     wood: 7
@@ -698,13 +698,12 @@ MonoBehaviour:
     scaleWindupWithRate: 1
     allowSlowdown: 0
     currentAnimating: 0
-  attackSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: 637dc300165bbb148934f7b1cbd46f57, type: 3}
   soundOnStrike: 0
   combatLayer:
     serializedVersion: 2
     m_Bits: 256
   detected: 0
-  flipped: 0
   strikes: []
   strikePrefab: {fileID: 6320148719761879907, guid: 33a05f4d1f288cf4e82dd992d51ecff8,
     type: 3}
