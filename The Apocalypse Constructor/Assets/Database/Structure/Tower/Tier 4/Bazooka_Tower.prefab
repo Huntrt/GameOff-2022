@@ -99,7 +99,7 @@ MonoBehaviour:
     DPS: 17.86
     damage: 25
     rate: 0.7
-    range: 3.75
+    range: 3.6
   growthStats:
     DPS: 0
     damage: 30
@@ -114,6 +114,7 @@ MonoBehaviour:
     animator: {fileID: 0}
     scaleWindupWithRate: 0
     allowSlowdown: 0
+    currentAnimating: 0
   attackSound: {fileID: 8300000, guid: 26dc001d17b227649b21b442418c38ee, type: 3}
   soundOnStrike: 0
   combatLayer:

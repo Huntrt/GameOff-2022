@@ -48,13 +48,13 @@ public class Combat_StrikeProjectile : Combat_Strike
 		//? Use physic layer to determent contact	
 		//Get the contact point from projectile to entity it collide with
 		Vector2 contactPoint = other.collider.bounds.ClosestPoint(transform.position);
-		//Hurting the entity collide with along with it contact point with raw damage
+		//Over when reached the maximum amount pierced
+		if(pierced.Count >= piercing) {Over(contactPoint); return;}
+		//Hurting the entity got collide with to dealing raw caster damage
 		Hurting(damage, other.collider.gameObject, contactPoint);
 		//Has pierce this entity
 		pierced.Add(other.collider);
-		//Ignore the collider of entity pierced through
+		/// Ignore the collider of entity pierced through
 		Physics2D.IgnoreCollision(col, other.collider);
-		//Over when reached the maximum amount pierced
-		if(pierced.Count >= piercing) Over(contactPoint);
 	}
 }

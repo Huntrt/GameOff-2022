@@ -272,6 +272,10 @@ Bugs:
 		> Decrease the distace has get onto firepoint Y position when inverted
 	▪ 2022 Nov 30: Direct aim wont work with enemy that utilize firepoint rotation. @minimal
 		> Flip the firepoint X roation to 180 when enemy is flip 
+	✓ 2022 Nov 1: Strike will explode multiple time if it collide with multiple enemy at once @minimal
+		> Rare since enemy need to be exact position in order to work.
+		> Fix are easy just created an counter to check how many time has explode then reset it.
+		> Nvm it cause by when piercing over but it dont return
 
 Cleanup:
 	Player cursor are extremly messy
