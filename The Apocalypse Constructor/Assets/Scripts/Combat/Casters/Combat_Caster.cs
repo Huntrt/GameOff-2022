@@ -6,9 +6,9 @@ public class Combat_Caster : MonoBehaviour
 {
 	[SerializeField] Combats.Stats initialStats; public Combats.Stats InitialStats {get => initialStats;}
 	[SerializeField] Combats.Stats growthStats; public Combats.Stats GrowthStats {get => growthStats;}
-	public Combats.Stats finalStats;
-
-	[SerializeField] AttackAnimation attackAnimation; [Serializable] class AttackAnimation
+	public Combats.Stats finalStats; float countRate;
+	[SerializeField] AttackAnimation attackAnimation;
+	[Serializable] class AttackAnimation
 	{
 		public Animator animator;
 		public float scaleWindupWithRate;
@@ -18,17 +18,21 @@ public class Combat_Caster : MonoBehaviour
 	[Tooltip("Player each strike instead of single attack")] [SerializeField] bool soundOnStrike;
 	public LayerMask combatLayer;
 	public bool detected;
+	protected bool flipped; public bool Flipped {get {return flipped;}}
 	public Action onStrike;
-	[HideInInspector] public bool flipped;
 	[HideInInspector] public List<Combat_Strike> strikes = new List<Combat_Strike>();
+
+	public virtual void FlipCaster(bool isFlip)
+	{
+		//Caster has been flip like given
+		flipped = isFlip;
+	}
 
 	void Update()
 	{
 		//Attacking when detect an enemy and while attack animtion not running
 		if(detected && !attackAnimation.currentAnimating) Attacking();
 	}
-
-	float countRate;
 
 	void Attacking()
 	{
