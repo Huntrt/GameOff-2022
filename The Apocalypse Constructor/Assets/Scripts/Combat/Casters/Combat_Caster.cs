@@ -12,7 +12,7 @@ public class Combat_Caster : MonoBehaviour
 	{
 		public Animator animator;
 		public float scaleWindupWithRate;
-		public bool allowSlowdown;
+		public bool allowSlowdown, currentAnimating;
 	}
 	[SerializeField] AudioClip attackSound;
 	[Tooltip("Player each strike instead of single attack")] [SerializeField] bool soundOnStrike;
@@ -24,8 +24,8 @@ public class Combat_Caster : MonoBehaviour
 
 	void Update()
 	{
-		//Attacking when detect an enemy
-		if(detected) Attacking();
+		//Attacking when detect an enemy and while attack animtion not running
+		if(detected && !attackAnimation.currentAnimating) Attacking();
 	}
 
 	float countRate;
@@ -48,6 +48,8 @@ public class Combat_Caster : MonoBehaviour
 				attackAnimation.animator.SetFloat("Windup", scaled);
 				//STart attack trigger in animator
 				attackAnimation.animator.SetTrigger("Attack");
+				//Has begin animating attack
+				attackAnimation.currentAnimating = true;
 			}
 			//If there no attack animator
 			else
@@ -62,6 +64,8 @@ public class Combat_Caster : MonoBehaviour
 
 	protected virtual void Attack() 
 	{
+		//No longer animating attack
+		attackAnimation.currentAnimating = false;
 		//Player the caster's attack sound if needed and strike not playing sound
 		if(attackSound != null && !soundOnStrike) SessionOperator.i.audios.soundSource.PlayOneShot(attackSound);
 	}
