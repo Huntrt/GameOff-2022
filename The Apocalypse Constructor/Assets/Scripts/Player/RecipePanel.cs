@@ -82,27 +82,27 @@ public class RecipePanel : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 		{
 			StatsInfoHidden(0);
 			craft.fillGUI.descriptionText.text = stash.description;
-			craft.fillGUI.healthText.text = "Health:<b> " + structure.InitialMaxHP + "</b>";
+			craft.fillGUI.healthText.text = structure.InitialMaxHP.ToString();
 		}
 		else if(structure.function == Structure.Function.dynamo)
 		{
 			StatsInfoHidden(1);
 			craft.dynamoGUI.descriptionText.text = stash.description;
-			craft.dynamoGUI.healthText.text = "Health:<b> " + structure.InitialMaxHP + "</b>";
-			craft.dynamoGUI.energyText.text = "Energy: <b>+" + dynamo.provide + "</b>";
+			craft.dynamoGUI.healthText.text = structure.InitialMaxHP.ToString();
+			craft.dynamoGUI.energyText.text = dynamo.provide.ToString();
 		}
 		else if(structure.function == Structure.Function.tower)
 		{
 			StatsInfoHidden(2);
 			//Save the initial stats of tower
 			Combats.Stats stats = tower.caster.InitialStats;
-			craft.towerGUI.descriptionText.text = stash.description;
-			craft.towerGUI.healthText.text = "Health: <b>" + structure.InitialMaxHP + "</b>";
-			craft.towerGUI.damageText.text = "Damage: <b>" + stats.damage + "</b>";
-			craft.towerGUI.rateText.text = "Rate: <b>" +  stats.rateTimer + "s</b>";
-			craft.towerGUI.rangeText.text = "Range: <b>" + stats.range + "</b>";
-			craft.towerGUI.depletedText.text = "Depleted: <b>" + tower.depleted + "</b>";
-			craft.towerGUI.aimText.text = "Aim: <b>" + tower.GetComponent<Combat_Aiming>().mode + "</b>";
+			craft.towerGUI.descriptionText.text = stash.description.ToString();
+			craft.towerGUI.healthText.text = structure.InitialMaxHP.ToString();
+			craft.towerGUI.damageText.text = stats.damage.ToString();
+			craft.towerGUI.rateText.text = stats.rateTimer.ToString();
+			craft.towerGUI.rangeText.text = stats.range.ToString();
+			craft.towerGUI.depletedText.text = tower.depleted.ToString();
+			craft.towerGUI.aimText.text = tower.GetComponent<Combat_Aiming>().mode.ToString();
 		}
 	}
 

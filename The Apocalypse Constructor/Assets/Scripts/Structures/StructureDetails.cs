@@ -16,7 +16,7 @@ public class StructureDetails : MonoBehaviour
 
 	[System.Serializable] class TowerDetailPanel : StructureDetailPanel
 	{
-		public TextMeshProUGUI damageText, rateText, rangeText, depletedText, aimText;
+		public TextMeshProUGUI damageText, rateText, rangeText, depletedText;
 	}
 
 	[System.Serializable] class DynamoDetailPanel : StructureDetailPanel
@@ -99,7 +99,7 @@ public class StructureDetails : MonoBehaviour
 	void DetailHealth(StructureDetailPanel panel)
 	{
 		//@ Display the given details panel's structure health
-		panel.healthText.text = "Health: " + panel.structure.Health + "/" + panel.structure.finalMaxHP;
+		panel.healthText.text = "HEALTH: " + panel.structure.Health + "/" + panel.structure.finalMaxHP;
 		panel.healthBar.fillAmount = panel.structure.Health / panel.structure.finalMaxHP;
 	}
 
@@ -120,11 +120,10 @@ public class StructureDetails : MonoBehaviour
 		//Get the stats from tower's caster
 		Combats.Stats stats = tower.GetComponent<Combat_Caster>().finalStats;
 		//@ Display the tower stats
-		panel.damageText.text = "Damage: <b>" + stats.damage + "</b>";
-		panel.rateText.text = "Rate: <b>" + stats.rateTimer + "s</b>";
-		panel.rangeText.text = "Range: <b>" + stats.range + "</b>";
-		panel.depletedText.text = "Depleted: <b>" + tower.depleted + "</b>";
-		panel.aimText.text = "Aim: <b>" + tower.GetComponent<Combat_Aiming>().mode + "</b>";
+		panel.damageText.text =stats.damage.ToString();
+		panel.rateText.text = stats.rateTimer.ToString();
+		panel.rangeText.text = stats.range.ToString();
+		panel.depletedText.text = tower.depleted.ToString();
 	}
 
 	void DetailDynamo(Dynamo dynamo, DynamoDetailPanel panel)
@@ -132,7 +131,7 @@ public class StructureDetails : MonoBehaviour
 		//Detail anything about dynamo's structure first
 		DetailStructure(dynamo, panel);
 		//Display the energy dynamo provide
-		panel.energyText.text = "Energy: <b>+" + dynamo.provide + "</b>";
+		panel.energyText.text = dynamo.provide.ToString();
 	}
 
 	void CloseAllDetails()
