@@ -29,3 +29,20 @@
 	Range = #FF33ED
 	Consumption = #FF7133
 	Aim = #9B33FF
+
+# Building Layer:
+	✓ = allow
+	X = disallow
+	-> = turn into
+
+	3 X all
+
+	tower     ✓ 0  -> 1 X 1
+	tower     ✓ 2  -> 3
+
+	platform  ✓ 0  -> 2 X 2
+	platform  ✓ 1  -> 3
+
+	filler ✓ 0 -> X
+	filler X 1
+	filler X 2
