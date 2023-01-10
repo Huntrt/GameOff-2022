@@ -8,10 +8,13 @@ public class DaysManager : MonoBehaviour
 
 	public int passes; //How many day has pass
 	public float duration; //How long an day in second
+	float dayTimer;
 	[Range(0,1)] public float progress; //How many percent of an day has progress
-	public delegate void OnCycle(bool night); public OnCycle onCycle; //When day cycle between night and moring
-	public bool isNight; //Is the day nightime now?
-	float dayTimer; //How many second has pass in one day
+	public delegate void OnCycle(bool night); public OnCycle onCycle;
+	public bool isNight;
+	 
+	[SerializeField] int breakEveryDay;
+	bool isInBreak = true;
 
 	void Start()
 	{
@@ -21,7 +24,12 @@ public class DaysManager : MonoBehaviour
 	
 	void Update()
 	{
-		TimingDay();
+		//If this is not in break
+		if(!isInBreak) 
+		{
+			//Begin timing day
+			TimingDay();
+		}
 	}
 
 	void TimingDay()
@@ -39,8 +47,10 @@ public class DaysManager : MonoBehaviour
 			passes++;
 			//Reset progress and timer
 			progress = 0; dayTimer -= dayTimer;
-			//Start to morning 
+			//Start to morning
 			StartMorning();
+			//Enter break when passes the day needed to
+			if(passes % breakEveryDay == 0) isInBreak = true;
 		}
 	}
 
@@ -56,5 +66,9 @@ public class DaysManager : MonoBehaviour
 		isNight = false; onCycle?.Invoke(false);
 	}
 
-	public void SkipMorning() {dayTimer = duration/2;}
+	public void SkipMorning() 
+	{
+		dayTimer = duration/2;
+		isInBreak = false;
+	}
 }
