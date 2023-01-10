@@ -1,0 +1,24 @@
+Bugs:
+	✓ 2022 Nov 17: Projectile bounce off when piercing enemy. @caution
+		> Might be because don't ignore collision fast enough?
+		> Nope, forget to freeze rotation.
+	✓ 2022 Nov 19: Tower shooter dont flip when aim behind @minimal
+		> Flip the shooter X sprite when target behind
+	✓ 2022 Nov 20: When shooter invert it fire point wont invert along @minimal
+		> Just get distance between shooter and it firepoint 
+		> Decrease the distace has get onto firepoint Y position when inverted
+		> Fix by make fire point move to the absolute negaive if got flip
+	▪ 2022 Nov 30: Direct aim wont work with enemy that utilize firepoint rotation. @minimal
+		> Flip the firepoint X roation to 180 when enemy is flip
+	✓ 2022 Nov 1: Strike will explode multiple time if it collide with multiple enemy at once @minimal
+		> Rare since enemy need to be exact position in order to work.
+		> Fix are easy just created an counter to check how many time has explode then reset it.
+		> Nvm it cause by when piercing over but it dont return
+	▪ 2022 Nov 1: Speed up keybind will ignore game pause @minimal
+
+Cleanup:
+	▪ Player cursor are extremly messy
+	▪ Caster fire point position flip pattern is harcorded
+		> Reason is because tower invert caster will break adjust position toggle
+		> Is it like 11010101 and the first 1 are tower the next pattern are aiming
+		> There no clean way to fix it since barrier are also depends on invert
